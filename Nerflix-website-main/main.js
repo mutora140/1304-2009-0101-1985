@@ -273,6 +273,364 @@
     // Video Gallery Functionality
     var currentVideoId = 'dQw4w9WgXcQ';
     
+    // Video data structure with sidebar information
+    const videoData = {
+        'tmeOjFno6Do': {
+            title: 'Avengers: Age of Ultron',
+            rating: 7.3,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Sci-Fi'],
+            tags: ['Superhero', 'Marvel', 'Comic Book'],
+            description: 'When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it\'s up to Earth\'s mightiest heroes to stop the villainous Ultron from enacting his terrible plan.',
+            age: '12+',
+            duration: '2h 21min',
+            year: '2015'
+        },
+        'FLzfXQSPBOg': {
+            title: 'Frozen',
+            rating: 7.4,
+            stars: 4,
+            genres: ['Animation', 'Adventure', 'Comedy'],
+            tags: ['Disney', 'Musical', 'Family'],
+            description: 'When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.',
+            age: '13+',
+            duration: '1h 42min',
+            year: '2013'
+        },
+        'k10ETZ41q5o': {
+            title: 'The Conjuring',
+            rating: 7.5,
+            stars: 4,
+            genres: ['Horror', 'Mystery', 'Thriller'],
+            tags: ['Supernatural', 'Haunted House', 'Based on True Story'],
+            description: 'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.',
+            age: '16+',
+            duration: '1h 52min',
+            year: '2013'
+        },
+        '02-XkOLVnIU': {
+            title: 'Mulan',
+            rating: 7.0,
+            stars: 3,
+            genres: ['Action', 'Adventure', 'Drama'],
+            tags: ['Disney', 'Live Action', 'Warrior'],
+            description: 'A young Chinese maiden disguises herself as a male warrior in order to save her father.',
+            age: '10+',
+            duration: '2h 0min',
+            year: '2020'
+        },
+        '8jLOx1hD3_o': {
+            title: 'Laxmii',
+            rating: 6.5,
+            stars: 3,
+            genres: ['Comedy', 'Horror', 'Drama'],
+            tags: ['Bollywood', 'Supernatural', 'Comedy'],
+            description: 'A man gets possessed by a ghost and starts behaving like a woman.',
+            age: '18+',
+            duration: '2h 21min',
+            year: '2020'
+        },
+        'W4DlMggBPvc': {
+            title: 'Captain America: The First Avenger',
+            rating: 6.9,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Sci-Fi'],
+            tags: ['Marvel', 'Superhero', 'World War II'],
+            description: 'Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a "Super-Soldier serum".',
+            age: '12+',
+            duration: '2h 4min',
+            year: '2011'
+        },
+        'sDYVdxFZq8Y': {
+            title: 'Life of Pi',
+            rating: 7.9,
+            stars: 4,
+            genres: ['Adventure', 'Drama', 'Fantasy'],
+            tags: ['Survival', 'Ocean', 'Philosophy'],
+            description: 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery.',
+            age: '11+',
+            duration: '2h 7min',
+            year: '2012'
+        },
+        'q78_0TElYME': {
+            title: 'Mission Mangal',
+            rating: 6.8,
+            stars: 3,
+            genres: ['Drama', 'Sci-Fi', 'Thriller'],
+            tags: ['Space', 'India', 'ISRO'],
+            description: 'Based on true events of the Indian Space Research Organisation (ISRO) successfully launching the Mars Orbiter Mission.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2019'
+        },
+        'acEoQpJq0qg': {
+            title: 'Insidious: The Last Key',
+            rating: 6.2,
+            stars: 3,
+            genres: ['Horror', 'Mystery', 'Thriller'],
+            tags: ['Supernatural', 'Haunting', 'Sequel'],
+            description: 'Paranormal investigator Elise Rainier faces her most fearsome and personal haunting yet.',
+            age: '16+',
+            duration: '1h 43min',
+            year: '2018'
+        },
+        'yQ5U8suTUw0': {
+            title: 'War',
+            rating: 7.1,
+            stars: 4,
+            genres: ['Action', 'Thriller', 'Drama'],
+            tags: ['Bollywood', 'Spy', 'Revenge'],
+            description: 'An Indian soldier is assigned to eliminate his mentor who has gone rogue.',
+            age: '12+',
+            duration: '2h 34min',
+            year: '2019'
+        },
+        '4qf9Uyn2acE': {
+            title: 'Five Feet Apart',
+            rating: 7.2,
+            stars: 4,
+            genres: ['Drama', 'Romance'],
+            tags: ['Teen', 'Illness', 'Love Story'],
+            description: 'A pair of teenagers with cystic fibrosis meet in a hospital and fall in love, though their disease means they must maintain a safe distance between them.',
+            age: '18+',
+            duration: '1h 56min',
+            year: '2019'
+        },
+        'tsxemFXSQXQ': {
+            title: 'Chhichhore',
+            rating: 8.0,
+            stars: 4,
+            genres: ['Comedy', 'Drama'],
+            tags: ['College Life', 'Friendship', 'Nostalgia'],
+            description: 'A tragic incident forces Anirudh, a middle-aged man, to take a trip down memory lane and reminisce his college days along with his friends.',
+            age: '10+',
+            duration: '2h 23min',
+            year: '2019'
+        },
+        'Lt-U_t2pUHI': {
+            title: 'Doctor Strange',
+            rating: 7.5,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Fantasy'],
+            tags: ['Marvel', 'Magic', 'Superhero'],
+            description: 'While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2016'
+        },
+        'VyHV0BtdCW4': {
+            title: 'Harry Potter and the Sorcerer\'s Stone',
+            rating: 7.6,
+            stars: 4,
+            genres: ['Adventure', 'Family', 'Fantasy'],
+            tags: ['Magic', 'Wizard', 'School'],
+            description: 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.',
+            age: '10+',
+            duration: '2h 32min',
+            year: '2001'
+        },
+        'CDrieqs-S54': {
+            title: 'The Queen\'s Gambit',
+            rating: 8.6,
+            stars: 5,
+            genres: ['Drama', 'Sport'],
+            tags: ['Chess', 'Genius', 'Addiction'],
+            description: 'Orphaned at the tender age of nine, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA.',
+            age: '18+',
+            duration: '6h 47min',
+            year: '2020'
+        },
+        'b9EkMc79ZSU': {
+            title: 'Stranger Things',
+            rating: 8.7,
+            stars: 5,
+            genres: ['Drama', 'Fantasy', 'Horror'],
+            tags: ['Supernatural', 'Kids', '80s'],
+            description: 'When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.',
+            age: '16+',
+            duration: '3 Seasons',
+            year: '2016'
+        },
+        'i1eJMig5Ik4': {
+            title: 'BoJack Horseman',
+            rating: 8.8,
+            stars: 5,
+            genres: ['Animation', 'Comedy', 'Drama'],
+            tags: ['Adult Animation', 'Depression', 'Hollywood'],
+            description: 'BoJack Horseman was the star of the hit television show "Horsin\' Around" in the \'80s and \'90s, but now he\'s washed up.',
+            age: '15+',
+            duration: '6 Seasons',
+            year: '2014'
+        },
+        'oVzVdvLeICg': {
+            title: 'Peaky Blinders',
+            rating: 8.8,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            tags: ['Gangster', 'Historical', 'British'],
+            description: 'A notorious gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost.',
+            age: '20+',
+            duration: '5 Seasons',
+            year: '2013'
+        },
+        'L_jWHffIx5E': {
+            title: 'NBA Basketball Highlights',
+            rating: 8.5,
+            stars: 4,
+            genres: ['Sports', 'Basketball'],
+            tags: ['NBA', 'Highlights', 'Basketball'],
+            description: 'Best moments and highlights from NBA basketball games featuring top players and teams.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2024'
+        },
+        '4fVCKy69zUY': {
+            title: 'PGA Golf Championship',
+            rating: 8.2,
+            stars: 4,
+            genres: ['Sports', 'Golf'],
+            tags: ['PGA', 'Golf', 'Championship'],
+            description: 'Highlights from the PGA Golf Championship featuring top golfers and amazing shots.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2024'
+        },
+        '5PSNL1qE6VY': {
+            title: 'Avatar',
+            rating: 7.8,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Fantasy'],
+            tags: ['Sci-Fi', '3D', 'James Cameron'],
+            description: 'A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
+            age: '12+',
+            duration: '2h 42min',
+            year: '2009'
+        },
+        'JWtnJjn6ngQ': {
+            title: 'The Crown',
+            rating: 8.7,
+            stars: 5,
+            genres: ['Drama', 'History'],
+            tags: ['Royal Family', 'British', 'Netflix'],
+            description: 'Follows the political rivalries and romance of Queen Elizabeth II\'s reign and the events that shaped the second half of the twentieth century.',
+            age: '16+',
+            duration: '4 Seasons',
+            year: '2016'
+        },
+        'WBb3fojjx-0': {
+            title: 'The Big Bang Theory',
+            rating: 8.1,
+            stars: 4,
+            genres: ['Comedy', 'Romance'],
+            tags: ['Sitcom', 'Scientists', 'Friendship'],
+            description: 'A woman who moves into an apartment across the hall from two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory.',
+            age: '12+',
+            duration: '12 Seasons',
+            year: '2007'
+        },
+        'Ua0HdsbsDsA': {
+            title: 'Narcos',
+            rating: 8.8,
+            stars: 5,
+            genres: ['Crime', 'Drama', 'Thriller'],
+            tags: ['Drug Cartel', 'Colombia', 'True Story'],
+            description: 'A chronicled look at the criminal exploits of Colombian drug lord Pablo Escobar, as well as the many other drug kingpins who plagued the country through the years.',
+            age: '18+',
+            duration: '3 Seasons',
+            year: '2015'
+        },
+        'IEEbUfhFFM0': {
+            title: 'Friends',
+            rating: 8.9,
+            stars: 5,
+            genres: ['Comedy', 'Romance'],
+            tags: ['Sitcom', 'Friendship', 'Classic'],
+            description: 'Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.',
+            age: '12+',
+            duration: '10 Seasons',
+            year: '1994'
+        },
+        'ej3ioOneQ48': {
+            title: 'The Martian',
+            rating: 8.0,
+            stars: 4,
+            genres: ['Adventure', 'Drama', 'Sci-Fi'],
+            tags: ['Space', 'Survival', 'Mars'],
+            description: 'An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.',
+            age: '12+',
+            duration: '2h 24min',
+            year: '2015'
+        },
+        'n9tzhmJ5hFE': {
+            title: 'Unhinged',
+            rating: 6.1,
+            stars: 3,
+            genres: ['Action', 'Thriller'],
+            tags: ['Road Rage', 'Thriller', 'Russell Crowe'],
+            description: 'After a confrontation with an unstable man at an intersection, a woman becomes the target of his rage.',
+            age: '16+',
+            duration: '1h 30min',
+            year: '2020'
+        },
+        'm4NC26Dk4dE': {
+            title: 'Kingsman: The Secret Service',
+            rating: 7.7,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Comedy'],
+            tags: ['Spy', 'British', 'Comedy'],
+            description: 'A spy organization recruits an unrefined, but promising street kid into the agency\'s ultra-competitive training program, just as a global threat emerges from a twisted tech genius.',
+            age: '16+',
+            duration: '2h 9min',
+            year: '2014'
+        },
+        '36mnx8hNvEE': {
+            title: 'Casino Royale',
+            rating: 8.0,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Thriller'],
+            tags: ['James Bond', 'Spy', 'Daniel Craig'],
+            description: 'After earning 00 status and a licence to kill, secret agent James Bond sets out on his first mission as 007. Bond must defeat a private banker to terrorists in a high stakes game of poker at Casino Royale.',
+            age: '12+',
+            duration: '2h 24min',
+            year: '2006'
+        },
+        'Ohws8y572KE': {
+            title: 'Mission: Impossible',
+            rating: 7.1,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Thriller'],
+            tags: ['Tom Cruise', 'Spy', 'Action'],
+            description: 'An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.',
+            age: '12+',
+            duration: '1h 50min',
+            year: '1996'
+        },
+        'Mirzapur_Series': {
+            title: 'Mirzapur',
+            rating: 8.4,
+            stars: 4,
+            genres: ['Action', 'Crime', 'Drama'],
+            tags: ['Amazon Prime', 'Indian Series', 'Gangster'],
+            description: 'A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.',
+            age: '18+',
+            duration: '2 Seasons',
+            year: '2018'
+        }
+    };
+    
+    // Default video data for unknown videos
+    const defaultVideoData = {
+        title: 'Movie Title',
+        rating: 7.0,
+        stars: 3,
+        genres: ['Action', 'Adventure'],
+        tags: ['Action', 'Adventure'],
+        description: 'Movie description goes here.',
+        age: '12+',
+        duration: '2h 0min',
+        year: '2024'
+    };
+    
     // Function to create embedded video player
     function createVideoPlayer(videoId) {
         const videoContainer = document.getElementById('youtube-player');
@@ -326,14 +684,181 @@
         }
     }
     
+    // Function to update sidebar content
+    function updateSidebarContent(videoId) {
+        const data = videoData[videoId] || defaultVideoData;
+        
+        // Update title
+        const titleElement = document.getElementById('video-title');
+        if (titleElement) {
+            titleElement.textContent = data.title;
+        }
+        
+        // Update rating section
+        const ratingSection = document.querySelector('.rating-section .rating');
+        if (ratingSection) {
+            // Clear existing stars
+            const existingStars = ratingSection.querySelectorAll('.fa-star, .fa-star-half');
+            existingStars.forEach(star => star.remove());
+            
+            // Add new stars based on rating
+            const fullStars = Math.floor(data.stars);
+            const hasHalfStar = data.stars % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'fa fa-star text-primary';
+                ratingSection.insertBefore(star, ratingSection.querySelector('.ml-2'));
+            }
+            
+            if (hasHalfStar) {
+                const halfStar = document.createElement('i');
+                halfStar.className = 'fa fa-star-half text-primary';
+                ratingSection.insertBefore(halfStar, ratingSection.querySelector('.ml-2'));
+            }
+            
+            // Update rating text
+            const ratingText = ratingSection.querySelector('.ml-2');
+            if (ratingText) {
+                ratingText.textContent = data.rating + '/10';
+            }
+        }
+        
+        // Update movie details
+        const movieDetails = document.querySelector('.movie-details');
+        if (movieDetails) {
+            const ageBadge = movieDetails.querySelector('.badge');
+            const duration = movieDetails.querySelector('.duration');
+            const year = movieDetails.querySelector('.year');
+            
+            if (ageBadge) ageBadge.textContent = data.age;
+            if (duration) duration.textContent = data.duration;
+            if (year) year.textContent = data.year;
+        }
+        
+        // Update genres
+        const genresList = document.querySelector('.genres-list');
+        if (genresList) {
+            genresList.innerHTML = '';
+            data.genres.forEach(genre => {
+                const genreTag = document.createElement('span');
+                genreTag.className = 'genre-tag';
+                genreTag.textContent = genre;
+                genresList.appendChild(genreTag);
+            });
+        }
+        
+        // Update tags
+        const tagsList = document.querySelector('.tags-list');
+        if (tagsList) {
+            tagsList.innerHTML = '';
+            data.tags.forEach(tag => {
+                const tagItem = document.createElement('span');
+                tagItem.className = 'tag-item';
+                tagItem.textContent = tag;
+                tagsList.appendChild(tagItem);
+            });
+        }
+        
+        // Update description
+        const description = document.querySelector('.video-description');
+        if (description) {
+            description.textContent = data.description;
+        }
+    }
+    
+    // Function to update sidebar content
+    function updateSidebarContent(videoId) {
+        const data = videoData[videoId] || defaultVideoData;
+        
+        // Update title
+        const titleElement = document.getElementById('video-title');
+        if (titleElement) {
+            titleElement.textContent = data.title;
+        }
+        
+        // Update rating section
+        const ratingSection = document.querySelector('.rating-section .rating');
+        if (ratingSection) {
+            // Clear existing stars
+            const existingStars = ratingSection.querySelectorAll('.fa-star, .fa-star-half');
+            existingStars.forEach(star => star.remove());
+            
+            // Add new stars based on rating
+            const fullStars = Math.floor(data.stars);
+            const hasHalfStar = data.stars % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                const star = document.createElement('i');
+                star.className = 'fa fa-star text-primary';
+                ratingSection.insertBefore(star, ratingSection.querySelector('.ml-2'));
+            }
+            
+            if (hasHalfStar) {
+                const halfStar = document.createElement('i');
+                halfStar.className = 'fa fa-star-half text-primary';
+                ratingSection.insertBefore(halfStar, ratingSection.querySelector('.ml-2'));
+            }
+            
+            // Update rating text
+            const ratingText = ratingSection.querySelector('.ml-2');
+            if (ratingText) {
+                ratingText.textContent = data.rating + '/10';
+            }
+        }
+        
+        // Update movie details
+        const movieDetails = document.querySelector('.movie-details');
+        if (movieDetails) {
+            const ageBadge = movieDetails.querySelector('.badge');
+            const duration = movieDetails.querySelector('.duration');
+            const year = movieDetails.querySelector('.year');
+            
+            if (ageBadge) ageBadge.textContent = data.age;
+            if (duration) duration.textContent = data.duration;
+            if (year) year.textContent = data.year;
+        }
+        
+        // Update genres
+        const genresList = document.querySelector('.genres-list');
+        if (genresList) {
+            genresList.innerHTML = '';
+            data.genres.forEach(genre => {
+                const genreTag = document.createElement('span');
+                genreTag.className = 'genre-tag';
+                genreTag.textContent = genre;
+                genresList.appendChild(genreTag);
+            });
+        }
+        
+        // Update tags
+        const tagsList = document.querySelector('.tags-list');
+        if (tagsList) {
+            tagsList.innerHTML = '';
+            data.tags.forEach(tag => {
+                const tagItem = document.createElement('span');
+                tagItem.className = 'tag-item';
+                tagItem.textContent = tag;
+                tagsList.appendChild(tagItem);
+            });
+        }
+        
+        // Update description
+        const description = document.querySelector('.video-description');
+        if (description) {
+            description.textContent = data.description;
+        }
+    }
+    
     // Video Gallery Event Handlers
     jQuery(document).ready(function() {
         const videoGallery = jQuery('#video-gallery-overlay');
         const closeBtn = jQuery('#close-video-gallery');
         const playNowButtons = jQuery('.btn-hover.iq-button, .play-now-btn');
         
-        // Initialize video player with default video
+        // Initialize video player with default video and update sidebar
         createVideoPlayer(currentVideoId);
+        updateSidebarContent(currentVideoId);
         
                  // Close video gallery
          function closeVideoGallery() {
@@ -483,11 +1008,8 @@
             videoGallery.addClass('active');
             jQuery('body').css('overflow', 'hidden').addClass('video-gallery-active');
             
-            // Update video title
-            const videoTitle = jQuery('#video-title');
-            if (videoTitle.length) {
-                videoTitle.text(title);
-            }
+            // Update sidebar content with video-specific data
+            updateSidebarContent(videoId);
             
             // Initialize sliders after a short delay
             setTimeout(function() {
