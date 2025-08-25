@@ -12,6 +12,36 @@ body{
     background: #141414;
 }
 
+/* Custom Scrollbar Styles - Transparent Background */
+::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Firefox Scrollbar Styles */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
 /* Video Gallery Overlay Styles */
 .video-gallery-overlay {
     position: fixed;
@@ -66,6 +96,7 @@ body{
 
 .video-gallery-content {
     padding-top: 20px;
+    scroll-behavior: smooth;
 }
 
 .video-player-container {

@@ -605,7 +605,7 @@
             duration: '1h 50min',
             year: '1996'
         },
-        'Mirzapur_Series': {
+        '8jLOx1hD3_o': {
             title: 'Mirzapur',
             rating: 8.4,
             stars: 4,
@@ -1018,6 +1018,24 @@
             
             // Load video immediately
             loadVideoById(videoId);
+            
+            // Scroll to top of video gallery content
+            setTimeout(function() {
+                const videoGalleryContent = videoGallery.find('.video-gallery-content');
+                const videoGalleryContainer = videoGallery.find('.video-gallery-container');
+                
+                if (videoGalleryContent.length) {
+                    videoGalleryContent.scrollTop(0);
+                }
+                
+                // Also scroll the main container to ensure video is visible
+                if (videoGalleryContainer.length) {
+                    videoGalleryContainer.scrollTop(0);
+                }
+                
+                // Scroll the entire overlay to top
+                videoGallery.scrollTop(0);
+            }, 300);
         }
     });
 })(jQuery);
