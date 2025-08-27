@@ -649,6 +649,117 @@
             age: '18+',
             duration: '2 Seasons',
             year: '2018'
+        },
+        // Search functionality movies
+        'Ohws8y572KE': {
+            title: 'Mission: Impossible',
+            rating: 7.1,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Thriller'],
+            tags: ['Tom Cruise', 'Action', 'Spy', 'Thriller', 'Mission'],
+            description: 'An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.',
+            age: '12+',
+            duration: '1h 50min',
+            year: '1996'
+        },
+        '02-XkOLVnIU': {
+            title: 'Mulan',
+            rating: 7.0,
+            stars: 3,
+            genres: ['Action', 'Adventure', 'Drama'],
+            tags: ['Disney', 'Live Action', 'Warrior'],
+            description: 'A young Chinese maiden disguises herself as a male warrior in order to save her father.',
+            age: '10+',
+            duration: '2h 0min',
+            year: '2020'
+        },
+        '8jLOx1hD3_o': {
+            title: 'Laxmii',
+            rating: 6.5,
+            stars: 5,
+            genres: ['Comedy', 'Horror', 'Drama'],
+            tags: ['Bollywood', 'Supernatural', 'Comedy'],
+            description: 'A man gets possessed by a ghost and starts behaving like a woman.',
+            age: '18+',
+            duration: '2h 21min',
+            year: '2020'
+        },
+        'W4DlMggBPvc': {
+            title: 'Captain America: The First Avenger',
+            rating: 6.9,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Sci-Fi'],
+            tags: ['Marvel', 'Superhero', 'World War II'],
+            description: 'Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a "Super-Soldier serum".',
+            age: '12+',
+            duration: '2h 4min',
+            year: '2011'
+        },
+        'sDYVdxFZq8Y': {
+            title: 'Life of Pi',
+            rating: 7.9,
+            stars: 4,
+            genres: ['Adventure', 'Drama', 'Fantasy'],
+            tags: ['Survival', 'Ocean', 'Philosophy'],
+            description: 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery.',
+            age: '11+',
+            duration: '2h 7min',
+            year: '2012'
+        },
+        'q78_0TElYME': {
+            title: 'Mission Mangal',
+            rating: 6.8,
+            stars: 3,
+            genres: ['Drama', 'Sci-Fi', 'Thriller'],
+            tags: ['Space', 'India', 'ISRO'],
+            description: 'Based on true events of the Indian Space Research Organisation (ISRO) successfully launching the Mars Orbiter Mission.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2019'
+        },
+        '4qf9Uyn2acE': {
+            title: 'Five Feet Apart',
+            rating: 7.2,
+            stars: 4,
+            genres: ['Drama', 'Romance'],
+            tags: ['Teen', 'Illness', 'Love Story'],
+            description: 'A pair of teenagers with cystic fibrosis meet in a hospital and fall in love, though their disease means they must maintain a safe distance between them.',
+            age: '18+',
+            duration: '1h 56min',
+            year: '2019'
+        },
+        'tsxemFXSQXQ': {
+            title: 'Chhichhore',
+            rating: 8.0,
+            stars: 4,
+            genres: ['Comedy', 'Drama'],
+            tags: ['College Life', 'Friendship', 'Nostalgia'],
+            description: 'A tragic incident forces Anirudh, a middle-aged man, to take a trip down memory lane and reminisce his college days along with his friends.',
+            age: '10+',
+            duration: '2h 23min',
+            year: '2019'
+        },
+        'Lt-U_t2pUHI': {
+            title: 'Doctor Strange',
+            rating: 7.5,
+            stars: 4,
+            genres: ['Action', 'Adventure', 'Fantasy'],
+            tags: ['Marvel', 'Magic', 'Superhero'],
+            description: 'While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2016'
+        },
+        'VyHV0BtdCW4': {
+            title: 'Harry Potter and the Sorcerer\'s Stone',
+            rating: 7.6,
+            stars: 4,
+            genres: ['Adventure', 'Family', 'Fantasy'],
+            tags: ['Magic', 'Wizard', 'School'],
+            description: 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.',
+            age: '10+',
+            duration: '2h 32min',
+            year: '2001'
         }
     };
     
@@ -1060,5 +1171,8 @@
                 videoGallery.scrollTop(0);
             }, 300);
         }
+        
+        // Make openVideoGallery function globally accessible
+        window.openVideoGallery = openVideoGallery;
     });
 })(jQuery);
