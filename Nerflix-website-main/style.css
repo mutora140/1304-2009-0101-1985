@@ -9,7 +9,7 @@ body{
     padding: 0;
     margin: 0;
     color: #d1d0cf;
-    background: #141414;
+    background: rgba(0, 0, 0, 0.95);
 }
 
 /* Custom Scrollbar Styles - Transparent Background */
@@ -71,7 +71,7 @@ body{
     top: 20px;
     right: 20px;
     z-index: 10000;
-    background: rgba(0, 0, 0, 0.95);
+    background: transparent;
     padding: 10px;
     border-radius: 8px;
 }
@@ -605,7 +605,7 @@ body.video-gallery-active header#main-header {
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    background: rgba(20, 20, 20, 0.95) !important;
+    background: rgba(0, 0, 0, 0.95) !important;
     backdrop-filter: blur(10px) !important;
 }
 
@@ -892,7 +892,7 @@ header .navbar ul li .sub-menu li:hover>a::before{
     opacity: 0;
     transform: translate(0,70px);
     transition: all 0.3s ease-out 0s;
-    background: #191919;
+    background: rgba(0, 0, 0, 0.95);
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.75);
     visibility: hidden;
     z-index: 999;
@@ -968,7 +968,7 @@ header .navbar ul li:last-child{
     content: "";
     display: block;
     position: absolute;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.95);
     width: 30px;
     height: 100%;
     left: 30px;
@@ -1098,7 +1098,7 @@ header .navbar ul li:last-child{
     border: none;
     border-radius: 0;
     color: #fff;
-    background: #191919 ;
+    background: rgba(0, 0, 0, 0.95) ;
 }
 
 .iq-search-bar .searchbox .search-link{
@@ -3026,6 +3026,214 @@ footer .footer-top .info-share li a::before{
 }
 .textwidget .footer-link-title{
     width: 100px;
+}
+
+/* ***************** Search Functionality Styles **************** */
+.search-results-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid #333;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.search-result-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover,
+.search-result-item.selected {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-result-item.selected {
+    border-left: 3px solid #e50914;
+}
+
+.search-result-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.search-result-image {
+    flex-shrink: 0;
+    width: 50px;
+    height: 75px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.search-result-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-result-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-result-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.search-result-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 6px;
+    justify-content: center;
+}
+
+.search-result-year {
+    color: #e50914;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.search-result-genre {
+    color: #e50914;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 1px;
+}
+
+.rating-stars i {
+    font-size: 10px;
+}
+
+.glowing-star {
+    color: #e50914;
+        
+}
+
+.glowing-star {
+    color: #e50914;
+    
+    
+}
+
+.rating-text {
+    color: #e50914;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+
+.search-no-results {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}
+
+.search-no-results p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Custom scrollbar for search results */
+.search-results-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-results-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.search-results-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.search-results-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-result-content {
+        gap: 8px;
+    }
+    
+    .search-result-image {
+        width: 40px;
+        height: 60px;
+    }
+    
+    .search-result-title {
+        font-size: 13px;
+    }
+    
+    .search-result-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .search-result-genre {
+        font-size: 11px;
+    }
+    
+    .play-btn {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}
+
+/* Animation for search results */
+@keyframes searchFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-results-container.show {
+    animation: searchFadeIn 0.3s ease-out;
 }
 
 
