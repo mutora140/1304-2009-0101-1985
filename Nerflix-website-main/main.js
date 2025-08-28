@@ -276,39 +276,6 @@
     // Video data structure with sidebar information
     const videoData = {
         // Main Slider Videos
-        'dQw4w9WgXcQ': {
-            title: 'Avengers: Age of Ultron',
-            rating: 7.3,
-            stars: 6,
-            genres: ['Action', 'Adventure', 'Sci-Fi'],
-            tags: ['Superhero', 'Marvel', 'Comic Book'],
-            description: 'When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it\'s up to Earth\'s mightiest heroes to stop the villainous Ultron from enacting his terrible plan.',
-            age: '16+',
-            duration: '2h 21min',
-            year: '2015'
-        },
-        'frozen_main_slider': {
-            title: 'Frozen',
-            rating: 7.4,
-            stars: 5,
-            genres: ['Animation', 'Adventure', 'Comedy'],
-            tags: ['Disney', 'Musical', 'Family'],
-            description: 'When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.',
-            age: '13+',
-            duration: '1h 42min',
-            year: '2013'
-        },
-        'conjuring_main_slider': {
-            title: 'The Conjuring',
-            rating: 7.5,
-            stars: 4,
-            genres: ['Horror', 'Mystery', 'Thriller'],
-            tags: ['Supernatural', 'Haunted House', 'Based on True Story'],
-            description: 'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.',
-            age: '16+',
-            duration: '1h 52min',
-            year: '2013'
-        },
         'tmeOjFno6Do': {
             title: 'Avengers: Age of Ultron',
             rating: 7.3,
@@ -336,7 +303,7 @@
             rating: 7.5,
             stars: 4,
             genres: ['Horror', 'Mystery', 'Thriller'],
-            tags: ['Supernatural', 'Haunted House', 'Based on True Story'],
+            tags: ['Supernatural', 'Haunted House', 'True Story'],
             description: 'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.',
             age: '16+',
             duration: '1h 52min',

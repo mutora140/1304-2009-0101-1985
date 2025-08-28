@@ -401,7 +401,7 @@ class NerflixSearch {
                 duration: '2h 10min'
             },
             {
-                videoId: 'dQw4w9WgXcQ',
+                videoId: 'tmeOjFno6Do',
                 title: 'Avengers: Age of Ultron',
                 rating: 7.3,
                 stars: 6,
@@ -414,7 +414,7 @@ class NerflixSearch {
                 duration: '2h 21min'
             },
             {
-                videoId: 'frozen_main_slider',
+                videoId: 'FLzfXQSPBOg',
                 title: 'Frozen',
                 rating: 7.4,
                 stars: 5,
@@ -427,7 +427,7 @@ class NerflixSearch {
                 duration: '1h 42min'
             },
             {
-                videoId: 'conjuring_main_slider',
+                videoId: 'k10ETZ41q5o',
                 title: 'The Conjuring',
                 rating: 7.5,
                 stars: 4,
@@ -505,13 +505,26 @@ class NerflixSearch {
                 duration: '1h 55min'
             },
             {
+                videoId: '5PSNL1qE6VY',
+                title: 'Avatar',
+                rating: 7.8,
+                stars: 4,
+                genres: ['Action', 'Adventure', 'Fantasy'],
+                year: '2009',
+                image: 'images/parallax/avatar.jpg',
+                description: 'A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
+                tags: ['Sci-Fi', '3D', 'James Cameron'],
+                age: '12+',
+                duration: '2h 42min'
+            },
+            {
                 videoId: 'VyHV0BtdCW4',
                 title: 'Harry Potter and the Sorcerer\'s Stone',
                 rating: 7.6,
                 stars: 4,
                 genres: ['Adventure', 'Family', 'Fantasy'],
                 year: '2001',
-                image: 'images/popular/u1.jpg',
+                image: 'images/top-10/01.jpg',
                 description: 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.',
                 tags: ['Magic', 'Wizard', 'School'],
                 age: '10+',
