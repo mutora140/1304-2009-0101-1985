@@ -3401,6 +3401,19 @@ span i.fa-heart {
     animation: oldHeartBeat 0.6s ease-in-out;
 }
 
+/* Video Gallery Sidebar - Increased Width */
+.video-gallery-content .col-lg-3 {
+    flex: 0 0 calc(25% + 50px) !important;
+    max-width: calc(25% + 50px) !important;
+}
+
+.video-gallery-content .col-lg-9 {
+    flex: 0 0 calc(75% - 50px) !important;
+    max-width: calc(75% - 50px) !important;
+}
+
+
+
 
 
 
