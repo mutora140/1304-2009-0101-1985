@@ -1516,4 +1516,361 @@
         // Make openVideoGallery function globally accessible
         window.openVideoGallery = openVideoGallery;
     });
+
+    // Dynamic Content Loading System
+    // Note: This system handles content loading, NOT likes.
+    // Likes are handled separately by the LikeSystem class.
+    class DynamicContentLoader {
+        constructor() {
+            this.currentContent = null;
+            this.contentCache = new Map();
+            this.isLoading = false;
+            this.userPosition = null; // Track user's position
+            this.init();
+        }
+        
+        init() {
+            this.setupEventListeners();
+            this.setupBackHomeButton();
+            console.log('Dynamic Content Loader initialized');
+            console.log('🎬 Click any movie image, title, or play button to test!');
+            console.log('💡 The system will load content dynamically without page refresh');
+        }
+        
+        // Setup the Back Home button functionality
+        setupBackHomeButton() {
+            // Override the existing closeVideoGallery function
+            if (typeof window.closeVideoGallery === 'function') {
+                const originalCloseFunction = window.closeVideoGallery;
+                window.closeVideoGallery = () => {
+                    this.restoreUserPosition();
+                    originalCloseFunction();
+                };
+            }
+            
+            // Also handle the Back Home button click
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.back-home-btn')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.goBackHome();
+                }
+            });
+        }
+        
+        // Save user's current position before opening video gallery
+        saveUserPosition() {
+            this.userPosition = {
+                scrollY: window.scrollY,
+                scrollX: window.scrollX,
+                activeSection: this.getActiveSection(),
+                timestamp: Date.now()
+            };
+            
+            console.log('📍 User position saved:', this.userPosition);
+            
+            // Show a subtle visual indicator that position is saved
+            this.showPositionSavedIndicator();
+        }
+        
+        // Show a subtle indicator that position is saved
+        showPositionSavedIndicator() {
+            const indicator = document.createElement('div');
+            indicator.className = 'position-saved-indicator';
+            indicator.innerHTML = '<i class="fa fa-bookmark"></i> Position saved';
+            indicator.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                background: rgba(0, 128, 0, 0.9);
+                color: white;
+                padding: 10px 15px;
+                border-radius: 6px;
+                font-size: 12px;
+                z-index: 10002;
+                opacity: 0;
+                transform: translateX(-20px);
+                transition: all 0.3s ease;
+            `;
+            
+            document.body.appendChild(indicator);
+            
+            // Animate in
+            setTimeout(() => {
+                indicator.style.opacity = '1';
+                indicator.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Animate out and remove
+            setTimeout(() => {
+                indicator.style.opacity = '0';
+                indicator.style.transform = 'translateX(-20px)';
+                setTimeout(() => {
+                    if (indicator.parentNode) {
+                        indicator.parentNode.removeChild(indicator);
+                    }
+                }, 300);
+            }, 2000);
+        }
+        
+        // Get the currently active/visible section
+        getActiveSection() {
+            const sections = document.querySelectorAll('section[id]');
+            let activeSection = null;
+            let maxVisibility = 0;
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const visibility = Math.min(rect.height, window.innerHeight) - Math.max(0, rect.top) - Math.max(0, window.innerHeight - rect.bottom);
+                
+                if (visibility > maxVisibility && visibility > 0) {
+                    maxVisibility = visibility;
+                    activeSection = section.id;
+                }
+            });
+            
+            return activeSection;
+        }
+        
+        // Restore user's position when going back
+        restoreUserPosition() {
+            if (!this.userPosition) {
+                console.log('📍 No saved position to restore');
+                return;
+            }
+            
+            console.log('📍 Restoring user position:', this.userPosition);
+            
+            // Restore scroll position
+            window.scrollTo({
+                top: this.userPosition.scrollY,
+                left: this.userPosition.scrollX,
+                behavior: 'smooth'
+            });
+            
+            // Highlight the section they were viewing
+            if (this.userPosition.activeSection) {
+                this.highlightSection(this.userPosition.activeSection);
+            }
+            
+            // Clear the saved position
+            this.userPosition = null;
+        }
+        
+        // Highlight the section the user was viewing
+        highlightSection(sectionId) {
+            // Remove previous highlights
+            document.querySelectorAll('section[id]').forEach(section => {
+                section.classList.remove('user-return-highlight');
+            });
+            
+            // Add highlight to the section they were viewing
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('user-return-highlight');
+                
+                // Remove highlight after animation
+                setTimeout(() => {
+                    targetSection.classList.remove('user-return-highlight');
+                }, 2000);
+            }
+        }
+        
+        // Go back home with position restoration
+        goBackHome() {
+            console.log('🏠 Going back home...');
+            
+            // Add loading state to back home button
+            this.addBackHomeLoadingState();
+            
+            // Simulate loading time for better UX
+            setTimeout(() => {
+                this.restoreUserPosition();
+                
+                // Close video gallery if it's open
+                if (typeof window.closeVideoGallery === 'function') {
+                    window.closeVideoGallery();
+                }
+                
+                // Remove loading state
+                this.removeBackHomeLoadingState();
+            }, 800); // 800ms loading animation
+        }
+        
+        // Add loading state to back home button
+        addBackHomeLoadingState() {
+            const backHomeBtn = document.querySelector('.back-home-btn');
+            if (backHomeBtn) {
+                backHomeBtn.classList.add('loading');
+                backHomeBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Going Back...';
+                backHomeBtn.disabled = true;
+            }
+        }
+        
+        // Remove loading state from back home button
+        removeBackHomeLoadingState() {
+            const backHomeBtn = document.querySelector('.back-home-btn');
+            if (backHomeBtn) {
+                backHomeBtn.classList.remove('loading');
+                backHomeBtn.innerHTML = 'Back Home';
+                backHomeBtn.disabled = false;
+            }
+        }
+        
+        setupEventListeners() {
+            document.addEventListener('click', (e) => {
+                // Don't handle heart icon clicks - let the like system handle those
+                if (e.target.classList.contains('fa-heart') || e.target.closest('.fa-heart')) {
+                    return;
+                }
+                
+                // Handle play button clicks
+                if (e.target.closest('.iq-button')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const button = e.target.closest('.iq-button');
+                    const videoId = button.getAttribute('data-video-id');
+                    const title = button.getAttribute('data-title');
+                    
+                    if (videoId && title) {
+                        this.loadContent(videoId, title);
+                    }
+                }
+                
+                // Handle clicks on movie images and titles
+                if (e.target.closest('.block-images') || e.target.closest('.iq-title a')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const item = e.target.closest('.block-images') || e.target.closest('.iq-title a');
+                    const slideItem = item.closest('.slide-item');
+                    
+                    if (slideItem) {
+                        const playButton = slideItem.querySelector('.iq-button');
+                        if (playButton) {
+                            const videoId = playButton.getAttribute('data-video-id');
+                            const title = playButton.getAttribute('data-title');
+                            
+                            if (videoId && title) {
+                                this.loadContent(videoId, title);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        async loadContent(videoId, title) {
+            if (this.isLoading) return;
+            
+            // Save user's current position before opening video gallery
+            this.saveUserPosition();
+            
+            this.isLoading = true;
+            this.addLoadingState(videoId);
+            this.showLoadingState();
+            
+            try {
+                const contentData = await this.generateContentData(videoId, title);
+                this.displayContent(contentData);
+                this.updateURL(videoId, title);
+            } catch (error) {
+                console.error('Error loading content:', error);
+            } finally {
+                this.isLoading = false;
+                this.hideLoadingState();
+            }
+        }
+        
+        async generateContentData(videoId, title) {
+            await new Promise(resolve => setTimeout(resolve, 300));
+            
+            return {
+                videoId: videoId,
+                title: title,
+                rating: (Math.random() * 2 + 7).toFixed(1),
+                year: Math.floor(Math.random() * 10) + 2015,
+                duration: `${Math.floor(Math.random() * 2) + 1}h ${Math.floor(Math.random() * 30) + 15}min`,
+                ageRating: ['10+', '12+', '16+', '18+'][Math.floor(Math.random() * 4)],
+                genres: ['Action', 'Adventure', 'Drama'].sort(() => Math.random() - 0.5),
+                description: `Experience the epic adventure of ${title}, a masterpiece that will keep you on the edge of your seat.`
+            };
+        }
+        
+        displayContent(contentData) {
+            this.currentContent = contentData;
+            
+            // Remove loading state from all items
+            document.querySelectorAll('.slide-item').forEach(item => {
+                item.classList.remove('loading');
+            });
+            
+            // Highlight the current movie
+            this.highlightCurrentMovie(contentData.videoId);
+            
+            this.updateVideoGallery(contentData);
+            
+            if (typeof openVideoGallery === 'function') {
+                openVideoGallery(contentData.videoId, contentData.title);
+            }
+        }
+        
+        // Highlight the currently loaded movie
+        highlightCurrentMovie(videoId) {
+            // Remove previous highlights
+            document.querySelectorAll('.slide-item').forEach(item => {
+                item.classList.remove('current-movie');
+            });
+            
+            // Find and highlight the current movie
+            document.querySelectorAll('.slide-item').forEach(item => {
+                const playButton = item.querySelector('.iq-button');
+                if (playButton && playButton.getAttribute('data-video-id') === videoId) {
+                    item.classList.add('current-movie');
+                }
+            });
+        }
+        
+        // Add loading state to clicked item
+        addLoadingState(videoId) {
+            document.querySelectorAll('.slide-item').forEach(item => {
+                const playButton = item.querySelector('.iq-button');
+                if (playButton && playButton.getAttribute('data-video-id') === videoId) {
+                    item.classList.add('loading');
+                }
+            });
+        }
+        
+        updateVideoGallery(contentData) {
+            const titleElement = document.getElementById('video-title');
+            if (titleElement) titleElement.textContent = contentData.title;
+            
+            const description = document.querySelector('.video-description');
+            if (description) description.textContent = contentData.description;
+        }
+        
+        updateURL(videoId, title) {
+            const url = new URL(window.location);
+            url.searchParams.set('video', videoId);
+            url.searchParams.set('title', encodeURIComponent(title));
+            window.history.pushState({ videoId, title }, title, url);
+        }
+        
+        showLoadingState() {
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.className = 'dynamic-loading-overlay';
+            loadingOverlay.innerHTML = '<div class="loading-spinner">Loading...</div>';
+            document.body.appendChild(loadingOverlay);
+        }
+        
+        hideLoadingState() {
+            const loadingOverlay = document.querySelector('.dynamic-loading-overlay');
+            if (loadingOverlay) loadingOverlay.remove();
+        }
+    }
+    
+    // Initialize dynamic loader
+    const dynamicLoader = new DynamicContentLoader();
+    window.dynamicLoader = dynamicLoader;
 })(jQuery);
