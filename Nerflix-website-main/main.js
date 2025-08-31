@@ -1,5 +1,324 @@
 (function (jQuery){
     "use strict";
+    
+    // Like System Implementation
+    class LikeSystem {
+        constructor() {
+            this.likesData = this.loadLikesData();
+            this.currentUserId = this.getCurrentUserId();
+            this.init();
+        }
+        
+        // Generate or retrieve a unique user ID
+        getCurrentUserId() {
+            let userId = localStorage.getItem('nerflix_user_id');
+            if (!userId) {
+                userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('nerflix_user_id', userId);
+            }
+            return userId;
+        }
+        
+        // Load likes data from localStorage
+        loadLikesData() {
+            const data = localStorage.getItem('nerflix_likes_data');
+            return data ? JSON.parse(data) : {};
+        }
+        
+        // Save likes data to localStorage
+        saveLikesData() {
+            localStorage.setItem('nerflix_likes_data', JSON.stringify(this.likesData));
+        }
+        
+        // Get like count for a specific item
+        getLikeCount(itemId) {
+            if (!this.likesData[itemId]) {
+                return 0;
+            }
+            return Object.keys(this.likesData[itemId]).length;
+        }
+        
+        // Check if current user has liked an item
+        hasUserLiked(itemId) {
+            if (!this.likesData[itemId]) {
+                return false;
+            }
+            return this.likesData[itemId][this.currentUserId] === true;
+        }
+        
+        // Toggle like for an item
+        toggleLike(itemId) {
+            if (!this.likesData[itemId]) {
+                this.likesData[itemId] = {};
+            }
+            
+            const wasLiked = this.hasUserLiked(itemId);
+            
+            if (wasLiked) {
+                // Unlike
+                delete this.likesData[itemId][this.currentUserId];
+                this.showNotification('Removed from favorites', 'info');
+            } else {
+                // Like
+                this.likesData[itemId][this.currentUserId] = true;
+                this.showNotification('Added to favorites!', 'success');
+            }
+            
+            this.saveLikesData();
+            this.updateItemUI(itemId);
+        }
+        
+        // Show notification to user (minimal styling)
+        showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.like-notification');
+            existingNotifications.forEach(notification => notification.remove());
+            
+            const notification = document.createElement('div');
+            notification.className = 'like-notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #e50914;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+                z-index: 10000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // Update the UI for a specific item (invisible to user)
+        updateItemUI(itemId) {
+            const item = document.querySelector(`[data-item-id="${itemId}"]`);
+            if (!item) return;
+            
+            const likeCount = this.getLikeCount(itemId);
+            const isLiked = this.hasUserLiked(itemId);
+            
+            // Update count box if it exists
+            const countBoxes = item.querySelectorAll('.count-box');
+            countBoxes.forEach(box => {
+                const newText = likeCount > 0 ? likeCount + '+' : '0+';
+                if (box.textContent !== newText) {
+                    box.textContent = newText;
+                }
+            });
+            
+            // Store liked state in data attribute (invisible to user)
+            if (isLiked) {
+                item.setAttribute('data-liked', 'true');
+            } else {
+                item.removeAttribute('data-liked');
+            }
+        }
+        
+        // Update all items in the UI
+        updateAllItemsUI() {
+            const allItems = document.querySelectorAll('[data-item-id]');
+            allItems.forEach(item => {
+                const itemId = item.getAttribute('data-item-id');
+                this.updateItemUI(itemId);
+            });
+        }
+        
+        // Automatically add data-item-id to all items (invisible to user)
+        setupAllItems() {
+            const allSlideItems = document.querySelectorAll('.slide-item');
+            let itemCounter = 1;
+            
+            allSlideItems.forEach(item => {
+                // Generate unique item ID if not already present
+                if (!item.hasAttribute('data-item-id')) {
+                    const titleElement = item.querySelector('.iq-title a');
+                    let title = titleElement ? titleElement.textContent.trim() : `item-${itemCounter}`;
+                    title = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                    const itemId = `${title}-${itemCounter}`;
+                    item.setAttribute('data-item-id', itemId);
+                }
+                
+                itemCounter++;
+            });
+        }
+        
+        // Initialize the like system
+        init() {
+            this.setupAllItems();
+            this.setupEventListeners();
+            this.updateAllItemsUI();
+            this.handleDynamicContent();
+            
+            // Log initialization
+            console.log('Like System initialized successfully (invisible mode)');
+            console.log('Current user ID:', this.currentUserId);
+            console.log('Total items with likes:', Object.keys(this.likesData).length);
+        }
+        
+        // Setup event listeners for like buttons (using original heart icons)
+        setupEventListeners() {
+            document.addEventListener('click', (e) => {
+                // Check if clicked on a heart icon
+                if (e.target.classList.contains('fa-heart')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const heartElement = e.target;
+                    const itemContainer = heartElement.closest('[data-item-id]');
+                    
+                    if (itemContainer) {
+                        const itemId = itemContainer.getAttribute('data-item-id');
+                        this.toggleLike(itemId);
+                    }
+                }
+            });
+        }
+        
+        // Handle dynamic content loading
+        handleDynamicContent() {
+            const observer = new MutationObserver((mutations) => {
+                let shouldRefresh = false;
+                
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'childList') {
+                        mutation.addedNodes.forEach((node) => {
+                            if (node.nodeType === Node.ELEMENT_NODE) {
+                                if (node.classList && node.classList.contains('slide-item')) {
+                                    shouldRefresh = true;
+                                } else if (node.querySelector && node.querySelector('.slide-item')) {
+                                    shouldRefresh = true;
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                if (shouldRefresh) {
+                    setTimeout(() => {
+                        this.refreshAllItems();
+                    }, 100);
+                }
+            });
+            
+            // Start observing
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        }
+        
+        // Method to refresh all items
+        refreshAllItems() {
+            this.setupAllItems();
+            this.updateAllItemsUI();
+        }
+        
+        // Export likes data
+        exportLikesData() {
+            const dataStr = JSON.stringify(this.likesData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'nerflix-likes-backup.json';
+            link.click();
+            
+            URL.revokeObjectURL(url);
+            this.showNotification('Likes data exported successfully!', 'success');
+        }
+        
+        // Get statistics about likes
+        getLikesStats() {
+            const totalItems = Object.keys(this.likesData).length;
+            const totalLikes = Object.values(this.likesData).reduce((sum, item) => sum + Object.keys(item).length, 0);
+            const userLikes = Object.values(this.likesData).filter(item => this.currentUserId in item).length;
+            
+            return {
+                totalItems,
+                totalLikes,
+                userLikes,
+                averageLikes: totalItems > 0 ? (totalLikes / totalItems).toFixed(1) : 0
+            };
+        }
+        
+        // Show likes statistics
+        showLikesStats() {
+            const stats = this.getLikesStats();
+            const message = `Total items: ${stats.totalItems} | Total likes: ${stats.totalLikes} | Your likes: ${stats.userLikes}`;
+            this.showNotification(message, 'info');
+        }
+        
+        // Clear all likes data
+        clearAllLikes() {
+            if (confirm('Are you sure you want to clear all likes data? This action cannot be undone.')) {
+                this.likesData = {};
+                this.saveLikesData();
+                this.updateAllItemsUI();
+                this.showNotification('All likes data cleared', 'info');
+            }
+        }
+        
+        // Setup keyboard shortcuts
+        setupKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                // Ctrl/Cmd + L to show stats
+                if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+                    e.preventDefault();
+                    this.showLikesStats();
+                }
+                
+                // Ctrl/Cmd + E to export data
+                if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
+                    e.preventDefault();
+                    this.exportLikesData();
+                }
+            });
+        }
+        
+        // Initialize with keyboard shortcuts
+        init() {
+            this.setupAllItems();
+            this.setupEventListeners();
+            this.updateAllItemsUI();
+            this.handleDynamicContent();
+            this.setupKeyboardShortcuts();
+            
+            // Log initialization
+            console.log('Like System initialized successfully (invisible mode)');
+            console.log('Current user ID:', this.currentUserId);
+            console.log('Total items with likes:', Object.keys(this.likesData).length);
+        }
+    }
+    
+    // Initialize the like system
+    const likeSystem = new LikeSystem();
+    
+    // Make like system globally accessible
+    window.likeSystem = likeSystem;
+    
     jQuery(document).ready(function(){
         function activaTav(pill){
             jQuery(pill).addClass('active show');

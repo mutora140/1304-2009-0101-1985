@@ -1379,7 +1379,7 @@ header#main-header.menu-sticky{
     header .navbar ul li .sub-menu li .sub-menu li.menu-item a{
         background: transparent;
     }
-    .navbar .navbar-nav li:last-child .sub-menu li:hover>.sub-menu, .navbar .navbar-nav li:nth-last-child(2) .sub-menu li:hover >.sub-menu{
+    .navbar .navbar-nav li:last-child .sub-menu li:hover>.sub-menu, .navbar .navbar-nav li:nth-last-child(2) .sub-menu li:hover > .sub-menu{
         left: auto;
         right: 0;
         top: 0;
@@ -1959,7 +1959,6 @@ li.slide-item{
     background: transparent !important;
     color: #d7d3f8 !important;
     margin-right: 15px;
-
 }
 .share-box i{
     font-size: 15px !important;
@@ -3401,5 +3400,7 @@ span i.fa-heart {
 .fa-heart.liked {
     animation: oldHeartBeat 0.6s ease-in-out;
 }
+
+
 
 
