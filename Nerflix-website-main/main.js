@@ -257,7 +257,7 @@
             jQuery('.tab-pane', this).height(highestBox);
         });
 
-        if(jQuery('select').hasClass('season-select')){
+                if(jQuery('select').hasClass('season-select')){
             jQuery('select').select2({
                 theme : 'bootstrap4',
                 allowClear : false,
@@ -265,9 +265,64 @@
             });
         }
         
-
-
-
+        // Heart functionality for like/unlike
+        jQuery(document).on('click', '.fa-heart, .heart-icon', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            let heartIcon, heartElement, countBox;
+            
+            // Check if this is the new heart icon structure
+            if (jQuery(this).hasClass('fa-heart') && jQuery(this).closest('.heart-icon').length) {
+                // New structure: .heart-icon
+                heartIcon = jQuery(this).closest('.heart-icon');
+                heartElement = jQuery(this);
+                let currentCount = 20; // Default count for notification badge
+                
+                if (heartIcon.hasClass('liked')) {
+                    // Unlike - return to default state
+                    heartIcon.removeClass('liked');
+                    currentCount = Math.max(0, currentCount - 1);
+                } else {
+                    // Like - change to liked state
+                    heartIcon.addClass('liked');
+                    currentCount += 1;
+                }
+                
+                // Update notification badge
+                const notificationBadge = heartIcon.find('.notification-badge');
+                if (notificationBadge.length) {
+                    notificationBadge.text(currentCount + '+');
+                }
+            } else if (jQuery(this).hasClass('fa-heart')) {
+                // Old structure: .fa-heart with count-box
+                heartElement = jQuery(this);
+                countBox = heartElement.closest('li').find('.count-box');
+                
+                if (countBox.length) {
+                    let currentCount = parseInt(countBox.text().replace('+', ''));
+                    
+                                    if (heartElement.hasClass('liked')) {
+                    // Unlike - return to default state
+                    heartElement.removeClass('liked');
+                    heartElement.closest('span').removeClass('liked');
+                    currentCount = Math.max(0, currentCount - 1);
+                } else {
+                    // Like - change to liked state
+                    heartElement.addClass('liked');
+                    heartElement.closest('span').addClass('liked');
+                    currentCount += 1;
+                }
+                    
+                    // Update count box with animation
+                    countBox.text(currentCount + '+').addClass('updated');
+                    setTimeout(() => {
+                        countBox.removeClass('updated');
+                    }, 500);
+                }
+            }
+        });
+        
     });
 
     // Video Gallery Functionality
