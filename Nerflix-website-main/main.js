@@ -111,7 +111,7 @@
             }, 3000);
         }
         
-        // Update the UI for a specific item (invisible to user)
+        // Update the UI for a specific item with visual heart icon styling
         updateItemUI(itemId) {
             const item = document.querySelector(`[data-item-id="${itemId}"]`);
             if (!item) return;
@@ -128,7 +128,41 @@
                 }
             });
             
-            // Store liked state in data attribute (invisible to user)
+            // Find and update heart icon visual state
+            const heartIcons = item.querySelectorAll('.fa-heart');
+            heartIcons.forEach(heartIcon => {
+                const heartSpan = heartIcon.closest('span');
+                
+                if (isLiked) {
+                    // Apply liked styling
+                    heartIcon.classList.add('liked');
+                    if (heartSpan) {
+                        heartSpan.classList.add('liked');
+                        heartSpan.style.cssText = `
+                            background: #e50914 !important;
+                            border-radius: 50% !important;
+                            padding: 8px !important;
+                            display: inline-block !important;
+                            transition: all 0.3s ease !important;
+                        `;
+                    }
+                    heartIcon.style.cssText = `
+                        color: white !important;
+                        transform: scale(1.2) !important;
+                        transition: all 0.3s ease !important;
+                    `;
+                } else {
+                    // Remove liked styling
+                    heartIcon.classList.remove('liked');
+                    if (heartSpan) {
+                        heartSpan.classList.remove('liked');
+                        heartSpan.style.cssText = '';
+                    }
+                    heartIcon.style.cssText = '';
+                }
+            });
+            
+            // Store liked state in data attribute
             if (isLiked) {
                 item.setAttribute('data-liked', 'true');
             } else {
@@ -171,10 +205,26 @@
             this.updateAllItemsUI();
             this.handleDynamicContent();
             
+            // Ensure visual state is applied on page load
+            setTimeout(() => {
+                this.applyPersistentLikes();
+            }, 100);
+            
             // Log initialization
-            console.log('Like System initialized successfully (invisible mode)');
+            console.log('Like System initialized successfully with persistent likes');
             console.log('Current user ID:', this.currentUserId);
             console.log('Total items with likes:', Object.keys(this.likesData).length);
+        }
+        
+        // Apply persistent likes visual state on page load
+        applyPersistentLikes() {
+            const allItems = document.querySelectorAll('[data-item-id]');
+            allItems.forEach(item => {
+                const itemId = item.getAttribute('data-item-id');
+                if (itemId && this.hasUserLiked(itemId)) {
+                    this.updateItemUI(itemId);
+                }
+            });
         }
         
         // Setup event listeners for like buttons (using original heart icons)
@@ -191,9 +241,25 @@
                     if (itemContainer) {
                         const itemId = itemContainer.getAttribute('data-item-id');
                         this.toggleLike(itemId);
+                        
+                        // Add visual feedback animation
+                        this.addHeartAnimation(heartElement);
                     }
                 }
             });
+        }
+        
+        // Add visual animation when heart is clicked
+        addHeartAnimation(heartElement) {
+            const heartSpan = heartElement.closest('span');
+            
+            // Add pulse animation
+            if (heartSpan) {
+                heartSpan.style.animation = 'heartBeat 0.6s ease-in-out';
+                setTimeout(() => {
+                    heartSpan.style.animation = '';
+                }, 600);
+            }
         }
         
         // Handle dynamic content loading

@@ -3370,12 +3370,46 @@ span i.fa-heart {
 /* Animation for heart icon */
 @keyframes heartBeat {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
 
 .heart-icon.liked {
     animation: heartBeat 0.6s ease-in-out;
+}
+
+/* Enhanced heart icon styling for persistent likes */
+.fa-heart.liked {
+    color: white !important;
+    transform: scale(1.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+span.liked {
+    background: #e50914 !important;
+    border-radius: 50% !important;
+    padding: 8px !important;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.6) !important;
+}
+
+/* Ensure heart icons maintain their state on page load */
+span:has(.fa-heart.liked) {
+    background: #e50914 !important;
+    border-radius: 50% !important;
+    padding: 8px !important;
+    display: inline-block !important;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.6) !important;
+}
+
+/* Fallback for browsers without :has() support */
+span.fa-heart-wrapper.liked {
+    background: #e50914 !important;
+    border-radius: 50% !important;
+    padding: 8px !important;
+    display: inline-block !important;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.6) !important;
 }
 
 /* Styles for old heart icon structure */
