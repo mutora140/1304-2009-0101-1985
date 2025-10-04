@@ -741,7 +741,7 @@
         'k10ETZ41q5o': {
             title: 'The Conjuring',
             rating: 7.5,
-            stars: 4,
+            stars: 4.5,
             genres: ['Horror', 'Mystery', 'Thriller'],
             tags: ['Supernatural', 'Haunted House', 'True Story'],
             description: 'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.',
