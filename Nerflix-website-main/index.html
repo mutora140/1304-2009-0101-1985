@@ -20,6 +20,148 @@
   <link rel="stylesheet" href="css/slick-animation.css" />
   <link rel="stylesheet" href="style.css" />
 
+  <style>
+    .sequel-tag {
+      background-color: #666666;
+      color: #FFFFFF;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-left: 10px;
+      display: inline-block;
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+
+  <script>
+    // Season selection functionality - More robust approach
+    function initializeSeasonSelectors() {
+      console.log('Initializing season selectors...');
+      
+      // Wait a bit to ensure DOM is fully loaded
+      setTimeout(function() {
+        const seasonSelects = document.querySelectorAll('.season-select');
+        console.log('Found season selects:', seasonSelects.length);
+        
+        seasonSelects.forEach(function(select, index) {
+          console.log('Processing select', index);
+          
+          // Set default to Season 1
+          select.value = 'Season1';
+          
+          // Find the episodes container for this specific select
+          let episodesContainer = null;
+          
+          // Try multiple methods to find the episodes container
+          const selectParent = select.closest('.iq-custom-select');
+          if (selectParent) {
+            episodesContainer = selectParent.nextElementSibling;
+            if (episodesContainer && !episodesContainer.classList.contains('episodes-contens')) {
+              episodesContainer = selectParent.parentElement.querySelector('.episodes-contens');
+            }
+          }
+          
+          if (!episodesContainer) {
+            episodesContainer = select.closest('.trending-info').querySelector('.episodes-contens');
+          }
+          
+          console.log('Episodes container found:', episodesContainer);
+          
+          if (!episodesContainer) {
+            console.error('Could not find episodes container for select', index);
+            return;
+          }
+          
+          // Function to switch seasons
+          function switchSeason(seasonNumber) {
+            console.log('Switching to season:', seasonNumber);
+            
+            // Hide all season containers
+            const allSeasonContainers = episodesContainer.querySelectorAll('[data-season]');
+            console.log('Found season containers:', allSeasonContainers.length);
+            
+            allSeasonContainers.forEach(function(container) {
+              container.style.display = 'none';
+              console.log('Hiding season:', container.getAttribute('data-season'));
+            });
+            
+            // Show selected season container
+            const selectedContainer = episodesContainer.querySelector('[data-season="' + seasonNumber + '"]');
+            console.log('Selected container:', selectedContainer);
+            
+            if (selectedContainer) {
+              selectedContainer.style.display = 'block';
+              console.log('Showing season:', seasonNumber);
+            } else {
+              console.error('Season container not found for season:', seasonNumber);
+            }
+          }
+          
+          // Add event listener
+          select.addEventListener('change', function() {
+            const selectedSeason = this.value;
+            const seasonNumber = selectedSeason.replace('Season', '');
+            switchSeason(seasonNumber);
+          });
+          
+          // Initialize with Season 1
+          switchSeason('1');
+        });
+      }, 100);
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeSeasonSelectors);
+    } else {
+      initializeSeasonSelectors();
+    }
+    
+    // Also try after a longer delay in case of timing issues
+    setTimeout(initializeSeasonSelectors, 1000);
+    
+    // Simple inline function as backup
+    function switchSeasonEpisodes(selectElement) {
+      console.log('switchSeasonEpisodes called with:', selectElement.value);
+      
+      const selectedSeason = selectElement.value;
+      const seasonNumber = selectedSeason.replace('Season', '');
+      
+      // Find the episodes container
+      const selectContainer = selectElement.closest('.iq-custom-select');
+      const episodesContainer = selectContainer.nextElementSibling;
+      
+      console.log('Season number:', seasonNumber);
+      console.log('Episodes container:', episodesContainer);
+      
+      if (!episodesContainer) {
+        console.error('Episodes container not found');
+        return;
+      }
+      
+      // Hide all season containers
+      const allSeasonContainers = episodesContainer.querySelectorAll('[data-season]');
+      console.log('Found season containers:', allSeasonContainers.length);
+      
+      allSeasonContainers.forEach(function(container) {
+        container.style.display = 'none';
+        console.log('Hiding season:', container.getAttribute('data-season'));
+      });
+      
+      // Show selected season container
+      const selectedContainer = episodesContainer.querySelector('[data-season="' + seasonNumber + '"]');
+      console.log('Selected container:', selectedContainer);
+      
+      if (selectedContainer) {
+        selectedContainer.style.display = 'block';
+        console.log('Showing season:', seasonNumber);
+      } else {
+        console.error('Season container not found for season:', seasonNumber);
+      }
+    }
+  </script>
 
 </head>
 
@@ -335,6 +477,7 @@
                   <div class="d-flex align-items-center mt-2 mt-md-3">
                     <span class="badge badge-secondary p-2">16+</span>
                     <span class="ml-3">2h 21min</span>
+                    <span class="sequel-tag">Sequel</span>
                   </div>
                 </div>
                 <p data-animation-in="fadeInUp">
@@ -402,6 +545,7 @@
                   <div class="d-flex align-items-center mt-2 mt-md-3">
                     <span class="badge badge-secondary p-2">13+</span>
                     <span class="ml-3">1h 42min</span>
+                    <span class="sequel-tag">Sequel</span>
                   </div>
                 </div>
                 <p data-animation-in="fadeInUp">
@@ -470,6 +614,7 @@
                   <div class="d-flex align-items-center mt-2 mt-md-3">
                     <span class="badge badge-secondary p-2">16+</span>
                     <span class="ml-3">1h 52min</span>
+                    <span class="sequel-tag">Sequel</span>
                   </div>
                 </div>
                 <p data-animation-in="fadeInUp">
@@ -536,6 +681,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
                         <span class="text-white">1h 43min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="acEoQpJq0qg" data-title="Insidious: The Last Key">
@@ -580,6 +726,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">12+</div>
                         <span class="text-white">2h 34min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="yQ5U8suTUw0" data-title="War (2019)">
@@ -624,6 +771,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">18+</div>
                         <span class="text-white">2h 57min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="4qf9Uyn2acE" data-title="Five Feet Apart (2019)">
@@ -668,6 +816,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">10+</div>
                         <span class="text-white">2h 23min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="tsxemFXSQXQ" data-title="Chhichhore (2019)">
@@ -712,6 +861,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">12+</div>
                         <span class="text-white">1h 55min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="Lt-U_t2pUHI" data-title="Doctor Strange (2016)">
@@ -776,6 +926,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">10+</div>
                         <span class="text-white">2h</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="02-XkOLVnIU" data-title="Mulan (2020)">
@@ -820,6 +971,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">18+</div>
                         <span class="text-white">2h 21min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="8jLOx1hD3_o" data-title="Laxmii (2020)">
@@ -864,6 +1016,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">12+</div>
                         <span class="text-white">2h 4min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="W4DlMggBPvc" data-title="Captain America: The First Avenger">
@@ -908,6 +1061,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">11+</div>
                         <span class="text-white">2h 7min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="sDYVdxFZq8Y" data-title="Life of Pi (2012)">
@@ -952,6 +1106,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">12+</div>
                         <span class="text-white">2h 10min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="q78_0TElYME" data-title="Mission Mangal (2019)">
@@ -1055,6 +1210,7 @@
                             10+
                           </div>
                           <span class="text-white">8 Parts</span>
+                          <span class="sequel-tag">Sequel</span>
                         </div>
                         <div class="hover-buttons">
                           <span class="btn btn-hover iq-button" data-video-id="VyHV0BtdCW4" data-title="Harry Potter and the Sorcerer's Stone">
@@ -1077,6 +1233,7 @@
                             18+
                           </div>
                           <span class="text-white">1 Season</span>
+                          <span class="sequel-tag">Sequel</span>
                         </div>
                         <div class="hover-buttons">
                           <span class="btn btn-hover iq-button" data-video-id="CDrieqs-S54" data-title="The Queen's Gambit (2020)">
@@ -1099,6 +1256,7 @@
                             12+
                           </div>
                           <span class="text-white">1 Season</span>
+                          <span class="sequel-tag">Sequel</span>
                         </div>
                         <div class="hover-buttons">
                           <span class="btn btn-hover iq-button" data-video-id="8jLOx1hD3_o" data-title="Scam 1992: The Harshad Mehta Story">
@@ -1121,6 +1279,7 @@
                             16+
                           </div>
                           <span class="text-white">3 Season</span>
+                          <span class="sequel-tag">Sequel</span>
                         </div>
                         <div class="hover-buttons">
                           <span class="btn btn-hover iq-button" data-video-id="b9EkMc79ZSU" data-title="Stranger Things (2016)">
@@ -1143,6 +1302,7 @@
                             15+
                           </div>
                           <span class="text-white">6 Season</span>
+                          <span class="sequel-tag">Sequel</span>
                         </div>
                         <div class="hover-buttons">
                           <span class="btn btn-hover iq-button" data-video-id="i1eJMig5Ik4" data-title="BoJack Horseman (2014)">
@@ -1165,6 +1325,7 @@
                             20+
                           </div>
                           <span class="text-white">5 Season</span>
+                          <span class="sequel-tag">Sequel</span>
                         </div>
                         <div class="hover-buttons">
                           <span class="btn btn-hover iq-button" data-video-id="oVzVdvLeICg" data-title="Peaky Blinders (2013)">
@@ -1206,6 +1367,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">NBA</div>
                         <span class="text-white">SPorts</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="dQw4w9WgXcQ" data-title="NBA Basketball Highlights">
@@ -1250,6 +1412,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">PRO</div>
                         <span class="text-white">Sports</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="dQw4w9WgXcQ" data-title="Volleyball Championship">
@@ -1294,6 +1457,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">LSU</div>
                         <span class="text-white">Sports</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="dQw4w9WgXcQ" data-title="College Basketball Highlights">
@@ -1338,6 +1502,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">T-20</div>
                         <span class="text-white">Sports</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="dQw4w9WgXcQ" data-title="T20 Cricket Highlights">
@@ -1382,6 +1547,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">PGA</div>
                         <span class="text-white">Sports</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="5PSNL1qE6VY" data-title="PGA Golf Championship">
@@ -1453,6 +1619,7 @@
               <div class="movie-time d-flex align-items-center mb-3">
                 <div class="badge badge-secondary p-1 mr-2">9+</div>
                 <span class="text-white">2h 42min</span>
+                <span class="sequel-tag">Sequel</span>
               </div>
               <p>
                 A paraplegic Marine dispatched to the moon Pandora on a unique
@@ -1636,7 +1803,7 @@
                               <span class="trending-year">Feb 2019</span>
                             </div>
                             <div class="iq-custom-select d-inline-block sea-epi">
-                              <select name="Seasons" class="form-control season-select">
+                              <select name="Seasons" class="form-control season-select" onchange="switchSeasonEpisodes(this)">
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
@@ -1647,7 +1814,8 @@
                             </div>
 
                             <div class="episodes-contens mt-4">
-                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+                              <!-- Season 1 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="1">
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
@@ -1655,7 +1823,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S1 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -1663,20 +1831,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">The crown S1 Ep1</a>
+                                      <a href="#">The Crown S1 Ep1</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Wolferton Splash - The young Princess Elizabeth marries Prince Philip.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S1 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -1684,20 +1852,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">The crown S1 Ep2</a>
+                                      <a href="#">The Crown S1 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Hyde Park Corner - King George VI dies, and Elizabeth becomes Queen.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S1 Ep3" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -1705,20 +1873,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">The crown S1 Ep3</a>
+                                      <a href="#">The Crown S1 Ep3</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Windsor - The Queen faces her first major crisis with Winston Churchill.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S1 Ep4" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -1726,20 +1894,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">The crown S1 Ep4</a>
+                                      <a href="#">The Crown S1 Ep4</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Act of God - The Great Smog of 1952 hits London.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S1 Ep5" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -1747,20 +1915,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">The crown S1 Ep5</a>
+                                      <a href="#">The Crown S1 Ep5</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Smoke and Mirrors - The Queen's coronation preparations begin.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce6.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S1 Ep6" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -1768,13 +1936,663 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">The crown S1 Ep6</a>
+                                      <a href="#">The Crown S1 Ep6</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Gelignite - The Queen faces family tensions and political challenges.</p>
                                   </div>
                                 </div>
 
+                              </div>
+
+                              <!-- Season 2 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="2" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce2s2e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S2 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S2 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Misadventure - The Queen faces the Suez Crisis.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce2s2e2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S2 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S2 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">A Company of Men - Prince Philip's naval career and family life.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce2s2e3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S2 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S2 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Lisbon - The Queen's relationship with her sister Margaret.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce2s2e4.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S2 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S2 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Beryl - The Queen's relationship with her children.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce2s2e5.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S2 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S2 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Marionettes - The Queen faces political and personal challenges.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce2s2e6.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S2 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S2 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Vergangenheit - The Queen learns about her uncle's Nazi past.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 3 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="3" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce3s3e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S3 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S3 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Olding - The Queen faces the 1960s and new challenges.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce3s3e2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S3 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S3 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Margaretology - Princess Margaret's diplomatic mission to America.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce3s3e3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S3 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S3 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Aberfan - The tragic mining disaster in Wales.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce3s3e4.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S3 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S3 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Bubbikins - Prince Philip's relationship with his mother.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce3s3e5.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S3 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S3 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Coup - The Queen faces political turmoil and change.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce3s3e6.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S3 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S3 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Tywysog Cymru - Prince Charles's investiture as Prince of Wales.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 4 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="4" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S4 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S4 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Gold Stick - The Queen faces the 1970s and new political challenges.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S4 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S4 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Balmoral Test - Princess Diana's first visit to Balmoral.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S4 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S4 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Fairytale - Prince Charles and Diana's wedding.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S4 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S4 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Favourites - The Queen's relationship with her children.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S4 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S4 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Fagan - The Queen's encounter with an intruder.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S4 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S4 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Terra Nullius - The Queen's relationship with Australia.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 5 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="5" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S5 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S5 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Queen Victoria Syndrome - The Queen faces the 1990s.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S5 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S5 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The System - The Queen's relationship with Prime Minister John Major.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S5 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S5 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Mou Mou - The Queen's relationship with Mohamed Al-Fayed.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S5 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S5 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Annus Horribilis - The Queen's difficult year of 1992.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S5 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S5 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Way Ahead - The Queen faces the future.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S5 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S5 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Ipatiev House - The Queen's relationship with Russia.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 6 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="6" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S6 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S6 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Sleep, Dearie Sleep - The Queen's final years.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S6 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S6 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Ruritania - The Queen's relationship with Europe.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S6 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S6 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Dis-Moi Oui - The Queen's relationship with France.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S6 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S6 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Aftermath - The Queen faces the future without Philip.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S6 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S6 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Willsmania - Prince William's growing popularity.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="JWtnJjn6ngQ" data-title="The Crown S6 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">The Crown S6 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Ruritania - The Queen's final legacy.</p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
 
@@ -2127,7 +2945,7 @@
                               <span class="trending-year">Feb 2019</span>
                             </div>
                             <div class="iq-custom-select d-inline-block sea-epi">
-                              <select name="Seasons" class="form-control season-select">
+                              <select name="Seasons" class="form-control season-select" onchange="switchSeasonEpisodes(this)">
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
@@ -2138,7 +2956,8 @@
                             </div>
 
                             <div class="episodes-contens mt-4">
-                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+                              <!-- Season 1 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="1">
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
@@ -2146,7 +2965,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S1 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2154,10 +2973,140 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 1</a>
+                                      <a href="#">Big Bang Theory S1 Ep1</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Pilot - Sheldon and Leonard meet their new neighbor Penny.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S1 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S1 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Big Bran Hypothesis - Sheldon's obsessive behavior causes problems.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S1 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S1 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Fuzzy Boots Corollary - Leonard tries to ask Penny out.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S1 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S1 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Luminous Fish Effect - Sheldon gets fired from his job.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S1 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S1 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Hamburger Postulate - Leonard and Sheldon try to help Penny.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S1 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S1 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Middle-Earth Paradigm - The guys go to a costume party.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 2 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="2" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S2 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S2 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Bad Fish Paradigm - Leonard and Penny's relationship develops.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
@@ -2167,7 +3116,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S2 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2175,10 +3124,119 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 2</a>
+                                      <a href="#">Big Bang Theory S2 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">The Codpiece Topology - Sheldon's social skills are tested.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S2 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S2 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Barbarian Sublimation - Sheldon tries to understand social interactions.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S2 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S2 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Griffin Equivalency - Sheldon gets recognition for his work.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S2 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S2 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Euclid Alternative - Sheldon learns to drive.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S2 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S2 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Cooper-Nowitzki Theorem - Sheldon gets a new assistant.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 3 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="3" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S3 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S3 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Electric Can Opener Fluctuation - Sheldon returns from the Arctic.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
@@ -2188,7 +3246,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S3 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2196,20 +3254,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 3</a>
+                                      <a href="#">Big Bang Theory S3 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">The Jiminy Conjecture - Sheldon and Howard argue about crickets.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/bbt4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/bbt3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S3 Ep3" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2217,20 +3275,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 4</a>
+                                      <a href="#">Big Bang Theory S3 Ep3</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">The Gothowitz Deviation - Sheldon tries to understand Goth culture.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/bbt5.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/bbt3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S3 Ep4" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2238,13 +3296,54 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 5</a>
+                                      <a href="#">Big Bang Theory S3 Ep4</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">The Pirate Solution - Sheldon gets a new job.</p>
                                   </div>
                                 </div>
-
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S3 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S3 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Creepy Candy Coating Corollary - Sheldon's social experiment.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/bbt3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Big Bang Theory S3 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Big Bang Theory S3 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The Cornhusker Vortex - The guys go to a football game.</p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
 
@@ -2597,7 +3696,7 @@
                               <span class="trending-year">Feb 2019</span>
                             </div>
                             <div class="iq-custom-select d-inline-block sea-epi">
-                              <select name="Seasons" class="form-control season-select">
+                              <select name="Seasons" class="form-control season-select" onchange="switchSeasonEpisodes(this)">
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
@@ -2608,7 +3707,8 @@
                             </div>
 
                             <div class="episodes-contens mt-4">
-                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+                              <!-- Season 1 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="1">
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
@@ -2616,7 +3716,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S1 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2624,10 +3724,140 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 1</a>
+                                      <a href="#">Peaky Blinders S1 Ep1</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 1 - Tommy Shelby returns from war to Birmingham.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S1 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S1 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 2 - The Shelby family deals with Inspector Campbell.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S1 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S1 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 3 - Tommy's plan to expand the business begins.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S1 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S1 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 4 - The gang faces new challenges and enemies.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S1 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S1 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 5 - Tommy's relationship with Grace develops.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S1 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S1 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 6 - Season finale with major revelations.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 2 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="2" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S2 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S2 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 1 - Tommy expands to London with new ambitions.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
@@ -2637,7 +3867,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S2 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2645,10 +3875,119 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 2</a>
+                                      <a href="#">Peaky Blinders S2 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 2 - The gang faces new enemies in London.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S2 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S2 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 3 - Tommy's plan to take over London racing.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S2 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S2 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 4 - The gang's power grows in London.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S2 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S2 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 5 - Tommy faces betrayal from within.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb2.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S2 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S2 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 6 - Season finale with major consequences.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 3 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="3" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S3 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S3 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 1 - Tommy's new business venture begins.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
@@ -2658,7 +3997,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S3 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2666,20 +4005,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 3</a>
+                                      <a href="#">Peaky Blinders S3 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 2 - The family faces new political challenges.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/pb4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/pb3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S3 Ep3" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2687,20 +4026,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 4</a>
+                                      <a href="#">Peaky Blinders S3 Ep3</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 3 - Tommy's international connections grow.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/pb5.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/pb3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S3 Ep4" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -2708,13 +4047,54 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 5</a>
+                                      <a href="#">Peaky Blinders S3 Ep4</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 4 - The gang's power reaches new heights.</p>
                                   </div>
                                 </div>
-
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S3 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S3 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 5 - Tommy faces his greatest challenge yet.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/pb3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Peaky Blinders S3 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Peaky Blinders S3 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 6 - Season finale with shocking revelations.</p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
 
@@ -3067,7 +4447,7 @@
                               <span class="trending-year">Feb 2019</span>
                             </div>
                             <div class="iq-custom-select d-inline-block sea-epi">
-                              <select name="Seasons" class="form-control season-select">
+                              <select name="Seasons" class="form-control season-select" onchange="switchSeasonEpisodes(this)">
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
@@ -3078,7 +4458,8 @@
                             </div>
 
                             <div class="episodes-contens mt-4">
-                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+                              <!-- Season 1 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="1">
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
@@ -3086,7 +4467,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S1 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -3094,10 +4475,140 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 1</a>
+                                      <a href="#">Narcos S1 Ep1</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 1 - The rise of Pablo Escobar begins.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S1 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S1 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 2 - Escobar's empire grows in Colombia.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S1 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S1 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 3 - The DEA begins their investigation.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S1 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S1 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 4 - Escobar's power reaches new heights.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S1 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S1 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 5 - The hunt for Escobar intensifies.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S1 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S1 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 6 - Season finale with major developments.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 2 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="2" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n2.png" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S2 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S2 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 1 - Escobar's empire faces new challenges.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
@@ -3107,7 +4618,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S2 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -3115,10 +4626,119 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 2</a>
+                                      <a href="#">Narcos S2 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 2 - The DEA's operation escalates.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n2.png" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S2 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S2 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 3 - Escobar's enemies close in.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n2.png" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S2 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S2 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 4 - The final hunt begins.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n2.png" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S2 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S2 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 5 - The end of an era approaches.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n2.png" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S2 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S2 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 6 - Season finale with dramatic conclusion.</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Season 3 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="3" style="display: none;">
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S3 Ep1" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S3 Ep1</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 1 - New cartel leaders emerge.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
@@ -3128,7 +4748,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S3 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -3136,20 +4756,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 3</a>
+                                      <a href="#">Narcos S3 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 2 - The Cali cartel takes control.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/n4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/n3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S3 Ep3" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -3157,20 +4777,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 4</a>
+                                      <a href="#">Narcos S3 Ep3</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 3 - New alliances and betrayals.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/n5.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/n3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S3 Ep4" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -3178,13 +4798,54 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 5</a>
+                                      <a href="#">Narcos S3 Ep4</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Episode 4 - The war on drugs continues.</p>
                                   </div>
                                 </div>
-
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S3 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S3 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 5 - The final confrontation approaches.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/n3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Narcos S3 Ep6" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Narcos S3 Ep6</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Episode 6 - Season finale with new beginnings.</p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
 
@@ -3537,7 +5198,7 @@
                               <span class="trending-year">Feb 2019</span>
                             </div>
                             <div class="iq-custom-select d-inline-block sea-epi">
-                              <select name="Seasons" class="form-control season-select">
+                              <select name="Seasons" class="form-control season-select" onchange="switchSeasonEpisodes(this)">
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
@@ -4008,7 +5669,7 @@
                               <span class="trending-year">Feb 2019</span>
                             </div>
                             <div class="iq-custom-select d-inline-block sea-epi">
-                              <select name="Seasons" class="form-control season-select">
+                              <select name="Seasons" class="form-control season-select" onchange="switchSeasonEpisodes(this)">
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
@@ -4407,6 +6068,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">15+</div>
                         <span class="text-white">2h 45min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="ej3ioOneQ48" data-title="The Martian (2015)">
@@ -4451,6 +6113,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">7+</div>
                         <span class="text-white">2h 12min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="n9tzhmJ5hFE" data-title="Unhinged (2020)">
