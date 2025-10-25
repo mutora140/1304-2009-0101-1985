@@ -740,7 +740,7 @@ header .navbar ul li.menu-item a:hover{
 .navbar ul li:hover .sub-menu{
     display: block;
     padding: 15px 0;
-    background: #141414;
+    background: rgba(0, 0, 0, 0.95);
     position: absolute;
     top: 100%;
     left: 0;
@@ -977,7 +977,7 @@ header .navbar ul li:last-child{
     content: "";
     display: block;
     position: absolute;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.95);
     width: 70px;
     height: 100%;
     left: 0;
