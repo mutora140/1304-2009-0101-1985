@@ -20,22 +20,8 @@
   <link rel="stylesheet" href="css/slick-animation.css" />
   <link rel="stylesheet" href="style.css" />
 
-  <style>
-    .sequel-tag {
-      background-color: #666666;
-      color: #FFFFFF;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      margin-left: 10px;
-      display: inline-block;
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-  </style>
 
-  <script>
+  <script> 
     // Season selection functionality - More robust approach
     function initializeSeasonSelectors() {
       console.log('Initializing season selectors...');
@@ -78,24 +64,29 @@
           function switchSeason(seasonNumber) {
             console.log('Switching to season:', seasonNumber);
             
-            // Hide all season containers
-            const allSeasonContainers = episodesContainer.querySelectorAll('[data-season]');
-            console.log('Found season containers:', allSeasonContainers.length);
+            // Find all episode items
+            const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
+            console.log('Found episode items:', allEpisodeItems.length);
             
-            allSeasonContainers.forEach(function(container) {
-              container.style.display = 'none';
-              console.log('Hiding season:', container.getAttribute('data-season'));
+            // Show episodes for the selected season, hide others
+            allEpisodeItems.forEach(function(episodeItem) {
+              const episodeSeason = episodeItem.getAttribute('data-season');
+              
+              if (episodeSeason === seasonNumber) {
+                episodeItem.style.display = 'block';
+                console.log('Showing episode for season:', seasonNumber);
+              } else {
+                episodeItem.style.display = 'none';
+                console.log('Hiding episode for season:', episodeSeason);
+              }
             });
             
-            // Show selected season container
-            const selectedContainer = episodesContainer.querySelector('[data-season="' + seasonNumber + '"]');
-            console.log('Selected container:', selectedContainer);
-            
-            if (selectedContainer) {
-              selectedContainer.style.display = 'block';
-              console.log('Showing season:', seasonNumber);
-            } else {
-              console.error('Season container not found for season:', seasonNumber);
+            // Reinitialize the carousel/slider after filtering
+            const owlCarousel = episodesContainer.querySelector('.owl-carousel');
+            if (owlCarousel && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+              setTimeout(function() {
+                jQuery(owlCarousel).trigger('refresh.owl.carousel');
+              }, 100);
             }
           }
           
@@ -141,24 +132,27 @@
         return;
       }
       
-      // Hide all season containers
-      const allSeasonContainers = episodesContainer.querySelectorAll('[data-season]');
-      console.log('Found season containers:', allSeasonContainers.length);
+      // Find all episode items (e-item)
+      const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
+      console.log('Found episodes:', allEpisodeItems.length);
       
-      allSeasonContainers.forEach(function(container) {
-        container.style.display = 'none';
-        console.log('Hiding season:', container.getAttribute('data-season'));
+      // Show episodes for the selected season, hide others
+      allEpisodeItems.forEach(function(episodeItem) {
+        const episodeSeason = episodeItem.getAttribute('data-season');
+        
+        if (episodeSeason === seasonNumber) {
+          episodeItem.style.display = 'block';
+          console.log('Showing episode for season:', seasonNumber);
+        } else {
+          episodeItem.style.display = 'none';
+          console.log('Hiding episode for season:', episodeSeason);
+        }
       });
       
-      // Show selected season container
-      const selectedContainer = episodesContainer.querySelector('[data-season="' + seasonNumber + '"]');
-      console.log('Selected container:', selectedContainer);
-      
-      if (selectedContainer) {
-        selectedContainer.style.display = 'block';
-        console.log('Showing season:', seasonNumber);
-      } else {
-        console.error('Season container not found for season:', seasonNumber);
+      // Reinitialize the carousel/slider to update display
+      const owlCarousel = episodesContainer.querySelector('.owl-carousel');
+      if (owlCarousel && owlCarousel.owlCarousel) {
+        owlCarousel.owlCarousel('update');
       }
     }
   </script>
@@ -545,7 +539,7 @@
                   <div class="d-flex align-items-center mt-2 mt-md-3">
                     <span class="badge badge-secondary p-2">13+</span>
                     <span class="ml-3">1h 42min</span>
-                    <span class="sequel-tag">Sequel</span>
+                    <span class="sequel-tag">Rocky</span>
                   </div>
                 </div>
                 <p data-animation-in="fadeInUp">
@@ -1840,7 +1834,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -1861,7 +1855,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -1882,7 +1876,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -1903,7 +1897,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -1924,7 +1918,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce6.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -1950,7 +1944,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce2s2e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -1971,7 +1965,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce2s2e2.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -1992,7 +1986,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce2s2e3.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2013,7 +2007,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce2s2e4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2034,7 +2028,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce2s2e5.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2055,7 +2049,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce2s2e6.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2080,7 +2074,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce3s3e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2101,7 +2095,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce3s3e2.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2122,7 +2116,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce3s3e3.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2143,7 +2137,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce3s3e4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2164,7 +2158,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce3s3e5.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2185,7 +2179,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce3s3e6.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce3.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2210,7 +2204,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2231,7 +2225,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2252,7 +2246,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2273,7 +2267,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2294,7 +2288,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2315,7 +2309,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce4s4e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce4.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2340,7 +2334,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2361,7 +2355,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2382,7 +2376,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2403,7 +2397,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2424,7 +2418,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2445,7 +2439,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce5s5e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce5.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2470,7 +2464,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2491,7 +2485,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2512,7 +2506,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2533,7 +2527,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2554,7 +2548,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -2575,7 +2569,7 @@
                                 <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/ce6s6e1.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/ce1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
@@ -3700,9 +3694,6 @@
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
-                                <option value="Season4">Season 4</option>
-                                <option value="Season5">Season 5</option>
-                                <option value="Season6">Season 6</option>
                               </select>
                             </div>
 
@@ -4451,9 +4442,6 @@
                                 <option value="Season1">Season 1</option>
                                 <option value="Season2">Season 2</option>
                                 <option value="Season3">Season 3</option>
-                                <option value="Season4">Season 4</option>
-                                <option value="Season5">Season 5</option>
-                                <option value="Season6">Season 6</option>
                               </select>
                             </div>
 
@@ -5150,7 +5138,7 @@
                             </p>
                             <div class="p-btns">
                               <div class="d-flex align-items-center p-0">
-                                <a href="#" class="btn btn-hover mr-2" data-video-id="IEEbUfhFFM0" data-title="FRIENDS" tabindex="0">
+                                <a href="#" class="btn btn-hover mr-2 iq-button" data-video-id="IEEbUfhFFM0" data-title="FRIENDS" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
                                   Play Now
                                 </a>
@@ -5210,14 +5198,15 @@
 
                             <div class="episodes-contens mt-4">
                               <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
-                                <div class="e-item">
+                                <!-- Season 1 Episodes -->
+                                <div class="e-item" data-season="1">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S1 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5225,20 +5214,106 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 1</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Friends S1 Ep1 - The Pilot</a>
+                                      <span class="text-primary">22m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">The Pilot - Rachel arrives at Central Perk in a wedding dress, and the gang's adventures begin.</p>
                                   </div>
                                 </div>
-                                <div class="e-item">
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S1 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Friends S1 Ep2 - The One With The Sonogram</a>
+                                      <span class="text-primary">22m</span>
+                                    </div>
+                                    <p class="mb-0">Ross discovers his ex-wife Carol is pregnant, and Monica gets a sonogram.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S1 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Friends S1 Ep3 - The One With The Thumb</a>
+                                      <span class="text-primary">22m</span>
+                                    </div>
+                                    <p class="mb-0">Monica goes on a bad date, and Phoebe discovers a thumb in her soda.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S1 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Friends S1 Ep4 - The One With George</a>
+                                      <span class="text-primary">22m</span>
+                                    </div>
+                                    <p class="mb-0">Phoebe's twin sister Ursula visits, and Monica tries to keep her parents in town.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S1 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Friends S1 Ep5 - The One With The Princess Leia</a>
+                                      <span class="text-primary">22m</span>
+                                    </div>
+                                    <p class="mb-0">Joey gets a new roommate, and Ross plans to meet Carol for a sonogram.</p>
+                                  </div>
+                                </div>
+                                
+                                <!-- Season 2 Episodes -->
+                                <div class="e-item" data-season="2">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S2 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5246,20 +5321,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 2</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Friends S2 Ep1 - The One With Ross's New Girlfriend</a>
+                                      <span class="text-primary">22m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Ross starts dating a woman named Julie, and Rachel realizes her true feelings for him.</p>
                                   </div>
                                 </div>
-                                <div class="e-item">
+                                <div class="e-item" data-season="2">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/fe3.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S2 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5267,20 +5342,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 3</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Friends S2 Ep2 - The One With The Breast Milk</a>
+                                      <span class="text-primary">22m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Rachel and Monica argue over the baby's breast milk, and Chandler loses his wisdom teeth.</p>
                                   </div>
                                 </div>
-                                <div class="e-item">
+                                <div class="e-item" data-season="2">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/fe4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S2 Ep3" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5288,31 +5363,10 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 4</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Friends S2 Ep3 - The One Where Joey Moves Out</a>
+                                      <span class="text-primary">22m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
-                                  </div>
-                                </div>
-                                <div class="e-item">
-                                  <div class="block-image position-relative">
-                                    <a href="#">
-                                      <img src="images/episodes/fe5.jpg" class="img-fluid" alt="">
-                                    </a>
-                                    <div class="episode-play-info">
-                                      <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
-                                          <i class="fa fa-play"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="episodes-description text-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 5</a>
-                                      <span class="text-primary">2.25m</span>
-                                    </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Chandler and Joey fight, leading Joey to move out. Phoebe and Ross try to get Rachel a job.</p>
                                   </div>
                                 </div>
 
@@ -5339,7 +5393,7 @@
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="IEEbUfhFFM0" data-title="Friends S1 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5347,10 +5401,10 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Trailer 1</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Friends S1 Ep1</a>
+                                      <span class="text-primary">22m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">The Pilot - Rachel arrives at Central Perk in a wedding dress, and the gang's adventures begin.</p>
                                   </div>
                                 </div>
                                 <div class="e-item">
@@ -5621,7 +5675,7 @@
                             </p>
                             <div class="p-btns">
                               <div class="d-flex align-items-center p-0">
-                                <a href="#" class="btn btn-hover mr-2" data-video-id="8jLOx1hD3_o" data-title="Mirzapur" tabindex="0">
+                                <a href="#" class="btn btn-hover mr-2 iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
                                   Play Now
                                 </a>
@@ -5681,14 +5735,15 @@
 
                             <div class="episodes-contens mt-4">
                               <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
-                                <div class="e-item">
+                                <!-- Season 1 Episodes -->
+                                <div class="e-item" data-season="1">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S1 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5696,20 +5751,106 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 1</a>
+                                      <a href="#">Mirzapur S1 Ep1</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.</p>
                                   </div>
                                 </div>
-                                <div class="e-item">
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S1 Ep2" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Mirzapur S1 Ep2</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The power struggle intensifies as Guddu and Bablu navigate the dangerous world of Mirzapur's crime syndicate.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S1 Ep3" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Mirzapur S1 Ep3</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">Guddu and Bablu face new challenges as they try to establish their dominance in Mirzapur's criminal underworld.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S1 Ep4" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Mirzapur S1 Ep4</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The tension reaches new heights as alliances are tested and betrayals come to light in Mirzapur.</p>
+                                  </div>
+                                </div>
+                                <div class="e-item" data-season="1">
+                                  <div class="block-image position-relative">
+                                    <a href="#">
+                                      <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                    <div class="episode-play-info">
+                                      <div class="episode-play">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S1 Ep5" tabindex="0">
+                                          <i class="fa fa-play"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="episodes-description text-body">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                      <a href="#">Mirzapur S1 Ep5</a>
+                                      <span class="text-primary">2.25m</span>
+                                    </div>
+                                    <p class="mb-0">The season finale brings shocking revelations and sets the stage for an even more intense second season.</p>
+                                  </div>
+                                </div>
+                                
+                                <!-- Season 2 Episodes -->
+                                <div class="e-item" data-season="2">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S2 Ep1" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5717,20 +5858,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 2</a>
+                                      <a href="#">Mirzapur S2 Ep1</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Season 2 begins with Guddu planning revenge as he consolidates his power in the criminal world.</p>
                                   </div>
                                 </div>
-                                <div class="e-item">
+                                <div class="e-item" data-season="2">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/m3.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S2 Ep2" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5738,20 +5879,20 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 3</a>
+                                      <a href="#">Mirzapur S2 Ep2</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">The battle for supremacy continues as new players enter the game.</p>
                                   </div>
                                 </div>
-                                <div class="e-item">
+                                <div class="e-item" data-season="2">
                                   <div class="block-image position-relative">
                                     <a href="#">
-                                      <img src="images/episodes/m4.jpg" class="img-fluid" alt="">
+                                      <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
                                     </a>
                                     <div class="episode-play-info">
                                       <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
+                                        <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Mirzapur S2 Ep3" tabindex="0">
                                           <i class="fa fa-play"></i>
                                         </a>
                                       </div>
@@ -5759,31 +5900,10 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 4</a>
+                                      <a href="#">Mirzapur S2 Ep3</a>
                                       <span class="text-primary">2.25m</span>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
-                                  </div>
-                                </div>
-                                <div class="e-item">
-                                  <div class="block-image position-relative">
-                                    <a href="#">
-                                      <img src="images/episodes/m5.jpg" class="img-fluid" alt="">
-                                    </a>
-                                    <div class="episode-play-info">
-                                      <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
-                                          <i class="fa fa-play"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="episodes-description text-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Episode 5</a>
-                                      <span class="text-primary">2.25m</span>
-                                    </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
+                                    <p class="mb-0">Alliances shift as the conflict reaches a new level of intensity.</p>
                                   </div>
                                 </div>
 
@@ -6158,6 +6278,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">18+</div>
                         <span class="text-white">3h</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="m4NC26Dk4dE" data-title="Kingsman: The Secret Service (2014)">
@@ -6202,6 +6323,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">18+</div>
                         <span class="text-white">1h 55min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="36mnx8hNvEE" data-title="Casino Royale (2006)">
@@ -6246,6 +6368,7 @@
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">17+</div>
                         <span class="text-white">1h 35min</span>
+                        <span class="sequel-tag">Sequel</span>
                       </div>
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button" data-video-id="Ohws8y572KE" data-title="Mission: Impossible (1996)">

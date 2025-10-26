@@ -1046,7 +1046,7 @@
             duration: '1h 50min',
             year: '1996'
         },
-        '': {
+        '8jLOx1hD3_o': {
             title: 'Mirzapur',
             rating: 8.4,
             stars: 4,
@@ -1056,6 +1056,17 @@
             age: '18+',
             duration: '2 Seasons',
             year: '2018'
+        },
+        'IEEbUfhFFM0': {
+            title: 'Friends',
+            rating: 8.9,
+            stars: 5,
+            genres: ['Comedy', 'Romance'],
+            tags: ['Sitcom', 'Friendship', 'Classic'],
+            description: 'Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.',
+            age: '12+',
+            duration: '10 Seasons',
+            year: '1994'
         },
         // Search functionality movies
 
