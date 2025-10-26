@@ -64,29 +64,58 @@
           function switchSeason(seasonNumber) {
             console.log('Switching to season:', seasonNumber);
             
-            // Find all episode items
-            const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
-            console.log('Found episode items:', allEpisodeItems.length);
+            // Find all season containers (the owl-carousel divs)
+            const allSeasonContainers = episodesContainer.querySelectorAll('.episodes-slider1');
+            console.log('Found season containers:', allSeasonContainers.length);
             
-            // Show episodes for the selected season, hide others
-            allEpisodeItems.forEach(function(episodeItem) {
-              const episodeSeason = episodeItem.getAttribute('data-season');
-              
-              if (episodeSeason === seasonNumber) {
-                episodeItem.style.display = 'block';
-                console.log('Showing episode for season:', seasonNumber);
-              } else {
-                episodeItem.style.display = 'none';
-                console.log('Hiding episode for season:', episodeSeason);
-              }
-            });
+            // Check if there are multiple season containers (one per season)
+            if (allSeasonContainers.length > 1) {
+              // Show the selected season container, hide others
+              allSeasonContainers.forEach(function(seasonContainer) {
+                const containerSeason = seasonContainer.getAttribute('data-season');
+                
+                if (containerSeason === seasonNumber) {
+                  seasonContainer.style.display = 'block';
+                  console.log('Showing season container:', containerSeason);
+                } else {
+                  seasonContainer.style.display = 'none';
+                  console.log('Hiding season container:', containerSeason);
+                }
+              });
+            } else {
+              // Single container with all seasons - filter by e-item data-season
+              const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
+              allEpisodeItems.forEach(function(episodeItem) {
+                const episodeSeason = episodeItem.getAttribute('data-season');
+                
+                if (episodeSeason === seasonNumber) {
+                  episodeItem.style.display = 'block';
+                  console.log('Showing episode for season:', seasonNumber);
+                } else {
+                  episodeItem.style.display = 'none';
+                  console.log('Hiding episode for season:', episodeSeason);
+                }
+              });
+            }
             
             // Reinitialize the carousel/slider after filtering
-            const owlCarousel = episodesContainer.querySelector('.owl-carousel');
-            if (owlCarousel && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-              setTimeout(function() {
-                jQuery(owlCarousel).trigger('refresh.owl.carousel');
-              }, 100);
+            if (allSeasonContainers.length <= 1) {
+              // For single container shows, refresh the carousel
+              const owlCarousel = episodesContainer.querySelector('.owl-carousel');
+              if (owlCarousel && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+                setTimeout(function() {
+                  jQuery(owlCarousel).trigger('refresh.owl.carousel');
+                }, 100);
+              }
+            } else {
+              // For multiple container shows, refresh all carousels
+              allSeasonContainers.forEach(function(container) {
+                if (container.style.display !== 'none' && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+                  setTimeout(function() {
+                    jQuery(container).trigger('refresh.owl.carousel');
+                  }, 100);
+                }
+              });
             }
           }
           
@@ -99,6 +128,7 @@
           
           // Initialize with Season 1
           switchSeason('1');
+          
         });
       }, 100);
     }
@@ -118,13 +148,12 @@
       console.log('switchSeasonEpisodes called with:', selectElement.value);
       
       const selectedSeason = selectElement.value;
-      const seasonNumber = selectedSeason.replace('Season', '');
       
       // Find the episodes container
       const selectContainer = selectElement.closest('.iq-custom-select');
       const episodesContainer = selectContainer.nextElementSibling;
       
-      console.log('Season number:', seasonNumber);
+      console.log('Selected season:', selectedSeason);
       console.log('Episodes container:', episodesContainer);
       
       if (!episodesContainer) {
@@ -132,27 +161,56 @@
         return;
       }
       
-      // Find all episode items (e-item)
-      const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
-      console.log('Found episodes:', allEpisodeItems.length);
+      // Find all season containers (the owl-carousel divs)
+      const allSeasonContainers = episodesContainer.querySelectorAll('.episodes-slider1');
+      console.log('Found season containers:', allSeasonContainers.length);
       
-      // Show episodes for the selected season, hide others
-      allEpisodeItems.forEach(function(episodeItem) {
-        const episodeSeason = episodeItem.getAttribute('data-season');
-        
-        if (episodeSeason === seasonNumber) {
-          episodeItem.style.display = 'block';
-          console.log('Showing episode for season:', seasonNumber);
-        } else {
-          episodeItem.style.display = 'none';
-          console.log('Hiding episode for season:', episodeSeason);
-        }
-      });
+      const seasonNumber = selectedSeason.replace('Season', '');
+      
+      // Check if there are multiple season containers (one per season)
+      if (allSeasonContainers.length > 1) {
+        // Show the selected season container, hide others
+        allSeasonContainers.forEach(function(seasonContainer) {
+          const containerSeason = seasonContainer.getAttribute('data-season');
+          
+          if (containerSeason === seasonNumber) {
+            seasonContainer.style.display = 'block';
+            console.log('Showing season container:', containerSeason);
+          } else {
+            seasonContainer.style.display = 'none';
+            console.log('Hiding season container:', containerSeason);
+          }
+        });
+      } else {
+        // Single container with all seasons - filter by e-item data-season
+        const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
+        allEpisodeItems.forEach(function(episodeItem) {
+          const episodeSeason = episodeItem.getAttribute('data-season');
+          
+          if (episodeSeason === seasonNumber) {
+            episodeItem.style.display = 'block';
+            console.log('Showing episode for season:', seasonNumber);
+          } else {
+            episodeItem.style.display = 'none';
+            console.log('Hiding episode for season:', episodeSeason);
+          }
+        });
+      }
       
       // Reinitialize the carousel/slider to update display
-      const owlCarousel = episodesContainer.querySelector('.owl-carousel');
-      if (owlCarousel && owlCarousel.owlCarousel) {
-        owlCarousel.owlCarousel('update');
+      if (allSeasonContainers.length <= 1) {
+        // For single container shows, refresh the carousel
+        const owlCarousel = episodesContainer.querySelector('.owl-carousel');
+        if (owlCarousel && owlCarousel.owlCarousel) {
+          owlCarousel.owlCarousel('update');
+        }
+      } else {
+        // For multiple container shows, refresh all carousels
+        allSeasonContainers.forEach(function(container) {
+          if (container.style.display !== 'none' && container.owlCarousel) {
+            container.owlCarousel('update');
+          }
+        });
       }
     }
   </script>
