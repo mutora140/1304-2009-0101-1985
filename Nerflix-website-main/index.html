@@ -85,35 +85,76 @@
             } else {
               // Single container with all seasons - filter by e-item data-season
               const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
+              console.log('Found episode items:', allEpisodeItems.length);
+              
               allEpisodeItems.forEach(function(episodeItem) {
                 const episodeSeason = episodeItem.getAttribute('data-season');
                 
                 if (episodeSeason === seasonNumber) {
                   episodeItem.style.display = 'block';
-                  console.log('Showing episode for season:', seasonNumber);
+                  console.log('Showing episode for season:', seasonNumber, 'episode season:', episodeSeason);
                 } else {
                   episodeItem.style.display = 'none';
                   console.log('Hiding episode for season:', episodeSeason);
                 }
               });
+              
+              // Re-create carousel with only visible items to avoid empty slides and enable cycling
+              if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+                const $owl = jQuery(episodesContainer).find('.episodes-slider1');
+                if ($owl.length) {
+                  const visibleCount = jQuery(episodesContainer).find('.e-item').filter(function(){
+                    return this.style.display !== 'none';
+                  }).length;
+                  if ($owl.data('owl.carousel')) {
+                    $owl.trigger('destroy.owl.carousel');
+                    $owl.removeClass('owl-loaded owl-center owl-text-select-on');
+                    $owl.find('.owl-stage-outer').children().unwrap();
+                  }
+                  const itemsToShow = Math.min(visibleCount || 1, 4);
+                  $owl.owlCarousel({
+                    loop: visibleCount > 1,
+                    margin: 20,
+                    nav: true,
+                    navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
+                    dots: false,
+                    responsive : {
+                      0:{ items: 1 },
+                      600:{ items: 1 },
+                      1000:{ items: itemsToShow }
+                    }
+                  });
+                }
+              }
             }
             
             // Reinitialize the carousel/slider after filtering
             if (allSeasonContainers.length <= 1) {
-              // For single container shows, refresh the carousel
-              const owlCarousel = episodesContainer.querySelector('.owl-carousel');
-              if (owlCarousel && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-                setTimeout(function() {
-                  jQuery(owlCarousel).trigger('refresh.owl.carousel');
-                }, 100);
-              }
+              // For single container shows handled above
             } else {
-              // For multiple container shows, refresh all carousels
+              // For multiple container shows, refresh the visible carousel based on its items
               allSeasonContainers.forEach(function(container) {
                 if (container.style.display !== 'none' && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-                  setTimeout(function() {
-                    jQuery(container).trigger('refresh.owl.carousel');
-                  }, 100);
+                  const $container = jQuery(container);
+                  const visibleCount = $container.find('.e-item').length;
+                  if ($container.data('owl.carousel')) {
+                    $container.trigger('destroy.owl.carousel');
+                    $container.removeClass('owl-loaded owl-center owl-text-select-on');
+                    $container.find('.owl-stage-outer').children().unwrap();
+                  }
+                  const itemsToShow = Math.min(visibleCount || 1, 4);
+                  $container.owlCarousel({
+                    loop: visibleCount > 1,
+                    margin: 20,
+                    nav: true,
+                    navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
+                    dots: false,
+                    responsive : {
+                      0:{ items: 1 },
+                      600:{ items: 1 },
+                      1000:{ items: itemsToShow }
+                    }
+                  });
                 }
               });
             }
@@ -184,31 +225,74 @@
       } else {
         // Single container with all seasons - filter by e-item data-season
         const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
+        console.log('Found episode items:', allEpisodeItems.length);
+        
         allEpisodeItems.forEach(function(episodeItem) {
           const episodeSeason = episodeItem.getAttribute('data-season');
           
           if (episodeSeason === seasonNumber) {
             episodeItem.style.display = 'block';
-            console.log('Showing episode for season:', seasonNumber);
+            console.log('Showing episode for season:', seasonNumber, 'episode season:', episodeSeason);
           } else {
             episodeItem.style.display = 'none';
             console.log('Hiding episode for season:', episodeSeason);
           }
         });
+        
+        // Re-create carousel with only visible items to avoid empty slides and enable cycling
+        if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+          const $owl = jQuery(episodesContainer).find('.episodes-slider1');
+          if ($owl.length) {
+            const visibleCount = jQuery(episodesContainer).find('.e-item').filter(function(){
+              return this.style.display !== 'none';
+            }).length;
+            if ($owl.data('owl.carousel')) {
+              $owl.trigger('destroy.owl.carousel');
+              $owl.removeClass('owl-loaded owl-center owl-text-select-on');
+              $owl.find('.owl-stage-outer').children().unwrap();
+            }
+            const itemsToShow = Math.min(visibleCount || 1, 4);
+            $owl.owlCarousel({
+              loop: visibleCount > 1,
+              margin: 20,
+              nav: true,
+              navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
+              dots: false,
+              responsive : {
+                0:{ items: 1 },
+                600:{ items: 1 },
+                1000:{ items: itemsToShow }
+              }
+            });
+          }
+        }
       }
       
-      // Reinitialize the carousel/slider to update display
-      if (allSeasonContainers.length <= 1) {
-        // For single container shows, refresh the carousel
-        const owlCarousel = episodesContainer.querySelector('.owl-carousel');
-        if (owlCarousel && owlCarousel.owlCarousel) {
-          owlCarousel.owlCarousel('update');
-        }
-      } else {
-        // For multiple container shows, refresh all carousels
+      // Reinitialize the carousel/slider to update display for multiple container shows
+      if (allSeasonContainers.length > 1) {
+        // For multiple container shows, refresh the visible carousel based on its items
         allSeasonContainers.forEach(function(container) {
-          if (container.style.display !== 'none' && container.owlCarousel) {
-            container.owlCarousel('update');
+          if (container.style.display !== 'none' && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+            const $container = jQuery(container);
+            const visibleCount = $container.find('.e-item').length;
+            if ($container.data('owl.carousel')) {
+              $container.trigger('destroy.owl.carousel');
+              $container.removeClass('owl-loaded owl-center owl-text-select-on');
+              $container.find('.owl-stage-outer').children().unwrap();
+            }
+            const itemsToShow = Math.min(visibleCount || 1, 4);
+            $container.owlCarousel({
+              loop: visibleCount > 1,
+              margin: 20,
+              nav: true,
+              navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
+              dots: false,
+              responsive : {
+                0:{ items: 1 },
+                600:{ items: 1 },
+                1000:{ items: itemsToShow }
+              }
+            });
           }
         });
       }
@@ -705,7 +789,6 @@
     </div>
   </section>
   <!-- slider ends -->
-
   <!-- main content starts  -->
   <div class="main-content">
     <!-- favorite section starts   -->
@@ -1238,7 +1321,7 @@
                 <li class="slick-bg">
                   <a href="#">
                     <img src="images/top-10/05.jpg" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title"><a href="#">BoJack Horsemen</a></h6>
+                    <h6 class="iq-title"><a href="#">BoJack Horseman</a></h6>
                   </a>
                 </li>
                 <li class="slick-bg">
@@ -1395,7 +1478,6 @@
         </div>
       </div>
     </section>
-
     <section id="iq-suggested" class="s-margin">
       <div class="container-fluid">
         <div class="row">
@@ -1694,8 +1776,6 @@
         </div>
       </div>
     </section>
-
-
     <!-- trending section  -->
     <section id="iq-trending" class="s-margin">
       <div class="container-fluid">
@@ -2294,7 +2374,6 @@
                                   </div>
                                 </div>
                               </div>
-
                               <!-- Season 3 Episodes -->
                               <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="3" style="display: none;">
                                 <div class="e-item">
@@ -2986,7 +3065,6 @@
 
                           </div>
                         </div>
-
                         <div id="trending-data3" class="overlay-tab tab-pane fade">
                           <div class="trending-info align-items-center w-100 animated fadeInUp" >
                             <a href="#" tabindex="0">
@@ -3737,128 +3815,6 @@
 
                           </div>
                         </div>
-
-                        <div id="trending-data7" class="overlay-tab tab-pane fade">
-                          <div class="trending-info align-items-center w-100 animated fadeInUp">
-                            <a href="#" tabindex="0">
-                              <div class="channel-logo">
-                                <img src="images/logo.png" class="c-logo" alt="">
-                              </div>
-                            </a>
-                            <h1 class="trending-text big-title text-uppercase">Big Bang Theory</h1>
-                            <div class="episodes-contens mt-4">
-                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
-                                <div class="e-item">
-                                  <div class="block-image position-relative">
-                                    <a href="#">
-                                      <img src="images/episodes/bbt1.jpg" class="img-fluid" alt="">
-                                    </a>
-                                    <div class="episode-play-info">
-                                      <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
-                                          <i class="fa fa-play"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="episodes-description text-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Trailer 1</a>
-                                      <span class="text-primary">2.25m</span>
-                                    </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
-                                  </div>
-                                </div>
-                                <div class="e-item">
-                                  <div class="block-image position-relative">
-                                    <a href="#">
-                                      <img src="images/episodes/bbt2.jpg" class="img-fluid" alt="">
-                                    </a>
-                                    <div class="episode-play-info">
-                                      <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
-                                          <i class="fa fa-play"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="episodes-description text-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Trailer 2</a>
-                                      <span class="text-primary">2.25m</span>
-                                    </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
-                                  </div>
-                                </div>
-                                <div class="e-item">
-                                  <div class="block-image position-relative">
-                                    <a href="#">
-                                      <img src="images/episodes/bbt3.jpg" class="img-fluid" alt="">
-                                    </a>
-                                    <div class="episode-play-info">
-                                      <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
-                                          <i class="fa fa-play"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="episodes-description text-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Trailer 3</a>
-                                      <span class="text-primary">2.25m</span>
-                                    </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
-                                  </div>
-                                </div>
-                                <div class="e-item">
-                                  <div class="block-image position-relative">
-                                    <a href="#">
-                                      <img src="images/episodes/bbt4.jpg" class="img-fluid" alt="">
-                                    </a>
-                                    <div class="episode-play-info">
-                                      <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
-                                          <i class="fa fa-play"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="episodes-description text-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Trailer 4</a>
-                                      <span class="text-primary">2.25m</span>
-                                    </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
-                                  </div>
-                                </div>
-                                <div class="e-item">
-                                  <div class="block-image position-relative">
-                                    <a href="#">
-                                      <img src="images/episodes/bbt5.jpg" class="img-fluid" alt="">
-                                    </a>
-                                    <div class="episode-play-info">
-                                      <div class="episode-play">
-                                        <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Episode" tabindex="0">
-                                          <i class="fa fa-play"></i>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="episodes-description text-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Trailer 5</a>
-                                      <span class="text-primary">2.25m</span>
-                                    </div>
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque aliquam quisquam iure tempore earum sequi.</p>
-                                  </div>
-                                </div>
-
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
                         <div id="trending-data8" class="overlay-tab tab-pane fade">
                           <div class="trending-info align-items-center w-100 animated fadeInUp">
                             <a href="#" tabindex="0">
@@ -4485,7 +4441,6 @@
 
                           </div>
                         </div>
-
                         <div id="trending-data11" class="overlay-tab tab-pane fade">
                           <div class="trending-info align-items-center w-100 animated fadeInUp">
                             <a href="#" tabindex="0">
@@ -4606,7 +4561,6 @@
                             </div>
                           </div>
                         </div>
-
                         <div id="trending-data12" class="overlay-tab tab-pane fade">
                           <div class="trending-info align-items-center w-100 animated fadeInUp">
                             <a href="#" tabindex="0">
@@ -5233,7 +5187,6 @@
 
                           </div>
                         </div>
-
                         <div id="trending-data15" class="overlay-tab tab-pane fade">
                           <div class="trending-info align-items-center w-100 animated fadeInUp">
                             <a href="#" tabindex="0">
@@ -5354,7 +5307,6 @@
                             </div>
                           </div>
                         </div>
-
                         <div id="trending-data16" class="overlay-tab tab-pane fade">
                           <div class="trending-info align-items-center w-100 animated fadeInUp">
                             <a href="#" tabindex="0">
@@ -5587,9 +5539,9 @@
                             </div>
 
                             <div class="episodes-contens mt-4">
-                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
-                                <!-- Season 1 Episodes -->
-                                <div class="e-item" data-season="1">
+                              <!-- Season 1 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
@@ -5610,7 +5562,7 @@
                                     <p class="mb-0">The Pilot - Rachel arrives at Central Perk in a wedding dress, and the gang's adventures begin.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
@@ -5631,7 +5583,7 @@
                                     <p class="mb-0">Ross discovers his ex-wife Carol is pregnant, and Monica gets a sonogram.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
@@ -5652,7 +5604,7 @@
                                     <p class="mb-0">Monica goes on a bad date, and Phoebe discovers a thumb in her soda.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
@@ -5673,7 +5625,7 @@
                                     <p class="mb-0">Phoebe's twin sister Ursula visits, and Monica tries to keep her parents in town.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe1.jpg" class="img-fluid" alt="">
@@ -5694,9 +5646,11 @@
                                     <p class="mb-0">Joey gets a new roommate, and Ross plans to meet Carol for a sonogram.</p>
                                   </div>
                                 </div>
-                                
-                                <!-- Season 2 Episodes -->
-                                <div class="e-item" data-season="2">
+                              </div>
+
+                              <!-- Season 2 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="2" style="display: none;">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
@@ -5717,7 +5671,7 @@
                                     <p class="mb-0">Ross starts dating a woman named Julie, and Rachel realizes her true feelings for him.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
@@ -5738,7 +5692,7 @@
                                     <p class="mb-0">Rachel and Monica argue over the baby's breast milk, and Chandler loses his wisdom teeth.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
@@ -5759,7 +5713,7 @@
                                     <p class="mb-0">Chandler and Joey fight, leading Joey to move out. Phoebe and Ross try to get Rachel a job.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
@@ -5780,7 +5734,7 @@
                                     <p class="mb-0">Phoebe discovers she's still married to a gay ice dancer. Monica gets a new roommate.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
@@ -5801,7 +5755,7 @@
                                     <p class="mb-0">The friends struggle with income differences. Monica tries to cook for her parents.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/fe2.jpg" class="img-fluid" alt="">
@@ -5822,7 +5776,6 @@
                                     <p class="mb-0">Ross and Chandler accidentally take the wrong baby from the bus. Joey auditions for a play.</p>
                                   </div>
                                 </div>
-
                               </div>
                             </div>
 
@@ -5949,7 +5902,6 @@
                             </div>
                           </div>
                         </div>
-
                         <div id="trending-data20" class="overlay-tab tab-pane fade">
                           <div class="trending-info align-items-center w-100 animated fadeInUp">
                             <a href="#" tabindex="0">
@@ -6073,7 +6025,6 @@
                     </div>
                   </div>
                 </li>
-
                 <li>
                   <div class="tranding-block position-relative" style="background-image: url(images/trending/06.jpg);">
                     <div class="trending-custom-tab">
@@ -6183,9 +6134,9 @@
                             </div>
 
                             <div class="episodes-contens mt-4">
-                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
-                                <!-- Season 1 Episodes -->
-                                <div class="e-item" data-season="1">
+                              <!-- Season 1 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
@@ -6200,13 +6151,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S1 Ep1</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S1 Ep1 - The Beginning</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
@@ -6221,13 +6172,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S1 Ep2</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S1 Ep2 - Power Struggle</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">The power struggle intensifies as Guddu and Bablu navigate the dangerous world of Mirzapur's crime syndicate.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
@@ -6242,13 +6193,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S1 Ep3</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S1 Ep3 - New Challenges</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">Guddu and Bablu face new challenges as they try to establish their dominance in Mirzapur's criminal underworld.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
@@ -6263,13 +6214,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S1 Ep4</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S1 Ep4 - Rising Tension</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">The tension reaches new heights as alliances are tested and betrayals come to light in Mirzapur.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="1">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m1.jpg" class="img-fluid" alt="">
@@ -6284,15 +6235,17 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S1 Ep5</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S1 Ep5 - The Finale</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">The season finale brings shocking revelations and sets the stage for an even more intense second season.</p>
                                   </div>
                                 </div>
-                                
-                                <!-- Season 2 Episodes -->
-                                <div class="e-item" data-season="2">
+                              </div>
+
+                              <!-- Season 2 Episodes -->
+                              <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0" data-season="2" style="display: none;">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
@@ -6307,13 +6260,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S2 Ep1</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S2 Ep1 - Revenge</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">Season 2 begins with Guddu planning revenge as he consolidates his power in the criminal world.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
@@ -6328,13 +6281,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S2 Ep2</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S2 Ep2 - New Players</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">The battle for supremacy continues as new players enter the game.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
@@ -6349,13 +6302,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S2 Ep3</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S2 Ep3 - Shifting Alliances</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">Alliances shift as the conflict reaches a new level of intensity.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
@@ -6370,13 +6323,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S2 Ep4</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S2 Ep4 - Escalating War</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">The war escalates as Guddu faces betrayal from unexpected quarters.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
@@ -6391,13 +6344,13 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S2 Ep5</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S2 Ep5 - Family Secrets</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">Family secrets are revealed as the final confrontation approaches.</p>
                                   </div>
                                 </div>
-                                <div class="e-item" data-season="2">
+                                <div class="e-item">
                                   <div class="block-image position-relative">
                                     <a href="#">
                                       <img src="images/episodes/m2.jpg" class="img-fluid" alt="">
@@ -6412,13 +6365,12 @@
                                   </div>
                                   <div class="episodes-description text-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                      <a href="#">Mirzapur S2 Ep6</a>
-                                      <span class="text-primary">2.25m</span>
+                                      <a href="#">Mirzapur S2 Ep6 - The Final Battle</a>
+                                      <span class="text-primary">45m</span>
                                     </div>
                                     <p class="mb-0">The season finale brings shocking revelations and sets up new conflicts.</p>
                                   </div>
                                 </div>
-
                               </div>
                             </div>
 
@@ -6675,8 +6627,6 @@
         </div>
       </div>
     </section>
-
-
     <section id="iq-suggested" class="s-margin">
       <div class="container-fluid">
         <div class="row">
