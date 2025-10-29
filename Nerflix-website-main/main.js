@@ -650,6 +650,24 @@
             });
         }
         
+        // Ensure season switching works with both native selects and Select2
+        jQuery(document).on('change', '.season-select', function(){
+            if (typeof window.switchSeasonEpisodes === 'function') {
+                window.switchSeasonEpisodes(this);
+            }
+        });
+        jQuery(document).on('select2:select', '.season-select', function(){
+            if (typeof window.switchSeasonEpisodes === 'function') {
+                window.switchSeasonEpisodes(this);
+            }
+        });
+        // Also handle when dropdown closes without firing select (reselect same value)
+        jQuery(document).on('select2:close', '.season-select', function(){
+            if (typeof window.switchSeasonEpisodes === 'function') {
+                window.switchSeasonEpisodes(this);
+            }
+        });
+        
         // Heart functionality for like/unlike
         jQuery(document).on('click', '.fa-heart, .heart-icon', function(e) {
             e.preventDefault();
