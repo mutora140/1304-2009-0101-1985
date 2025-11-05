@@ -651,20 +651,44 @@
         }
         
         // Ensure season switching works with both native selects and Select2
+        // Only react to season changes for the currently playing series
+        function isSelectForCurrentSeries(selectEl){
+            try {
+                const selectScope = selectEl.closest('.slide-item') || selectEl.closest('.trending-info');
+                const selectBtn = selectScope ? selectScope.querySelector('.iq-button[data-video-id]') : null;
+                const selectVideoId = selectBtn ? selectBtn.getAttribute('data-video-id') : null;
+                const currentBtn = document.querySelector('.slide-item.current-movie .iq-button[data-video-id]');
+                const currentId = currentBtn ? currentBtn.getAttribute('data-video-id') : null;
+                return !!(selectVideoId && currentId && selectVideoId === currentId);
+            } catch(_) { return false; }
+        }
+
         jQuery(document).on('change', '.season-select', function(){
+            if (!isSelectForCurrentSeries(this)) return;
             if (typeof window.switchSeasonEpisodes === 'function') {
                 window.switchSeasonEpisodes(this);
             }
+            if (typeof window.renderEpisodesBelowPlayerFromSelect === 'function') {
+                window.renderEpisodesBelowPlayerFromSelect(this);
+            }
         });
         jQuery(document).on('select2:select', '.season-select', function(){
+            if (!isSelectForCurrentSeries(this)) return;
             if (typeof window.switchSeasonEpisodes === 'function') {
                 window.switchSeasonEpisodes(this);
+            }
+            if (typeof window.renderEpisodesBelowPlayerFromSelect === 'function') {
+                window.renderEpisodesBelowPlayerFromSelect(this);
             }
         });
         // Also handle when dropdown closes without firing select (reselect same value)
         jQuery(document).on('select2:close', '.season-select', function(){
+            if (!isSelectForCurrentSeries(this)) return;
             if (typeof window.switchSeasonEpisodes === 'function') {
                 window.switchSeasonEpisodes(this);
+            }
+            if (typeof window.renderEpisodesBelowPlayerFromSelect === 'function') {
+                window.renderEpisodesBelowPlayerFromSelect(this);
             }
         });
         
@@ -730,6 +754,8 @@
 
     // Video Gallery Functionality
     var currentVideoId = 'dQw4w9WgXcQ';
+    // Track last series scope (the DOM block for the series the user interacted with)
+    window.__lastSeriesScope = null;
     
     // Video data structure with sidebar information
     const videoData = {
@@ -1350,6 +1376,11 @@
             
             const videoId = jQuery(this).attr('data-video-id') || 'dQw4w9WgXcQ';
             const title = jQuery(this).attr('data-title') || 'Movie Title';
+            // Remember the series scope where this click happened
+            const scope = jQuery(this).closest('.trending-info, .slide-item').get(0);
+            if (scope) {
+                window.__lastSeriesScope = scope;
+            }
             
             openVideoGallery(videoId, title);
         });
@@ -1471,6 +1502,54 @@
             
             // Update sidebar content with video-specific data
             updateSidebarContent(videoId);
+            // Render episodes under the player for THIS series (videoId)
+            try {
+                const findSelectForVideoId = (vid) => {
+                    // Prefer the last clicked series scope
+                    if (window.__lastSeriesScope) {
+                        const selInScope = window.__lastSeriesScope.querySelector('.season-select');
+                        if (selInScope) return selInScope;
+                        // If no select, later we will fallback to episodes container in scope
+                    }
+                    // Find the slide item that owns this videoId
+                    const btn = document.querySelector('.slide-item .iq-button[data-video-id="' + vid + '"]');
+                    if (!btn) return null;
+                    const slide = btn.closest('.slide-item');
+                    if (!slide) return null;
+                    // The season select is typically within the same trending-info container
+                    const info = slide.closest('.trending-info') || slide.parentElement;
+                    if (info) {
+                        const sel = info.querySelector('.season-select');
+                        if (sel) return sel;
+                    }
+                    // Fallback: search siblings in same overlay-tab
+                    const overlayTab = slide.closest('.overlay-tab');
+                    if (overlayTab) {
+                        const sel = overlayTab.querySelector('.season-select');
+                        if (sel) return sel;
+                    }
+                    return null;
+                };
+                const seriesSelect = findSelectForVideoId(videoId);
+                if (seriesSelect) {
+                    if (typeof window.switchSeasonEpisodes === 'function') {
+                        window.switchSeasonEpisodes(seriesSelect);
+                    }
+                    if (typeof window.renderEpisodesBelowPlayerFromSelect === 'function') {
+                        window.renderEpisodesBelowPlayerFromSelect(seriesSelect, { scrollIntoView: true });
+                    }
+                } else if (typeof window.renderEpisodesBelowPlayerFromAny === 'function') {
+                    // limit scope around the last clicked scope or the found slide item if possible
+                    let scopeEl = window.__lastSeriesScope || null;
+                    if (!scopeEl) {
+                        const scopeBtn = document.querySelector('.slide-item .iq-button[data-video-id="' + videoId + '"]');
+                        scopeEl = scopeBtn ? (scopeBtn.closest('.trending-info') || scopeBtn.closest('.overlay-tab') || scopeBtn.closest('.slide-item')) : null;
+                    }
+                    window.renderEpisodesBelowPlayerFromAny({ scrollIntoView: true, scopeEl: scopeEl });
+                }
+            } catch (e) {
+                console.warn('Unable to render episodes below player on open:', e);
+            }
             
             // Initialize sliders after a short delay
             setTimeout(function() {
@@ -1502,6 +1581,192 @@
         // Make openVideoGallery function globally accessible
         window.openVideoGallery = openVideoGallery;
     });
+
+    // Helper: ensure mount point exists below the player/sidebar to show episodes
+    function ensureEpisodesMount() {
+        const overlay = document.getElementById('video-gallery-overlay');
+        if (!overlay) return null;
+        const content = overlay.querySelector('.video-gallery-content');
+        if (!content) return null;
+        let mount = overlay.querySelector('#video-episodes-gallery');
+        if (!mount) {
+            mount = document.createElement('div');
+            mount.id = 'video-episodes-gallery';
+            mount.className = 'video-episodes-gallery mt-4';
+            // Insert after the top row (player + sidebar)
+            const row = content.querySelector('.row');
+            if (row && row.parentNode) {
+                row.parentNode.insertBefore(mount, row.nextSibling);
+            } else {
+                content.appendChild(mount);
+            }
+        }
+        return mount;
+    }
+
+    // Initialize Owl Carousel on a given element with standard episodes settings
+    function initEpisodesOwlCarousel($container) {
+        if (typeof jQuery === 'undefined' || !jQuery.fn.owlCarousel) return;
+        // If already initialized, destroy first
+        if ($container.data('owl.carousel')) {
+            try {
+                $container.trigger('destroy.owl.carousel');
+            } catch (e) {}
+            // unwrap structure left by owl
+            $container.find('.owl-stage-outer').children().unwrap();
+            $container.removeClass('owl-center owl-loaded owl-text-select-on');
+        }
+        // Initialize
+        $container.owlCarousel({
+            loop : true,
+            margin : 20,
+            nav: true,
+            navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
+            dots : false,
+            responsive : {
+                0:{ items : 1 },
+                600:{ items : 1 },
+                1000:{ items : 4 }
+            }
+        });
+    }
+
+    // Render episodes from a given select's related episodes container under the player
+    function renderEpisodesBelowPlayerFromSelect(selectEl, options) {
+        try {
+            const mount = ensureEpisodesMount();
+            if (!mount || !selectEl) return;
+
+            // Locate the related episodes container (mirrors logic in switchSeasonEpisodes)
+            let episodesContainer = null;
+            const selectContainer = selectEl.closest('.iq-custom-select');
+            if (selectContainer) {
+                const nextEl = selectContainer.nextElementSibling;
+                if (nextEl && nextEl.classList && nextEl.classList.contains('episodes-contens')) {
+                    episodesContainer = nextEl;
+                }
+                if (!episodesContainer) {
+                    const parentScope = selectContainer.parentElement;
+                    if (parentScope) {
+                        episodesContainer = parentScope.querySelector('.episodes-contens');
+                    }
+                }
+            }
+            if (!episodesContainer) {
+                const ti = selectEl.closest('.trending-info');
+                if (ti) episodesContainer = ti.querySelector('.episodes-contens');
+            }
+            if (!episodesContainer) {
+                const ot = selectEl.closest('.overlay-tab');
+                if (ot) episodesContainer = ot.querySelector('.episodes-contens');
+            }
+            if (!episodesContainer) return;
+
+            const selectedSeason = (selectEl.value || '').replace('Season', '').trim();
+
+            // Collect episode items for selected season
+            let episodeItems = [];
+            const seasonCarousels = episodesContainer.querySelectorAll('.episodes-slider1');
+            if (seasonCarousels && seasonCarousels.length > 0) {
+                // Prefer containers that declare data-season
+                const matchingContainers = Array.from(seasonCarousels).filter(function(car){
+                    const seasonAttr = car.getAttribute('data-season');
+                    return selectedSeason ? (seasonAttr && seasonAttr === selectedSeason) : true;
+                });
+                const containersToUse = matchingContainers.length > 0 ? matchingContainers : Array.from(seasonCarousels);
+                containersToUse.forEach(function(car){
+                    car.querySelectorAll('.e-item').forEach(function(e){ episodeItems.push(e); });
+                });
+            }
+            // If nothing gathered yet, fall back to per-item season filtering in any episodes container
+            if (episodeItems.length === 0) {
+                episodesContainer.querySelectorAll('.e-item').forEach(function(e){
+                    const itemSeason = e.getAttribute('data-season');
+                    if (!selectedSeason || !itemSeason || itemSeason === selectedSeason) {
+                        episodeItems.push(e);
+                    }
+                });
+            }
+
+            // Build carousel container
+            mount.innerHTML = '';
+            const header = document.createElement('h3');
+            header.className = 'text-white mb-3';
+            header.textContent = 'Episodes';
+            const slider = document.createElement('div');
+            slider.className = 'owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0';
+
+            episodeItems.forEach(function(item){
+                const clone = item.cloneNode(true);
+                clone.style.display = '';
+                slider.appendChild(clone);
+            });
+
+            mount.appendChild(header);
+            mount.appendChild(slider);
+
+            // Initialize Owl on the new slider
+            if (typeof jQuery !== 'undefined') {
+                initEpisodesOwlCarousel(jQuery(slider));
+            }
+            if (options && options.scrollIntoView) {
+                mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } catch (err) {
+            console.warn('Failed to render episodes under player:', err);
+        }
+    }
+
+    // Expose helper globally
+    window.renderEpisodesBelowPlayerFromSelect = renderEpisodesBelowPlayerFromSelect;
+
+    // Fallback: render episodes from the current-movie section or first available episodes container
+    function renderEpisodesBelowPlayerFromAny(options) {
+        const mount = ensureEpisodesMount();
+        if (!mount) return;
+
+        // Try to find e-items from a provided scope, else from the current movie
+        let sourceContainer = null;
+        const scoped = options && options.scopeEl ? options.scopeEl : null;
+        if (scoped) {
+            sourceContainer = scoped.querySelector('.episodes-contens');
+        }
+        if (!sourceContainer) {
+            const currentSlide = document.querySelector('.slide-item.current-movie');
+            if (currentSlide) {
+                const trendingInfo = currentSlide.closest('.trending-info') || document;
+                sourceContainer = trendingInfo.querySelector('.episodes-contens');
+            }
+        }
+        if (!sourceContainer) {
+            sourceContainer = document.querySelector('.episodes-contens');
+        }
+        if (!sourceContainer) return;
+
+        const items = Array.from(sourceContainer.querySelectorAll('.e-item'));
+        mount.innerHTML = '';
+        const header = document.createElement('h3');
+        header.className = 'text-white mb-3';
+        header.textContent = 'Episodes';
+        const slider = document.createElement('div');
+        slider.className = 'owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0';
+        items.forEach(function(item){
+            const clone = item.cloneNode(true);
+            clone.style.display = '';
+            slider.appendChild(clone);
+        });
+        mount.appendChild(header);
+        mount.appendChild(slider);
+        if (typeof jQuery !== 'undefined') {
+            initEpisodesOwlCarousel(jQuery(slider));
+        }
+        if (options && options.scrollIntoView) {
+            mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    window.renderEpisodesBelowPlayerFromAny = renderEpisodesBelowPlayerFromAny;
+
+    // Removed auto-switching series on season change to respect series context
 
     // Dynamic Content Loading System
     // Note: This system handles content loading, NOT likes.
@@ -1718,6 +1983,11 @@
                     const button = e.target.closest('.iq-button');
                     const videoId = button.getAttribute('data-video-id');
                     const title = button.getAttribute('data-title');
+                    // Remember the series scope where this click happened
+                    const slideForScope = button.closest('.trending-info, .slide-item');
+                    if (slideForScope) {
+                        window.__lastSeriesScope = slideForScope;
+                    }
                     
                     if (videoId && title) {
                         this.loadContent(videoId, title);
@@ -1737,6 +2007,11 @@
                         if (playButton) {
                             const videoId = playButton.getAttribute('data-video-id');
                             const title = playButton.getAttribute('data-title');
+                            // Remember scope
+                            const scope = slideItem.closest('.trending-info, .slide-item') || slideItem;
+                            if (scope) {
+                                window.__lastSeriesScope = scope;
+                            }
                             
                             if (videoId && title) {
                                 this.loadContent(videoId, title);
