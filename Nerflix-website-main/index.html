@@ -16,7 +16,10 @@
   <link rel="stylesheet" href="css/magnific-popup.css" />
   <link rel="stylesheet" href="css/select2.min.css" />
   <link rel="stylesheet" href="css/select2-bootstrap4.min.css" />
-
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
   <link rel="stylesheet" href="css/slick-animation.css" />
   <link rel="stylesheet" href="style.css" />
 
@@ -381,29 +384,29 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
-                    <li class="menu-item"><a href="#">Home</a></li>
-                    <li class="menu-item"><a href="#">Movies</a></li>
-                    <li class="menu-item"><a href="#">Shows</a></li>
+                    <li class="menu-item"><a href="#">Ahabanza</a></li>
+                    <li class="menu-item"><a href="#">Filme</a></li>
+                    <li class="menu-item"><a href="#">Izigezweho</a></li>
                     <li class="menu-item">
-                      <a href="#">Contact Us</a>
+                      <a href="#">Abasobanuzi</a>
                       <ul class="sub-menu">
-                        <li class="menu-item"><a href="#">About Us</a></li>
-                        <li class="menu-item"><a href="#">Contact</a></li>
-                        <li class="menu-item"><a href="#">FAQ</a></li>
+                        <li class="menu-item"><a href="#">Rocky</a></li>
+                        <li class="menu-item"><a href="#">Gaheza</a></li>
+                        <li class="menu-item"><a href="#">Sankara</a></li>
                         <li class="menu-item">
-                          <a href="#">Privacy-Policy</a>
+                          <a href="#">Junior Giti</a>
                         </li>
                         <li class="menu-item">
-                          <a href="#">Pricing</a>
+                          <a href="#">Abandi</a>
                           <ul class="sub-menu">
                             <li class="menu-item">
-                              <a href="#">Gold Membership</a>
+                              <a href="#">Dylan</a>
                             </li>
                             <li class="menu-item">
-                              <a href="#">Silver Membership</a>
+                              <a href="#">P.K</a>
                             </li>
                             <li class="menu-item">
-                              <a href="#">Bronze Membership</a>
+                              <a href="#">Savimbi</a>
                             </li>
                           </ul>
                         </li>
@@ -6976,17 +6979,52 @@
               </li>
             </ul>
           </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="widget text-left">
-              <div class="textwidget">
-                <h6 class="footer-link-title">
-                  NetFlix App 
-                </h6>
-                <div class="d-flex align-items-center">
-                  <a href="#"><img src="images/footer/01.jpg" alt=""></a>
-                  <br>
-                  <a href="#" class="ml-3"><img src="images/footer/02.jpg" alt=""></a>
+          <div class="chat-container">
+            <div class="chat-icon" id="chatIcon">
+              <i class="fas fa-paper-plane" id="chatIconSymbol"></i>
+              <div class="notification" id="notification">1</div>
+            </div>
+            <div class="chat-box" id="chatBox">
+              <div class="chat-header">
+                <div class="chat-header-content">
+                  <div class="avatar">
+                    <i class="fas fa-headset"></i>
+                  </div>
+                  <div class="header-text">
+                    <h3>Support Team</h3>
+                    <p><span class="status"></span> Online now</p>
+                  </div>
                 </div>
+                <button class="close-btn" id="closeBtn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="chat-body" id="chatBody">
+                <div class="message admin">
+                  <div class="message-content">
+                    👋 Hello! How can we help you today?
+                  </div>
+                  <div class="message-time">10:00 AM</div>
+                </div>
+                <div class="typing-indicator" id="typingIndicator">
+                  Typing <span class="typing-dots"><span></span><span></span><span></span></span>
+                </div>
+              </div>
+              <div class="chat-footer">
+                <div class="message-input-container">
+                  <input
+                    type="text"
+                    class="message-input"
+                    id="messageInput"
+                    placeholder="Type your message..."
+                  />
+                  <button class="emoji-btn">
+                    <i class="far fa-smile"></i>
+                  </button>
+                </div>
+                <button class="send-btn" id="sendBtn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
               </div>
             </div>
           </div>

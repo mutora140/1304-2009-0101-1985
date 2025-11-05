@@ -1860,3 +1860,97 @@
     const dynamicLoader = new DynamicContentLoader();
     window.dynamicLoader = dynamicLoader;
 })(jQuery);
+const chatIcon = document.getElementById('chatIcon');
+const chatIconSymbol = document.getElementById('chatIconSymbol');
+const chatBox = document.getElementById('chatBox');
+const closeBtn = document.getElementById('closeBtn');
+const chatBody = document.getElementById('chatBody');
+const messageInput = document.getElementById('messageInput');
+const sendBtn = document.getElementById('sendBtn');
+const notification = document.getElementById('notification');
+const typingIndicator = document.getElementById('typingIndicator');
+
+let isChatOpen = false;
+
+function toggleChat() {
+  isChatOpen = !isChatOpen;
+  if (isChatOpen) {
+    chatBox.classList.add('active');
+    chatIcon.classList.add('send-mode');
+    chatIconSymbol.className = 'fas fa-paper-plane';
+    notification.style.display = 'none';
+    messageInput.focus();
+  } else {
+    chatBox.classList.remove('active');
+    chatIcon.classList.remove('send-mode');
+    chatIconSymbol.className = 'fas fa-paper-plane';
+  }
+}
+
+async function sendMessage() {
+  const message = messageInput.value.trim();
+  if (message === '') return;
+
+  addMessage(message, 'user');
+  messageInput.value = '';
+  typingIndicator.classList.add('active');
+
+  try {
+    const formData = new FormData();
+    formData.append('access_key', '3c0d553f-93ec-43d2-b299-e4399fa49dba');
+    formData.append('subject', 'New message from chat widget');
+    formData.append('message', message);
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+    typingIndicator.classList.remove('active');
+
+    if (result.success) {
+      addMessage("✅ Your message has been sent successfully! We'll reply to your email soon.", 'admin');
+    } else {
+      addMessage("❌ Failed to send. Please try again later.", 'admin');
+    }
+  } catch (error) {
+    typingIndicator.classList.remove('active');
+    addMessage("⚠️ Network error! Please check your connection.", 'admin');
+  }
+}
+
+function addMessage(text, sender) {
+  const messageDiv = document.createElement('div');
+  messageDiv.classList.add('message', sender);
+
+  const messageContent = document.createElement('div');
+  messageContent.classList.add('message-content');
+  messageContent.textContent = text;
+
+  const messageTime = document.createElement('div');
+  messageTime.classList.add('message-time');
+  const now = new Date();
+  messageTime.textContent = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+  messageDiv.appendChild(messageContent);
+  messageDiv.appendChild(messageTime);
+  chatBody.appendChild(messageDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+chatIcon.addEventListener('click', () => {
+  if (isChatOpen) sendMessage();
+  else toggleChat();
+});
+
+closeBtn.addEventListener('click', toggleChat);
+sendBtn.addEventListener('click', sendMessage);
+messageInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
+});
+
+setTimeout(() => {
+  addMessage("We're here to help! Ask us anything.", 'admin');
+  notification.style.display = 'flex';
+}, 3000);
