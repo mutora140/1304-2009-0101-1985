@@ -3989,5 +3989,84 @@ span.fa-heart-wrapper.liked {
   }
 
 
+.watchlist-page {
+  background: #141414;
+}
+
+.watchlist-hero {
+  top: 200px;
+  background: linear-gradient(180deg, rgba(14, 14, 14, 0.85) 0%, rgba(20, 20, 20, 1) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.watchlist-hero .btn {
+  min-width: 180px;
+}
+
+.watchlist-clear-all {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.watchlist-clear-all:hover {
+  background: rgba(229, 9, 20, 0.9);
+  transform: translateY(-2px);
+}
+
+.watchlist-count {
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+.watchlist-source,
+.watchlist-description {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.watchlist-description {
+  max-width: 90%;
+}
+
+.music-play-lists li span.watchlist-added {
+  background: #e50914 !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.music-play-lists li span.watchlist-added .fa-plus,
+.fa-plus.in-watchlist {
+  color: #fff !important;
+}
+
+.fa-plus.in-watchlist {
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.music-play-lists li span.watchlist-added:hover .fa-plus {
+  transform: rotate(90deg);
+}
+
+.watchlist-page .favorite-contens {
+  transition: opacity 0.3s ease;
+}
+
+.watchlist-page .favorite-contens[style*="display: none"] {
+  opacity: 0;
+}
+
+.watchlist-empty {
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
 
 

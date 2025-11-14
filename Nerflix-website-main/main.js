@@ -4,30 +4,107 @@
     // Like System Implementation
     class LikeSystem {
         constructor() {
-            this.likesData = this.loadLikesData();
-            this.currentUserId = this.getCurrentUserId();
+            this.cookiePrefix = 'nerflix_like_';
+            this.cookieLifetimeDays = 365; // 1 year
+            this.currentUserId = this.getCurrentUserId(); // Get user ID first
+            this.likesData = this.loadLikesData(); // Then load likes data
             this.init();
         }
         
-        // Generate or retrieve a unique user ID
+        // Generate or retrieve a unique user ID (stored in cookie)
         getCurrentUserId() {
-            let userId = localStorage.getItem('nerflix_user_id');
+            let userId = this.getCookie('nerflix_user_id');
             if (!userId) {
                 userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('nerflix_user_id', userId);
+                this.setCookie('nerflix_user_id', userId, this.cookieLifetimeDays);
             }
             return userId;
         }
         
-        // Load likes data from localStorage
+        // Load likes data from cookies
         loadLikesData() {
-            const data = localStorage.getItem('nerflix_likes_data');
-            return data ? JSON.parse(data) : {};
+            const likesData = {};
+            try {
+                // Get all cookies
+                const cookies = document.cookie.split(';');
+                
+                cookies.forEach(cookie => {
+                    cookie = cookie.trim();
+                    const equalIndex = cookie.indexOf('=');
+                    if (equalIndex === -1) return;
+                    
+                    const cookieName = decodeURIComponent(cookie.substring(0, equalIndex));
+                    const cookieValue = cookie.substring(equalIndex + 1);
+                    
+                    // Check if this is a like cookie
+                    if (cookieName.startsWith(this.cookiePrefix)) {
+                        const itemId = cookieName.replace(this.cookiePrefix, '');
+                        
+                        if (cookieValue && cookieValue !== '' && itemId) {
+                            // Initialize item if not exists
+                            if (!likesData[itemId]) {
+                                likesData[itemId] = {};
+                            }
+                            // Store like with current user ID
+                            likesData[itemId][this.currentUserId] = true;
+                        }
+                    }
+                });
+            } catch (error) {
+                console.warn('Failed to load likes from cookies', error);
+            }
+            return likesData;
         }
         
-        // Save likes data to localStorage
+        // Save likes data to cookies
         saveLikesData() {
-            localStorage.setItem('nerflix_likes_data', JSON.stringify(this.likesData));
+            // This method is called after toggling likes, but we handle cookie setting in toggleLike
+            // This is kept for compatibility but cookies are set directly in toggleLike
+        }
+        
+        // Cookie helper methods
+        setCookie(name, value, days) {
+            try {
+                const expires = days ? new Date(Date.now() + days * 86400000).toUTCString() : 'Thu, 01 Jan 1970 00:00:00 GMT';
+                document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+            } catch (error) {
+                console.warn('Failed to set like cookie', error);
+            }
+        }
+        
+        getCookie(name) {
+            try {
+                const decodedCookie = decodeURIComponent(document.cookie || '');
+                const target = `${encodeURIComponent(name)}=`;
+                const parts = decodedCookie.split(';');
+                for (let part of parts) {
+                    part = part.trim();
+                    if (part.startsWith(target)) {
+                        return part.substring(target.length);
+                    }
+                }
+            } catch (error) {
+                console.warn('Failed to read like cookie', error);
+            }
+            return null;
+        }
+        
+        // Set like cookie for an item
+        setLikeCookie(itemId) {
+            if (!itemId) return;
+            this.setCookie(this.cookiePrefix + itemId, '1', this.cookieLifetimeDays);
+        }
+        
+        // Delete like cookie for an item
+        deleteLikeCookie(itemId) {
+            if (!itemId) return;
+            this.setCookie(this.cookiePrefix + itemId, '', -1);
+        }
+        
+        // Check if item has like cookie
+        hasLikeCookie(itemId) {
+            if (!itemId) return false;
+            return this.getCookie(this.cookiePrefix + itemId) === '1';
         }
         
         // Get like count for a specific item
@@ -40,6 +117,11 @@
         
         // Check if current user has liked an item
         hasUserLiked(itemId) {
+            // Check cookie first (most reliable)
+            if (this.hasLikeCookie(itemId)) {
+                return true;
+            }
+            // Fallback to in-memory data
             if (!this.likesData[itemId]) {
                 return false;
             }
@@ -55,11 +137,13 @@
             const wasLiked = this.hasUserLiked(itemId);
             
             if (wasLiked) {
-                // Unlike
+                // Unlike - delete cookie and update in-memory data
+                this.deleteLikeCookie(itemId);
                 delete this.likesData[itemId][this.currentUserId];
                 this.showNotification('Removed from favorites', 'info');
             } else {
-                // Like
+                // Like - set cookie and update in-memory data
+                this.setLikeCookie(itemId);
                 this.likesData[itemId][this.currentUserId] = true;
                 this.showNotification('Added to favorites!', 'success');
             }
@@ -340,6 +424,25 @@
         // Clear all likes data
         clearAllLikes() {
             if (confirm('Are you sure you want to clear all likes data? This action cannot be undone.')) {
+                // Clear all like cookies
+                try {
+                    const cookies = document.cookie.split(';');
+                    
+                    cookies.forEach(cookie => {
+                        cookie = cookie.trim();
+                        const equalIndex = cookie.indexOf('=');
+                        if (equalIndex === -1) return;
+                        
+                        const cookieName = decodeURIComponent(cookie.substring(0, equalIndex));
+                        
+                        if (cookieName.startsWith(this.cookiePrefix)) {
+                            this.setCookie(cookieName, '', -1);
+                        }
+                    });
+                } catch (error) {
+                    console.warn('Failed to clear like cookies', error);
+                }
+                
                 this.likesData = {};
                 this.saveLikesData();
                 this.updateAllItemsUI();
@@ -384,6 +487,685 @@
     
     // Make like system globally accessible
     window.likeSystem = likeSystem;
+    
+    class WatchlistManager {
+        constructor() {
+            this.storageKey = 'nerflix_watchlist_items';
+            this.cookiePrefix = 'nerflix_watchlist_';
+            this.cookieLifetimeDays = 7;
+            this.expiryDurationMs = this.cookieLifetimeDays * 24 * 60 * 60 * 1000;
+            this.watchlist = this.loadWatchlist();
+            this.sliderOptions = {
+                dots: false,
+                arrow: true,
+                infinite: true,
+                speed: 300,
+                autoplay: false,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                nextArrow: '<a href="#" class="slick-arrow slick-next"><i class="fa fa-chevron-right"></i></a>',
+                prevArrow: '<a href="#" class="slick-arrow slick-prev"><i class="fa fa-chevron-left"></i></a>',
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            };
+            this.pendingMutationUpdate = null;
+            this.init();
+        }
+        
+        init() {
+            const onReady = () => {
+                this.prepareAllItems();
+                this.setupPageControls();
+                this.renderWatchlistPage();
+                this.markExistingItems();
+            };
+            
+            this.setupPlusButtonListener();
+            this.observeDynamicContent();
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', onReady);
+            } else {
+                onReady();
+            }
+        }
+        
+        loadWatchlist() {
+            try {
+                const data = localStorage.getItem(this.storageKey);
+                if (!data) return [];
+                const parsed = JSON.parse(data);
+                if (!Array.isArray(parsed)) return [];
+                
+                const now = Date.now();
+                const validItems = [];
+                const expiredIds = [];
+                
+                parsed.forEach(item => {
+                    if (!item || !item.itemId) return;
+                    
+                    const normalized = {
+                        ...item,
+                        addedAt: item.addedAt || now,
+                        expiresAt: item.expiresAt || ((item.addedAt || now) + this.expiryDurationMs)
+                    };
+                    
+                    const hasCookie = this.hasItemCookie(normalized.itemId);
+                    const isExpired = normalized.expiresAt <= now;
+                    
+                    if (isExpired) {
+                        expiredIds.push(normalized.itemId);
+                        return;
+                    }
+                    
+                    validItems.push(normalized);
+                    
+                    if (!hasCookie) {
+                        this.setItemCookie(normalized.itemId);
+                    }
+                });
+                
+                if (expiredIds.length) {
+                    expiredIds.forEach(id => this.deleteItemCookie(id));
+                }
+                
+                validItems.sort((a, b) => (a.addedAt || 0) - (b.addedAt || 0));
+                
+                try {
+                    localStorage.setItem(this.storageKey, JSON.stringify(validItems));
+                } catch (_) {}
+                
+                return validItems;
+            } catch (err) {
+                console.warn('Unable to load watch list, resetting...', err);
+                return [];
+            }
+        }
+        
+        prepareAllItems() {
+            const items = document.querySelectorAll('.slide-item');
+            items.forEach(item => {
+                const itemId = this.ensureItemId(item);
+                this.cacheItemSnapshot(item, itemId);
+            });
+        }
+        
+        saveWatchlist() {
+            try {
+                localStorage.setItem(this.storageKey, JSON.stringify(this.watchlist));
+            } catch (err) {
+                console.warn('Failed to save watch list', err);
+            }
+        }
+        
+        setupPageControls() {
+            const clearButton = document.getElementById('watchlist-clear-all');
+            if (clearButton) {
+                clearButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!this.watchlist.length) {
+                        this.showNotification('Your watch list is already empty.', 'info');
+                        return;
+                    }
+                    const confirmed = confirm('Clear your entire watch list?');
+                    if (confirmed) {
+                        const previousItems = [...this.watchlist];
+                        this.watchlist = [];
+                        this.saveWatchlist();
+                        previousItems.forEach(item => this.deleteItemCookie(item.itemId));
+                        this.renderWatchlistPage();
+                        this.markExistingItems();
+                        this.showNotification('Watch list cleared.', 'info');
+                    }
+                });
+            }
+        }
+        
+        setupPlusButtonListener() {
+            document.addEventListener('click', (e) => {
+                const plusIcon = e.target.closest('.fa-plus');
+                if (!plusIcon) return;
+                
+                const slideItem = plusIcon.closest('[data-item-id]');
+                if (!slideItem) return;
+                
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof e.stopImmediatePropagation === 'function') {
+                    e.stopImmediatePropagation();
+                }
+                
+                const itemId = this.ensureItemId(slideItem);
+                this.cacheItemSnapshot(slideItem, itemId);
+                const existingIndex = this.watchlist.findIndex(item => item.itemId === itemId);
+                
+                if (existingIndex !== -1) {
+                    const removedItem = this.watchlist.splice(existingIndex, 1)[0];
+                    this.saveWatchlist();
+                    this.deleteItemCookie(itemId);
+                    this.markExistingItems();
+                    this.renderWatchlistPage();
+                    const title = removedItem && removedItem.title ? removedItem.title : 'Title';
+                    this.showNotification(`${title} removed from watch list.`, 'info');
+                    return;
+                }
+                
+                const itemData = this.extractItemData(slideItem, itemId);
+                if (!itemData) return;
+                
+                this.watchlist.push(itemData);
+                this.watchlist.sort((a, b) => a.addedAt - b.addedAt);
+                this.saveWatchlist();
+                this.setItemCookie(itemId);
+                this.markExistingItems();
+                this.renderWatchlistPage();
+                this.showNotification(`${itemData.title} added to watch list!`, 'success');
+            }, true);
+        }
+        
+        ensureItemId(slideItem) {
+            if (!slideItem) return 'watch-' + Date.now();
+            let itemId = slideItem.getAttribute('data-item-id');
+            if (itemId) return itemId;
+            
+            const titleElement = slideItem.querySelector('.iq-title a, .iq-title');
+            let base = titleElement ? titleElement.textContent.trim().toLowerCase() : 'item';
+            base = base.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            if (!base) base = 'item';
+            itemId = `${base}-${Date.now()}`;
+            slideItem.setAttribute('data-item-id', itemId);
+            return itemId;
+        }
+        
+        extractItemData(slideItem, itemId) {
+            if (!slideItem) return null;
+            const payload = this.getCachedPayload(slideItem, itemId);
+            if (!payload) return null;
+            const finalId = itemId || payload.itemId || this.ensureItemId(slideItem);
+            const addedAt = Date.now();
+            return {
+                ...payload,
+                itemId: finalId,
+                addedAt,
+                expiresAt: addedAt + this.expiryDurationMs
+            };
+        }
+        
+        observeDynamicContent() {
+            try {
+                const observer = new MutationObserver((mutations) => {
+                    let didProcess = false;
+                    
+                    mutations.forEach((mutation) => {
+                        mutation.addedNodes.forEach((node) => {
+                            if (this.handlePotentialSlideNode(node)) {
+                                didProcess = true;
+                            }
+                        });
+                    });
+                    
+                    if (didProcess) {
+                        if (this.pendingMutationUpdate) {
+                            clearTimeout(this.pendingMutationUpdate);
+                        }
+                        this.pendingMutationUpdate = setTimeout(() => {
+                            this.markExistingItems();
+                        }, 120);
+                    }
+                });
+                
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            } catch (err) {
+                console.warn('Watch list mutation observer failed', err);
+            }
+        }
+        
+        getCachedPayload(slideItem, itemId) {
+            if (!slideItem) return null;
+            const raw = slideItem.getAttribute('data-watchlist-payload');
+            if (raw) {
+                try {
+                    const parsed = JSON.parse(raw);
+                    if (itemId && !parsed.itemId) {
+                        parsed.itemId = itemId;
+                    }
+                    return parsed;
+                } catch (error) {
+                    slideItem.removeAttribute('data-watchlist-payload');
+                }
+            }
+            return this.cacheItemSnapshot(slideItem, itemId);
+        }
+        
+        cacheItemSnapshot(slideItem, itemId) {
+            const payload = this.buildItemPayload(slideItem, itemId);
+            if (!payload) return null;
+            try {
+                slideItem.setAttribute('data-watchlist-payload', JSON.stringify(payload));
+            } catch (error) {
+                // ignore storage issues for attribute serialization
+            }
+            return payload;
+        }
+        
+        buildItemPayload(slideItem, itemId) {
+            if (!slideItem) return null;
+            try {
+                const titleElement = slideItem.querySelector('.iq-title a, .iq-title');
+                const title = titleElement ? titleElement.textContent.trim() : 'Untitled';
+                
+                const imgElement = slideItem.querySelector('.img-box img');
+                let image = imgElement ? (imgElement.getAttribute('data-watchlist-src') || imgElement.getAttribute('src')) : '';
+                if (image && window.location && window.location.origin && image.startsWith(window.location.origin)) {
+                    image = image.replace(window.location.origin + '/', '');
+                }
+                
+                const badgeElement = slideItem.querySelector('.movie-time .badge');
+                const badge = badgeElement ? badgeElement.textContent.trim() : '';
+                
+                let duration = '';
+                const durationElement = slideItem.querySelector('.movie-time span.text-white');
+                if (durationElement) {
+                    duration = durationElement.textContent.trim();
+                } else {
+                    const spans = Array.from(slideItem.querySelectorAll('.movie-time span')).filter(span => !span.classList.contains('sequel-tag') && !span.classList.contains('badge'));
+                    duration = spans.length ? spans[0].textContent.trim() : '';
+                }
+                
+                const tagElement = slideItem.querySelector('.movie-time .sequel-tag');
+                const tag = tagElement ? tagElement.textContent.trim() : '';
+                
+                const videoButton = slideItem.querySelector('.iq-button[data-video-id]');
+                const videoId = videoButton ? videoButton.getAttribute('data-video-id') : '';
+                const videoTitle = videoButton ? (videoButton.getAttribute('data-title') || title) : title;
+                
+                const descriptionEl = slideItem.querySelector('.block-description p');
+                const description = descriptionEl ? descriptionEl.textContent.trim() : '';
+                
+                let sourceSection = '';
+                const sectionEl = slideItem.closest('section');
+                if (sectionEl) {
+                    const sectionTitle = sectionEl.querySelector('.main-title');
+                    if (sectionTitle) {
+                        sourceSection = sectionTitle.textContent.trim();
+                    }
+                }
+                
+                return {
+                    itemId: itemId || slideItem.getAttribute('data-item-id') || '',
+                    title,
+                    image,
+                    badge,
+                    duration,
+                    tag,
+                    videoId,
+                    videoTitle,
+                    description,
+                    sourceSection
+                };
+            } catch (error) {
+                console.warn('Failed to build watch list payload', error);
+                return null;
+            }
+        }
+        
+        handlePotentialSlideNode(node) {
+            if (!node || node.nodeType !== Node.ELEMENT_NODE) {
+                return false;
+            }
+            
+            let processed = false;
+            
+            if (node.classList && node.classList.contains('slide-item')) {
+                const nodeId = this.ensureItemId(node);
+                this.cacheItemSnapshot(node, nodeId);
+                processed = true;
+            }
+            
+            if (node.querySelectorAll) {
+                const nested = node.querySelectorAll('.slide-item');
+                if (nested.length) {
+                    nested.forEach(slide => {
+                        const id = this.ensureItemId(slide);
+                        this.cacheItemSnapshot(slide, id);
+                    });
+                    processed = true;
+                }
+            }
+            
+            return processed;
+        }
+        
+        markExistingItems() {
+            const savedIds = new Set(this.watchlist.map(item => item.itemId));
+            const items = document.querySelectorAll('[data-item-id]');
+            items.forEach(item => {
+                const itemId = item.getAttribute('data-item-id');
+                const plusIcon = item.querySelector('.fa-plus');
+                if (!plusIcon) return;
+                const plusWrapper = plusIcon.closest('span');
+                
+                if (savedIds.has(itemId)) {
+                    plusIcon.classList.add('in-watchlist');
+                    if (plusWrapper) {
+                        plusWrapper.classList.add('watchlist-added');
+                        plusWrapper.setAttribute('title', 'Remove from Watch List');
+                    }
+                } else {
+                    plusIcon.classList.remove('in-watchlist');
+                    if (plusWrapper) {
+                        plusWrapper.classList.remove('watchlist-added');
+                        plusWrapper.removeAttribute('title');
+                    }
+                }
+            });
+        }
+        
+        renderWatchlistPage() {
+            const latestList = document.getElementById('watchlist-latest-list');
+            const allList = document.getElementById('watchlist-all-list');
+            if (!latestList && !allList) return;
+            
+            const sortedItems = [...this.watchlist].sort((a, b) => (a.addedAt || 0) - (b.addedAt || 0));
+            const activeItems = [];
+            const expiredIds = [];
+            const now = Date.now();
+            
+            sortedItems.forEach(item => {
+                if (this.isItemActive(item, now)) {
+                    activeItems.push(item);
+                } else {
+                    expiredIds.push(item.itemId);
+                }
+            });
+            
+            if (expiredIds.length) {
+                this.watchlist = this.watchlist.filter(item => !expiredIds.includes(item.itemId));
+                expiredIds.forEach(id => this.deleteItemCookie(id));
+                try {
+                    localStorage.setItem(this.storageKey, JSON.stringify(this.watchlist));
+                } catch (_) {}
+            }
+            
+            if (latestList) {
+                this.resetSlider(latestList);
+                const latestItems = activeItems.slice(-10).reverse();
+                latestItems.forEach(item => {
+                    latestList.appendChild(this.createWatchlistSlide(item));
+                });
+                const latestEmptyState = document.querySelector('.watchlist-empty[data-section="latest"]');
+                this.toggleEmptyState(latestEmptyState, latestItems.length === 0, latestList);
+                this.updateCount('watchlist-latest-count', latestItems.length);
+                this.activateSlider(latestList);
+            }
+            
+            if (allList) {
+                this.resetSlider(allList);
+                activeItems.forEach(item => {
+                    allList.appendChild(this.createWatchlistSlide(item));
+                });
+                const allEmptyState = document.querySelector('.watchlist-empty[data-section="all"]');
+                this.toggleEmptyState(allEmptyState, activeItems.length === 0, allList);
+                this.updateCount('watchlist-all-count', activeItems.length);
+                this.activateSlider(allList);
+            }
+            
+            this.prepareAllItems();
+            this.markExistingItems();
+        }
+        
+        resetSlider(listElement) {
+            if (!listElement) return;
+            if (typeof jQuery !== 'undefined') {
+                const $slider = jQuery(listElement);
+                if ($slider.hasClass('slick-initialized')) {
+                    try {
+                        $slider.slick('unslick');
+                    } catch (_) {}
+                }
+            }
+            listElement.innerHTML = '';
+        }
+        
+        activateSlider(listElement) {
+            if (!listElement) return;
+            if (typeof jQuery === 'undefined') return;
+            const $slider = jQuery(listElement);
+            if (!$slider.length) return;
+            if (!$slider.children('.slide-item').length) return;
+            
+            try {
+                $slider.slick(this.sliderOptions);
+            } catch (err) {
+                console.warn('Failed to initialize watch list slider', err);
+            }
+        }
+        
+        toggleEmptyState(messageElement, isEmpty, listElement) {
+            if (messageElement) {
+                messageElement.style.display = isEmpty ? 'block' : 'none';
+            }
+            if (listElement) {
+                const container = listElement.closest('.favorite-contens');
+                if (container) {
+                    container.style.display = isEmpty ? 'none' : 'block';
+                }
+            }
+        }
+        
+        updateCount(elementId, count) {
+            if (!elementId) return;
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            if (!count) {
+                element.textContent = '';
+                element.style.display = 'none';
+                return;
+            }
+            const label = count === 1 ? 'title' : 'titles';
+            element.textContent = `${count} ${label}`;
+            element.style.display = 'block';
+        }
+        
+        isItemActive(item, now = Date.now()) {
+            if (!item || !item.itemId) return false;
+            let expiresAt = item.expiresAt;
+            if (!expiresAt) {
+                expiresAt = (item.addedAt || now) + this.expiryDurationMs;
+                item.expiresAt = expiresAt;
+            }
+            if (expiresAt <= now) {
+                return false;
+            }
+            if (!this.hasItemCookie(item.itemId)) {
+                this.setItemCookie(item.itemId);
+            }
+            return true;
+        }
+        
+        createWatchlistSlide(item) {
+            const li = document.createElement('li');
+            li.className = 'slide-item';
+            li.setAttribute('data-item-id', item.itemId);
+            li.setAttribute('data-added-at', item.addedAt || Date.now());
+            
+            const imageSrc = item.image && item.image.trim() ? item.image : 'images/favorite/f1.jpg';
+            const safeTitle = this.escapeHtml(item.title || 'Saved Title');
+            const badgeMarkup = item.badge ? `<div class="badge badge-secondary p-1 mr-2">${this.escapeHtml(item.badge)}</div>` : '';
+            const durationMarkup = item.duration ? `<span class="text-white">${this.escapeHtml(item.duration)}</span>` : '';
+            const tagMarkup = item.tag ? `<span class="sequel-tag">${this.escapeHtml(item.tag)}</span>` : '';
+            const sourceMarkup = item.sourceSection ? `<p class="watchlist-source text-white-50 mb-2">Saved from ${this.escapeHtml(item.sourceSection)}</p>` : '';
+            const descriptionMarkup = item.description ? `<p class="watchlist-description text-white-50 mb-0">${this.escapeHtml(item.description)}</p>` : '';
+            const playMarkup = item.videoId ? `
+                <div class="hover-buttons">
+                    <span class="btn btn-hover iq-button" data-video-id="${this.escapeAttribute(item.videoId)}" data-title="${this.escapeAttribute(item.videoTitle || item.title)}">
+                        <i class="fa fa-play mr-1"></i>
+                        Play Now
+                    </span>
+                </div>
+            ` : '';
+            
+            li.innerHTML = `
+                <div class="block-images position-relative">
+                    <div class="img-box">
+                        <img src="${this.escapeAttribute(imageSrc)}" class="img-fluid" alt="${this.escapeAttribute(safeTitle)}" />
+                    </div>
+                    <div class="block-description">
+                        <h6 class="iq-title">
+                            <a href="#"> ${safeTitle} </a>
+                        </h6>
+                        <div class="movie-time d-flex align-items-center my-2">
+                            ${badgeMarkup}
+                            ${durationMarkup}
+                            ${tagMarkup}
+                        </div>
+                        ${sourceMarkup}
+                        ${descriptionMarkup}
+                        ${playMarkup}
+                    </div>
+                    <div class="block-social-info">
+                        <ul class="list-inline p-0 m-0 music-play-lists">
+                            <li class="share">
+                                <span><i class="fa fa-share-alt"></i></span>
+                                <div class="share-box">
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
+                                        <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
+                                        <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-heart"></i></span>
+                                <span class="count-box">0+</span>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-plus"></i></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            
+            const payload = {
+                itemId: item.itemId,
+                title: item.title,
+                image: imageSrc,
+                badge: item.badge,
+                duration: item.duration,
+                tag: item.tag,
+                videoId: item.videoId,
+                videoTitle: item.videoTitle,
+                description: item.description,
+                sourceSection: item.sourceSection,
+                expiresAt: item.expiresAt
+            };
+            try {
+                li.setAttribute('data-watchlist-payload', JSON.stringify(payload));
+            } catch (_) {
+                // ignore attribute serialization issues
+            }
+            
+            return li;
+        }
+        
+        escapeHtml(value) {
+            if (value == null) return '';
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+        
+        escapeAttribute(value) {
+            if (value == null) return '';
+            return String(value).replace(/"/g, '&quot;');
+        }
+        
+        showNotification(message, type = 'info') {
+            try {
+                if (window.likeSystem && typeof window.likeSystem.showNotification === 'function') {
+                    window.likeSystem.showNotification(message, type);
+                    return;
+                }
+            } catch (_) {}
+            
+            // Fallback basic alert
+            console.log(`[Watchlist] ${message}`);
+        }
+        
+        setItemCookie(itemId) {
+            if (!itemId) return;
+            this.setCookie(this.cookiePrefix + itemId, '1', this.cookieLifetimeDays);
+        }
+        
+        deleteItemCookie(itemId) {
+            if (!itemId) return;
+            this.setCookie(this.cookiePrefix + itemId, '', -1);
+        }
+        
+        hasItemCookie(itemId) {
+            if (!itemId) return false;
+            return this.getCookie(this.cookiePrefix + itemId) === '1';
+        }
+        
+        setCookie(name, value, days) {
+            try {
+                const expires = days ? new Date(Date.now() + days * 86400000).toUTCString() : 'Thu, 01 Jan 1970 00:00:00 GMT';
+                document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+            } catch (error) {
+                console.warn('Failed to set watch list cookie', error);
+            }
+        }
+        
+        getCookie(name) {
+            try {
+                const decodedCookie = decodeURIComponent(document.cookie || '');
+                const target = `${encodeURIComponent(name)}=`;
+                const parts = decodedCookie.split(';');
+                for (let part of parts) {
+                    part = part.trim();
+                    if (part.startsWith(target)) {
+                        return part.substring(target.length);
+                    }
+                }
+            } catch (error) {
+                console.warn('Failed to read watch list cookie', error);
+            }
+            return null;
+        }
+    }
+    
+    const watchlistManager = new WatchlistManager();
+    window.watchlistManager = watchlistManager;
     
     jQuery(document).ready(function(){
         function activaTav(pill){

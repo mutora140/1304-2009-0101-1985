@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nerflix Watch List</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/slick-theme.css" />
+  <link rel="stylesheet" href="css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="css/animate.min.css" />
+  <link rel="stylesheet" href="css/magnific-popup.css" />
+  <link rel="stylesheet" href="css/select2.min.css" />
+  <link rel="stylesheet" href="css/select2-bootstrap4.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="css/slick-animation.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="watchlist-page">
+  <header id="main-header">
+    <div class="main-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="navbar-toggler-icon" data-toggle="collapse">
+                  <span class="navbar-menu-icon navbar-menu-icon--top"></span>
+                  <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
+                  <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
+                </div>
+              </a>
+              <a href="index.html" class="navbar-brand">
+                <img src="images/logo.png" class="img-fluid logo" alt="" />
+              </a>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="menu-main-menu-container">
+                  <ul id="top-menu" class="navbar-nav ml-auto">
+                    <li class="menu-item"><a href="index.html">home</a></li>
+                    <li class="menu-item"><a href="#">show</a></li>
+                    <li class="menu-item"><a href="#">trendings</a></li>
+                    <li class="menu-item">
+                      <a href="#">interpreters</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a href="#">Rocky</a></li>
+                        <li class="menu-item"><a href="#">Gaheza</a></li>
+                        <li class="menu-item"><a href="#">Sankara</a></li>
+                        <li class="menu-item">
+                          <a href="#">Junior Giti</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="#">Abandi</a>
+                          <ul class="sub-menu">
+                            <li class="menu-item">
+                              <a href="#">Dylan</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">P.K</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">Savimbi</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>                   
+                  </ul>
+                </div>
+              </div>
+              <div class="mobile-more-menu">
+                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-ellipsis-h"></i>
+                </a>
+                <div class="more-menu" aria-labelledby="dropdownMenuButton">
+                  <div class="navbar-right position-relative">
+                    <ul class="d-flex align-items-center justify-content-end list-inline m-0">
+                      <li>
+                        <a href="#" class="search-toggle">
+                          <i class="fa fa-search"></i>
+                        </a>
+                        <div class="search-box iq-search-bar">
+                          <form action="#" class="searchbox">
+                            <div class="form-group position-relative">
+                              <input type="text" class="text search-input font-size-12"
+                                placeholder="type here to search..." />
+                              <i class="search-link fa fa-search"></i>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="nav-item nav-icon">
+                        <a href="#" class="search-toggle position-relative">
+                          <i class="fa fa-bell"></i>
+                          <span class="bg-danger dots"></span>
+                        </a>
+                        <div class="iq-sub-dropdown">
+                          <div class="iq-card shadow-none m-0">
+                            <div class="iq-card-body">
+                              <a href="#" class="iq-sub-card">
+                                <div class="media align-items-center">
+                                  <img src="images/notify/thumb-1.jpg" alt="" class="img-fluid mr-3" />
+                                  <div class="media-body">
+                                    <h6 class="mb-0">Captain Marvel</h6>
+                                    <small class="font-size-12">just now</small>
+                                  </div>
+                                </div>
+                              </a>
+                              <a href="#" class="iq-sub-card">
+                                <div class="media align-items-center">
+                                  <img src="images/notify/thumb-2.jpg" alt="" class="img-fluid mr-3" />
+                                  <div class="media-body">
+                                    <h6 class="mb-0">
+                                      Dora and The Lost City of Gold
+                                    </h6>
+                                    <small class="font-size-12">25 mins ago</small>
+                                  </div>
+                                </div>
+                              </a>
+                              <a href="#" class="iq-sub-card">
+                                <div class="media align-items-center">
+                                  <img src="images/notify/thumb-3.jpg" alt="" class="img-fluid mr-3" />
+                                  <div class="media-body">
+                                    <h6 class="mb-0">Mulan</h6>
+                                    <small class="font-size-12">1h 30 mins ago</small>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
+                          <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                        </a>
+                        
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="navbar-right menu-right">
+                <ul class="d-flex align-items-center list-inline m-0">
+                  <li class="nav-item nav-icon">
+                    <a href="#" class="search-toggle device-search">
+                      <i class="fa fa-search"></i>
+                    </a>
+                    <div class="search-box iq-search-bar d-search">
+                      <form action="#" class="searchbox">
+                        <div class="form-group position-relative">
+                          <input type="text" class="text search-input font-size-12"
+                            placeholder="type here to search..." />
+                          <i class="search-link fa fa-search"></i>
+                        </div>
+                      </form>
+                    </div>
+                  </li>
+                  <li class="nav-item nav-icon">
+                    <a href="#" class="search-toggle" data-toggle="search-toggle">
+                      <i class="fa fa-bell"></i>
+                      <span class="bg-danger dots"></span>
+                    </a>
+                    <div class="iq-sub-dropdown">
+                      <div class="iq-card shadow-none m-0">
+                        <div class="iq-card-body">
+                          <a href="#" class="iq-sub-card">
+                            <div class="media align-items-center">
+                              <img src="images/notify/thumb-1.jpg" alt="" class="img-fluid mr-3" />
+                              <div class="media-body">
+                                <h6 class="mb-0">Captain Marvel</h6>
+                                <small class="font-size-12">just now</small>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="iq-sub-card">
+                            <div class="media align-items-center">
+                              <img src="images/notify/thumb-2.jpg" alt="" class="img-fluid mr-3" />
+                              <div class="media-body">
+                                <h6 class="mb-0">
+                                  Dora and The Lost City of Gold
+                                </h6>
+                                <small class="font-size-12">25 mins ago</small>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="iq-sub-card">
+                            <div class="media align-items-center">
+                              <img src="images/notify/thumb-3.jpg" alt="" class="img-fluid mr-3" />
+                              <div class="media-body">
+                                <h6 class="mb-0">Mulan</h6>
+                                <small class="font-size-12">1h 30 mins ago</small>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item nav-icon">
+                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+                      <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                    </a>
+                    
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="nav-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Video Gallery Overlay -->
+  <div id="video-gallery-overlay" class="video-gallery-overlay">
+    <div class="video-gallery-container">
+      
+      <div class="video-gallery-content">
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="video-player-container">
+              <div id="youtube-player"></div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="video-info">
+              <h2 id="video-title" class="video-title">Avengers: Endgame</h2>
+              
+              <!-- Rating Section -->
+              <div class="video-meta">
+                <div class="rating-section">
+                  <h6 class="meta-label">Rating:</h6>
+                  <span class="rating">
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star-half text-primary"></i>
+                    <span class="ml-2">8.4/10</span>
+                  </span>
+                </div>
+                <div class="movie-details">
+                  <span class="badge badge-secondary">16+</span>
+                  <span class="duration">2h 21min</span>
+                  <span class="year">2019</span>
+                </div>
+              </div>
+              
+              <!-- Genres Section -->
+              <div class="genres-section">
+                <h6 class="meta-label">Genres:</h6>
+                <div class="genres-list">
+                  <span class="genre-tag">Action</span>
+                  <span class="genre-tag">Adventure</span>
+                  <span class="genre-tag">Drama</span>
+                </div>
+              </div>
+              
+              <!-- Tags Section -->
+              <div class="tags-section">
+                <h6 class="meta-label">Tags:</h6>
+                <div class="tags-list">
+                  <span class="tag-item">Action</span>
+                  <span class="tag-item">Comedy</span>
+                  <span class="tag-item">Adventure</span>
+                </div>
+              </div>
+              
+              <p class="video-description">
+                After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.
+              </p>
+              <div class="video-actions">
+                <button class="btn btn-hover btn-watch-full">
+                  <i class="fa fa-play mr-2"></i>Watch Full Movie
+                </button>
+                <button class="btn btn-outline btn-download">
+                  <i class="fa fa-download mr-2"></i>Download
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recommended Sections -->
+       
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content pt-5">
+    <section class="watchlist-hero text-center py-5">
+      <div class="container"><br><br><br>
+        <p class="lead text-white-50">
+          Movies and series you save from Nerflix will appear here. Add titles using the plus
+          icon anywhere on the site and come back to continue watching.
+        </p>
+        <div class="watchlist-hero-actions mt-4">
+          <a href="index.html" class="btn btn-hover iq-button mr-3">
+            <i class="fa fa-compass mr-2"></i>
+            Discover More
+          </a>
+          <button class="btn btn-secondary watchlist-clear-all" id="watchlist-clear-all" type="button">
+            <i class="fa fa-trash mr-2"></i>
+            Clear Watch List
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="watchlist-latest" class="pt-0">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 overflow-hidden">
+            <div class="iq-main-header d-flex align-items-center justify-content-between">
+              <h4 class="main-title">Latest Additions</h4>
+              <span class="watchlist-count text-white-50" id="watchlist-latest-count"></span>
+            </div>
+            <p class="watchlist-empty text-center text-white-50 py-5 mb-0" data-section="latest">
+              Nothing here yet. Add something from the home page to see it appear instantly.
+            </p>
+            <div class="favorite-contens">
+              <ul class="favorites-slider list-inline row p-0 mb-0" id="watchlist-latest-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="watchlist-all" class="pt-0">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 overflow-hidden">
+            <div class="iq-main-header d-flex align-items-center justify-content-between">
+              <h4 class="main-title">All Saved Titles</h4>
+              <span class="watchlist-count text-white-50" id="watchlist-all-count"></span>
+            </div>
+            <p class="watchlist-empty text-center text-white-50 py-5 mb-0" data-section="all">
+              Your complete watch list will appear here in the order you added titles.
+            </p>
+            <div class="favorite-contens">
+              <ul class="favorites-slider list-inline row p-0 mb-0" id="watchlist-all-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="iq-bg-dark">
+    <div class="footer-top">
+      <div class="container-fluid">
+        <div class="row footer-standard">
+          <div class="col-lg-5">
+            <div class="widget text-left">
+              <div>
+                <ul class="menu p-0">
+                  <li><a href="#">Terms of Use</a></li>
+                  <li><a href="#">Privacy-Policy</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="watchlist.html">Watch List</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="widget text-left">
+              <div class="textwidget">
+                <p>
+                  <small>
+                    Keep track of all your favorite titles with the Nerflix watch list. Add shows and movies
+                    from anywhere on the site and return here to continue watching without missing a beat.
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+            <h6 class="footer-link-title">Follow Us:</h6>
+            <ul class="info-share">
+              <li>
+                <a href="#">
+                  <i><fa class="fa fa-facebook"></fa></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i><fa class="fa fa-youtube"></fa></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i><fa class="fa fa-instagram"></fa></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="chat-container">
+            <div class="chat-icon" id="chatIcon">
+              <i class="fas fa-paper-plane" id="chatIconSymbol"></i>
+              <div class="notification" id="notification">1</div>
+            </div>
+            <div class="chat-box" id="chatBox">
+              <div class="chat-header">
+                <div class="chat-header-content">
+                  <div class="avatar">
+                    <i class="fas fa-headset"></i>
+                  </div>
+                  <div class="header-text">
+                    <h3>Support Team</h3>
+                    <p><span class="status"></span> Online now</p>
+                  </div>
+                </div>
+                <button class="close-btn" id="closeBtn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="chat-body" id="chatBody">
+                <div class="message admin">
+                  <div class="message-content">
+                    👋 Hello! How can we help you today?
+                  </div>
+                  <div class="message-time">10:00 AM</div>
+                </div>
+                <div class="typing-indicator" id="typingIndicator">
+                  Typing <span class="typing-dots"><span></span><span></span><span></span></span>
+                </div>
+              </div>
+              <div class="chat-footer">
+                <div class="message-input-container">
+                  <input
+                    type="text"
+                    class="message-input"
+                    id="messageInput"
+                    placeholder="Type your message..."
+                  />
+                  <button class="emoji-btn">
+                    <i class="far fa-smile"></i>
+                  </button>
+                </div>
+                <button class="send-btn" id="sendBtn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/select2.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/slick-animation.min.js"></script>
+  <script src="js/search.js"></script>
+  <script src="main.js"></script>
+  <script src="trending-play.js"></script>
+</body>
+</html>
+
