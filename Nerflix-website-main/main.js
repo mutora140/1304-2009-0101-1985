@@ -1,7 +1,92 @@
 (function (jQuery){
     "use strict";
     
+    // ============================================
+    // Smooth Loading and Page Transitions
+    // ============================================
+    
+    // Page Loader Handler
+    function initPageLoader() {
+        const pageLoader = document.getElementById('page-loader');
+        if (pageLoader) {
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    pageLoader.classList.add('hidden');
+                    // Remove from DOM after animation
+                    setTimeout(function() {
+                        pageLoader.style.display = 'none';
+                    }, 500);
+                }, 300);
+            });
+        }
+    }
+    
+    // Smooth Page Transitions
+    function initPageTransitions() {
+        // Handle all internal links
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a[href]');
+            if (!link) return;
+            
+            const href = link.getAttribute('href');
+            // Only handle internal links (same domain)
+            if (href && !href.startsWith('#') && !href.startsWith('javascript:') && 
+                !href.startsWith('mailto:') && !href.startsWith('tel:') &&
+                (href.startsWith('/') || href.includes(window.location.hostname) || 
+                 !href.includes('http'))) {
+                
+                // Don't prevent default for video gallery links
+                if (link.classList.contains('iq-button') || link.closest('.video-gallery-overlay')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                
+                // Add transition class
+                document.body.classList.add('page-transitioning');
+                
+                // Navigate after short delay
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 300);
+            }
+        });
+    }
+    
+    // Image Loading Handler
+    function initImageLoading() {
+        const images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    img.classList.add('loaded');
+                });
+                img.addEventListener('error', function() {
+                    img.classList.add('loaded'); // Show even if error
+                });
+            }
+        });
+    }
+    
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            initPageLoader();
+            initPageTransitions();
+            initImageLoading();
+        });
+    } else {
+        initPageLoader();
+        initPageTransitions();
+        initImageLoading();
+    }
+    
+    // ============================================
     // Like System Implementation
+    // ============================================
     class LikeSystem {
         constructor() {
             this.cookiePrefix = 'nerflix_like_';
@@ -1914,8 +1999,15 @@
     // Function to create embedded video player
     function createVideoPlayer(videoId) {
         const videoContainer = document.getElementById('youtube-player');
+        const loadingIndicator = document.getElementById('video-loading-indicator');
+        
         if (videoContainer && videoId) {
             try {
+                // Show loading indicator
+                if (loadingIndicator) {
+                    loadingIndicator.classList.add('active');
+                }
+                
                 // Clear existing content
                 videoContainer.innerHTML = '';
                 
@@ -1930,6 +2022,15 @@
                 iframe.allowFullscreen = true;
                 iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1&origin=${window.location.origin}`;
                 
+                // Hide loading indicator when video loads
+                iframe.addEventListener('load', function() {
+                    if (loadingIndicator) {
+                        setTimeout(function() {
+                            loadingIndicator.classList.remove('active');
+                        }, 500);
+                    }
+                });
+                
                 // Append iframe
                 videoContainer.appendChild(iframe);
                 
@@ -1939,11 +2040,18 @@
                 console.log('Video player created successfully for:', videoId);
             } catch (error) {
                 console.error('Error creating video player:', error);
+                // Hide loading indicator on error
+                if (loadingIndicator) {
+                    loadingIndicator.classList.remove('active');
+                }
                 // Fallback: show error message
                 videoContainer.innerHTML = '<p style="color: white; text-align: center; padding: 20px;">Error loading video. Please try again.</p>';
             }
         } else {
             console.error('Video container not found or invalid video ID');
+            if (loadingIndicator) {
+                loadingIndicator.classList.remove('active');
+            }
         }
     }
     
@@ -1951,6 +2059,12 @@
     function loadVideoById(videoId) {
         if (videoId && videoId !== currentVideoId) {
             createVideoPlayer(videoId);
+        } else if (videoId === currentVideoId) {
+            // Hide loading indicator if video is already loaded
+            const loadingIndicator = document.getElementById('video-loading-indicator');
+            if (loadingIndicator) {
+                loadingIndicator.classList.remove('active');
+            }
         }
     }
     
@@ -2204,39 +2318,36 @@
                         showDefaultSection();
                     }
                     
-                    // Smoothly scroll to video player
+                    // Enhanced smooth scroll to video player - scroll to top of overlay first
                     setTimeout(function() {
                         const videoPlayer = videoGallery.find('.video-player-container');
                         const playerRow = videoGallery.find('.row').first();
                         
                         if (videoPlayer.length && playerRow.length) {
-                            // Get the position of the player row relative to the overlay
-                            const playerOffset = playerRow.offset();
-                            const overlayOffset = videoGallery.offset();
-                            const headerHeight = jQuery('header#main-header').outerHeight() || 100;
-                            
-                            if (playerOffset && overlayOffset) {
-                                // Calculate scroll position accounting for header
-                                const scrollPosition = playerOffset.top - overlayOffset.top - headerHeight - 20;
-                                
-                                // Smooth scroll the overlay
-                                jQuery('html, body').animate({
-                                    scrollTop: 0
-                                }, 0);
-                                
-                                videoGallery.animate({
-                                    scrollTop: scrollPosition
-                                }, 600, 'swing');
-                            } else {
-                                // Fallback: use scrollIntoView
-                                videoPlayer[0].scrollIntoView({ 
-                                    behavior: 'smooth', 
-                                    block: 'start',
-                                    inline: 'nearest'
-                                });
-                            }
+                            // First, scroll overlay to top smoothly
+                            videoGallery.animate({
+                                scrollTop: 0
+                            }, 400, 'swing', function() {
+                                // Then ensure the player is visible with a slight delay for smoothness
+                                setTimeout(function() {
+                                    const playerElement = playerRow[0];
+                                    if (playerElement) {
+                                        // Use scrollIntoView with smooth behavior
+                                        playerElement.scrollIntoView({ 
+                                            behavior: 'smooth', 
+                                            block: 'start',
+                                            inline: 'nearest'
+                                        });
+                                    }
+                                }, 100);
+                            });
+                        } else {
+                            // Fallback: scroll to top
+                            videoGallery.animate({
+                                scrollTop: 0
+                            }, 400, 'swing');
                         }
-                    }, 200);
+                    }, 100);
                 }
             }
         });
@@ -2434,42 +2545,41 @@
             // Load video immediately
             loadVideoById(videoId);
             
-            // Smoothly scroll to video player when gallery opens
+            // Enhanced smooth scroll to video player when gallery opens
             setTimeout(function() {
                 const videoPlayer = videoGallery.find('.video-player-container');
                 const playerRow = videoGallery.find('.row').first();
                 
                 if (videoPlayer.length && playerRow.length) {
-                    // Get the position of the player row relative to the overlay
-                    const playerOffset = playerRow.offset();
-                    const overlayOffset = videoGallery.offset();
-                    const headerHeight = jQuery('header#main-header').outerHeight() || 100;
+                    // First, ensure body/html are at top
+                    jQuery('html, body').animate({
+                        scrollTop: 0
+                    }, 0);
                     
-                    if (playerOffset && overlayOffset) {
-                        // Calculate scroll position accounting for header
-                        const scrollPosition = playerOffset.top - overlayOffset.top - headerHeight - 20;
-                        
-                        // Ensure body/html are at top
-                        jQuery('html, body').animate({
-                            scrollTop: 0
-                        }, 0);
-                        
-                        // Smooth scroll the overlay to show the video player
-                        videoGallery.animate({
-                            scrollTop: scrollPosition
-                        }, 600, 'swing');
-                    } else {
-                        // Fallback: use scrollIntoView
-                        videoPlayer[0].scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        });
-                    }
+                    // Then smoothly scroll overlay to top
+                    videoGallery.animate({
+                        scrollTop: 0
+                    }, 500, 'swing', function() {
+                        // After scrolling to top, ensure player is visible
+                        setTimeout(function() {
+                            const playerElement = playerRow[0];
+                            if (playerElement) {
+                                // Use scrollIntoView with smooth behavior for precise positioning
+                                playerElement.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start',
+                                    inline: 'nearest'
+                                });
+                            }
+                        }, 150);
+                    });
                 } else {
-                    // Fallback: scroll to top
-                    videoGallery.scrollTop(0);
+                    // Fallback: scroll to top smoothly
+                    videoGallery.animate({
+                        scrollTop: 0
+                    }, 500, 'swing');
                 }
-            }, 300);
+            }, 200);
         }
         
         // Make openVideoGallery function globally accessible
@@ -3088,13 +3198,13 @@ function toggleChat() {
   if (isChatOpen) {
     chatBox.classList.add('active');
     chatIcon.classList.add('send-mode');
-    chatIconSymbol.className = 'fas fa-paper-plane';
+    chatIconSymbol.className = 'fa fa-paper-plane';
     notification.style.display = 'none';
     messageInput.focus();
   } else {
     chatBox.classList.remove('active');
     chatIcon.classList.remove('send-mode');
-    chatIconSymbol.className = 'fas fa-paper-plane';
+    chatIconSymbol.className = 'fa fa-paper-plane';
   }
 }
 

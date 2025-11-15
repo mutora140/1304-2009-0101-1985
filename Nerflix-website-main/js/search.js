@@ -153,16 +153,19 @@ class NerflixSearch {
 
     createMovieResultHTML(movie) {
         return `
-            <div class="search-result-item" data-video-id="${movie.videoId}">
+            <div class="search-result-item" data-video-id="${movie.videoId}" data-title="${this.escapeHTML(movie.title)}">
                 <div class="search-result-content">
                     <div class="search-result-image">
-                        <img src="${movie.image}" alt="${movie.title}" onerror="this.src='images/placeholder.jpg'">
+                        <img src="${movie.image}" alt="${this.escapeHTML(movie.title)}" 
+                             onload="this.classList.add('loaded')" 
+                             onerror="this.src='images/placeholder.jpg'; this.classList.add('loaded')"
+                             loading="lazy">
                     </div>
                     <div class="search-result-info">
-                        <h6 class="search-result-title">${movie.title}</h6>
+                        <h6 class="search-result-title">${this.escapeHTML(movie.title)}</h6>
                         <div class="search-result-meta">
                             <span class="search-result-year">${movie.year}</span>
-                            <span class="search-result-genre">${movie.genres.join(', ')}</span>
+                            <span class="search-result-genre">${this.escapeHTML(movie.genres.join(', '))}</span>
                         </div>
                         <div class="search-result-rating">
                             <div class="rating-stars">
@@ -174,6 +177,12 @@ class NerflixSearch {
                 </div>
             </div>
         `;
+    }
+
+    escapeHTML(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     generateStarRating(stars) {
@@ -199,12 +208,19 @@ class NerflixSearch {
     bindResultEvents(container) {
         const resultItems = container.querySelectorAll('.search-result-item');
         resultItems.forEach(item => {
+            // Make entire item clickable
+            item.style.cursor = 'pointer';
+            
             item.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
+                
                 const videoId = item.dataset.videoId;
+                const title = item.dataset.title || item.querySelector('.search-result-title')?.textContent || 'Movie';
                 const movie = this.movieData.find(m => m.videoId === videoId);
-                if (movie) {
-                    this.handleMovieSelection(movie);
+                
+                if (movie || videoId) {
+                    this.handleMovieSelection(movie || { videoId: videoId, title: title });
                 }
             });
         });
@@ -214,15 +230,30 @@ class NerflixSearch {
         // Hide the search results
         this.hideAllSearchResults();
         
+        // Clear search input
+        this.searchInputs.forEach(input => {
+            if (input.value.trim()) {
+                input.value = '';
+            }
+        });
+        
         // Debug: Log the movie selection
-        console.log('Movie selected:', movie);
+        console.log('Movie selected from search:', movie);
         console.log('openVideoGallery available:', typeof window.openVideoGallery);
         
         // Open video gallery exactly like Play Now button does
-        if (window.openVideoGallery) {
-            // Pass only videoId and title, just like Play Now buttons
-            console.log('Calling openVideoGallery with:', movie.videoId, movie.title);
-            window.openVideoGallery(movie.videoId, movie.title);
+        // The existing video loading indicator will show automatically when video loads
+        if (typeof window.openVideoGallery === 'function') {
+            // Pass videoId and title, exactly like Play Now buttons do
+            const videoId = movie.videoId;
+            const title = movie.title || 'Movie';
+            
+            console.log('Calling openVideoGallery with:', videoId, title);
+            
+            // Use setTimeout to ensure the search results are hidden first
+            setTimeout(() => {
+                window.openVideoGallery(videoId, title);
+            }, 100);
         } else {
             console.error('openVideoGallery function not found!');
             // Fallback: Try to trigger the video gallery manually
