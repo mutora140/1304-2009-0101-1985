@@ -54,6 +54,7 @@ body{
     background: rgba(20, 20, 20, 0.5) !important;
     backdrop-filter: blur(1000px);
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .video-gallery-overlay.active {
@@ -67,15 +68,6 @@ body{
     min-height: 100vh;
 }
 
-.video-gallery-header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 99;
-    background: rgba(20, 20, 20, 0.5) !important;
-    backdrop-filter: blur(10px);
-}
 
 .close-btn {
     background: rgba(255, 255, 255, 0.1);
@@ -96,9 +88,10 @@ body{
 }
 
 .video-gallery-content {
-    padding-top: 20px;
+    padding-top: 100px;
     scroll-behavior: smooth;
     width: 100%;
+    position: relative;
 }
 
 .video-player-container {
@@ -454,6 +447,76 @@ body{
     margin-bottom: 20px;
 }
 
+/* Default sections in video gallery - ensure they match episodes section styling */
+.video-gallery-overlay .video-gallery-default-section {
+    display: block;
+    width: 100%;
+}
+
+.video-gallery-overlay .video-gallery-default-section h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.video-gallery-overlay .video-gallery-default-section .episodes-slider1 {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.video-gallery-overlay .video-gallery-default-section .e-item {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.video-gallery-overlay .video-gallery-default-section .block-image {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.video-gallery-overlay .video-gallery-default-section .episodes-description {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.video-gallery-overlay .video-gallery-default-section .episode-play-info {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+}
+
+.video-gallery-overlay .video-gallery-default-section .episode-play {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+.video-gallery-overlay .video-gallery-default-section .episode-play a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.video-gallery-overlay .video-gallery-default-section .episode-play a i {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
 /* Responsive Design */
 @media (min-width: 1200px) {
     .video-gallery-container {
@@ -631,6 +694,7 @@ body.video-gallery-active header#main-header {
     left: 0 !important;
     right: 0 !important;
     backdrop-filter: blur(10px) !important;
+    background: rgba(20, 20, 20, 0.95) !important;
 }
 
 /* Back Home Button Styles */
@@ -665,22 +729,24 @@ body.video-gallery-active header#main-header {
     font-size: 12px;
 }
 
-/* Show back home button when video gallery is active */
-body.video-gallery-active header#main-header .back-home-btn {
-    display: flex !important;
-}
-
-/* Hide logo when video gallery is active */
+/* Show logo when video gallery is active - use home page header as-is */
 body.video-gallery-active header#main-header .navbar-brand img {
-    display: none !important;
+    display: block !important;
 }
 
-/* Position navbar-brand when video gallery is active */
 body.video-gallery-active header#main-header .navbar-brand {
-    position: relative !important;
-    height: 60px !important;
     display: flex !important;
     align-items: center !important;
+    cursor: pointer;
+}
+
+body.video-gallery-active header#main-header .navbar-brand:hover {
+    opacity: 0.8;
+}
+
+/* Hide back home button when video gallery is active - use logo instead */
+body.video-gallery-active header#main-header .back-home-btn {
+    display: none !important;
 }
 
 .container-fluid{
@@ -2330,6 +2396,26 @@ ul#top-ten-slider .slick-bg::before{
     margin-top: 40px;
 }
 
+/* Remove space between Top Picks For You and Popular Movies sections */
+#iq-favorites {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#iq-upcoming-movie {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ensure no extra space when video gallery closes */
+body:not(.video-gallery-active) #iq-favorites {
+    margin-bottom: 0 !important;
+}
+
+body:not(.video-gallery-active) #iq-upcoming-movie {
+    margin-top: 0 !important;
+}
+
 /* ***************************** */
 li.slide-item .block-description .parallax-ratting span{
     font-size: 14px;
@@ -2845,23 +2931,26 @@ background: rgba(0, 0, 0, 0.8);
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .episode-play a{
     position: relative;
-    display: block;
     height: 40px;
     width: 40px;
-    line-height: 26px;
     font-size: 20px;
-    text-align: center;
     background: #fff;
     color: #e50914;
     border-radius: 50%;
-    margin:  0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.45s ease 0s;
+}
+
+.episode-play a i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .episodes-slider1 .owl-nav{
     position: absolute;

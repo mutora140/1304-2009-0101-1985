@@ -374,12 +374,8 @@
                   <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
                 </div>
               </a>
-              <a href="index.html" class="navbar-brand">
+              <a href="index.html" class="navbar-brand" onclick="if(typeof closeVideoGallery === 'function') { closeVideoGallery(); return false; }">
                 <img src="images/logo.png" class="img-fluid logo" alt="" />
-                <button class="back-home-btn" onclick="closeVideoGallery()">
-                  <i class="fa fa-arrow-left"></i>
-                  Back Home
-                </button>
               </a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
@@ -564,7 +560,6 @@
   <!-- Video Gallery Overlay -->
   <div id="video-gallery-overlay" class="video-gallery-overlay">
     <div class="video-gallery-container">
-      
       <div class="video-gallery-content">
         <div class="row">
           <div class="col-lg-9">
@@ -630,6 +625,360 @@
             </div>
           </div>
         </div>
+        
+        <!-- Default Section: Top Picks For You (shown by default) -->
+        <div id="video-gallery-default-section" class="video-gallery-default-section mt-4">
+          <h3 class="text-white mb-3">Top Picks For You</h3>
+          <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+            <!-- item 1 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/favorite/f1.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="acEoQpJq0qg" data-title="Insidious: The Last Key" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Insidious</a>
+                  <span class="text-primary">1h 43min</span>
+                </div>
+                <p class="mb-0">A horror thriller about a family confronting their dark past.</p>
+              </div>
+            </div>
+            <!-- item 2 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/favorite/f2.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="yQ5U8suTUw0" data-title="War (2019)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">War</a>
+                  <span class="text-primary">2h 34min</span>
+                </div>
+                <p class="mb-0">An action-packed thriller about two agents on a mission.</p>
+              </div>
+            </div>
+            <!-- item 3 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/favorite/f3.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="4qf9Uyn2acE" data-title="Five Feet Apart (2019)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Five Feet Apart</a>
+                  <span class="text-primary">2h 57min</span>
+                </div>
+                <p class="mb-0">A romantic drama about two teens with cystic fibrosis.</p>
+              </div>
+            </div>
+            <!-- item 4 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/favorite/f4.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="tsxemFXSQXQ" data-title="Chhichhore (2019)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Chhichhore</a>
+                  <span class="text-primary">2h 23min</span>
+                </div>
+                <p class="mb-0">A heartwarming story about friendship and life lessons.</p>
+              </div>
+            </div>
+            <!-- item 5 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/favorite/f5.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="Lt-U_t2pUHI" data-title="Doctor Strange (2016)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Doctor Strange</a>
+                  <span class="text-primary">1h 55min</span>
+                </div>
+                <p class="mb-0">A Marvel superhero origin story about a brilliant neurosurgeon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Default Section 2: Popular Movies -->
+        <div class="video-gallery-default-section mt-4">
+          <h3 class="text-white mb-3">Popular Movies</h3>
+          <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+            <!-- item 1 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/popular/u1.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Mulan (2020)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Mulan</a>
+                  <span class="text-primary">2h</span>
+                </div>
+                <p class="mb-0">A young Chinese maiden disguises herself as a warrior to save her father.</p>
+              </div>
+            </div>
+            <!-- item 2 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/popular/u2.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Laxmii (2020)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Laxmii</a>
+                  <span class="text-primary">2h 21min</span>
+                </div>
+                <p class="mb-0">A horror-comedy about a man who gets possessed by a ghost.</p>
+              </div>
+            </div>
+            <!-- item 3 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/popular/u3.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="W4DlMggBPvc" data-title="Captain America: The First Avenger" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Captain America</a>
+                  <span class="text-primary">2h 4min</span>
+                </div>
+                <p class="mb-0">Steve Rogers becomes a super-soldier during World War II.</p>
+              </div>
+            </div>
+            <!-- item 4 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/popular/u4.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="sDYVdxFZq8Y" data-title="Life of Pi (2012)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Life of Pi</a>
+                  <span class="text-primary">2h 7min</span>
+                </div>
+                <p class="mb-0">A young man survives a shipwreck and forms an unlikely bond with a tiger.</p>
+              </div>
+            </div>
+            <!-- item 5 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/popular/u5.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="q78_0TElYME" data-title="Mission Mangal (2019)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Mission Mangal</a>
+                  <span class="text-primary">2h 10min</span>
+                </div>
+                <p class="mb-0">The inspiring story of India's Mars Orbiter Mission.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Default Section 3: Recommended For You -->
+        <div class="video-gallery-default-section mt-4">
+          <h3 class="text-white mb-3">Recommended For You</h3>
+          <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+            <!-- item 1 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/tvthrillers/01.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="ej3ioOneQ48" data-title="The Martian (2015)" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">The Martian</a>
+                  <span class="text-primary">2h 45min</span>
+                </div>
+                <p class="mb-0">An astronaut must survive on Mars after being left behind by his crew.</p>
+              </div>
+            </div>
+            <!-- item 2 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/tvthrillers/02.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="Thriller Movie" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Thriller Series</a>
+                  <span class="text-primary">1h 30min</span>
+                </div>
+                <p class="mb-0">A gripping thriller that will keep you on the edge of your seat.</p>
+              </div>
+            </div>
+            <!-- item 3 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/tvthrillers/03.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="Action Thriller" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Action Thriller</a>
+                  <span class="text-primary">2h 15min</span>
+                </div>
+                <p class="mb-0">High-octane action and suspense in this thrilling adventure.</p>
+              </div>
+            </div>
+            <!-- item 4 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/tvthrillers/04.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="Mystery Thriller" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Mystery Thriller</a>
+                  <span class="text-primary">1h 50min</span>
+                </div>
+                <p class="mb-0">A mysterious plot unfolds in this captivating thriller.</p>
+              </div>
+            </div>
+            <!-- item 5 -->
+            <div class="e-item">
+              <div class="block-image position-relative">
+                <a href="#">
+                  <img src="images/tvthrillers/05.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="episode-play-info">
+                  <div class="episode-play">
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="Suspense Thriller" tabindex="0">
+                      <i class="fa fa-play"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="episodes-description text-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">Suspense Thriller</a>
+                  <span class="text-primary">2h 5min</span>
+                </div>
+                <p class="mb-0">A suspenseful journey filled with twists and turns.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Episodes Section (hidden by default, shown when episodes are selected) -->
+        <div id="video-episodes-gallery" class="video-episodes-gallery mt-4" style="display: none;"></div>
         
         <!-- Recommended Sections -->
        

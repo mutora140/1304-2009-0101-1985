@@ -2147,6 +2147,9 @@
              
              // Stop video
              stopVideo();
+             
+             // Reset to default section
+             showDefaultSection();
          }
          
          // Make closeVideoGallery function globally accessible
@@ -2167,6 +2170,77 @@
             openVideoGallery(videoId, title);
         });
         
+        // Event listeners for buttons inside video gallery (delegated event)
+        // This handles clicks on play buttons within the video gallery default sections
+        jQuery(document).on('click', '.video-gallery-overlay .iq-button', function(e) {
+            // Check if this click is from within the video gallery
+            if (videoGallery.hasClass('active')) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const videoId = jQuery(this).attr('data-video-id');
+                const title = jQuery(this).attr('data-title') || 'Movie Title';
+                
+                if (videoId) {
+                    // Keep default sections visible (only hide for series with episodes)
+                    showDefaultSection();
+                    
+                    // Load the video
+                    loadVideoById(videoId);
+                    updateSidebarContent(videoId);
+                    
+                    // Check if this is a series with episodes
+                    const btn = this;
+                    const eItem = jQuery(btn).closest('.e-item');
+                    // Check if there's a series select nearby (indicating it's a series)
+                    const hasSeriesContext = eItem.length && (
+                        eItem.closest('.trending-info').find('.season-select').length > 0 ||
+                        document.querySelector('.trending-info .season-select')
+                    );
+                    
+                    // Only show episodes if it's actually a series
+                    if (!hasSeriesContext) {
+                        // For regular movies, keep default sections visible
+                        showDefaultSection();
+                    }
+                    
+                    // Smoothly scroll to video player
+                    setTimeout(function() {
+                        const videoPlayer = videoGallery.find('.video-player-container');
+                        const playerRow = videoGallery.find('.row').first();
+                        
+                        if (videoPlayer.length && playerRow.length) {
+                            // Get the position of the player row relative to the overlay
+                            const playerOffset = playerRow.offset();
+                            const overlayOffset = videoGallery.offset();
+                            const headerHeight = jQuery('header#main-header').outerHeight() || 100;
+                            
+                            if (playerOffset && overlayOffset) {
+                                // Calculate scroll position accounting for header
+                                const scrollPosition = playerOffset.top - overlayOffset.top - headerHeight - 20;
+                                
+                                // Smooth scroll the overlay
+                                jQuery('html, body').animate({
+                                    scrollTop: 0
+                                }, 0);
+                                
+                                videoGallery.animate({
+                                    scrollTop: scrollPosition
+                                }, 600, 'swing');
+                            } else {
+                                // Fallback: use scrollIntoView
+                                videoPlayer[0].scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start',
+                                    inline: 'nearest'
+                                });
+                            }
+                        }
+                    }, 200);
+                }
+            }
+        });
+        
         // Close button event listener
         closeBtn.on('click', closeVideoGallery);
         
@@ -2185,6 +2259,14 @@
         
         // Initialize sliders for video gallery sections
         function initializeVideoGallerySliders() {
+            
+            // Initialize all default sections owl carousels (uses episodes-slider1 structure)
+            videoGallery.find('.video-gallery-default-section .episodes-slider1').each(function() {
+                const $slider = jQuery(this);
+                if ($slider.length && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+                    initEpisodesOwlCarousel($slider);
+                }
+            });
             
             if (videoGallery.find('.favorites-slider').length) {
                 videoGallery.find('.favorites-slider').slick({
@@ -2282,9 +2364,12 @@
             videoGallery.addClass('active');
             jQuery('body').css('overflow', 'hidden').addClass('video-gallery-active');
             
+            // Show default section by default
+            showDefaultSection();
+            
             // Update sidebar content with video-specific data
             updateSidebarContent(videoId);
-            // Render episodes under the player for THIS series (videoId)
+            // Render episodes under the player for THIS series (videoId) - only if it's a series
             try {
                 const findSelectForVideoId = (vid) => {
                     // Prefer the last clicked series scope
@@ -2314,6 +2399,8 @@
                 };
                 const seriesSelect = findSelectForVideoId(videoId);
                 if (seriesSelect) {
+                    // This is a series with episodes - show episodes and hide default section
+                    showEpisodesSection();
                     if (typeof window.switchSeasonEpisodes === 'function') {
                         window.switchSeasonEpisodes(seriesSelect);
                     }
@@ -2321,13 +2408,19 @@
                         window.renderEpisodesBelowPlayerFromSelect(seriesSelect, { scrollIntoView: true });
                     }
                 } else if (typeof window.renderEpisodesBelowPlayerFromAny === 'function') {
-                    // limit scope around the last clicked scope or the found slide item if possible
+                    // Check if there are episodes available
                     let scopeEl = window.__lastSeriesScope || null;
                     if (!scopeEl) {
                         const scopeBtn = document.querySelector('.slide-item .iq-button[data-video-id="' + videoId + '"]');
                         scopeEl = scopeBtn ? (scopeBtn.closest('.trending-info') || scopeBtn.closest('.overlay-tab') || scopeBtn.closest('.slide-item')) : null;
                     }
-                    window.renderEpisodesBelowPlayerFromAny({ scrollIntoView: true, scopeEl: scopeEl });
+                    // Check if episodes exist in scope
+                    const hasEpisodes = scopeEl && scopeEl.querySelector('.episodes-contens');
+                    if (hasEpisodes) {
+                        showEpisodesSection();
+                        window.renderEpisodesBelowPlayerFromAny({ scrollIntoView: true, scopeEl: scopeEl });
+                    }
+                    // If no episodes, default section will remain visible
                 }
             } catch (e) {
                 console.warn('Unable to render episodes below player on open:', e);
@@ -2341,22 +2434,41 @@
             // Load video immediately
             loadVideoById(videoId);
             
-            // Scroll to top of video gallery content
+            // Smoothly scroll to video player when gallery opens
             setTimeout(function() {
-                const videoGalleryContent = videoGallery.find('.video-gallery-content');
-                const videoGalleryContainer = videoGallery.find('.video-gallery-container');
+                const videoPlayer = videoGallery.find('.video-player-container');
+                const playerRow = videoGallery.find('.row').first();
                 
-                if (videoGalleryContent.length) {
-                    videoGalleryContent.scrollTop(0);
+                if (videoPlayer.length && playerRow.length) {
+                    // Get the position of the player row relative to the overlay
+                    const playerOffset = playerRow.offset();
+                    const overlayOffset = videoGallery.offset();
+                    const headerHeight = jQuery('header#main-header').outerHeight() || 100;
+                    
+                    if (playerOffset && overlayOffset) {
+                        // Calculate scroll position accounting for header
+                        const scrollPosition = playerOffset.top - overlayOffset.top - headerHeight - 20;
+                        
+                        // Ensure body/html are at top
+                        jQuery('html, body').animate({
+                            scrollTop: 0
+                        }, 0);
+                        
+                        // Smooth scroll the overlay to show the video player
+                        videoGallery.animate({
+                            scrollTop: scrollPosition
+                        }, 600, 'swing');
+                    } else {
+                        // Fallback: use scrollIntoView
+                        videoPlayer[0].scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                } else {
+                    // Fallback: scroll to top
+                    videoGallery.scrollTop(0);
                 }
-                
-                // Also scroll the main container to ensure video is visible
-                if (videoGalleryContainer.length) {
-                    videoGalleryContainer.scrollTop(0);
-                }
-                
-                // Scroll the entire overlay to top
-                videoGallery.scrollTop(0);
             }, 300);
         }
         
@@ -2375,16 +2487,52 @@
             mount = document.createElement('div');
             mount.id = 'video-episodes-gallery';
             mount.className = 'video-episodes-gallery mt-4';
-            // Insert after the top row (player + sidebar)
-            const row = content.querySelector('.row');
-            if (row && row.parentNode) {
-                row.parentNode.insertBefore(mount, row.nextSibling);
+            mount.style.display = 'none';
+            // Insert after the default section
+            const defaultSection = overlay.querySelector('#video-gallery-default-section');
+            if (defaultSection && defaultSection.parentNode) {
+                defaultSection.parentNode.insertBefore(mount, defaultSection.nextSibling);
             } else {
-                content.appendChild(mount);
+                // Fallback: Insert after the top row (player + sidebar)
+                const row = content.querySelector('.row');
+                if (row && row.parentNode) {
+                    row.parentNode.insertBefore(mount, row.nextSibling);
+                } else {
+                    content.appendChild(mount);
+                }
             }
         }
         return mount;
     }
+    
+    // Helper: Show default section and hide episodes
+    function showDefaultSection() {
+        const defaultSections = document.querySelectorAll('.video-gallery-default-section');
+        const episodesSection = document.getElementById('video-episodes-gallery');
+        defaultSections.forEach(function(section) {
+            section.style.display = 'block';
+        });
+        if (episodesSection) {
+            episodesSection.style.display = 'none';
+            episodesSection.innerHTML = ''; // Clear episodes content
+        }
+    }
+    
+    // Helper: Hide default section and show episodes
+    function showEpisodesSection() {
+        const defaultSections = document.querySelectorAll('.video-gallery-default-section');
+        const episodesSection = document.getElementById('video-episodes-gallery');
+        defaultSections.forEach(function(section) {
+            section.style.display = 'none';
+        });
+        if (episodesSection) {
+            episodesSection.style.display = 'block';
+        }
+    }
+    
+    // Make functions globally accessible
+    window.showDefaultSection = showDefaultSection;
+    window.showEpisodesSection = showEpisodesSection;
 
     // Initialize Owl Carousel on a given element with standard episodes settings
     function initEpisodesOwlCarousel($container) {
@@ -2418,6 +2566,9 @@
         try {
             const mount = ensureEpisodesMount();
             if (!mount || !selectEl) return;
+
+            // Hide default section and show episodes section
+            showEpisodesSection();
 
             // Locate the related episodes container (mirrors logic in switchSeasonEpisodes)
             let episodesContainer = null;
@@ -2506,6 +2657,9 @@
     function renderEpisodesBelowPlayerFromAny(options) {
         const mount = ensureEpisodesMount();
         if (!mount) return;
+
+        // Hide default section and show episodes section
+        showEpisodesSection();
 
         // Try to find e-items from a provided scope, else from the current movie
         let sourceContainer = null;
