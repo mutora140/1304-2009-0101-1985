@@ -89,110 +89,58 @@
     // ============================================
     class LikeSystem {
         constructor() {
-            this.cookiePrefix = 'nerflix_like_';
-            this.cookieLifetimeDays = 365; // 1 year
+            this.storageKey = 'nerflix_likes_data';
+            this.userIdKey = 'nerflix_user_id';
             this.currentUserId = this.getCurrentUserId(); // Get user ID first
             this.likesData = this.loadLikesData(); // Then load likes data
             this.init();
         }
         
-        // Generate or retrieve a unique user ID (stored in cookie)
+        // Generate or retrieve a unique user ID (stored in localStorage)
         getCurrentUserId() {
-            let userId = this.getCookie('nerflix_user_id');
-            if (!userId) {
-                userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                this.setCookie('nerflix_user_id', userId, this.cookieLifetimeDays);
+            try {
+                let userId = localStorage.getItem(this.userIdKey);
+                if (!userId) {
+                    userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    localStorage.setItem(this.userIdKey, userId);
+                }
+                return userId;
+            } catch (error) {
+                console.warn('Failed to get user ID from localStorage', error);
+                return 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
             }
-            return userId;
         }
         
-        // Load likes data from cookies
+        // Load likes data from localStorage
         loadLikesData() {
             const likesData = {};
             try {
-                // Get all cookies
-                const cookies = document.cookie.split(';');
-                
-                cookies.forEach(cookie => {
-                    cookie = cookie.trim();
-                    const equalIndex = cookie.indexOf('=');
-                    if (equalIndex === -1) return;
-                    
-                    const cookieName = decodeURIComponent(cookie.substring(0, equalIndex));
-                    const cookieValue = cookie.substring(equalIndex + 1);
-                    
-                    // Check if this is a like cookie
-                    if (cookieName.startsWith(this.cookiePrefix)) {
-                        const itemId = cookieName.replace(this.cookiePrefix, '');
-                        
-                        if (cookieValue && cookieValue !== '' && itemId) {
-                            // Initialize item if not exists
-                            if (!likesData[itemId]) {
-                                likesData[itemId] = {};
-                            }
-                            // Store like with current user ID
-                            likesData[itemId][this.currentUserId] = true;
+                const storedData = localStorage.getItem(this.storageKey);
+                if (storedData) {
+                    const parsed = JSON.parse(storedData);
+                    // Merge stored data
+                    Object.keys(parsed).forEach(itemId => {
+                        if (parsed[itemId] && typeof parsed[itemId] === 'object') {
+                            likesData[itemId] = parsed[itemId];
                         }
-                    }
-                });
+                    });
+                }
             } catch (error) {
-                console.warn('Failed to load likes from cookies', error);
+                console.warn('Failed to load likes from localStorage', error);
             }
             return likesData;
         }
         
-        // Save likes data to cookies
+        // Save likes data to localStorage
         saveLikesData() {
-            // This method is called after toggling likes, but we handle cookie setting in toggleLike
-            // This is kept for compatibility but cookies are set directly in toggleLike
-        }
-        
-        // Cookie helper methods
-        setCookie(name, value, days) {
             try {
-                const expires = days ? new Date(Date.now() + days * 86400000).toUTCString() : 'Thu, 01 Jan 1970 00:00:00 GMT';
-                document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+                localStorage.setItem(this.storageKey, JSON.stringify(this.likesData));
             } catch (error) {
-                console.warn('Failed to set like cookie', error);
+                console.warn('Failed to save likes to localStorage', error);
             }
         }
         
-        getCookie(name) {
-            try {
-                const decodedCookie = decodeURIComponent(document.cookie || '');
-                const target = `${encodeURIComponent(name)}=`;
-                const parts = decodedCookie.split(';');
-                for (let part of parts) {
-                    part = part.trim();
-                    if (part.startsWith(target)) {
-                        return part.substring(target.length);
-                    }
-                }
-            } catch (error) {
-                console.warn('Failed to read like cookie', error);
-            }
-            return null;
-        }
-        
-        // Set like cookie for an item
-        setLikeCookie(itemId) {
-            if (!itemId) return;
-            this.setCookie(this.cookiePrefix + itemId, '1', this.cookieLifetimeDays);
-        }
-        
-        // Delete like cookie for an item
-        deleteLikeCookie(itemId) {
-            if (!itemId) return;
-            this.setCookie(this.cookiePrefix + itemId, '', -1);
-        }
-        
-        // Check if item has like cookie
-        hasLikeCookie(itemId) {
-            if (!itemId) return false;
-            return this.getCookie(this.cookiePrefix + itemId) === '1';
-        }
-        
-        // Get like count for a specific item
+        // Get like count for a specific item (total likes from all users)
         getLikeCount(itemId) {
             if (!this.likesData[itemId]) {
                 return 0;
@@ -202,11 +150,6 @@
         
         // Check if current user has liked an item
         hasUserLiked(itemId) {
-            // Check cookie first (most reliable)
-            if (this.hasLikeCookie(itemId)) {
-                return true;
-            }
-            // Fallback to in-memory data
             if (!this.likesData[itemId]) {
                 return false;
             }
@@ -222,19 +165,31 @@
             const wasLiked = this.hasUserLiked(itemId);
             
             if (wasLiked) {
-                // Unlike - delete cookie and update in-memory data
-                this.deleteLikeCookie(itemId);
+                // Unlike - remove user's like
                 delete this.likesData[itemId][this.currentUserId];
+                // Clean up empty items
+                if (Object.keys(this.likesData[itemId]).length === 0) {
+                    delete this.likesData[itemId];
+                }
                 this.showNotification('Removed from favorites', 'info');
             } else {
-                // Like - set cookie and update in-memory data
-                this.setLikeCookie(itemId);
+                // Like - add user's like
                 this.likesData[itemId][this.currentUserId] = true;
                 this.showNotification('Added to favorites!', 'success');
             }
             
             this.saveLikesData();
             this.updateItemUI(itemId);
+            // Update all instances of this item on the page
+            this.updateAllItemInstances(itemId);
+        }
+        
+        // Update all instances of an item on the page (for items that appear multiple times)
+        updateAllItemInstances(itemId) {
+            const allItems = document.querySelectorAll(`[data-item-id="${itemId}"]`);
+            allItems.forEach(item => {
+                this.updateItemUI(itemId, item);
+            });
         }
         
         // Show notification to user (minimal styling)
@@ -281,8 +236,8 @@
         }
         
         // Update the UI for a specific item with visual heart icon styling
-        updateItemUI(itemId) {
-            const item = document.querySelector(`[data-item-id="${itemId}"]`);
+        updateItemUI(itemId, itemElement = null) {
+            const item = itemElement || document.querySelector(`[data-item-id="${itemId}"]`);
             if (!item) return;
             
             const likeCount = this.getLikeCount(itemId);
@@ -2282,6 +2237,25 @@
             }
             
             openVideoGallery(videoId, title);
+        });
+        
+        // Event listeners for notification bell items
+        jQuery(document).on('click', '.notification-item', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const videoId = jQuery(this).attr('data-video-id');
+            const title = jQuery(this).attr('data-title') || 'Movie Title';
+            
+            if (videoId) {
+                // Close notification dropdown if open
+                jQuery(this).closest('.iq-sub-dropdown').removeClass('show');
+                
+                // Open video gallery
+                if (typeof openVideoGallery === 'function') {
+                    openVideoGallery(videoId, title);
+                }
+            }
         });
         
         // Event listeners for buttons inside video gallery (delegated event)
