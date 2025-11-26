@@ -2239,6 +2239,137 @@
             openVideoGallery(videoId, title);
         });
         
+        let activeShareCopyPopup = null;
+
+        function hideShareCopyPopup() {
+            if (activeShareCopyPopup) {
+                activeShareCopyPopup.removeClass('show');
+                setTimeout(() => {
+                    activeShareCopyPopup.remove();
+                    activeShareCopyPopup = null;
+                }, 200);
+            }
+        }
+
+        function getVideoDataForShare($trigger) {
+            const directDataElement = $trigger.closest('[data-video-id]');
+            let videoId = directDataElement.attr('data-video-id');
+            let title = directDataElement.attr('data-title');
+
+            if (!videoId) {
+                const block = $trigger.closest('.block-images, .e-item, .slide-item, .shows-img');
+                const buttonWithData = block.find('[data-video-id]').first();
+                if (buttonWithData.length) {
+                    videoId = buttonWithData.attr('data-video-id');
+                    title = title || buttonWithData.attr('data-title');
+                }
+            }
+
+            if (!title) {
+                const heading = $trigger.closest('.block-images, .e-item').find('.iq-title, .slider-heading, h4, h5, h6').first();
+                if (heading.length) {
+                    title = heading.text().trim();
+                }
+            }
+
+            return {
+                videoId: videoId || window.currentVideoId || null,
+                title: title || 'Movie'
+            };
+        }
+
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                return navigator.clipboard.writeText(text);
+            }
+            return new Promise((resolve, reject) => {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    const successful = document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    if (successful) {
+                        resolve();
+                    } else {
+                        reject(new Error('Copy command unsuccessful'));
+                    }
+                } catch (err) {
+                    document.body.removeChild(textarea);
+                    reject(err);
+                }
+            });
+        }
+
+        function showShareCopyPopup({ title, link, platform }) {
+            hideShareCopyPopup();
+
+            const popup = jQuery(`
+                <div class="share-copy-popup">
+                    <div class="share-copy-content">
+                        <p class="share-copy-label">Copy ${platform} link</p>
+                        <p class="share-copy-title">${title}</p>
+                        <div class="share-copy-link" title="${link}">${link}</div>
+                        <div class="share-copy-actions">
+                            <button type="button" class="share-copy-btn">Copy link</button>
+                        </div>
+                        <p class="share-copy-status">Tap the button to copy this link.</p>
+                    </div>
+                </div>
+            `);
+
+            jQuery('body').append(popup);
+
+            requestAnimationFrame(() => {
+                popup.addClass('show');
+            });
+
+            activeShareCopyPopup = popup;
+
+            const statusEl = popup.find('.share-copy-status');
+            const linkEl = popup.find('.share-copy-link');
+            const buttonEl = popup.find('.share-copy-btn');
+
+            const copyAndReport = (manual = false) => {
+                statusEl.text('Copying link...');
+                copyTextToClipboard(link)
+                    .then(() => {
+                        statusEl.text('Link copied to clipboard');
+                        if (manual) {
+                            setTimeout(() => {
+                                hideShareCopyPopup();
+                            }, 200);
+                        }
+                    })
+                    .catch(() => {
+                        statusEl.text('Unable to copy automatically. Tap the link or button to copy manually.');
+                    });
+            };
+
+            linkEl.on('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                copyAndReport(true);
+            });
+
+            buttonEl.on('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                copyAndReport(true);
+            });
+
+            copyAndReport();
+        }
+
+        jQuery(document).on('click', function(event) {
+            if (activeShareCopyPopup && !jQuery(event.target).closest('.share-copy-content').length) {
+                hideShareCopyPopup();
+            }
+        });
+
         // Event listeners for notification bell items
         jQuery(document).on('click', '.notification-item', function(e) {
             e.preventDefault();
@@ -2249,12 +2380,75 @@
             
             if (videoId) {
                 // Close notification dropdown if open
-                jQuery(this).closest('.iq-sub-dropdown').removeClass('show');
+                const dropdown = jQuery(this).closest('.iq-sub-dropdown');
+                dropdown.removeClass('show');
+                
+                const listItem = jQuery(this).closest('li');
+                if (listItem.length) {
+                    listItem.removeClass('iq-show');
+                    listItem.find('.search-toggle').removeClass('active');
+                }
                 
                 // Open video gallery
                 if (typeof openVideoGallery === 'function') {
                     openVideoGallery(videoId, title);
                 }
+            }
+        });
+
+        jQuery(document).on('click', '.share-ico', function(e) {
+            const icon = jQuery(this).find('i');
+            if (!icon.length) {
+                return;
+            }
+
+            const isYoutube = icon.hasClass('fa-youtube');
+            const isInstagram = icon.hasClass('fa-instagram');
+
+            if (!isYoutube && !isInstagram) {
+                return;
+            }
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            const videoData = getVideoDataForShare(jQuery(this));
+            if (!videoData.videoId) {
+                showShareCopyPopup({
+                    title: videoData.title,
+                    link: 'Link unavailable',
+                    platform: isYoutube ? 'YouTube' : 'Instagram'
+                });
+                return;
+            }
+
+            const shareLink = `https://www.youtube.com/watch?v=${videoData.videoId}`;
+            showShareCopyPopup({
+                title: videoData.title,
+                link: shareLink,
+                platform: isYoutube ? 'YouTube' : 'Instagram'
+            });
+        });
+
+        jQuery(document).on('click', '.video-open.playbtn', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const trigger = jQuery(this);
+            let videoId = trigger.attr('data-video-id');
+            let title = trigger.attr('data-title');
+
+            if (!videoId) {
+                const slideScope = trigger.closest('.slide');
+                const fallbackButton = slideScope.find('.iq-button[data-video-id]').first();
+                if (fallbackButton.length) {
+                    videoId = fallbackButton.attr('data-video-id');
+                    title = title || fallbackButton.attr('data-title');
+                }
+            }
+
+            if (videoId && typeof openVideoGallery === 'function') {
+                openVideoGallery(videoId, title || 'Trailer');
             }
         });
         
@@ -2990,6 +3184,11 @@
         
         setupEventListeners() {
             document.addEventListener('click', (e) => {
+                // Ignore clicks originating from share icons so they only show the copy popup
+                if (e.target.closest('.share-ico')) {
+                    return;
+                }
+
                 // Don't handle heart icon clicks - let the like system handle those
                 if (e.target.classList.contains('fa-heart') || e.target.closest('.fa-heart')) {
                     return;

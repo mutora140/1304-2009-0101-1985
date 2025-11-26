@@ -52,8 +52,17 @@ class NerflixSearch {
 
         // Close search results when clicking outside
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.search-input') && !e.target.closest('.search-results-container')) {
+            const clickedInsideSearchInput = e.target.closest('.search-input');
+            const clickedInsideResults = e.target.closest('.search-results-container');
+            const clickedInsideSearchBox = e.target.closest('.search-box');
+            const clickedToggle = e.target.closest('.search-toggle');
+
+            if (!clickedInsideSearchInput && !clickedInsideResults) {
                 this.hideAllSearchResults();
+            }
+
+            if (!clickedInsideSearchBox && !clickedToggle) {
+                this.closeSearchDropdowns();
             }
         });
 
@@ -235,7 +244,11 @@ class NerflixSearch {
             if (input.value.trim()) {
                 input.value = '';
             }
+            input.blur();
         });
+
+        // Close any visible search boxes/toggles
+        this.closeSearchDropdowns();
         
         // Debug: Log the movie selection
         console.log('Movie selected from search:', movie);
@@ -298,6 +311,19 @@ class NerflixSearch {
         document.querySelectorAll('.search-results-container').forEach(container => {
             container.style.display = 'none';
             container.classList.remove('show');
+        });
+    }
+
+    closeSearchDropdowns() {
+        // Remove open state classes from any search dropdown containers
+        document.querySelectorAll('.navbar-right li').forEach(listItem => {
+            if (listItem.querySelector('.search-box')) {
+                listItem.classList.remove('iq-show');
+                const toggle = listItem.querySelector('.search-toggle');
+                if (toggle) {
+                    toggle.classList.remove('active');
+                }
+            }
         });
     }
 
