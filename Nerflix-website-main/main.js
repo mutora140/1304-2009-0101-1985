@@ -711,23 +711,20 @@
         setupPageControls() {
             const clearButton = document.getElementById('watchlist-clear-all');
             if (clearButton) {
-                clearButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (!this.watchlist.length) {
-                        this.showNotification('Your watch list is already empty.', 'info');
-                        return;
-                    }
-                    const confirmed = confirm('Clear your entire watch list?');
-                    if (confirmed) {
-                        const previousItems = [...this.watchlist];
-                        this.watchlist = [];
-                        this.saveWatchlist();
-                        previousItems.forEach(item => this.deleteItemCookie(item.itemId));
-                        this.renderWatchlistPage();
-                        this.markExistingItems();
-                        this.showNotification('Watch list cleared.', 'info');
-                    }
-                });
+            clearButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (!this.watchlist.length) {
+                    this.showNotification('Your watch list is already empty.', 'info');
+                    return;
+                }
+                const previousItems = [...this.watchlist];
+                this.watchlist = [];
+                this.saveWatchlist();
+                previousItems.forEach(item => this.deleteItemCookie(item.itemId));
+                this.renderWatchlistPage();
+                this.markExistingItems();
+                this.showNotification('Watch list cleared.', 'info');
+            });
             }
         }
         
