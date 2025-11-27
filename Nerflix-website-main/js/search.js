@@ -315,9 +315,11 @@ class NerflixSearch {
     }
 
     closeSearchDropdowns() {
-        // Remove open state classes from any search dropdown containers
+        // Remove open state classes from any search and notification dropdown containers
         document.querySelectorAll('.navbar-right li').forEach(listItem => {
-            if (listItem.querySelector('.search-box')) {
+            const hasSearchBox = listItem.querySelector('.search-box');
+            const hasSubDropdown = listItem.querySelector('.iq-sub-dropdown');
+            if (hasSearchBox || hasSubDropdown) {
                 listItem.classList.remove('iq-show');
                 const toggle = listItem.querySelector('.search-toggle');
                 if (toggle) {

@@ -1,6 +1,56 @@
 (function (jQuery){
     "use strict";
     
+    const LOADER_COLOR_CYCLE_MS = 5600;
+    
+    function showLoaderOverlay() {
+        const loader = document.getElementById('page-loader');
+        if (!loader) {
+            return null;
+        }
+        loader.style.display = 'flex';
+        loader.classList.remove('hidden');
+        document.body.classList.add('loading');
+        return loader;
+    }
+    
+    function hideLoaderOverlay(loader) {
+        if (!loader) {
+            return;
+        }
+        loader.classList.add('hidden');
+        document.body.classList.remove('loading');
+        setTimeout(function() {
+            if (loader.classList.contains('hidden')) {
+                loader.style.display = 'none';
+            }
+        }, 400);
+    }
+    
+    function playLoaderCycle() {
+        const loader = showLoaderOverlay();
+        if (!loader) {
+            return Promise.resolve();
+        }
+        
+        return new Promise(function(resolve) {
+            setTimeout(function() {
+                hideLoaderOverlay(loader);
+                resolve();
+            }, LOADER_COLOR_CYCLE_MS);
+        });
+    }
+    
+    function runAfterLoaderCycle(callback) {
+        return playLoaderCycle().then(function() {
+            if (typeof callback === 'function') {
+                return callback();
+            }
+        });
+    }
+    
+    window.runLoaderSequence = runAfterLoaderCycle;
+    
     // ============================================
     // Smooth Loading and Page Transitions
     // ============================================
@@ -9,15 +59,12 @@
     function initPageLoader() {
         const pageLoader = document.getElementById('page-loader');
         if (pageLoader) {
+            // While loading, keep body non-scrollable and fully covered
+            document.body.classList.add('loading');
+
             // Hide loader when page is fully loaded
             window.addEventListener('load', function() {
-                setTimeout(function() {
-                    pageLoader.classList.add('hidden');
-                    // Remove from DOM after animation
-                    setTimeout(function() {
-                        pageLoader.style.display = 'none';
-                    }, 500);
-                }, 300);
+                playLoaderCycle();
             });
         }
     }
@@ -47,9 +94,9 @@
                 document.body.classList.add('page-transitioning');
                 
                 // Navigate after short delay
-                setTimeout(function() {
+                runAfterLoaderCycle(function() {
                     window.location.href = href;
-                }, 300);
+                });
             }
         });
     }
@@ -1280,7 +1327,8 @@
 
 
         $('#home-slider').slick({
-            autoplay : false,
+            autoplay : true,
+            autoplaySpeed : 10000, // Slide automatically every 10 seconds
             speed : 800,
             lazyload : 'progressive',
             arrows : true,
@@ -2636,11 +2684,12 @@
         }
         
         // Initialize sliders when video gallery opens
-        function openVideoGallery(videoId, title) {
+        function showVideoGalleryOverlay(videoId, title) {
             console.log('Opening video gallery with:', videoId, title);
             
             // Show overlay first
             videoGallery.addClass('active');
+            videoGallery.scrollTop(0);
             jQuery('body').css('overflow', 'hidden').addClass('video-gallery-active');
             
             // Show default section by default
@@ -2748,6 +2797,12 @@
                     }, 500, 'swing');
                 }
             }, 200);
+        }
+        
+        function openVideoGallery(videoId, title) {
+            return runAfterLoaderCycle(function() {
+                showVideoGalleryOverlay(videoId, title);
+            });
         }
         
         // Make openVideoGallery function globally accessible
