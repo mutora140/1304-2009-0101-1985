@@ -711,20 +711,20 @@
         setupPageControls() {
             const clearButton = document.getElementById('watchlist-clear-all');
             if (clearButton) {
-            clearButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (!this.watchlist.length) {
-                    this.showNotification('Your watch list is already empty.', 'info');
-                    return;
-                }
-                const previousItems = [...this.watchlist];
-                this.watchlist = [];
-                this.saveWatchlist();
-                previousItems.forEach(item => this.deleteItemCookie(item.itemId));
-                this.renderWatchlistPage();
-                this.markExistingItems();
-                this.showNotification('Watch list cleared.', 'info');
-            });
+                clearButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!this.watchlist.length) {
+                        this.showNotification('Your watch list is already empty.', 'info');
+                        return;
+                    }
+                        const previousItems = [...this.watchlist];
+                        this.watchlist = [];
+                        this.saveWatchlist();
+                        previousItems.forEach(item => this.deleteItemCookie(item.itemId));
+                        this.renderWatchlistPage();
+                        this.markExistingItems();
+                        this.showNotification('Watch list cleared.', 'info');
+                });
             }
         }
         
@@ -1702,7 +1702,11 @@
             description: 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery.',
             age: '11+',
             duration: '2h 7min',
-            year: '2012'
+            year: '2012',
+            vimeoAsset: {
+                vimeoId: '76979871',
+                downloadUrl: 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164'
+            }
         },
         'q78_0TElYME': {
             title: 'Mission Mangal',
@@ -1982,7 +1986,7 @@
         // Search functionality movies
 
     };
-    
+
     // Default video data for unknown videos
     const defaultVideoData = {
         title: 'Movie Title',
@@ -1995,7 +1999,105 @@
         duration: '2h 0min',
         year: '2024'
     };
-    
+
+    const defaultVimeoAsset = {
+        vimeoId: '76979871',
+        downloadUrl: 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164'
+    };
+
+    const vimeoLibrary = {
+        // Map specific YouTube IDs to Vimeo assets in the future if needed
+    };
+
+    // Ensure each title can stream/download via Vimeo even without a custom asset
+    Object.keys(videoData).forEach((videoId) => {
+        const video = videoData[videoId];
+        if (video && !video.vimeoAsset) {
+            video.vimeoAsset = {
+                vimeoId: defaultVimeoAsset.vimeoId,
+                downloadUrl: defaultVimeoAsset.downloadUrl
+            };
+        }
+    });
+
+    let isVimeoPlayerActive = false;
+    let isVimeoFullscreenActive = false;
+    let currentVimeoId = null;
+
+    function getVimeoAsset(videoId) {
+        const videoEntry = videoData[videoId];
+        if (videoEntry && videoEntry.vimeoAsset) {
+            return videoEntry.vimeoAsset;
+        }
+        if (vimeoLibrary[videoId]) {
+            return vimeoLibrary[videoId];
+        }
+        return defaultVimeoAsset;
+    }
+
+    function sanitizeFilename(value) {
+        if (!value) return 'nerflix_video';
+        return value
+            .toString()
+            .trim()
+            .replace(/[^a-z0-9]+/gi, '_')
+            .replace(/^_+|_+$/g, '')
+            .toLowerCase() || 'nerflix_video';
+    }
+
+    function displayNotification(message, type = 'info') {
+        if (window.watchlistManager && typeof window.watchlistManager.showNotification === 'function') {
+            window.watchlistManager.showNotification(message, type);
+            return;
+        }
+        if (window.likeSystem && typeof window.likeSystem.showNotification === 'function') {
+            window.likeSystem.showNotification(message, type);
+            return;
+        }
+        console.log(`[Notification] ${type}: ${message}`);
+    }
+
+    function requestFullscreenOnElement(element) {
+        if (!element) return;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+            return;
+        }
+        if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+            return;
+        }
+        if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+            return;
+        }
+        if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+
+    function exitFullscreenFromDocument() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+            return;
+        }
+        if (document.webkitFullscreenElement) {
+            document.webkitExitFullscreen();
+            return;
+        }
+        if (document.mozFullScreenElement) {
+            document.mozCancelFullScreen();
+            return;
+        }
+        if (document.msFullscreenElement) {
+            document.msExitFullscreen();
+        }
+    }
+
+    function getVideoPlayerContainer() {
+        return document.querySelector('.video-player-container');
+    }
+
     // Function to create embedded video player
     function createVideoPlayer(videoId) {
         const videoContainer = document.getElementById('youtube-player');
@@ -2057,10 +2159,12 @@
     
     // Function to load video by ID
     function loadVideoById(videoId) {
+        if (isVimeoPlayerActive) {
+            deactivateVimeoPlayer();
+        }
         if (videoId && videoId !== currentVideoId) {
             createVideoPlayer(videoId);
         } else if (videoId === currentVideoId) {
-            // Hide loading indicator if video is already loaded
             const loadingIndicator = document.getElementById('video-loading-indicator');
             if (loadingIndicator) {
                 loadingIndicator.classList.remove('active');
@@ -2070,14 +2174,94 @@
     
     // Function to stop video
     function stopVideo() {
+        deactivateVimeoPlayer();
         const iframe = document.getElementById('embedded-video');
         if (iframe) {
-            // For iframes, we need to reload with a different video or clear the src
-            // This will effectively stop the current video
             iframe.src = '';
         }
     }
-    
+
+    function deactivateVimeoPlayer() {
+        const iframe = document.getElementById('embedded-vimeo');
+        if (iframe && iframe.parentNode) {
+            iframe.parentNode.removeChild(iframe);
+        }
+        isVimeoPlayerActive = false;
+        isVimeoFullscreenActive = false;
+        currentVimeoId = null;
+    }
+
+    function createVimeoPlayer(vimeoId) {
+        const videoContainer = document.getElementById('youtube-player');
+        const loadingIndicator = document.getElementById('video-loading-indicator');
+        if (!videoContainer || !vimeoId) {
+            displayNotification('Unable to play the selected video.', 'info');
+            return;
+        }
+        if (loadingIndicator) {
+            loadingIndicator.classList.add('active');
+        }
+        videoContainer.innerHTML = '';
+
+        const iframe = document.createElement('iframe');
+        iframe.id = 'embedded-vimeo';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        iframe.style.borderRadius = '10px';
+        iframe.allow = 'autoplay; fullscreen; picture-in-picture; accelerometer';
+        iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
+
+        iframe.addEventListener('load', function() {
+            if (loadingIndicator) {
+                setTimeout(function() {
+                    loadingIndicator.classList.remove('active');
+                }, 300);
+            }
+        });
+
+        videoContainer.appendChild(iframe);
+        isVimeoPlayerActive = true;
+        currentVimeoId = vimeoId;
+    }
+
+    function enterVimeoFullscreenMode(asset) {
+        if (!asset || !asset.vimeoId) {
+            displayNotification('Full movie stream is not available right now.', 'info');
+            return;
+        }
+        const playerContainer = getVideoPlayerContainer();
+        if (!playerContainer) return;
+        const shouldReload = !isVimeoPlayerActive || currentVimeoId !== asset.vimeoId;
+        if (shouldReload) {
+            stopVideo();
+            createVimeoPlayer(asset.vimeoId);
+        }
+        isVimeoFullscreenActive = true;
+        requestFullscreenOnElement(playerContainer);
+    }
+
+    function exitVimeoFullscreenMode() {
+        if (!isVimeoFullscreenActive) return;
+        isVimeoFullscreenActive = false;
+        exitFullscreenFromDocument();
+    }
+
+    function handleFullscreenChange() {
+        const hasFullscreenElement =
+            document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.mozFullScreenElement ||
+            document.msFullscreenElement;
+        if (!hasFullscreenElement && isVimeoFullscreenActive) {
+            exitVimeoFullscreenMode();
+        }
+    }
+
+    ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach(function(eventName) {
+        document.addEventListener(eventName, handleFullscreenChange);
+    });
+
     // Function to update sidebar content
     function updateSidebarContent(videoId) {
         const data = videoData[videoId] || defaultVideoData;
@@ -2573,12 +2757,20 @@
         
         // Watch Full Movie button
         jQuery('.btn-watch-full').on('click', function() {
-            alert('Watch Full Movie functionality would be implemented here');
+            const asset = getVimeoAsset(currentVideoId);
+            enterVimeoFullscreenMode(asset);
         });
         
         // Download button
         jQuery('.btn-download').on('click', function() {
-            alert('Download functionality would be implemented here');
+            const asset = getVimeoAsset(currentVideoId);
+            if (!asset || !asset.vimeoId) {
+                displayNotification('Download is not available for this title yet.', 'info');
+                return;
+            }
+            // Open Vimeo download page in a new tab
+            const vimeoDownloadUrl = `https://vimeo.com/${asset.vimeoId}/download`;
+            window.open(vimeoDownloadUrl, '_blank');
         });
         
         // Initialize sliders for video gallery sections
