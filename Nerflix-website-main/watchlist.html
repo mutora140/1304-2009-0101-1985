@@ -14,14 +14,17 @@
   <link rel="stylesheet" href="css/magnific-popup.css" />
   <link rel="stylesheet" href="css/select2.min.css" />
   <link rel="stylesheet" href="css/select2-bootstrap4.min.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
   <link rel="stylesheet" href="css/slick-animation.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="watchlist-page">
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner">
+      <img src="images/user/user.png" alt="User avatar" class="loader-avatar rounded-circle" />
+    </div>
+  </div>
+
   <header id="main-header">
     <div class="main-header">
       <div class="container-fluid">
@@ -646,6 +649,54 @@
         <!-- Recommended Sections -->
        
       </div>
+
+      <footer class="iq-bg-dark">
+        <div class="footer-top">
+          <div class="container-fluid">
+            <div class="row footer-standard">
+              <div class="col-lg-5">
+                <div class="widget text-left">
+                  <div>
+                    <ul class="menu p-0">
+                      <li><a href="#">Terms of Use</a></li>
+                      <li><a href="#">Privacy-Policy</a></li>
+                      <li><a href="#">FAQ</a></li>
+                      <li><a href="watchlist.html">Watch List</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="widget text-left">
+                  <div class="textwidget">
+                    <p><small>This is Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quo tempore. Quasi rem rerum est in nulla atque quibusdam illo. this is footer and simple tsesxij is writen jkd. fsek hello how are you. please like and subscribe. footer ends .</small></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                <h6 class="footer-link-title">
+                  Follow Us:
+                </h6>
+                <ul class="info-share">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-youtube"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 
@@ -739,31 +790,31 @@
             <ul class="info-share">
               <li>
                 <a href="#">
-                  <i><fa class="fa fa-facebook"></fa></i>
+                  <i class="fa fa-facebook"></i>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i><fa class="fa fa-youtube"></fa></i>
+                  <i class="fa fa-youtube"></i>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i><fa class="fa fa-instagram"></fa></i>
+                  <i class="fa fa-instagram"></i>
                 </a>
               </li>
             </ul>
           </div>
           <div class="chat-container">
             <div class="chat-icon" id="chatIcon">
-              <i class="fas fa-paper-plane" id="chatIconSymbol"></i>
+              <i class="fa fa-paper-plane" id="chatIconSymbol"></i>
               <div class="notification" id="notification">1</div>
             </div>
             <div class="chat-box" id="chatBox">
               <div class="chat-header">
                 <div class="chat-header-content">
                   <div class="avatar">
-                    <i class="fas fa-headset"></i>
+                    <i class="fa fa-headphones"></i>
                   </div>
                   <div class="header-text">
                     <h3>Support Team</h3>
@@ -771,7 +822,7 @@
                   </div>
                 </div>
                 <button class="close-btn" id="closeBtn">
-                  <i class="fas fa-times"></i>
+                  <i class="fa fa-times"></i>
                 </button>
               </div>
               <div class="chat-body" id="chatBody">
@@ -794,11 +845,11 @@
                     placeholder="Type your message..."
                   />
                   <button class="emoji-btn">
-                    <i class="far fa-smile"></i>
+                    <i class="fa fa-smile-o"></i>
                   </button>
                 </div>
                 <button class="send-btn" id="sendBtn">
-                  <i class="fas fa-paper-plane"></i>
+                  <i class="fa fa-paper-plane"></i>
                 </button>
               </div>
             </div>

@@ -20,338 +20,7 @@
   <link rel="stylesheet" href="style.css" />
 
 
-  <script> 
-    // Season selection functionality - More robust approach
-    function initializeSeasonSelectors() {
-      console.log('Initializing season selectors...');
-      
-      // Wait a bit to ensure DOM is fully loaded
-      setTimeout(function() {
-        const seasonSelects = document.querySelectorAll('.season-select');
-        console.log('Found season selects:', seasonSelects.length);
-        
-        seasonSelects.forEach(function(select, index) {
-          console.log('Processing select', index);
-          
-          // Keep current selection (do not force Season 1)
-          
-          // Find the episodes container for this specific select
-          let episodesContainer = null;
-          
-          // Try multiple methods to find the episodes container
-          const selectParent = select.closest('.iq-custom-select');
-          if (selectParent) {
-            episodesContainer = selectParent.nextElementSibling;
-            if (episodesContainer && !episodesContainer.classList.contains('episodes-contens')) {
-              episodesContainer = selectParent.parentElement.querySelector('.episodes-contens');
-            }
-          }
-          
-          if (!episodesContainer) {
-            episodesContainer = select.closest('.trending-info').querySelector('.episodes-contens');
-          }
-          
-          console.log('Episodes container found:', episodesContainer);
-          
-          if (!episodesContainer) {
-            console.error('Could not find episodes container for select', index);
-            return;
-          }
-          
-          // Function to switch seasons
-          function switchSeason(seasonNumber) {
-            console.log('Switching to season:', seasonNumber);
-            
-            // Find all season containers (the owl-carousel divs)
-            const allSeasonContainers = episodesContainer.querySelectorAll('.episodes-slider1');
-            console.log('Found season containers:', allSeasonContainers.length);
-            
-            // Check if there are multiple season containers (one per season)
-            if (allSeasonContainers.length > 1) {
-              // First, destroy carousels on all containers to avoid stale state
-              allSeasonContainers.forEach(function(container){
-                if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-                  const $c = jQuery(container);
-                  if ($c.data('owl.carousel')) {
-                    $c.trigger('destroy.owl.carousel');
-                    $c.removeClass('owl-loaded owl-center owl-text-select-on');
-                    $c.find('.owl-stage-outer').children().unwrap();
-                  }
-                }
-              });
 
-              // Show the selected season container, hide others
-              allSeasonContainers.forEach(function(seasonContainer) {
-                const containerSeason = seasonContainer.getAttribute('data-season');
-                
-                if (containerSeason === seasonNumber) {
-                  seasonContainer.style.display = 'block';
-                  console.log('Showing season container:', containerSeason);
-                  // Ensure its items are visible
-                  seasonContainer.querySelectorAll('.e-item').forEach(function(item){
-                    item.style.display = 'block';
-                  });
-                } else {
-                  seasonContainer.style.display = 'none';
-                  console.log('Hiding season container:', containerSeason);
-                }
-              });
-
-              // Ensure the episodes container wrapper is visible
-              if (episodesContainer && episodesContainer.style) {
-                episodesContainer.style.display = 'block';
-                episodesContainer.style.visibility = 'visible';
-              }
-            } else {
-              // Single container with all seasons - filter by e-item data-season
-              const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
-              console.log('Found episode items:', allEpisodeItems.length);
-              
-              allEpisodeItems.forEach(function(episodeItem) {
-                const episodeSeason = episodeItem.getAttribute('data-season');
-                
-                if (episodeSeason === seasonNumber) {
-                  episodeItem.style.display = 'block';
-                  console.log('Showing episode for season:', seasonNumber, 'episode season:', episodeSeason);
-                } else {
-                  episodeItem.style.display = 'none';
-                  console.log('Hiding episode for season:', episodeSeason);
-                }
-              });
-              
-              // Re-create carousel with only visible items to avoid empty slides and enable cycling
-              if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-                const $owl = jQuery(episodesContainer).find('.episodes-slider1');
-                if ($owl.length) {
-                  const visibleCount = jQuery(episodesContainer).find('.e-item').filter(function(){
-                    return this.style.display !== 'none';
-                  }).length;
-                  if ($owl.data('owl.carousel')) {
-                    $owl.trigger('destroy.owl.carousel');
-                    $owl.removeClass('owl-loaded owl-center owl-text-select-on');
-                    $owl.find('.owl-stage-outer').children().unwrap();
-                  }
-                  const itemsToShow = Math.min(visibleCount || 1, 4);
-                  $owl.owlCarousel({
-                    loop: visibleCount > 1,
-                    margin: 20,
-                    nav: true,
-                    navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
-                    dots: false,
-                    responsive : {
-                      0:{ items: 1 },
-                      600:{ items: 1 },
-                      1000:{ items: itemsToShow }
-                    }
-                  });
-                }
-              }
-            }
-            
-            // Reinitialize the carousel/slider after filtering
-            if (allSeasonContainers.length <= 1) {
-              // For single container shows handled above
-            } else {
-              // For multiple container shows, refresh the visible carousel based on its items
-              allSeasonContainers.forEach(function(container) {
-                if (container.style.display !== 'none' && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-                  const $container = jQuery(container);
-                  const visibleCount = $container.find('.e-item').length;
-                  const itemsToShow = Math.min(visibleCount || 1, 4);
-                  $container.owlCarousel({
-                    loop: visibleCount > 1,
-                    margin: 20,
-                    nav: true,
-                    navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
-                    dots: false,
-                    responsive : {
-                      0:{ items: 1 },
-                      600:{ items: 1 },
-                      1000:{ items: itemsToShow }
-                    }
-                  });
-                }
-              });
-            }
-          }
-          
-          // Add event listener
-          select.addEventListener('change', function() {
-            const selectedSeason = this.value;
-            const seasonNumber = selectedSeason.replace('Season', '');
-            switchSeason(seasonNumber);
-          });
-          
-          // Initialize with current selected season (default to 1 if empty)
-          const initialSelected = (select.value || 'Season1').replace('Season', '');
-          switchSeason(initialSelected);
-          
-        });
-      }, 100);
-    }
-    
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initializeSeasonSelectors);
-    } else {
-      initializeSeasonSelectors();
-    }
-    
-    // Removed secondary delayed init to avoid re-running and overwriting selection
-    
-    // Simple inline function as backup
-    function switchSeasonEpisodes(selectElement) {
-      console.log('switchSeasonEpisodes called with:', selectElement.value);
-      
-      const selectedSeason = selectElement.value;
-      
-      // Find the episodes container (robust lookup across layouts)
-      let episodesContainer = null;
-      const selectContainer = selectElement.closest('.iq-custom-select');
-      if (selectContainer) {
-        // Sibling first
-        const nextEl = selectContainer.nextElementSibling;
-        if (nextEl && nextEl.classList && nextEl.classList.contains('episodes-contens')) {
-          episodesContainer = nextEl;
-        }
-        // Fallback: parent scope
-        if (!episodesContainer) {
-          const parentScope = selectContainer.parentElement;
-          if (parentScope) {
-            episodesContainer = parentScope.querySelector('.episodes-contens');
-          }
-        }
-      }
-      // Fallbacks through ancestors
-      if (!episodesContainer) {
-        const ti = selectElement.closest('.trending-info');
-        if (ti) episodesContainer = ti.querySelector('.episodes-contens');
-      }
-      if (!episodesContainer) {
-        const ot = selectElement.closest('.overlay-tab');
-        if (ot) episodesContainer = ot.querySelector('.episodes-contens');
-      }
-      
-      console.log('Selected season:', selectedSeason);
-      console.log('Episodes container:', episodesContainer);
-      
-      if (!episodesContainer) {
-        console.error('Episodes container not found');
-        return;
-      }
-      
-      // Find all season containers (the owl-carousel divs)
-      const allSeasonContainers = episodesContainer.querySelectorAll('.episodes-slider1');
-      console.log('Found season containers:', allSeasonContainers.length);
-      
-      const seasonNumber = selectedSeason.replace('Season', '');
-      
-      // Check if there are multiple season containers (one per season)
-      if (allSeasonContainers.length > 1) {
-        // Destroy any existing carousels to avoid stale state
-        if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-          allSeasonContainers.forEach(function(container){
-            const $c = jQuery(container);
-            if ($c.data('owl.carousel')) {
-              $c.trigger('destroy.owl.carousel');
-              $c.removeClass('owl-loaded owl-center owl-text-select-on');
-              $c.find('.owl-stage-outer').children().unwrap();
-            }
-          });
-        }
-        // Show the selected season container, hide others
-        allSeasonContainers.forEach(function(seasonContainer) {
-          const containerSeason = seasonContainer.getAttribute('data-season');
-          
-          if (containerSeason === seasonNumber) {
-            seasonContainer.style.display = 'block';
-            console.log('Showing season container:', containerSeason);
-            // Ensure its items are visible
-            seasonContainer.querySelectorAll('.e-item').forEach(function(item){
-              item.style.display = 'block';
-            });
-          } else {
-            seasonContainer.style.display = 'none';
-            console.log('Hiding season container:', containerSeason);
-          }
-        });
-      } else {
-        // Single container with all seasons - filter by e-item data-season
-        const allEpisodeItems = episodesContainer.querySelectorAll('.e-item');
-        console.log('Found episode items:', allEpisodeItems.length);
-        
-        allEpisodeItems.forEach(function(episodeItem) {
-          const episodeSeason = episodeItem.getAttribute('data-season');
-          
-          if (episodeSeason === seasonNumber) {
-            episodeItem.style.display = 'block';
-            console.log('Showing episode for season:', seasonNumber, 'episode season:', episodeSeason);
-          } else {
-            episodeItem.style.display = 'none';
-            console.log('Hiding episode for season:', episodeSeason);
-          }
-        });
-        
-        // Re-create carousel with only visible items to avoid empty slides and enable cycling
-        if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-          const $owl = jQuery(episodesContainer).find('.episodes-slider1');
-          if ($owl.length) {
-            const visibleCount = jQuery(episodesContainer).find('.e-item').filter(function(){
-              return this.style.display !== 'none';
-            }).length;
-            if ($owl.data('owl.carousel')) {
-              $owl.trigger('destroy.owl.carousel');
-              $owl.removeClass('owl-loaded owl-center owl-text-select-on');
-              $owl.find('.owl-stage-outer').children().unwrap();
-            }
-            const itemsToShow = Math.min(visibleCount || 1, 4);
-            $owl.owlCarousel({
-              loop: visibleCount > 1,
-              margin: 20,
-              nav: true,
-              navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
-              dots: false,
-              responsive : {
-                0:{ items: 1 },
-                600:{ items: 1 },
-                1000:{ items: itemsToShow }
-              }
-            });
-          }
-        }
-      }
-      
-      // Reinitialize the carousel/slider to update display for multiple container shows
-      if (allSeasonContainers.length > 1) {
-        // For multiple container shows, init only the visible one
-        allSeasonContainers.forEach(function(container) {
-          if (container.style.display !== 'none' && typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-            const $container = jQuery(container);
-            const visibleCount = $container.find('.e-item').length;
-            const itemsToShow = Math.min(visibleCount || 1, 4);
-            $container.owlCarousel({
-              loop: visibleCount > 1,
-              margin: 20,
-              nav: true,
-              navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
-              dots: false,
-              responsive : {
-                0:{ items: 1 },
-                600:{ items: 1 },
-                1000:{ items: itemsToShow }
-              }
-            });
-          }
-        });
-      }
-
-      // Make sure the wrapper is visible
-      if (episodesContainer && episodesContainer.style) {
-        episodesContainer.style.display = 'block';
-        episodesContainer.style.visibility = 'visible';
-      }
-    }
-  </script>
 
 </head>
 
@@ -567,10 +236,6 @@
         <div class="row">
           <div class="col-lg-9">
             <div class="video-player-container">
-              <div class="video-loading-indicator" id="video-loading-indicator">
-                <div class="video-loading-spinner"></div>
-                <div class="video-loading-text">Loading video...</div>
-              </div>
               <div id="youtube-player"></div>
             </div>
           </div>
@@ -990,6 +655,57 @@
         <!-- Recommended Sections -->
        
       </div>
+
+      <footer class="iq-bg-dark">
+        <div class="footer-top">
+          <div class="container-fluid">
+            <div class="row footer-standard">
+              <div class="col-lg-5">
+                <div class="widget text-left">
+                  <div>
+                    <ul class="menu p-0">
+                      <li><a href="#">Terms of Use</a></li>
+                      <li><a href="#">Privacy-Policy</a></li>
+                      <li><a href="#">FAQ</a></li>
+                      <li><a href="watchlist.html">Watch List</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="widget text-left">
+                  <div class="textwidget">
+                    <p><small>This is Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quo tempore. Quasi rem rerum est in nulla atque quibusdam illo. this is footer and simple tsesxij is writen jkd. fsek hello how are you. please like and subscribe. footer ends .</small></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                <h6 class="footer-link-title">
+                  Follow Us:
+                </h6>
+                <ul class="info-share">
+                  <li>
+                    <a href="#">
+                      <i>
+                      <fa class="fa fa-facebook"></fa>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i>
+                      <fa class="fa fa-youtube"></fa>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i>
+                      <fa class="fa fa-instagram"></fa>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 
