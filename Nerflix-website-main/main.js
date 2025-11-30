@@ -1608,6 +1608,11 @@
     // Video data structure with sidebar information
     const videoData = {
         // Main Slider Videos
+        // 
+        // To add Watch Full Movie and Download links for each movie, add these properties:
+        //   watchFullLink: 'https://your-link.com/watch/movie-name',
+        //   downloadLink: 'https://your-link.com/download/movie-name'
+        //
         'tmeOjFno6Do': {
             title: 'Avengers: Age of Ultron',
             rating: 7.3,
@@ -1918,7 +1923,9 @@
             description: 'A spy organization recruits an unrefined, but promising street kid into the agency\'s ultra-competitive training program, just as a global threat emerges from a twisted tech genius.',
             age: '16+',
             duration: '2h 9min',
-            year: '2014'
+            year: '2014',
+            watchFullLink: 'https://example.com/watch/kingsman',
+            downloadLink: 'https://example.com/download/kingsman'
         },
         '36mnx8hNvEE': {
             title: 'Casino Royale',
@@ -1929,7 +1936,9 @@
             description: 'After earning 00 status and a licence to kill, secret agent James Bond sets out on his first mission as 007. Bond must defeat a private banker to terrorists in a high stakes game of poker at Casino Royale.',
             age: '12+',
             duration: '2h 24min',
-            year: '2006'
+            year: '2006',
+            watchFullLink: 'https://example.com/watch/casino-royale',
+            downloadLink: 'https://example.com/download/casino-royale'
         },
         'Ohws8y572KE': {
             title: 'Mission: Impossible',
@@ -1951,7 +1960,9 @@
             description: 'A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.',
             age: '18+',
             duration: '2 Seasons',
-            year: '2018'
+            year: '2018',
+            watchFullLink: 'https://example.com/watch/mirzapur',
+            downloadLink: 'https://example.com/download/mirzapur'
         },
         'IEEbUfhFFM0': {
             title: 'Friends',
@@ -1962,7 +1973,9 @@
             description: 'Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.',
             age: '12+',
             duration: '10 Seasons',
-            year: '1994'
+            year: '1994',
+            watchFullLink: 'https://example.com/watch/friends',
+            downloadLink: 'https://example.com/download/friends'
         },
         // Search functionality movies
 
@@ -1978,7 +1991,9 @@
         description: 'Movie description goes here.',
         age: '12+',
         duration: '2h 0min',
-        year: '2024'
+        year: '2024',
+        watchFullLink: null, // Add your watch full movie link here
+        downloadLink: null   // Add your download link here
     };
 
     const defaultVimeoAsset = {
@@ -2287,6 +2302,51 @@
         }
     }
     
+    // Helper function to update action buttons with movie-specific links
+    function updateActionButtonsFromVideoId(videoId) {
+        let watchFullLink = null;
+        let downloadLink = null;
+        
+        // First, try to get links from videoData structure
+        if (typeof videoData !== 'undefined' && videoData[videoId]) {
+            const movieData = videoData[videoId];
+            watchFullLink = movieData.watchFullLink || null;
+            downloadLink = movieData.downloadLink || null;
+        }
+        
+        // If not found in videoData, try to get from HTML data attributes as fallback
+        if (!watchFullLink || !downloadLink) {
+            const movieButton = document.querySelector(`.iq-button[data-video-id="${videoId}"]`);
+            if (movieButton) {
+                watchFullLink = watchFullLink || movieButton.getAttribute('data-watch-full-link');
+                downloadLink = downloadLink || movieButton.getAttribute('data-download-link');
+            }
+        }
+        
+        const watchFullBtn = document.querySelector('.btn-watch-full');
+        const downloadBtn = document.querySelector('.btn-download');
+        
+        if (watchFullBtn) {
+            if (watchFullLink) {
+                watchFullBtn.setAttribute('data-movie-link', watchFullLink);
+                watchFullBtn.style.display = '';
+            } else {
+                watchFullBtn.removeAttribute('data-movie-link');
+                // Keep button visible for fallback functionality
+            }
+        }
+        
+        if (downloadBtn) {
+            if (downloadLink) {
+                downloadBtn.setAttribute('data-movie-link', downloadLink);
+                downloadBtn.style.display = '';
+            } else {
+                downloadBtn.removeAttribute('data-movie-link');
+                // Keep button visible for fallback functionality
+            }
+        }
+    }
+    
     // Function to update sidebar content
     function updateSidebarContent(videoId) {
         const data = videoData[videoId] || defaultVideoData;
@@ -2368,6 +2428,9 @@
         if (description) {
             description.textContent = data.description;
         }
+        
+        // Update action buttons with movie-specific links
+        updateActionButtonsFromVideoId(videoId);
     }
     
     // Video Gallery Event Handlers
@@ -2697,22 +2760,40 @@
         // Removed escape key and overlay click functionality
         // Only the Back Home button can close the video gallery
         
-        // Watch Full Movie button
-        jQuery('.btn-watch-full').on('click', function() {
-            const asset = getVimeoAsset(currentVideoId);
-            enterVimeoFullscreenMode(asset);
+        // Watch Full Movie button - uses dynamic link from data-movie-link attribute
+        jQuery(document).on('click', '.btn-watch-full', function() {
+            const watchFullLink = jQuery(this).attr('data-movie-link');
+            if (watchFullLink) {
+                // Open the custom watch full movie link
+                window.open(watchFullLink, '_blank');
+            } else {
+                // Fallback to old Vimeo behavior if no link is provided
+                const asset = getVimeoAsset(currentVideoId);
+                if (asset && asset.vimeoId) {
+                    enterVimeoFullscreenMode(asset);
+                } else {
+                    displayNotification('Watch Full Movie link is not available for this title yet.', 'info');
+                }
+            }
         });
         
-        // Download button
-        jQuery('.btn-download').on('click', function() {
-            const asset = getVimeoAsset(currentVideoId);
-            if (!asset || !asset.vimeoId) {
-                displayNotification('Download is not available for this title yet.', 'info');
-                return;
+        // Download button - uses dynamic link from data-movie-link attribute
+        jQuery(document).on('click', '.btn-download', function() {
+            const downloadLink = jQuery(this).attr('data-movie-link');
+            if (downloadLink) {
+                // Open the custom download link
+                window.open(downloadLink, '_blank');
+            } else {
+                // Fallback to old Vimeo behavior if no link is provided
+                const asset = getVimeoAsset(currentVideoId);
+                if (!asset || !asset.vimeoId) {
+                    displayNotification('Download is not available for this title yet.', 'info');
+                    return;
+                }
+                // Open Vimeo download page in a new tab
+                const vimeoDownloadUrl = `https://vimeo.com/${asset.vimeoId}/download`;
+                window.open(vimeoDownloadUrl, '_blank');
             }
-            // Open Vimeo download page in a new tab
-            const vimeoDownloadUrl = `https://vimeo.com/${asset.vimeoId}/download`;
-            window.open(vimeoDownloadUrl, '_blank');
         });
         
         // Initialize sliders for video gallery sections
@@ -3404,10 +3485,18 @@
             // Save user's current position before opening video gallery
             this.saveUserPosition();
             
+            // Find the movie button to get its data attributes
+            const movieButton = document.querySelector(`.iq-button[data-video-id="${videoId}"]`);
+            const watchFullLink = movieButton ? movieButton.getAttribute('data-watch-full-link') : null;
+            const downloadLink = movieButton ? movieButton.getAttribute('data-download-link') : null;
+            
             this.isLoading = true;
             
             try {
                 const contentData = await this.generateContentData(videoId, title);
+                // Add the links to content data
+                contentData.watchFullLink = watchFullLink;
+                contentData.downloadLink = downloadLink;
                 this.displayContent(contentData);
                 this.updateURL(videoId, title);
             } catch (error) {
@@ -3467,6 +3556,11 @@
             
             const description = document.querySelector('.video-description');
             if (description) description.textContent = contentData.description;
+            
+            // Update Watch Full Movie and Download buttons with movie-specific links
+            if (typeof updateActionButtonsFromVideoId === 'function') {
+                updateActionButtonsFromVideoId(contentData.videoId);
+            }
         }
         
         updateURL(videoId, title) {

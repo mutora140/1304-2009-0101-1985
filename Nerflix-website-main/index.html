@@ -286,6 +286,17 @@
               <p class="video-description">
                 After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.
               </p>
+              <!-- 
+                VIDEO SIDEBAR ACTION BUTTONS
+                These buttons automatically update with movie-specific links based on data attributes
+                in the movie buttons. To customize links for each movie, add these attributes to the 
+                movie's iq-button element:
+                
+                - data-watch-full-link="https://your-link-here.com/watch/movie-name"
+                - data-download-link="https://your-link-here.com/download/movie-name"
+                
+                See examples in the movie items below for reference.
+              -->
               <div class="video-actions">
                 <button class="btn btn-hover btn-watch-full">
                   <i class="fa fa-play mr-2"></i>Watch Full Movie
@@ -310,7 +321,12 @@
                 </a>
                 <div class="episode-play-info">
                   <div class="episode-play">
-                    <a href="#" class="iq-button" data-video-id="acEoQpJq0qg" data-title="Insidious: The Last Key" tabindex="0">
+                    <!-- 
+                      Add data-watch-full-link and data-download-link attributes to each movie button
+                      to customize the "Watch Full Movie" and "Download" links for each movie.
+                      Example below:
+                    -->
+                    <a href="#" class="iq-button" data-video-id="acEoQpJq0qg" data-title="Insidious: The Last Key" data-watch-full-link="https://example.com/watch/insidious" data-download-link="https://example.com/download/insidious" tabindex="0">
                       <i class="fa fa-play"></i>
                     </a>
                   </div>
@@ -332,7 +348,8 @@
                 </a>
                 <div class="episode-play-info">
                   <div class="episode-play">
-                    <a href="#" class="iq-button" data-video-id="yQ5U8suTUw0" data-title="War (2019)" tabindex="0">
+                    <!-- Example: Add data-watch-full-link and data-download-link to customize links for each movie -->
+                    <a href="#" class="iq-button" data-video-id="yQ5U8suTUw0" data-title="War (2019)" data-watch-full-link="https://example.com/watch/war" data-download-link="https://example.com/download/war" tabindex="0">
                       <i class="fa fa-play"></i>
                     </a>
                   </div>
@@ -354,7 +371,8 @@
                 </a>
                 <div class="episode-play-info">
                   <div class="episode-play">
-                    <a href="#" class="iq-button" data-video-id="4qf9Uyn2acE" data-title="Five Feet Apart (2019)" tabindex="0">
+                    <!-- Example: Each movie can have its own unique watch and download links -->
+                    <a href="#" class="iq-button" data-video-id="4qf9Uyn2acE" data-title="Five Feet Apart (2019)" data-watch-full-link="https://example.com/watch/five-feet-apart" data-download-link="https://example.com/download/five-feet-apart" tabindex="0">
                       <i class="fa fa-play"></i>
                     </a>
                   </div>
