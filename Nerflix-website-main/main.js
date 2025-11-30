@@ -101,34 +101,15 @@
         });
     }
     
-    // Image Loading Handler
-    function initImageLoading() {
-        const images = document.querySelectorAll('img');
-        images.forEach(function(img) {
-            if (img.complete) {
-                img.classList.add('loaded');
-            } else {
-                img.addEventListener('load', function() {
-                    img.classList.add('loaded');
-                });
-                img.addEventListener('error', function() {
-                    img.classList.add('loaded'); // Show even if error
-                });
-            }
-        });
-    }
-    
     // Initialize on DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             initPageLoader();
             initPageTransitions();
-            initImageLoading();
         });
     } else {
         initPageLoader();
         initPageTransitions();
-        initImageLoading();
     }
     
     // ============================================
@@ -2101,15 +2082,9 @@
     // Function to create embedded video player
     function createVideoPlayer(videoId) {
         const videoContainer = document.getElementById('youtube-player');
-        const loadingIndicator = document.getElementById('video-loading-indicator');
         
         if (videoContainer && videoId) {
             try {
-                // Show loading indicator
-                if (loadingIndicator) {
-                    loadingIndicator.classList.add('active');
-                }
-                
                 // Clear existing content
                 videoContainer.innerHTML = '';
                 
@@ -2124,15 +2099,6 @@
                 iframe.allowFullscreen = true;
                 iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1&origin=${window.location.origin}`;
                 
-                // Hide loading indicator when video loads
-                iframe.addEventListener('load', function() {
-                    if (loadingIndicator) {
-                        setTimeout(function() {
-                            loadingIndicator.classList.remove('active');
-                        }, 500);
-                    }
-                });
-                
                 // Append iframe
                 videoContainer.appendChild(iframe);
                 
@@ -2142,18 +2108,11 @@
                 console.log('Video player created successfully for:', videoId);
             } catch (error) {
                 console.error('Error creating video player:', error);
-                // Hide loading indicator on error
-                if (loadingIndicator) {
-                    loadingIndicator.classList.remove('active');
-                }
                 // Fallback: show error message
                 videoContainer.innerHTML = '<p style="color: white; text-align: center; padding: 20px;">Error loading video. Please try again.</p>';
             }
         } else {
             console.error('Video container not found or invalid video ID');
-            if (loadingIndicator) {
-                loadingIndicator.classList.remove('active');
-            }
         }
     }
     
@@ -2164,11 +2123,6 @@
         }
         if (videoId && videoId !== currentVideoId) {
             createVideoPlayer(videoId);
-        } else if (videoId === currentVideoId) {
-            const loadingIndicator = document.getElementById('video-loading-indicator');
-            if (loadingIndicator) {
-                loadingIndicator.classList.remove('active');
-            }
         }
     }
     
@@ -2193,13 +2147,9 @@
 
     function createVimeoPlayer(vimeoId) {
         const videoContainer = document.getElementById('youtube-player');
-        const loadingIndicator = document.getElementById('video-loading-indicator');
         if (!videoContainer || !vimeoId) {
             displayNotification('Unable to play the selected video.', 'info');
             return;
-        }
-        if (loadingIndicator) {
-            loadingIndicator.classList.add('active');
         }
         videoContainer.innerHTML = '';
 
@@ -2211,14 +2161,6 @@
         iframe.style.borderRadius = '10px';
         iframe.allow = 'autoplay; fullscreen; picture-in-picture; accelerometer';
         iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
-
-        iframe.addEventListener('load', function() {
-            if (loadingIndicator) {
-                setTimeout(function() {
-                    loadingIndicator.classList.remove('active');
-                }, 300);
-            }
-        });
 
         videoContainer.appendChild(iframe);
         isVimeoPlayerActive = true;
@@ -3389,40 +3331,11 @@
         goBackHome() {
             console.log('🏠 Going back home...');
             
-            // Add loading state to back home button
-            this.addBackHomeLoadingState();
+            this.restoreUserPosition();
             
-            // Simulate loading time for better UX
-            setTimeout(() => {
-                this.restoreUserPosition();
-                
-                // Close video gallery if it's open
-                if (typeof window.closeVideoGallery === 'function') {
-                    window.closeVideoGallery();
-                }
-                
-                // Remove loading state
-                this.removeBackHomeLoadingState();
-            }, 800); // 800ms loading animation
-        }
-        
-        // Add loading state to back home button
-        addBackHomeLoadingState() {
-            const backHomeBtn = document.querySelector('.back-home-btn');
-            if (backHomeBtn) {
-                backHomeBtn.classList.add('loading');
-                backHomeBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Going Back...';
-                backHomeBtn.disabled = true;
-            }
-        }
-        
-        // Remove loading state from back home button
-        removeBackHomeLoadingState() {
-            const backHomeBtn = document.querySelector('.back-home-btn');
-            if (backHomeBtn) {
-                backHomeBtn.classList.remove('loading');
-                backHomeBtn.innerHTML = 'Back Home';
-                backHomeBtn.disabled = false;
+            // Close video gallery if it's open
+            if (typeof window.closeVideoGallery === 'function') {
+                window.closeVideoGallery();
             }
         }
         
@@ -3492,8 +3405,6 @@
             this.saveUserPosition();
             
             this.isLoading = true;
-            this.addLoadingState(videoId);
-            this.showLoadingState();
             
             try {
                 const contentData = await this.generateContentData(videoId, title);
@@ -3503,7 +3414,6 @@
                 console.error('Error loading content:', error);
             } finally {
                 this.isLoading = false;
-                this.hideLoadingState();
             }
         }
         
@@ -3524,11 +3434,6 @@
         
         displayContent(contentData) {
             this.currentContent = contentData;
-            
-            // Remove loading state from all items
-            document.querySelectorAll('.slide-item').forEach(item => {
-                item.classList.remove('loading');
-            });
             
             // Highlight the current movie
             this.highlightCurrentMovie(contentData.videoId);
@@ -3556,16 +3461,6 @@
             });
         }
         
-        // Add loading state to clicked item
-        addLoadingState(videoId) {
-            document.querySelectorAll('.slide-item').forEach(item => {
-                const playButton = item.querySelector('.iq-button');
-                if (playButton && playButton.getAttribute('data-video-id') === videoId) {
-                    item.classList.add('loading');
-                }
-            });
-        }
-        
         updateVideoGallery(contentData) {
             const titleElement = document.getElementById('video-title');
             if (titleElement) titleElement.textContent = contentData.title;
@@ -3581,17 +3476,6 @@
             window.history.pushState({ videoId, title }, title, url);
         }
         
-        showLoadingState() {
-            const loadingOverlay = document.createElement('div');
-            loadingOverlay.className = 'dynamic-loading-overlay';
-            loadingOverlay.innerHTML = '<div class="loading-spinner">Loading...</div>';
-            document.body.appendChild(loadingOverlay);
-        }
-        
-        hideLoadingState() {
-            const loadingOverlay = document.querySelector('.dynamic-loading-overlay');
-            if (loadingOverlay) loadingOverlay.remove();
-        }
     }
     
     // Initialize dynamic loader
