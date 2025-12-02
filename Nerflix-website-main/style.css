@@ -610,6 +610,106 @@ body{
     }
 }
 
+/* MovieFlix-style Mobile Sidebar Menu */
+.mf-sidebar {
+    display: none;
+    width: 260px;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 1199;
+}
+
+.mf-sidebar.open {
+    transform: translateX(0);
+}
+
+.mf-logo-container {
+    display: flex;
+    align-items: center;
+    padding: 0 25px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.mf-logo-icon {
+    color: #ff4757;
+    font-size: 28px;
+    margin-right: 12px;
+}
+
+.mf-logo-text {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(to right, #ff4757, #ff6b81);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.mf-menu-section {
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.mf-section-title {
+    color: #aaa;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+.mf-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ddd;
+    text-decoration: none;
+}
+
+.mf-menu-item:hover {
+    background-color: rgba(255, 71, 87, 0.1);
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.mf-menu-item.active {
+    background-color: rgba(255, 71, 87, 0.2);
+    color: #ff6b81;
+    border-left: 4px solid #ff4757;
+}
+
+.mf-menu-icon {
+    width: 24px;
+    margin-right: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.mf-menu-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media (max-width: 991.98px) {
+    .mf-sidebar {
+        display: block;
+    }
+}
+
 @media (max-width: 576px) {
     .video-info {
         height: 550px;
@@ -1309,7 +1409,7 @@ header#main-header.menu-sticky{
         padding-bottom: 15px;
         width: 260px;
         height: 100vh;
-        background: #191919;
+        background: rgba(0, 0, 0, 0.95);
         padding-top: 40px;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0,0.2);
     }
@@ -1335,10 +1435,18 @@ header#main-header.menu-sticky{
         color: #fff;
     }
     .mobile-more-menu{
-        display: block;
+        display: none;
     }
     .menu-right{
-        display: none;
+        display: block;
+    }
+
+    /* Ensure header-right icons share header background on mobile */
+    .menu-right .nav-item > a,
+    .menu-right .nav-item > a i,
+    .menu-right .iq-user-dropdown {
+        background: transparent !important;
+        box-shadow: none !important;
     }
     .navbar-brand{
         padding: 0;
@@ -1356,12 +1464,9 @@ header#main-header.menu-sticky{
         width: 40px;
     }
     .iq-search-bar .search-input{
-        background: #141414;
+        background: rgba(0, 0, 0, 0.95);
         color: #d1d0cf;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.75);
-    }
-    .navbar-right li{
-        position: static !important;
     }
     .container-fluid{
         padding-left: 30px;
@@ -1373,6 +1478,18 @@ header#main-header.menu-sticky{
     .search-box{
         min-width: 16.2rem;
         top: 55px;
+    }
+
+    /* Mobile: show search input right below header icons */
+    .navbar-right .iq-show .search-box{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: auto;
+        transform: translateY(10px);
+        min-width: 260px;
+        width: auto;
+        z-index: 1200;
     }
     header .navbar ul li{
         display: block;
@@ -3633,6 +3750,29 @@ span.fa-heart-wrapper.liked {
     flex: 0 0 calc(75% - 70px) !important;
     max-width: calc(75% - 70px) !important;
 }
+
+@media (max-width: 991.98px) {
+    .video-gallery-content .row {
+        flex-direction: column;
+    }
+
+    .video-gallery-content .col-lg-9,
+    .video-gallery-content .col-lg-3 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .video-gallery-content .col-lg-9 {
+        order: 1;
+    }
+
+    .video-gallery-content .col-lg-3 {
+        order: 2;
+        margin-top: 1.5rem;
+    }
+}
+
+/* (All mobile header and bottom bar customizations reverted; only video gallery sidebar responsiveness kept) */
 
 /* Clickable Movie Items - YouTube Style */
 .slide-item {

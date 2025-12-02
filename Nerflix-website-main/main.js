@@ -100,16 +100,62 @@
             }
         });
     }
+
+    // MovieFlix-style mobile sidebar menu (triggered by existing navbar hamburger)
+    function initMobileSidebarMenu() {
+        const sidebar = document.getElementById('mfSidebar');
+        const menuToggle = document.querySelector('.navbar-toggler.c-toggler');
+        if (!sidebar || !menuToggle) {
+            return;
+        }
+
+        const menuItems = sidebar.querySelectorAll('.mf-menu-item');
+
+        menuToggle.addEventListener('click', function (e) {
+            if (window.innerWidth <= 991) {
+                e.preventDefault();
+                e.stopPropagation();
+                sidebar.classList.toggle('open');
+                document.body.classList.toggle('mf-sidebar-open', sidebar.classList.contains('open'));
+            }
+        });
+
+        if (menuItems && menuItems.length) {
+            Array.prototype.forEach.call(menuItems, function (item) {
+                item.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                    Array.prototype.forEach.call(menuItems, function (el) {
+                        el.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    sidebar.classList.remove('open');
+                    document.body.classList.remove('mf-sidebar-open');
+                });
+            });
+        }
+
+        document.addEventListener('click', function (e) {
+            if (window.innerWidth > 991) return;
+            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('open');
+                document.body.classList.remove('mf-sidebar-open');
+            }
+        });
+    }
     
     // Initialize on DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             initPageLoader();
             initPageTransitions();
+            initMobileSidebarMenu();
         });
     } else {
         initPageLoader();
         initPageTransitions();
+        initMobileSidebarMenu();
     }
     
     // ============================================
