@@ -621,10 +621,12 @@
     class WatchlistManager {
         constructor() {
             this.storageKey = 'nerflix_watchlist_items';
+            this.favoritesStorageKey = 'nerflix_favorites_items';
             this.cookiePrefix = 'nerflix_watchlist_';
             this.cookieLifetimeDays = 7;
             this.expiryDurationMs = this.cookieLifetimeDays * 24 * 60 * 60 * 1000;
             this.watchlist = this.loadWatchlist();
+            this.favorites = this.loadFavorites();
             this.sliderOptions = {
                 dots: false,
                 arrow: true,
@@ -670,6 +672,7 @@
                 this.prepareAllItems();
                 this.setupPageControls();
                 this.renderWatchlistPage();
+                this.renderFavoritesPage();
                 this.markExistingItems();
             };
             
@@ -734,6 +737,36 @@
                 return [];
             }
         }
+
+        loadFavorites() {
+            try {
+                const data = localStorage.getItem(this.favoritesStorageKey);
+                if (!data) return [];
+                const parsed = JSON.parse(data);
+                if (!Array.isArray(parsed)) return [];
+
+                const now = Date.now();
+                const validItems = [];
+
+                parsed.forEach(item => {
+                    if (!item || !item.itemId) return;
+                    const normalized = {
+                        ...item,
+                        addedAt: item.addedAt || now
+                    };
+                    validItems.push(normalized);
+                });
+
+                validItems.sort((a, b) => (a.addedAt || 0) - (b.addedAt || 0));
+                try {
+                    localStorage.setItem(this.favoritesStorageKey, JSON.stringify(validItems));
+                } catch (_) {}
+                return validItems;
+            } catch (err) {
+                console.warn('Unable to load favorites, resetting...', err);
+                return [];
+            }
+        }
         
         prepareAllItems() {
             const items = document.querySelectorAll('.slide-item');
@@ -748,6 +781,14 @@
                 localStorage.setItem(this.storageKey, JSON.stringify(this.watchlist));
             } catch (err) {
                 console.warn('Failed to save watch list', err);
+            }
+        }
+
+        saveFavorites() {
+            try {
+                localStorage.setItem(this.favoritesStorageKey, JSON.stringify(this.favorites));
+            } catch (err) {
+                console.warn('Failed to save favorites', err);
             }
         }
         
@@ -769,14 +810,30 @@
                         this.showNotification('Watch list cleared.', 'info');
                 });
             }
+
+            const favoritesClearButton = document.getElementById('favorites-clear-all');
+            if (favoritesClearButton) {
+                favoritesClearButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!this.favorites.length) {
+                        this.showNotification('Your favorites list is already empty.', 'info');
+                        return;
+                    }
+                    this.favorites = [];
+                    this.saveFavorites();
+                    this.renderFavoritesPage();
+                    this.showNotification('Favorites cleared.', 'info');
+                });
+            }
         }
         
         setupPlusButtonListener() {
             document.addEventListener('click', (e) => {
                 const plusIcon = e.target.closest('.fa-plus');
-                if (!plusIcon) return;
+                const heartIcon = e.target.closest('.fa-heart');
+                if (!plusIcon && !heartIcon) return;
                 
-                const slideItem = plusIcon.closest('[data-item-id]');
+                const slideItem = (plusIcon || heartIcon).closest('[data-item-id]') || (plusIcon || heartIcon).closest('.slide-item');
                 if (!slideItem) return;
                 
                 e.preventDefault();
@@ -787,29 +844,50 @@
                 
                 const itemId = this.ensureItemId(slideItem);
                 this.cacheItemSnapshot(slideItem, itemId);
-                const existingIndex = this.watchlist.findIndex(item => item.itemId === itemId);
-                
-                if (existingIndex !== -1) {
-                    const removedItem = this.watchlist.splice(existingIndex, 1)[0];
-                    this.saveWatchlist();
-                    this.deleteItemCookie(itemId);
-                    this.markExistingItems();
-                    this.renderWatchlistPage();
-                    const title = removedItem && removedItem.title ? removedItem.title : 'Title';
-                    this.showNotification(`${title} removed from watch list.`, 'info');
-                    return;
+                const isPlus = !!plusIcon;
+
+                if (isPlus) {
+                    const existingIndex = this.watchlist.findIndex(item => item.itemId === itemId);
+                    if (existingIndex !== -1) {
+                        const removedItem = this.watchlist.splice(existingIndex, 1)[0];
+                        this.saveWatchlist();
+                        this.deleteItemCookie(itemId);
+                        this.markExistingItems();
+                        this.renderWatchlistPage();
+                        const title = removedItem && removedItem.title ? removedItem.title : 'Title';
+                        this.showNotification(`${title} removed from watch list.`, 'info');
+                        return;
+                    }
+                } else {
+                    const existingFavIndex = this.favorites.findIndex(item => item.itemId === itemId);
+                    if (existingFavIndex !== -1) {
+                        const removedFav = this.favorites.splice(existingFavIndex, 1)[0];
+                        this.saveFavorites();
+                        this.renderFavoritesPage();
+                        const title = removedFav && removedFav.title ? removedFav.title : 'Title';
+                        this.showNotification(`${title} removed from favorites.`, 'info');
+                        return;
+                    }
                 }
-                
+
                 const itemData = this.extractItemData(slideItem, itemId);
                 if (!itemData) return;
-                
-                this.watchlist.push(itemData);
-                this.watchlist.sort((a, b) => a.addedAt - b.addedAt);
-                this.saveWatchlist();
-                this.setItemCookie(itemId);
-                this.markExistingItems();
-                this.renderWatchlistPage();
-                this.showNotification(`${itemData.title} added to watch list!`, 'success');
+
+                if (isPlus) {
+                    this.watchlist.push(itemData);
+                    this.watchlist.sort((a, b) => a.addedAt - b.addedAt);
+                    this.saveWatchlist();
+                    this.setItemCookie(itemId);
+                    this.markExistingItems();
+                    this.renderWatchlistPage();
+                    this.showNotification(`${itemData.title} added to watch list!`, 'success');
+                } else {
+                    this.favorites.push(itemData);
+                    this.favorites.sort((a, b) => a.addedAt - b.addedAt);
+                    this.saveFavorites();
+                    this.renderFavoritesPage();
+                    this.showNotification(`${itemData.title} added to favorites!`, 'success');
+                }
             }, true);
         }
         
@@ -991,24 +1069,42 @@
         
         markExistingItems() {
             const savedIds = new Set(this.watchlist.map(item => item.itemId));
+            const favoriteIds = new Set(this.favorites.map(item => item.itemId));
             const items = document.querySelectorAll('[data-item-id]');
             items.forEach(item => {
                 const itemId = item.getAttribute('data-item-id');
                 const plusIcon = item.querySelector('.fa-plus');
-                if (!plusIcon) return;
-                const plusWrapper = plusIcon.closest('span');
-                
-                if (savedIds.has(itemId)) {
-                    plusIcon.classList.add('in-watchlist');
-                    if (plusWrapper) {
-                        plusWrapper.classList.add('watchlist-added');
-                        plusWrapper.setAttribute('title', 'Remove from Watch List');
+                const heartIcon = item.querySelector('.fa-heart');
+                if (plusIcon) {
+                    const plusWrapper = plusIcon.closest('span');
+                    if (savedIds.has(itemId)) {
+                        plusIcon.classList.add('in-watchlist');
+                        if (plusWrapper) {
+                            plusWrapper.classList.add('watchlist-added');
+                            plusWrapper.setAttribute('title', 'Remove from Watch List');
+                        }
+                    } else {
+                        plusIcon.classList.remove('in-watchlist');
+                        if (plusWrapper) {
+                            plusWrapper.classList.remove('watchlist-added');
+                            plusWrapper.removeAttribute('title');
+                        }
                     }
-                } else {
-                    plusIcon.classList.remove('in-watchlist');
-                    if (plusWrapper) {
-                        plusWrapper.classList.remove('watchlist-added');
-                        plusWrapper.removeAttribute('title');
+                }
+                if (heartIcon) {
+                    const heartWrapper = heartIcon.closest('span');
+                    if (favoriteIds.has(itemId)) {
+                        heartIcon.classList.add('in-favorites');
+                        if (heartWrapper) {
+                            heartWrapper.classList.add('favorites-added');
+                            heartWrapper.setAttribute('title', 'Remove from Favorites');
+                        }
+                    } else {
+                        heartIcon.classList.remove('in-favorites');
+                        if (heartWrapper) {
+                            heartWrapper.classList.remove('favorites-added');
+                            heartWrapper.removeAttribute('title');
+                        }
                     }
                 }
             });
@@ -1063,6 +1159,41 @@
                 this.activateSlider(allList);
             }
             
+            this.prepareAllItems();
+            this.markExistingItems();
+        }
+
+        renderFavoritesPage() {
+            const latestList = document.getElementById('favorites-latest-list');
+            const allList = document.getElementById('favorites-all-list');
+            if (!latestList && !allList) return;
+
+            const sortedItems = [...this.favorites].sort((a, b) => (a.addedAt || 0) - (b.addedAt || 0));
+            const activeItems = [...sortedItems];
+
+            if (latestList) {
+                this.resetSlider(latestList);
+                const latestItems = activeItems.slice(-10).reverse();
+                latestItems.forEach(item => {
+                    latestList.appendChild(this.createWatchlistSlide(item));
+                });
+                const latestEmptyState = document.querySelector('.watchlist-empty[data-section="favorites-latest"]');
+                this.toggleEmptyState(latestEmptyState, latestItems.length === 0, latestList);
+                this.updateCount('favorites-latest-count', latestItems.length);
+                this.activateSlider(latestList);
+            }
+
+            if (allList) {
+                this.resetSlider(allList);
+                activeItems.forEach(item => {
+                    allList.appendChild(this.createWatchlistSlide(item));
+                });
+                const allEmptyState = document.querySelector('.watchlist-empty[data-section="favorites-all"]');
+                this.toggleEmptyState(allEmptyState, activeItems.length === 0, allList);
+                this.updateCount('favorites-all-count', activeItems.length);
+                this.activateSlider(allList);
+            }
+
             this.prepareAllItems();
             this.markExistingItems();
         }
