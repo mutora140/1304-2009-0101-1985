@@ -624,7 +624,8 @@ body{
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
     transform: translateX(-100%);
-    z-index: 1199;
+    /* Make sure sidebar appears above the video gallery overlay */
+    z-index: 12001;
 }
 
 .mf-sidebar.open {
@@ -1216,6 +1217,20 @@ header .navbar ul li:last-child{
     color: #e50914 !important;
 }
 
+/* Remove background color / box-shadow from header icons globally */
+.navbar-right .nav-item.nav-icon > a,
+.navbar-right .nav-item.nav-icon > a i,
+.navbar-right .iq-user-dropdown,
+.navbar-right .iq-user-dropdown img,
+.mobile-more-menu .nav-item.nav-icon > a,
+.mobile-more-menu .nav-item.nav-icon > a i,
+.mobile-more-menu .iq-user-dropdown,
+.mobile-more-menu .iq-user-dropdown img {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 .search-wrapper{
     position: relative;
     display: inline-block;
@@ -1548,7 +1563,8 @@ header#main-header.menu-sticky{
     }
     .navbar ul{
         width: 100%;
-        background: #191919;
+        background: transparent;
+        z-index: 1000;
     }
     header .navbar ul li a, header .navbar ul li.menu-item a{
         padding: 15px;

@@ -110,6 +110,7 @@
         }
 
         const menuItems = sidebar.querySelectorAll('.mf-menu-item');
+        const galleryMenuTriggers = document.querySelectorAll('.video-gallery-menu-trigger');
 
         menuToggle.addEventListener('click', function (e) {
             if (window.innerWidth <= 991) {
@@ -119,6 +120,21 @@
                 document.body.classList.toggle('mf-sidebar-open', sidebar.classList.contains('open'));
             }
         });
+
+        // Allow video gallery menu icon to behave exactly like the main header menu icon
+        if (galleryMenuTriggers && galleryMenuTriggers.length) {
+            Array.prototype.forEach.call(galleryMenuTriggers, function (trigger) {
+                trigger.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle the same sidebar state used by the main header menu
+                    const isOpen = sidebar.classList.contains('open');
+                    sidebar.classList.toggle('open', !isOpen);
+                    document.body.classList.toggle('mf-sidebar-open', !isOpen);
+                });
+            });
+        }
 
         if (menuItems && menuItems.length) {
             Array.prototype.forEach.call(menuItems, function (item) {
