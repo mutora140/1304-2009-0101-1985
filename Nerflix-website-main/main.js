@@ -333,20 +333,43 @@
             const likeCount = this.getLikeCount(itemId);
             const isLiked = this.hasUserLiked(itemId);
             
-            // Update count box if it exists
-            const countBoxes = item.querySelectorAll('.count-box');
-            countBoxes.forEach(box => {
-                const newText = likeCount > 0 ? likeCount + '+' : '0+';
-                if (box.textContent !== newText) {
-                    box.textContent = newText;
-                }
-            });
-            
-            // Find and update heart icon visual state
+            // Find and update heart icons with count boxes and styling
             const heartIcons = item.querySelectorAll('.fa-heart');
             heartIcons.forEach(heartIcon => {
                 const heartSpan = heartIcon.closest('span');
+                const heartListItem = heartIcon.closest('li');
                 
+                // Find or create count box next to heart icon
+                if (heartListItem) {
+                    let countBox = heartListItem.querySelector('.count-box');
+                    
+                    // Create count box if it doesn't exist
+                    if (!countBox) {
+                        countBox = document.createElement('span');
+                        countBox.className = 'count-box';
+                        countBox.style.cssText = 'margin-left: 5px; color: #fff; font-size: 12px; display: inline-block;';
+                        
+                        // Insert after the heart icon span
+                        if (heartSpan && heartSpan.parentNode) {
+                            heartSpan.parentNode.insertBefore(countBox, heartSpan.nextSibling);
+                        } else if (heartListItem) {
+                            heartListItem.appendChild(countBox);
+                        }
+                    }
+                    
+                    // Update count box with current like count (always visible to all users)
+                    const newText = likeCount > 0 ? likeCount + '+' : '0+';
+                    if (countBox.textContent !== newText) {
+                        countBox.textContent = newText;
+                        countBox.style.display = 'inline-block';
+                        countBox.classList.add('updated');
+                        setTimeout(() => {
+                            countBox.classList.remove('updated');
+                        }, 500);
+                    }
+                }
+                
+                // Update heart icon visual state
                 if (isLiked) {
                     // Apply liked styling
                     heartIcon.classList.add('liked');
@@ -373,6 +396,20 @@
                         heartSpan.style.cssText = '';
                     }
                     heartIcon.style.cssText = '';
+                }
+            });
+            
+            // Also update any standalone count boxes (for backward compatibility)
+            const standaloneCountBoxes = item.querySelectorAll('.count-box');
+            standaloneCountBoxes.forEach(box => {
+                const newText = likeCount > 0 ? likeCount + '+' : '0+';
+                if (box.textContent !== newText) {
+                    box.textContent = newText;
+                    box.style.display = 'inline-block';
+                    box.classList.add('updated');
+                    setTimeout(() => {
+                        box.classList.remove('updated');
+                    }, 500);
                 }
             });
             
@@ -864,6 +901,19 @@
                         const removedFav = this.favorites.splice(existingFavIndex, 1)[0];
                         this.saveFavorites();
                         this.renderFavoritesPage();
+                        
+                        // Also remove from likes system when removing from favorites
+                        if (window.likeSystem && typeof window.likeSystem.toggleLike === 'function') {
+                            const wasLiked = window.likeSystem.hasUserLiked(itemId);
+                            if (wasLiked) {
+                                window.likeSystem.toggleLike(itemId);
+                            } else {
+                                // Just update the UI to show current count
+                                window.likeSystem.updateItemUI(itemId);
+                                window.likeSystem.updateAllItemInstances(itemId);
+                            }
+                        }
+                        
                         const title = removedFav && removedFav.title ? removedFav.title : 'Title';
                         this.showNotification(`${title} removed from favorites.`, 'info');
                         return;
@@ -886,6 +936,19 @@
                     this.favorites.sort((a, b) => a.addedAt - b.addedAt);
                     this.saveFavorites();
                     this.renderFavoritesPage();
+                    
+                    // Also add to likes system when adding to favorites - this increments the like counter
+                    if (window.likeSystem && typeof window.likeSystem.toggleLike === 'function') {
+                        const isLiked = window.likeSystem.hasUserLiked(itemId);
+                        if (!isLiked) {
+                            window.likeSystem.toggleLike(itemId);
+                        } else {
+                            // Just update the UI to show current count
+                            window.likeSystem.updateItemUI(itemId);
+                            window.likeSystem.updateAllItemInstances(itemId);
+                        }
+                    }
+                    
                     this.showNotification(`${itemData.title} added to favorites!`, 'success');
                 }
             }, true);
@@ -1313,7 +1376,7 @@
                                 <span><i class="fa fa-share-alt"></i></span>
                                 <div class="share-box">
                                     <div class="d-flex align-items-center">
-                                        <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
+                                        <a href="#" class="share-ico"><i class="fa fa-facebook"></i></a>
                                         <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
                                         <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
                                     </div>
@@ -2829,10 +2892,11 @@
                 return;
             }
 
+            const isFacebook = icon.hasClass('fa-facebook');
             const isYoutube = icon.hasClass('fa-youtube');
             const isInstagram = icon.hasClass('fa-instagram');
 
-            if (!isYoutube && !isInstagram) {
+            if (!isFacebook && !isYoutube && !isInstagram) {
                 return;
             }
 
@@ -2844,16 +2908,26 @@
                 showShareCopyPopup({
                     title: videoData.title,
                     link: 'Link unavailable',
-                    platform: isYoutube ? 'YouTube' : 'Instagram'
+                    platform: isFacebook ? 'Facebook' : (isYoutube ? 'YouTube' : 'Instagram')
                 });
                 return;
             }
 
-            const shareLink = `https://www.youtube.com/watch?v=${videoData.videoId}`;
+            let shareLink;
+            if (isFacebook) {
+                // Facebook share link - using the current page URL or YouTube link
+                const currentUrl = window.location.href;
+                shareLink = `https://www.youtube.com/watch?v=${videoData.videoId}`;
+                // You can customize this to use the actual page URL instead
+                // shareLink = currentUrl;
+            } else {
+                shareLink = `https://www.youtube.com/watch?v=${videoData.videoId}`;
+            }
+
             showShareCopyPopup({
                 title: videoData.title,
                 link: shareLink,
-                platform: isYoutube ? 'YouTube' : 'Instagram'
+                platform: isFacebook ? 'Facebook' : (isYoutube ? 'YouTube' : 'Instagram')
             });
         });
 

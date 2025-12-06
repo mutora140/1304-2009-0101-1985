@@ -2557,6 +2557,106 @@ ul#top-ten-slider .slick-bg::before{
     }
 }
 
+/* Mobile Play Now Button for Top Ten Slider Banner - Only visible on mobile/tablet */
+#top-ten-slider .slick-bg .mobile-banner-play-btn-container {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+#top-ten-slider .slick-bg .mobile-banner-play-btn-container .mobile-banner-play-now,
+#top-ten-slider .slick-bg .mobile-banner-play-btn-container span.mobile-banner-play-now,
+#top-ten-slider .slick-bg .mobile-banner-play-btn-container .btn.mobile-banner-play-now {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Show on mobile devices and small tablets (767px and smaller where banner title is visible) */
+@media screen and (max-width: 767px) {
+    #top-ten-slider .slick-bg {
+        position: relative;
+    }
+    
+    #top-ten-slider .slick-bg .iq-title {
+        position: absolute !important;
+        top: 15px !important;
+        left: 15px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 10 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    #top-ten-slider .slick-bg .iq-title a {
+        color: #fff !important;
+        font-size: 1.2em !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        display: block !important;
+    }
+    
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: absolute !important;
+        top: 60px !important;
+        left: 15px !important;
+        z-index: 10 !important;
+        width: auto !important;
+        margin-top: 0 !important;
+    }
+    
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container .mobile-banner-play-now,
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container span.mobile-banner-play-now,
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container .btn.mobile-banner-play-now {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 7px 14px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        cursor: pointer !important;
+        width: auto !important;
+        background: #bf000a !important;
+        border: 1px solid #bf000a !important;
+        color: #fff !important;
+        border-radius: 5px !important;
+        text-decoration: none !important;
+        line-height: normal !important;
+    }
+}
+
+/* Adjust positioning on smaller mobile devices */
+@media screen and (max-width: 576px) {
+    #top-ten-slider .slick-bg .iq-title {
+        top: 12px !important;
+        left: 12px !important;
+    }
+    
+    #top-ten-slider .slick-bg .iq-title a {
+        font-size: 1em !important;
+    }
+    
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container {
+        top: 50px !important;
+        left: 12px !important;
+    }
+    
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container .mobile-banner-play-now,
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container span.mobile-banner-play-now,
+    #top-ten-slider .slick-bg .mobile-banner-play-btn-container .btn.mobile-banner-play-now {
+        min-width: 140px !important;
+        font-size: 12px !important;
+        padding: 6px 12px !important;
+    }
+}
+
 /* *************************** */
 .s-margin{
     margin-top: 40px;
