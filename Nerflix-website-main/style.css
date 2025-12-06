@@ -9,7 +9,7 @@ body{
     padding: 0;
     margin: 0;
     color: #d1d0cf;
-    background: rgba(0, 0, 0, 0.95);
+    background: #000000;
 }
 
 /* Custom Scrollbar Styles - Transparent Background */
@@ -51,7 +51,7 @@ body{
     height: 100%;
     z-index: 11000;
     display: none;
-    background: rgba(20, 20, 20, 0.5) !important;
+    background: #000000 !important;
     backdrop-filter: blur(1000px);
     overflow-y: auto;
     scroll-behavior: smooth;
@@ -1315,7 +1315,7 @@ header .navbar ul li:last-child{
     width: 100%;
     height: 40px;
     padding: 5px 15px 5px 40px;
-    border: none;
+    border: 1px solid #333;
     border-radius: 0;
     color: #fff;
     background: rgba(0, 0, 0, 0.95) ;
@@ -4640,4 +4640,152 @@ img.loader-avatar {
     bottom: 0 !important;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     background: rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile Play Now Button - Only visible on mobile devices, positioned very close to title in block-description section */
+.block-description .mobile-play-btn-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+
+.block-description .mobile-play-btn-container .mobile-play-now,
+.block-description .mobile-play-btn-container span.mobile-play-now,
+.block-description .mobile-play-btn-container span.btn.mobile-play-now,
+.block-description .mobile-play-btn-container .btn.mobile-play-now {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 7px 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    width: auto !important;
+    background: #bf000a !important;
+    border: 1px solid #bf000a !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    text-decoration: none !important;
+    line-height: normal !important;
+}
+
+/* Hide on desktop (992px and larger) */
+@media screen and (min-width: 992px) {
+    .block-description .mobile-play-btn-container {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    .block-description .mobile-play-btn-container .mobile-play-now,
+    .block-description .mobile-play-btn-container span.mobile-play-now {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+/* Show on mobile devices and small tablets (991px and smaller) */
+@media screen and (max-width: 991.98px) {
+    .block-description .mobile-play-btn-container {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
+        width: 100%;
+    }
+    
+    .block-description .mobile-play-btn-container .mobile-play-now,
+    .block-description .mobile-play-btn-container span.mobile-play-now,
+    .block-description .mobile-play-btn-container .btn.mobile-play-now {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Show on small mobile devices (576px and smaller) */
+@media screen and (max-width: 576px) {
+    .block-description .mobile-play-btn-container .mobile-play-now,
+    .block-description .mobile-play-btn-container span.mobile-play-now,
+    .block-description .mobile-play-btn-container .btn.mobile-play-now {
+        min-width: 140px !important;
+    }
+}
+
+/* Mobile Play Now Button for Trending Banner Section - HIDDEN by default, only visible on mobile */
+.trending-info .mobile-play-btn-container-trending {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: relative;
+    z-index: 10;
+}
+
+.trending-info .mobile-play-btn-container-trending .mobile-play-now-trending,
+.trending-info .mobile-play-btn-container-trending span.mobile-play-now-trending,
+.trending-info .mobile-play-btn-container-trending a.mobile-play-now-trending {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    padding: 7px 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    width: auto !important;
+    background: #bf000a !important;
+    border: 1px solid #bf000a !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    text-decoration: none !important;
+    line-height: normal !important;
+}
+
+/* Show ONLY on mobile devices and small tablets (768px and smaller) */
+@media screen and (max-width: 768px) {
+    .trending-info .mobile-play-btn-container-trending {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .trending-info .mobile-play-btn-container-trending .mobile-play-now-trending,
+    .trending-info .mobile-play-btn-container-trending span.mobile-play-now-trending,
+    .trending-info .mobile-play-btn-container-trending a.mobile-play-now-trending {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Show on small mobile devices (576px and smaller) */
+@media screen and (max-width: 576px) {
+    .trending-info .mobile-play-btn-container-trending {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .trending-info .mobile-play-btn-container-trending .mobile-play-now-trending,
+    .trending-info .mobile-play-btn-container-trending span.mobile-play-now-trending,
+    .trending-info .mobile-play-btn-container-trending a.mobile-play-now-trending {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        min-width: 140px !important;
+    }
 }
