@@ -1724,10 +1724,10 @@
             dots : false,
             responsive : {
                 0:{
-                    items : 1
+                    items : 2
                 },
                 600: {
-                    items : 1
+                    items : 2
                 },
                 1000 : {
                     items : 4
@@ -3366,8 +3366,8 @@
             navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
             dots : false,
             responsive : {
-                0:{ items : 1 },
-                600:{ items : 1 },
+                0:{ items : 2 },
+                600:{ items : 2 },
                 1000:{ items : 4 }
             }
         });
@@ -4057,8 +4057,8 @@ function initializeSeasonSelectors() {
                 navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
                 dots: false,
                 responsive : {
-                  0:{ items: 1 },
-                  600:{ items: 1 },
+                  0:{ items: 2 },
+                  600:{ items: 2 },
                   1000:{ items: itemsToShow }
                 }
               });
@@ -4083,8 +4083,8 @@ function initializeSeasonSelectors() {
                 navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
                 dots: false,
                 responsive : {
-                  0:{ items: 1 },
-                  600:{ items: 1 },
+                  0:{ items: 2 },
+                  600:{ items: 2 },
                   1000:{ items: itemsToShow }
                 }
               });
@@ -4230,8 +4230,8 @@ function switchSeasonEpisodes(selectElement) {
           navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
           dots: false,
           responsive : {
-            0:{ items: 1 },
-            600:{ items: 1 },
+            0:{ items: 2 },
+            600:{ items: 2 },
             1000:{ items: itemsToShow }
           }
         });
@@ -4254,8 +4254,8 @@ function switchSeasonEpisodes(selectElement) {
           navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
           dots: false,
           responsive : {
-            0:{ items: 1 },
-            600:{ items: 1 },
+            0:{ items: 2 },
+            600:{ items: 2 },
             1000:{ items: itemsToShow }
           }
         });
@@ -4269,4 +4269,55 @@ function switchSeasonEpisodes(selectElement) {
     episodesContainer.style.visibility = 'visible';
   }
 }
+
+// ---------- Accessibility helpers (nav labels, focusability, alt fallbacks) ----------
+(function enhanceAccessibility(){
+  function setCarouselControlA11y() {
+    const prevButtons = document.querySelectorAll('.owl-prev');
+    const nextButtons = document.querySelectorAll('.owl-next');
+    prevButtons.forEach(function(btn){
+      btn.setAttribute('aria-label', 'Previous slide');
+      btn.setAttribute('role', 'button');
+      btn.setAttribute('tabindex', '0');
+    });
+    nextButtons.forEach(function(btn){
+      btn.setAttribute('aria-label', 'Next slide');
+      btn.setAttribute('role', 'button');
+      btn.setAttribute('tabindex', '0');
+    });
+  }
+
+  function addFallbackAltText() {
+    document.querySelectorAll('img').forEach(function(img){
+      const currentAlt = img.getAttribute('alt');
+      if (currentAlt && currentAlt.trim() !== '') return;
+      let derived = null;
+      const block = img.closest('.block-images') || img.closest('.block-image') || img.closest('.e-item');
+      if (block) {
+        const titleEl = block.querySelector('.iq-title a, .iq-title, .episodes-description a, .movie-content a');
+        if (titleEl && titleEl.textContent.trim()) {
+          derived = titleEl.textContent.trim();
+        }
+      }
+      if (!derived && img.getAttribute('data-title')) derived = img.getAttribute('data-title');
+      if (!derived && img.getAttribute('title')) derived = img.getAttribute('title');
+      img.setAttribute('alt', derived ? (derived + ' poster') : 'Media thumbnail');
+    });
+  }
+
+  function initA11y() {
+    setCarouselControlA11y();
+    addFallbackAltText();
+  }
+
+  if (typeof jQuery !== 'undefined' && jQuery(document)) {
+    jQuery(document).on('initialized.owl.carousel refreshed.owl.carousel', '.owl-carousel', setCarouselControlA11y);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initA11y);
+  } else {
+    initA11y();
+  }
+})();
 
