@@ -660,7 +660,8 @@
             this.storageKey = 'nerflix_watchlist_items';
             this.favoritesStorageKey = 'nerflix_favorites_items';
             this.cookiePrefix = 'nerflix_watchlist_';
-            this.cookieLifetimeDays = 7;
+            // Keep items effectively forever unless the user removes them
+            this.cookieLifetimeDays = 3650; // ~10 years
             this.expiryDurationMs = this.cookieLifetimeDays * 24 * 60 * 60 * 1000;
             this.watchlist = this.loadWatchlist();
             this.favorites = this.loadFavorites();
@@ -784,12 +785,21 @@
 
                 const now = Date.now();
                 const validItems = [];
-
+                
                 parsed.forEach(item => {
                     if (!item || !item.itemId) return;
+                    const addedAt = item.addedAt || now;
+                    const expiresAt = item.expiresAt || (addedAt + this.expiryDurationMs);
+                    
+                    // Skip anything older than the configured lifespan
+                    if (expiresAt <= now) {
+                        return;
+                    }
+
                     const normalized = {
                         ...item,
-                        addedAt: item.addedAt || now
+                        addedAt,
+                        expiresAt
                     };
                     validItems.push(normalized);
                 });
@@ -955,15 +965,38 @@
         }
         
         ensureItemId(slideItem) {
-            if (!slideItem) return 'watch-' + Date.now();
-            let itemId = slideItem.getAttribute('data-item-id');
-            if (itemId) return itemId;
-            
+            if (!slideItem) return 'watch-item';
+
+            // If already set, reuse it to keep persistence stable
+            const existing = slideItem.getAttribute('data-item-id');
+            if (existing) return existing;
+
+            // Build a stable, deterministic ID based on visible data
             const titleElement = slideItem.querySelector('.iq-title a, .iq-title');
-            let base = titleElement ? titleElement.textContent.trim().toLowerCase() : 'item';
-            base = base.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-            if (!base) base = 'item';
-            itemId = `${base}-${Date.now()}`;
+            const sectionEl = slideItem.closest('section');
+            const imageEl = slideItem.querySelector('.img-box img');
+
+            const title = titleElement ? titleElement.textContent.trim().toLowerCase() : '';
+            const section = sectionEl ? (sectionEl.querySelector('.main-title') ? sectionEl.querySelector('.main-title').textContent.trim().toLowerCase() : '') : '';
+            const imageSrc = imageEl ? imageEl.getAttribute('src') || '' : '';
+
+            const slugify = (str) => {
+                return (str || '')
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+            };
+
+            const titleSlug = slugify(title);
+            const sectionSlug = slugify(section);
+            const imageSlug = slugify(imageSrc.split('/').pop() || '');
+
+            let parts = [titleSlug, sectionSlug, imageSlug].filter(Boolean);
+            if (!parts.length) {
+                parts = ['item'];
+            }
+
+            const itemId = parts.join('-');
             slideItem.setAttribute('data-item-id', itemId);
             return itemId;
         }
@@ -1073,6 +1106,11 @@
                 const videoId = videoButton ? videoButton.getAttribute('data-video-id') : '';
                 const videoTitle = videoButton ? (videoButton.getAttribute('data-title') || title) : title;
                 
+                // Optional custom links if provided on the slide item
+                const customWatchUrl = slideItem.getAttribute('data-watch-url') || '';
+                const customDownloadUrl = slideItem.getAttribute('data-download-url') || '';
+                const derivedWatchUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : '';
+                
                 const descriptionEl = slideItem.querySelector('.block-description p');
                 const description = descriptionEl ? descriptionEl.textContent.trim() : '';
                 
@@ -1095,7 +1133,9 @@
                     videoId,
                     videoTitle,
                     description,
-                    sourceSection
+                    sourceSection,
+                    watchUrl: customWatchUrl || derivedWatchUrl,
+                    downloadUrl: customDownloadUrl
                 };
             } catch (error) {
                 console.warn('Failed to build watch list payload', error);
@@ -1343,12 +1383,22 @@
             const tagMarkup = item.tag ? `<span class="sequel-tag">${this.escapeHtml(item.tag)}</span>` : '';
             const sourceMarkup = item.sourceSection ? `<p class="watchlist-source text-white-50 mb-2">Saved from ${this.escapeHtml(item.sourceSection)}</p>` : '';
             const descriptionMarkup = item.description ? `<p class="watchlist-description text-white-50 mb-0">${this.escapeHtml(item.description)}</p>` : '';
-            const playMarkup = item.videoId ? `
+            const watchHref = item.watchUrl && String(item.watchUrl).trim();
+            const downloadHref = item.downloadUrl && String(item.downloadUrl).trim();
+            const playMarkup = watchHref ? `
                 <div class="hover-buttons">
-                    <span class="btn btn-hover iq-button" data-video-id="${this.escapeAttribute(item.videoId)}" data-title="${this.escapeAttribute(item.videoTitle || item.title)}">
+                    <a class="btn btn-hover iq-button" href="${this.escapeAttribute(watchHref)}" target="_blank" rel="noopener noreferrer">
                         <i class="fa fa-play mr-1"></i>
-                        Play Now
-                    </span>
+                        Watch Full Movie
+                    </a>
+                </div>
+            ` : '';
+            const downloadMarkup = downloadHref ? `
+                <div class="hover-buttons mt-2">
+                    <a class="btn btn-outline btn-download" href="${this.escapeAttribute(downloadHref)}" download>
+                        <i class="fa fa-download mr-1"></i>
+                        Download
+                    </a>
                 </div>
             ` : '';
             
@@ -1369,6 +1419,7 @@
                         ${sourceMarkup}
                         ${descriptionMarkup}
                         ${playMarkup}
+                        ${downloadMarkup}
                     </div>
                     <div class="block-social-info">
                         <ul class="list-inline p-0 m-0 music-play-lists">
@@ -1878,7 +1929,9 @@
             description: 'When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it\'s up to Earth\'s mightiest heroes to stop the villainous Ultron from enacting his terrible plan.',
             age: '12+',
             duration: '2h 21min',
-            year: '2015'
+            year: '2015',
+            watchFullLink: 'https://cdn.example.com/watch/avengers-age-of-ultron',
+            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'FLzfXQSPBOg': {
             title: 'Frozen',
@@ -1889,7 +1942,9 @@
             description: 'When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.',
             age: '13+',
             duration: '1h 42min',
-            year: '2013'
+            year: '2013',
+            watchFullLink: 'https://cdn.example.com/watch/frozen',
+            downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
         'k10ETZ41q5o': {
             title: 'The Conjuring',
@@ -1900,7 +1955,9 @@
             description: 'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.',
             age: '16+',
             duration: '1h 52min',
-            year: '2013'
+            year: '2013',
+            watchFullLink: 'https://cdn.example.com/watch/the-conjuring',
+            downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
         },
         '02-XkOLVnIU': {
             title: 'Mulan',
@@ -1911,7 +1968,9 @@
             description: 'A young Chinese maiden disguises herself as a male warrior in order to save her father.',
             age: '10+',
             duration: '2h 0min',
-            year: '2020'
+            year: '2020',
+            watchFullLink: 'https://cdn.example.com/watch/mulan-2020',
+            downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         '8jLOx1hD3_o': {
             title: 'Laxmii',
@@ -1922,7 +1981,9 @@
             description: 'A man gets possessed by a ghost and starts behaving like a woman.',
             age: '18+',
             duration: '2h 21min',
-            year: '2020'
+            year: '2020',
+            watchFullLink: 'https://cdn.example.com/watch/laxmii',
+            downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'W4DlMggBPvc': {
             title: 'Captain America: The First Avenger',
@@ -1933,7 +1994,9 @@
             description: 'Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a "Super-Soldier serum".',
             age: '12+',
             duration: '2h 4min',
-            year: '2011'
+            year: '2011',
+            watchFullLink: 'https://cdn.example.com/watch/captain-america-the-first-avenger',
+            downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'sDYVdxFZq8Y': {
             title: 'Life of Pi',
@@ -1948,7 +2011,9 @@
             vimeoAsset: {
             vimeoId: '76979871',
             downloadUrl: 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164'
-            }
+            },
+            watchFullLink: 'https://cdn.example.com/watch/life-of-pi',
+            downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'q78_0TElYME': {
             title: 'Mission Mangal',
@@ -1959,7 +2024,9 @@
             description: 'Based on true events of the Indian Space Research Organisation (ISRO) successfully launching the Mars Orbiter Mission.',
             age: '12+',
             duration: '2h 10min',
-            year: '2019'
+            year: '2019',
+            watchFullLink: 'https://cdn.example.com/watch/mission-mangal',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'acEoQpJq0qg': {
             title: 'Insidious: The Last Key',
@@ -1970,7 +2037,9 @@
             description: 'Paranormal investigator Elise Rainier faces her most fearsome and personal haunting yet.',
             age: '16+',
             duration: '1h 43min',
-            year: '2018'
+            year: '2018',
+            watchFullLink: 'https://cdn.example.com/watch/insidious-the-last-key',
+            downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
         },
         'yQ5U8suTUw0': {
             title: 'War',
@@ -1981,7 +2050,9 @@
             description: 'An Indian soldier is assigned to eliminate his mentor who has gone rogue.',
             age: '12+',
             duration: '2h 34min',
-            year: '2019'
+            year: '2019',
+            watchFullLink: 'https://cdn.example.com/watch/war-2019',
+            downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
         },
         '4qf9Uyn2acE': {
             title: 'Five Feet Apart',
@@ -1992,7 +2063,9 @@
             description: 'A pair of teenagers with cystic fibrosis meet in a hospital and fall in love, though their disease means they must maintain a safe distance between them.',
             age: '18+',
             duration: '1h 56min',
-            year: '2019'
+            year: '2019',
+            watchFullLink: 'https://cdn.example.com/watch/five-feet-apart',
+            downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
         'tsxemFXSQXQ': {
             title: 'Chhichhore',
@@ -2003,7 +2076,9 @@
             description: 'A tragic incident forces Anirudh, a middle-aged man, to take a trip down memory lane and reminisce his college days along with his friends.',
             age: '10+',
             duration: '2h 23min',
-            year: '2019'
+            year: '2019',
+            watchFullLink: 'https://cdn.example.com/watch/chhichhore',
+            downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
         },
         'Lt-U_t2pUHI': {
             title: 'Doctor Strange',
@@ -2014,7 +2089,9 @@
             description: 'While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts.',
             age: '12+',
             duration: '1h 55min',
-            year: '2016'
+            year: '2016',
+            watchFullLink: 'https://cdn.example.com/watch/doctor-strange',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'VyHV0BtdCW4': {
             title: 'Harry Potter and the Sorcerer\'s Stone',
@@ -2025,7 +2102,9 @@
             description: 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.',
             age: '10+',
             duration: '2h 32min',
-            year: '2001'
+            year: '2001',
+            watchFullLink: 'https://cdn.example.com/watch/harry-potter-and-the-sorcerers-stone',
+            downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
         },
         'CDrieqs-S54': {
             title: 'The Queen\'s Gambit',
@@ -2036,7 +2115,9 @@
             description: 'Orphaned at the tender age of nine, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA.',
             age: '18+',
             duration: '6h 47min',
-            year: '2020'
+            year: '2020',
+            watchFullLink: 'https://cdn.example.com/watch/the-queens-gambit',
+            downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
         },
         'b9EkMc79ZSU': {
             title: 'Stranger Things',
@@ -2047,7 +2128,9 @@
             description: 'When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.',
             age: '16+',
             duration: '3 Seasons',
-            year: '2016'
+            year: '2016',
+            watchFullLink: 'https://cdn.example.com/watch/stranger-things',
+            downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
         },
         'i1eJMig5Ik4': {
             title: 'BoJack Horseman',
@@ -2058,7 +2141,9 @@
             description: 'BoJack Horseman was the star of the hit television show "Horsin\' Around" in the \'80s and \'90s, but now he\'s washed up.',
             age: '15+',
             duration: '6 Seasons',
-            year: '2014'
+            year: '2014',
+            watchFullLink: 'https://cdn.example.com/watch/bojack-horseman',
+            downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
         },
         'oVzVdvLeICg': {
             title: 'Peaky Blinders',
@@ -2069,7 +2154,9 @@
             description: 'A notorious gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost.',
             age: '20+',
             duration: '5 Seasons',
-            year: '2013'
+            year: '2013',
+            watchFullLink: 'https://cdn.example.com/watch/peaky-blinders',
+            downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
         },
         'L_jWHffIx5E': {
             title: 'NBA Basketball Highlights',
@@ -2080,7 +2167,9 @@
             description: 'Best moments and highlights from NBA basketball games featuring top players and teams.',
             age: 'All Ages',
             duration: 'Various',
-            year: '2024'
+            year: '2024',
+            watchFullLink: 'https://cdn.example.com/watch/nba-basketball-highlights',
+            downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
         '4fVCKy69zUY': {
             title: 'PGA Golf Championship',
@@ -2091,7 +2180,9 @@
             description: 'Highlights from the PGA Golf Championship featuring top golfers and amazing shots.',
             age: 'All Ages',
             duration: 'Various',
-            year: '2024'
+            year: '2024',
+            watchFullLink: 'https://cdn.example.com/watch/pga-golf-championship',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         '5PSNL1qE6VY': {
             title: 'Avatar',
@@ -2102,7 +2193,9 @@
             description: 'A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
             age: '12+',
             duration: '2h 42min',
-            year: '2009'
+            year: '2009',
+            watchFullLink: 'https://cdn.example.com/watch/avatar-2009',
+            downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
         },
         'JWtnJjn6ngQ': {
             title: 'The Crown',
@@ -2113,7 +2206,9 @@
             description: 'Follows the political rivalries and romance of Queen Elizabeth II\'s reign and the events that shaped the second half of the twentieth century.',
             age: '16+',
             duration: '4 Seasons',
-            year: '2016'
+            year: '2016',
+            watchFullLink: 'https://cdn.example.com/watch/the-crown',
+            downloadLink: 'https://cdn.example.com/download/the-crown.mp4'
         },
         'WBb3fojjx-0': {
             title: 'The Big Bang Theory',
@@ -2124,7 +2219,9 @@
             description: 'A woman who moves into an apartment across the hall from two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory.',
             age: '12+',
             duration: '12 Seasons',
-            year: '2007'
+            year: '2007',
+            watchFullLink: 'https://cdn.example.com/watch/the-big-bang-theory',
+            downloadLink: 'https://cdn.example.com/download/the-big-bang-theory.mp4'
         },
         'Ua0HdsbsDsA': {
             title: 'Narcos',
@@ -2135,7 +2232,9 @@
             description: 'A chronicled look at the criminal exploits of Colombian drug lord Pablo Escobar, as well as the many other drug kingpins who plagued the country through the years.',
             age: '18+',
             duration: '3 Seasons',
-            year: '2015'
+            year: '2015',
+            watchFullLink: 'https://cdn.example.com/watch/narcos',
+            downloadLink: 'https://cdn.example.com/download/narcos.mp4'
         },
         'IEEbUfhFFM0': {
             title: 'Friends',
@@ -2157,7 +2256,9 @@
             description: 'An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.',
             age: '12+',
             duration: '2h 24min',
-            year: '2015'
+            year: '2015',
+            watchFullLink: 'https://cdn.example.com/watch/the-martian',
+            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'n9tzhmJ5hFE': {
             title: 'Unhinged',
@@ -2168,7 +2269,9 @@
             description: 'After a confrontation with an unstable man at an intersection, a woman becomes the target of his rage.',
             age: '16+',
             duration: '1h 30min',
-            year: '2020'
+            year: '2020',
+            watchFullLink: 'https://cdn.example.com/watch/unhinged',
+            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'm4NC26Dk4dE': {
             title: 'Kingsman: The Secret Service',
@@ -2205,7 +2308,9 @@
             description: 'An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.',
             age: '12+',
             duration: '1h 50min',
-            year: '1996'
+            year: '1996',
+            watchFullLink: 'https://cdn.example.com/watch/mission-impossible-1996',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         '8jLOx1hD3_o': {
             title: 'Mirzapur',
@@ -2236,6 +2341,29 @@
         // Search functionality movies
 
     };
+
+    // Add per-movie watch/download links (unique per video) while preserving any custom ones
+    (function ensureVideoLinks() {
+        const WATCH_BASE = 'https://www.youtube.com/watch?v=';              // unique per videoId
+        const DOWNLOAD_BASE = 'https://cdn.example.com/downloads/';        // change to your real download host
+        Object.entries(videoData).forEach(([videoId, movie]) => {
+            if (!movie) return;
+
+            // Watch: prefer explicit link, otherwise build unique YouTube link from videoId
+            if (!movie.watchFullLink) {
+                movie.watchFullLink = `${WATCH_BASE}${videoId}`;
+            }
+
+            // Download: prefer explicit link, otherwise Vimeo asset download, otherwise unique CDN path
+            if (!movie.downloadLink) {
+                if (movie.vimeoAsset && movie.vimeoAsset.downloadUrl) {
+                    movie.downloadLink = movie.vimeoAsset.downloadUrl;
+                } else {
+                    movie.downloadLink = `${DOWNLOAD_BASE}${videoId}.mp4`;
+                }
+            }
+        });
+    })();
 
     // Default video data for unknown videos
     const defaultVideoData = {
