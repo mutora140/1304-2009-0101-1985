@@ -1930,7 +1930,6 @@
             age: '12+',
             duration: '2h 21min',
             year: '2015',
-            watchFullLink: 'https://cdn.example.com/watch/avengers-age-of-ultron',
             downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'FLzfXQSPBOg': {
@@ -1943,7 +1942,6 @@
             age: '13+',
             duration: '1h 42min',
             year: '2013',
-            watchFullLink: 'https://cdn.example.com/watch/frozen',
             downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
         'k10ETZ41q5o': {
@@ -1956,7 +1954,6 @@
             age: '16+',
             duration: '1h 52min',
             year: '2013',
-            watchFullLink: 'https://cdn.example.com/watch/the-conjuring',
             downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
         },
         '02-XkOLVnIU': {
@@ -1969,7 +1966,6 @@
             age: '10+',
             duration: '2h 0min',
             year: '2020',
-            watchFullLink: 'https://cdn.example.com/watch/mulan-2020',
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         '8jLOx1hD3_o': {
@@ -1982,7 +1978,6 @@
             age: '18+',
             duration: '2h 21min',
             year: '2020',
-            watchFullLink: 'https://cdn.example.com/watch/laxmii',
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'W4DlMggBPvc': {
@@ -1995,7 +1990,6 @@
             age: '12+',
             duration: '2h 4min',
             year: '2011',
-            watchFullLink: 'https://cdn.example.com/watch/captain-america-the-first-avenger',
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'sDYVdxFZq8Y': {
@@ -2012,7 +2006,6 @@
             vimeoId: '76979871',
             downloadUrl: 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164'
             },
-            watchFullLink: 'https://cdn.example.com/watch/life-of-pi',
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'q78_0TElYME': {
@@ -2025,7 +2018,6 @@
             age: '12+',
             duration: '2h 10min',
             year: '2019',
-            watchFullLink: 'https://cdn.example.com/watch/mission-mangal',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'acEoQpJq0qg': {
@@ -2038,7 +2030,6 @@
             age: '16+',
             duration: '1h 43min',
             year: '2018',
-            watchFullLink: 'https://cdn.example.com/watch/insidious-the-last-key',
             downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
         },
         'yQ5U8suTUw0': {
@@ -2051,7 +2042,6 @@
             age: '12+',
             duration: '2h 34min',
             year: '2019',
-            watchFullLink: 'https://cdn.example.com/watch/war-2019',
             downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
         },
         '4qf9Uyn2acE': {
@@ -2064,7 +2054,6 @@
             age: '18+',
             duration: '1h 56min',
             year: '2019',
-            watchFullLink: 'https://cdn.example.com/watch/five-feet-apart',
             downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
         'tsxemFXSQXQ': {
@@ -2077,7 +2066,6 @@
             age: '10+',
             duration: '2h 23min',
             year: '2019',
-            watchFullLink: 'https://cdn.example.com/watch/chhichhore',
             downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
         },
         'Lt-U_t2pUHI': {
@@ -2090,7 +2078,6 @@
             age: '12+',
             duration: '1h 55min',
             year: '2016',
-            watchFullLink: 'https://cdn.example.com/watch/doctor-strange',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'VyHV0BtdCW4': {
@@ -2103,7 +2090,6 @@
             age: '10+',
             duration: '2h 32min',
             year: '2001',
-            watchFullLink: 'https://cdn.example.com/watch/harry-potter-and-the-sorcerers-stone',
             downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
         },
         'CDrieqs-S54': {
@@ -2116,7 +2102,6 @@
             age: '18+',
             duration: '6h 47min',
             year: '2020',
-            watchFullLink: 'https://cdn.example.com/watch/the-queens-gambit',
             downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
         },
         'b9EkMc79ZSU': {
@@ -2129,7 +2114,6 @@
             age: '16+',
             duration: '3 Seasons',
             year: '2016',
-            watchFullLink: 'https://cdn.example.com/watch/stranger-things',
             downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
         },
         'i1eJMig5Ik4': {
@@ -2142,7 +2126,6 @@
             age: '15+',
             duration: '6 Seasons',
             year: '2014',
-            watchFullLink: 'https://cdn.example.com/watch/bojack-horseman',
             downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
         },
         'oVzVdvLeICg': {
@@ -2155,7 +2138,6 @@
             age: '20+',
             duration: '5 Seasons',
             year: '2013',
-            watchFullLink: 'https://cdn.example.com/watch/peaky-blinders',
             downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
         },
         'L_jWHffIx5E': {
@@ -2168,7 +2150,6 @@
             age: 'All Ages',
             duration: 'Various',
             year: '2024',
-            watchFullLink: 'https://cdn.example.com/watch/nba-basketball-highlights',
             downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
         '4fVCKy69zUY': {
@@ -2181,7 +2162,6 @@
             age: 'All Ages',
             duration: 'Various',
             year: '2024',
-            watchFullLink: 'https://cdn.example.com/watch/pga-golf-championship',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         '5PSNL1qE6VY': {
@@ -2194,7 +2174,6 @@
             age: '12+',
             duration: '2h 42min',
             year: '2009',
-            watchFullLink: 'https://cdn.example.com/watch/avatar-2009',
             downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
         },
         'JWtnJjn6ngQ': {
@@ -2207,7 +2186,6 @@
             age: '16+',
             duration: '4 Seasons',
             year: '2016',
-            watchFullLink: 'https://cdn.example.com/watch/the-crown',
             downloadLink: 'https://cdn.example.com/download/the-crown.mp4'
         },
         'WBb3fojjx-0': {
@@ -2220,7 +2198,6 @@
             age: '12+',
             duration: '12 Seasons',
             year: '2007',
-            watchFullLink: 'https://cdn.example.com/watch/the-big-bang-theory',
             downloadLink: 'https://cdn.example.com/download/the-big-bang-theory.mp4'
         },
         'Ua0HdsbsDsA': {
@@ -2233,7 +2210,6 @@
             age: '18+',
             duration: '3 Seasons',
             year: '2015',
-            watchFullLink: 'https://cdn.example.com/watch/narcos',
             downloadLink: 'https://cdn.example.com/download/narcos.mp4'
         },
         'IEEbUfhFFM0': {
@@ -2257,7 +2233,6 @@
             age: '12+',
             duration: '2h 24min',
             year: '2015',
-            watchFullLink: 'https://cdn.example.com/watch/the-martian',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'n9tzhmJ5hFE': {
@@ -2270,7 +2245,6 @@
             age: '16+',
             duration: '1h 30min',
             year: '2020',
-            watchFullLink: 'https://cdn.example.com/watch/unhinged',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'm4NC26Dk4dE': {
@@ -2283,7 +2257,6 @@
             age: '16+',
             duration: '2h 9min',
             year: '2014',
-            watchFullLink: 'https://example.com/watch/kingsman',
             downloadLink: 'https://example.com/download/kingsman'
         },
         '36mnx8hNvEE': {
@@ -2296,7 +2269,6 @@
             age: '12+',
             duration: '2h 24min',
             year: '2006',
-            watchFullLink: 'https://example.com/watch/casino-royale',
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'Ohws8y572KE': {
@@ -2309,7 +2281,6 @@
             age: '12+',
             duration: '1h 50min',
             year: '1996',
-            watchFullLink: 'https://cdn.example.com/watch/mission-impossible-1996',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         '8jLOx1hD3_': {
@@ -2322,7 +2293,6 @@
             age: '18+',
             duration: '2 Seasons',
             year: '2018',
-            watchFullLink: 'https://example.com/watch/mirzapur',
             downloadLink: 'https://example.com/download/mirzapur'
         },
         'IEEbUfhFFM0': {
@@ -2335,31 +2305,32 @@
             age: '12+',
             duration: '10 Seasons',
             year: '1994',
-            watchFullLink: 'https://example.com/watch/friends',
             downloadLink: 'https://example.com/download/friends'
         },
         // Search functionality movies
 
     };
 
-    // Add per-movie watch/download links (unique per video) while preserving any custom ones
+    // Add per-movie watch/download links (unique per video) - Always use real YouTube links
     (function ensureVideoLinks() {
         const WATCH_BASE = 'https://www.youtube.com/watch?v=';              // unique per videoId
-        const DOWNLOAD_BASE = 'https://cdn.example.com/downloads/';        // change to your real download host
+        const VIMEO_BASE = 'https://player.vimeo.com/video/';              // Vimeo video base URL
         Object.entries(videoData).forEach(([videoId, movie]) => {
             if (!movie) return;
 
-            // Watch: prefer explicit link, otherwise build unique YouTube link from videoId
-            if (!movie.watchFullLink) {
-                movie.watchFullLink = `${WATCH_BASE}${videoId}`;
-            }
+            // Watch: Always use real YouTube link from videoId (override any example.com links)
+            movie.watchFullLink = `${WATCH_BASE}${videoId}`;
 
-            // Download: prefer explicit link, otherwise Vimeo asset download, otherwise unique CDN path
+            // Download: Use Vimeo download URL if available, otherwise use Vimeo video URL
             if (!movie.downloadLink) {
                 if (movie.vimeoAsset && movie.vimeoAsset.downloadUrl) {
                     movie.downloadLink = movie.vimeoAsset.downloadUrl;
+                } else if (movie.vimeoAsset && movie.vimeoAsset.vimeoId) {
+                    // Use Vimeo video URL as download link
+                    movie.downloadLink = `${VIMEO_BASE}${movie.vimeoAsset.vimeoId}`;
                 } else {
-                    movie.downloadLink = `${DOWNLOAD_BASE}${videoId}.mp4`;
+                    // Default: Use default Vimeo asset download URL
+                    movie.downloadLink = 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164';
                 }
             }
         });

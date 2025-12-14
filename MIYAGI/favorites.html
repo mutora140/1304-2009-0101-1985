@@ -11,32 +11,35 @@
   <title>MIYAGI - My Favorites | Saved Movies & Shows</title>
 
   <!-- SEO META DESCRIPTION -->
-  <meta name="description" content="Access your favorite movies and TV shows on MIYAGI. Manage your saved favorites and watch them instantly in HD quality." />
+  <meta name="description" content="Access your favorite movies and TV shows on MIYAGI Films. Manage your saved favorites, watch them instantly in HD quality, and never lose track of your preferred content." />
 
   <!-- SEO KEYWORDS -->
-  <meta name="keywords" content="favorite movies, saved shows, watchlist, my favorites, streaming favorites, MIYAGI favorites" />
+  <meta name="keywords" content="favorite movies, saved shows, watchlist, my favorites, streaming favorites, MIYAGI Films favorites, saved content, favorite collection" />
 
   <!-- AUTHOR -->
   <meta name="author" content="MIYAGI" />
 
   <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="images/user/user.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/user/user.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/user/user.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/user/user.png" />
+  <link rel="shortcut icon" href="images/user/user.png" />
 
   <!-- OPEN GRAPH (FACEBOOK, WHATSAPP, INSTAGRAM, LINKEDIN) -->
   <meta property="og:title" content="MIYAGI - My Favorites" />
   <meta property="og:description" content="Access and watch your favorite movies and TV shows on MIYAGI." />
-  <meta property="og:image" content="https://yourwebsite.com/images/user/user.png" />
+  <meta property="og:image" content="https://miyagifilms.com/images/user/user.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourwebsite.com/favorites.html" />
+  <meta property="og:url" content="https://miyagifilms.com/favorites.html" />
 
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="MIYAGI - My Favorites" />
   <meta name="twitter:description" content="Manage and watch your favorite movies and shows." />
-  <meta name="twitter:image" content="https://yourwebsite.com/images/user/user.png" />
+  <meta name="twitter:image" content="https://miyagifilms.com/images/user/user.png" />
 
   <!-- CANONICAL URL (AVOID DUPLICATE PAGES) -->
-  <link rel="canonical" href="https://yourwebsite.com/favorites.html" />
+  <link rel="canonical" href="https://miyagifilms.com/favorites.html" />
 
   <!-- SCHEMA.ORG STRUCTURED DATA (SEO BOOST) -->
   <script type="application/ld+json">
@@ -44,10 +47,10 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "MIYAGI Streaming",
-    "url": "https://yourwebsite.com",
+    "url": "https://miyagifilms.com",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://yourwebsite.com/search?q={search_term_string}",
+      "target": "https://miyagifilms.com/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -157,7 +160,7 @@
   <!-- Page Loader -->
   <div id="page-loader" class="page-loader">
     <div class="loader-spinner">
-      <img src="images/user/user.png" alt="User avatar" class="loader-avatar rounded-circle" />
+      <img loading="lazy" src="images/user/user.png" alt="User avatar" class="loader-avatar rounded-circle" />
     </div>
   </div>
 
@@ -177,7 +180,7 @@
                 </div>
               </a>
               <div class="navbar-brand" onclick="if(typeof closeVideoGallery === 'function') { closeVideoGallery(); return false; }">
-                <img src="images/logo.png" class="img-fluid logo" alt="MIYAGI streaming platform logo" />
+                <img loading="lazy" src="images/logo.png" class="img-fluid logo" alt="MIYAGI streaming platform logo" />
               </div>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
@@ -235,7 +238,7 @@
                       </li>
                       <li>
                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                          <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="User profile avatar" />
+                          <img loading="lazy" src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="User profile avatar" />
                         </a>
                       </li>
                     </ul>
@@ -267,7 +270,7 @@
                   </li>
                   <li class="nav-item nav-icon">
                     <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                      <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="User avatar" />
+                      <img loading="lazy" src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="User avatar" />
                     </a>
                   </li>
                 </ul>
