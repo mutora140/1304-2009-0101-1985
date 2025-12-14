@@ -1975,7 +1975,7 @@
         '8jLOx1hD3_o': {
             title: 'Laxmii',
             rating: 6.5,
-            stars: 5,
+            stars: 4.5,
             genres: ['Comedy', 'Horror', 'Drama'],
             tags: ['Bollywood', 'Supernatural', 'Comedy'],
             description: 'A man gets possessed by a ghost and starts behaving like a woman.',
@@ -2312,7 +2312,7 @@
             watchFullLink: 'https://cdn.example.com/watch/mission-impossible-1996',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
-        '8jLOx1hD3_o': {
+        '8jLOx1hD3_': {
             title: 'Mirzapur',
             rating: 8.4,
             stars: 4,
@@ -4021,7 +4021,7 @@ async function sendMessage() {
     typingIndicator.classList.remove('active');
 
     if (result.success) {
-      addMessage("✅ Your message has been sent successfully! We'll reply to your email soon.", 'admin');
+      addMessage("✅ Your message has been sent successfully! We'll reply to you soon.", 'admin');
     } else {
       addMessage("❌ Failed to send. Please try again later.", 'admin');
     }
