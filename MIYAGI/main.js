@@ -2,6 +2,30 @@
     "use strict";
     
     const LOADER_COLOR_CYCLE_MS = 5600;
+    const GA_MEASUREMENT_ID = 'G-TJ8LYC7Z2N';
+
+    // Google Analytics 4 instrumentation (shared across all pages)
+    function initGoogleAnalytics() {
+        if (!document.head || window.GA_INITIALIZED) {
+            return;
+        }
+
+        window.GA_INITIALIZED = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function() {
+            window.dataLayer.push(arguments);
+        };
+
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+        document.head.appendChild(gaScript);
+
+        window.gtag('js', new Date());
+        window.gtag('config', GA_MEASUREMENT_ID);
+    }
+
+    initGoogleAnalytics();
     
     function showLoaderOverlay() {
         const loader = document.getElementById('page-loader');
