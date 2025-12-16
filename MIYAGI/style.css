@@ -2496,6 +2496,53 @@ ul#top-ten-slider .slick-bg::before{
     display: block;
 }
 
+/* -----------------------------
+   Responsive layout for Top Ten
+   Ensures Harry Potter, Peaky Blinders,
+   The Queen's Gambit, Scam 1992,
+   Stranger Things, BoJack Horseman
+   display correctly on all devices
+-------------------------------- */
+@media (max-width: 991px){
+  #iq-topten .iq-title{
+    position: static;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+
+  .vertical_s{
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    left: 0;
+    right: 0;
+  }
+
+  #top-ten-slider-nav{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px){
+  #iq-topten .topten-contents{
+    display: block;
+  }
+
+  #top-ten-slider{
+    margin-bottom: 20px;
+  }
+
+  #top-ten-slider .slick-bg{
+    padding: 40px 0;
+  }
+
+  #top-ten-slider-nav .slick-slide{
+    margin-bottom: 10px;
+  }
+}
+
 /* ************* Responsiveness **************** */
 @media (max-width : 991px){
     #top-ten-slider .NextArrow, #top-ten-slider .PrevArrow{
