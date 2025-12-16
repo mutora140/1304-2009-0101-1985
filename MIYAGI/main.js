@@ -1945,6 +1945,7 @@
         //   downloadLink: 'https://your-link.com/download/movie-name'
         //
         'tmeOjFno6Do': {
+            image: 'images/trending/02.jpg',
             title: 'Avengers: Age of Ultron',
             rating: 7.3,
             stars: 4,
@@ -1957,6 +1958,7 @@
             downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'FLzfXQSPBOg': {
+            image: 'images/trending/03.jpg',
             title: 'Frozen',
             rating: 7.4,
             stars: 4,
@@ -1969,6 +1971,7 @@
             downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
         'k10ETZ41q5o': {
+            image: 'images/trending/04.jpg',
             title: 'The Conjuring',
             rating: 7.5,
             stars: 4.5,
@@ -1981,6 +1984,7 @@
             downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
         },
         '02-XkOLVnIU': {
+            image: 'images/popular/u2.jpg',
             title: 'Mulan',
             rating: 7.0,
             stars: 3,
@@ -1993,6 +1997,7 @@
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         '8jLOx1hD3_o': {
+            image: 'images/popular/u3.jpg',
             title: 'Laxmii',
             rating: 6.5,
             stars: 4.5,
@@ -2005,6 +2010,7 @@
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'W4DlMggBPvc': {
+            image: 'images/popular/u4.jpg',
             title: 'Captain America: The First Avenger',
             rating: 6.9,
             stars: 4,
@@ -2017,6 +2023,7 @@
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'sDYVdxFZq8Y': {
+            image: 'images/popular/u5.jpg',
             title: 'Life of Pi',
             rating: 7.9,
             stars: 4,
@@ -2033,6 +2040,7 @@
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'q78_0TElYME': {
+            image: 'images/trending/01.jpg',
             title: 'Mission Mangal',
             rating: 6.8,
             stars: 3,
@@ -2045,6 +2053,7 @@
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'acEoQpJq0qg': {
+            image: 'images/trending/05.jpg',
             title: 'Insidious: The Last Key',
             rating: 6.2,
             stars: 3,
@@ -2057,6 +2066,7 @@
             downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
         },
         'yQ5U8suTUw0': {
+            image: 'images/trending/06.jpg',
             title: 'War',
             rating: 7.1,
             stars: 4,
@@ -2069,6 +2079,7 @@
             downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
         },
         '4qf9Uyn2acE': {
+            image: 'images/slider/slider1.jpg',
             title: 'Five Feet Apart',
             rating: 7.2,
             stars: 4,
@@ -2081,6 +2092,7 @@
             downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
         'tsxemFXSQXQ': {
+            image: 'images/slider/slider2.jpg',
             title: 'Chhichhore',
             rating: 8.0,
             stars: 4,
@@ -2093,6 +2105,7 @@
             downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
         },
         'Lt-U_t2pUHI': {
+            image: 'images/slider/slider3.jpg',
             title: 'Doctor Strange',
             rating: 7.5,
             stars: 4,
@@ -2105,6 +2118,7 @@
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'VyHV0BtdCW4': {
+            image: 'images/top-10/01.jpg',
             title: 'Harry Potter and the Sorcerer\'s Stone',
             rating: 7.6,
             stars: 4,
@@ -2117,6 +2131,7 @@
             downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
         },
         'CDrieqs-S54': {
+            image: 'images/top-10/02.jpg',
             title: 'The Queen\'s Gambit',
             rating: 8.6,
             stars: 5,
@@ -2129,6 +2144,7 @@
             downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
         },
         'b9EkMc79ZSU': {
+            image: 'images/top-10/03.jpg',
             title: 'Stranger Things',
             rating: 8.7,
             stars: 5,
@@ -2141,6 +2157,7 @@
             downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
         },
         'i1eJMig5Ik4': {
+            image: 'images/top-10/04.jpg',
             title: 'BoJack Horseman',
             rating: 8.8,
             stars: 5,
@@ -2153,6 +2170,7 @@
             downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
         },
         'oVzVdvLeICg': {
+            image: 'images/top-10/05.jpg',
             title: 'Peaky Blinders',
             rating: 8.8,
             stars: 5,
@@ -2165,6 +2183,7 @@
             downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
         },
         'L_jWHffIx5E': {
+            image: 'images/top-10/06.jpg',
             title: 'NBA Basketball Highlights',
             rating: 8.5,
             stars: 4,
@@ -2177,6 +2196,7 @@
             downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
         '4fVCKy69zUY': {
+            image: 'images/footer/01.jpg',
             title: 'PGA Golf Championship',
             rating: 8.2,
             stars: 4,
@@ -2189,6 +2209,7 @@
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         '5PSNL1qE6VY': {
+            image: 'images/parallax/avatar.jpg',
             title: 'Avatar',
             rating: 7.8,
             stars: 4,
@@ -2201,6 +2222,7 @@
             downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
         },
         'JWtnJjn6ngQ': {
+            image: 'images/footer/02.jpg',
             title: 'The Crown',
             rating: 8.7,
             stars: 5,
@@ -2213,6 +2235,7 @@
             downloadLink: 'https://cdn.example.com/download/the-crown.mp4'
         },
         'WBb3fojjx-0': {
+            image: 'images/episodes/bbt1.jpg',
             title: 'The Big Bang Theory',
             rating: 8.1,
             stars: 4,
@@ -2225,6 +2248,7 @@
             downloadLink: 'https://cdn.example.com/download/the-big-bang-theory.mp4'
         },
         'Ua0HdsbsDsA': {
+            image: 'images/trending/01.jpg',
             title: 'Narcos',
             rating: 8.8,
             stars: 5,
@@ -2237,6 +2261,7 @@
             downloadLink: 'https://cdn.example.com/download/narcos.mp4'
         },
         'IEEbUfhFFM0': {
+            image: 'images/favorite/f1.jpg',
             title: 'Friends',
             rating: 8.9,
             stars: 5,
@@ -2248,6 +2273,7 @@
             year: '1994'
         },
         'ej3ioOneQ48': {
+            image: 'images/episodes/m1.jpg',
             title: 'The Martian',
             rating: 8.0,
             stars: 4,
@@ -2260,6 +2286,7 @@
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'n9tzhmJ5hFE': {
+            image: 'images/trending/02.jpg',
             title: 'Unhinged',
             rating: 6.1,
             stars: 3,
@@ -2272,6 +2299,7 @@
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'm4NC26Dk4dE': {
+            image: 'images/trending/03.jpg',
             title: 'Kingsman: The Secret Service',
             rating: 7.7,
             stars: 4,
@@ -2284,9 +2312,10 @@
             downloadLink: 'https://example.com/download/kingsman'
         },
         '36mnx8hNvEE': {
+            image: 'images/trending/04.jpg',
             title: 'Casino Royale',
             rating: 8.0,
-            stars: 4,
+            stars: 4.5,
             genres: ['Action', 'Adventure', 'Thriller'],
             tags: ['James Bond', 'Spy', 'Daniel Craig'],
             description: 'After earning 00 status and a licence to kill, secret agent James Bond sets out on his first mission as 007. Bond must defeat a private banker to terrorists in a high stakes game of poker at Casino Royale.',
@@ -2296,6 +2325,7 @@
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'Ohws8y572KE': {
+            image: 'images/popular/u1.jpg',
             title: 'Mission: Impossible',
             rating: 7.1,
             stars: 4,
@@ -2308,6 +2338,7 @@
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         '8jLOx1hD3_': {
+            image: 'images/episodes/m5.jpg',
             title: 'Mirzapur',
             rating: 8.4,
             stars: 4,
@@ -2320,6 +2351,7 @@
             downloadLink: 'https://example.com/download/mirzapur'
         },
         'IEEbUfhFFM0': {
+            image: 'images/favorite/f2.jpg',
             title: 'Friends',
             rating: 8.9,
             stars: 5,
@@ -2330,20 +2362,27 @@
             duration: '10 Seasons',
             year: '1994',
             downloadLink: 'https://example.com/download/friends'
-        },
-        // Search functionality movies
-
+        }
     };
 
-    // Add per-movie watch/download links (unique per video) - Always use real YouTube links
+    // Also expose videoData on the window so other modules (like search) can always see it
+    if (typeof window !== 'undefined') {
+        window.videoData = videoData;
+    }
+
+    // Add per-movie watch/download links (prefer Vimeo embed for watch full)
     (function ensureVideoLinks() {
-        const WATCH_BASE = 'https://www.youtube.com/watch?v=';              // unique per videoId
-        const VIMEO_BASE = 'https://player.vimeo.com/video/';              // Vimeo video base URL
+        const YT_WATCH_BASE = 'https://www.youtube.com/watch?v=';          // fallback to YouTube watch URL
+        const VIMEO_EMBED_BASE = 'https://player.vimeo.com/video/';        // Vimeo embed base URL
         Object.entries(videoData).forEach(([videoId, movie]) => {
             if (!movie) return;
 
-            // Watch: Always use real YouTube link from videoId (override any example.com links)
-            movie.watchFullLink = `${WATCH_BASE}${videoId}`;
+            // Watch: Prefer Vimeo embed when a vimeoAsset exists; fallback to YouTube watch URL
+            if (movie.vimeoAsset && movie.vimeoAsset.vimeoId) {
+                movie.watchFullLink = `${VIMEO_EMBED_BASE}${movie.vimeoAsset.vimeoId}?autoplay=1&muted=0&controls=1`;
+            } else {
+                movie.watchFullLink = `${YT_WATCH_BASE}${videoId}`;
+            }
 
             // Download: Use Vimeo download URL if available, otherwise use Vimeo video URL
             if (!movie.downloadLink) {
@@ -2351,7 +2390,7 @@
                     movie.downloadLink = movie.vimeoAsset.downloadUrl;
                 } else if (movie.vimeoAsset && movie.vimeoAsset.vimeoId) {
                     // Use Vimeo video URL as download link
-                    movie.downloadLink = `${VIMEO_BASE}${movie.vimeoAsset.vimeoId}`;
+                    movie.downloadLink = `${VIMEO_EMBED_BASE}${movie.vimeoAsset.vimeoId}`;
                 } else {
                     // Default: Use default Vimeo asset download URL
                     movie.downloadLink = 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164';
@@ -3150,20 +3189,25 @@
         // Removed escape key and overlay click functionality
         // Only the Back Home button can close the video gallery
         
-        // Watch Full Movie button - uses dynamic link from data-movie-link attribute
+        // Watch Full Movie button - play Vimeo inline, go fullscreen, and keep playing inline after exit
         jQuery(document).on('click', '.btn-watch-full', function() {
+            const asset = getVimeoAsset(currentVideoId);
+
+            // Prefer in-place Vimeo playback + fullscreen
+            if (asset && asset.vimeoId) {
+                // Ensure Vimeo player is loaded in the existing player container
+                createVimeoPlayer(asset.vimeoId);
+                // Enter fullscreen on the player container
+                setTimeout(() => enterVimeoFullscreenMode(asset), 50);
+                return;
+            }
+
+            // Fallback: use provided link in a new tab if no Vimeo asset exists
             const watchFullLink = jQuery(this).attr('data-movie-link');
             if (watchFullLink) {
-                // Open the custom watch full movie link
                 window.open(watchFullLink, '_blank');
             } else {
-                // Fallback to old Vimeo behavior if no link is provided
-                const asset = getVimeoAsset(currentVideoId);
-                if (asset && asset.vimeoId) {
-                    enterVimeoFullscreenMode(asset);
-                } else {
-                    displayNotification('Watch Full Movie link is not available for this title yet.', 'info');
-                }
+                displayNotification('Watch Full Movie link is not available for this title yet.', 'info');
             }
         });
         
@@ -4407,6 +4451,444 @@ function switchSeasonEpisodes(selectElement) {
       btn.setAttribute('aria-label', 'Next slide');
       btn.setAttribute('role', 'button');
       btn.setAttribute('tabindex', '0');
+    });
+  }
+
+  // ============================================
+  // Search functionality for Nerflix website
+  // (migrated from search.js and wired to main.js videoData)
+  // ============================================
+  class NerflixSearch {
+    constructor() {
+      this.searchInputs = document.querySelectorAll('.search-input');
+      this.searchResultsContainer = null;
+      this.movieData = this.getMovieData();
+      this.currentSearchTimeout = null;
+
+      // Debug: Check if search inputs are found
+      console.log('Search inputs found:', this.searchInputs.length);
+      this.searchInputs.forEach((input, index) => {
+        console.log(`Search input ${index}:`, input);
+      });
+
+      this.init();
+    }
+
+    init() {
+      this.createSearchResultsContainer();
+      this.bindEvents();
+    }
+
+    // Build movie list dynamically from main.js videoData
+    getMovieData() {
+      const movies = [];
+      try {
+        // Prefer global window.videoData so we never miss the latest data
+        const source = (typeof window !== 'undefined' && window.videoData) || videoData;
+
+        if (typeof source === 'object' && source !== null) {
+          Object.keys(source).forEach((videoId) => {
+            const data = source[videoId] || {};
+            const rating = typeof data.rating === 'number' ? data.rating : 0;
+            const stars =
+              typeof data.stars === 'number'
+                ? data.stars
+                : rating
+                ? Math.max(0, Math.min(5, rating / 2))
+                : 0;
+
+            movies.push({
+              videoId: videoId,
+              title: data.title || 'Movie',
+              rating: rating,
+              stars: stars,
+              genres: Array.isArray(data.genres) ? data.genres : [],
+              year: data.year ? String(data.year) : '',
+              // If no explicit image is defined, fall back to a generic placeholder
+              image: data.image || 'images/placeholder.jpg',
+              description: data.description || '',
+              tags: Array.isArray(data.tags) ? data.tags : [],
+              age: data.age || '',
+              duration: data.duration || ''
+            });
+          });
+        }
+      } catch (error) {
+        console.error('Error building movie data for search:', error);
+      }
+      return movies;
+    }
+
+    createSearchResultsContainer() {
+      // Create search results container template
+      const containerTemplate = document.createElement('div');
+      containerTemplate.className = 'search-results-container';
+
+      // Add to all search input containers
+      this.searchInputs.forEach(input => {
+        const container = input.closest('.form-group');
+        if (container) {
+          container.style.position = 'relative';
+          const resultsContainer = containerTemplate.cloneNode(true);
+          container.appendChild(resultsContainer);
+        }
+      });
+    }
+
+    bindEvents() {
+      this.searchInputs.forEach(input => {
+        input.addEventListener('input', (e) => this.handleSearch(e));
+        input.addEventListener('focus', (e) => this.showSearchResults(e));
+        input.addEventListener('blur', (e) => this.hideSearchResults(e));
+        input.addEventListener('keydown', (e) => this.handleKeydown(e));
+
+        // Prevent form submission on enter
+        const form = input.closest('form');
+        if (form) {
+          form.addEventListener('submit', (e) => e.preventDefault());
+        }
+      });
+
+      // Close search results when clicking outside
+      document.addEventListener('click', (e) => {
+        const clickedInsideSearchInput = e.target.closest('.search-input');
+        const clickedInsideResults = e.target.closest('.search-results-container');
+        const clickedInsideSearchBox = e.target.closest('.search-box');
+        const clickedToggle = e.target.closest('.search-toggle');
+
+        if (!clickedInsideSearchInput && !clickedInsideResults) {
+          this.hideAllSearchResults();
+        }
+
+        if (!clickedInsideSearchBox && !clickedToggle) {
+          this.closeSearchDropdowns();
+        }
+      });
+
+      // Listen for search toggle clicks to reinitialize when search boxes become visible
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('.search-toggle')) {
+          // Wait for the search box to become visible
+          setTimeout(() => {
+            this.reinitializeSearch();
+          }, 200);
+        }
+      });
+    }
+
+    reinitializeSearch() {
+      // Re-find search inputs in case they were dynamically shown
+      const newSearchInputs = document.querySelectorAll('.search-input');
+      console.log('Reinitializing search with inputs:', newSearchInputs.length);
+
+      // Remove old event listeners and add new ones
+      newSearchInputs.forEach(input => {
+        // Remove any existing listeners by cloning the element
+        const newInput = input.cloneNode(true);
+        input.parentNode.replaceChild(newInput, input);
+
+        // Add event listeners to the new input
+        newInput.addEventListener('input', (e) => this.handleSearch(e));
+        newInput.addEventListener('focus', (e) => this.showSearchResults(e));
+        newInput.addEventListener('blur', (e) => this.hideSearchResults(e));
+        newInput.addEventListener('keydown', (e) => this.handleKeydown(e));
+
+        // Prevent form submission on enter
+        const form = newInput.closest('form');
+        if (form) {
+          form.addEventListener('submit', (e) => e.preventDefault());
+        }
+      });
+
+      // Update the search inputs reference
+      this.searchInputs = newSearchInputs;
+
+      // Recreate search results containers
+      this.createSearchResultsContainer();
+    }
+
+    handleSearch(event) {
+      const query = event.target.value.trim();
+      const resultsContainer = event.target.closest('.form-group').querySelector('.search-results-container');
+
+      // Debug: Log search query
+      console.log('Search query:', query);
+      console.log('Results container:', resultsContainer);
+
+      // Clear previous timeout
+      if (this.currentSearchTimeout) {
+        clearTimeout(this.currentSearchTimeout);
+      }
+
+      // Debounce search
+      this.currentSearchTimeout = setTimeout(() => {
+        if (query.length >= 2) {
+          const results = this.searchMovies(query);
+          console.log('Search results:', results);
+          this.displaySearchResults(results, resultsContainer);
+        } else {
+          this.hideSearchResults(event);
+        }
+      }, 300);
+    }
+
+    searchMovies(query) {
+      const searchTerm = query.toLowerCase();
+      return this.movieData.filter(movie =>
+        movie.title.toLowerCase().includes(searchTerm) ||
+        movie.genres.some(genre => genre.toLowerCase().includes(searchTerm)) ||
+        (movie.year && movie.year.toString().includes(searchTerm))
+      ).slice(0, 8); // Limit to 8 results
+    }
+
+    displaySearchResults(results, container) {
+      if (!container) return;
+
+      if (results.length === 0) {
+        container.innerHTML = `
+                <div class="search-no-results">
+                    <p>No movies found</p>
+                </div>
+            `;
+      } else {
+        container.innerHTML = results.map(movie => this.createMovieResultHTML(movie)).join('');
+      }
+
+      container.style.display = 'block';
+      container.classList.add('show');
+      this.bindResultEvents(container);
+    }
+
+    createMovieResultHTML(movie) {
+      return `
+            <div class="search-result-item" data-video-id="${movie.videoId}" data-title="${this.escapeHTML(movie.title)}">
+                <div class="search-result-content">
+                    <div class="search-result-image">
+                        <img src="${movie.image}" alt="${this.escapeHTML(movie.title)}" 
+                             onload="this.classList.add('loaded')" 
+                             onerror="this.src='images/placeholder.jpg'; this.classList.add('loaded')"
+                             loading="lazy">
+                    </div>
+                    <div class="search-result-info">
+                        <h6 class="search-result-title">${this.escapeHTML(movie.title)}</h6>
+                        <div class="search-result-meta">
+                            <span class="search-result-year">${movie.year || ''}</span>
+                            <span class="search-result-genre">${this.escapeHTML((movie.genres || []).join(', '))}</span>
+                        </div>
+                        <div class="search-result-rating">
+                            <div class="rating-stars">
+                                ${this.generateStarRating(movie.stars)}
+                            </div>
+                            <span class="rating-text">${movie.rating || 0}/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    escapeHTML(text) {
+      const div = document.createElement('div');
+      div.textContent = text || '';
+      return div.innerHTML;
+    }
+
+    generateStarRating(stars) {
+      const starCount = parseFloat(stars) || 0;
+      const fullStars = Math.floor(starCount);
+      const hasHalfStar = starCount % 1 >= 0.5;
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+      let starsHTML = '';
+      for (let i = 0; i < fullStars; i++) {
+        starsHTML += '<i class="fa fa-star glowing-star"></i>';
+      }
+      if (hasHalfStar) {
+        starsHTML += '<i class="fa fa-star-half-o glowing-star"></i>';
+      }
+      for (let i = 0; i < emptyStars; i++) {
+        starsHTML += '<i class="fa fa-star-o text-muted"></i>';
+      }
+      return starsHTML;
+    }
+
+    bindResultEvents(container) {
+      const resultItems = container.querySelectorAll('.search-result-item');
+      resultItems.forEach(item => {
+        // Make entire item clickable
+        item.style.cursor = 'pointer';
+
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const videoId = item.dataset.videoId;
+          const title = item.dataset.title || item.querySelector('.search-result-title')?.textContent || 'Movie';
+
+          if (videoId) {
+            const movie = this.movieData.find(m => m.videoId === videoId) || { videoId, title };
+            this.handleMovieSelection(movie);
+          }
+        });
+      });
+    }
+
+    handleMovieSelection(movie) {
+      // Hide the search results
+      this.hideAllSearchResults();
+
+      // Clear search input
+      this.searchInputs.forEach(input => {
+        if (input.value.trim()) {
+          input.value = '';
+        }
+        input.blur();
+      });
+
+      // Close any visible search boxes/toggles
+      this.closeSearchDropdowns();
+
+      // Debug: Log the movie selection
+      console.log('Movie selected from search:', movie);
+      console.log('openVideoGallery available:', typeof window.openVideoGallery);
+
+      // Open video gallery exactly like Play Now button does
+      if (typeof window.openVideoGallery === 'function') {
+        const videoId = movie.videoId;
+        const title = movie.title || 'Movie';
+
+        console.log('Calling openVideoGallery with:', videoId, title);
+
+        // Use setTimeout to ensure the search results are hidden first
+        setTimeout(() => {
+          window.openVideoGallery(videoId, title);
+        }, 100);
+      } else {
+        console.error('openVideoGallery function not found!');
+        // Fallback: Try to trigger the video gallery manually
+        this.triggerVideoGallery(movie);
+      }
+    }
+
+    triggerVideoGallery(movie) {
+      // Fallback method to trigger video gallery
+      console.log('Using fallback method to open video gallery');
+
+      // Try to find and click a Play Now button with the same video ID
+      const playNowButton = document.querySelector(`[data-video-id="${movie.videoId}"]`);
+      if (playNowButton) {
+        console.log('Found Play Now button, clicking it');
+        playNowButton.click();
+      } else {
+        console.error('No Play Now button found for video ID:', movie.videoId);
+      }
+    }
+
+    showSearchResults(event) {
+      const container = event.target.closest('.form-group').querySelector('.search-results-container');
+      if (container && event.target.value.trim().length >= 2) {
+        container.style.display = 'block';
+      }
+    }
+
+    hideSearchResults(event) {
+      // Small delay to allow for clicking on results
+      setTimeout(() => {
+        const container = event.target.closest('.form-group').querySelector('.search-results-container');
+        if (container) {
+          container.style.display = 'none';
+        }
+      }, 150);
+    }
+
+    hideAllSearchResults() {
+      document.querySelectorAll('.search-results-container').forEach(container => {
+        container.style.display = 'none';
+        container.classList.remove('show');
+      });
+    }
+
+    closeSearchDropdowns() {
+      // Remove open state classes from any search and notification dropdown containers
+      document.querySelectorAll('.navbar-right li').forEach(listItem => {
+        const hasSearchBox = listItem.querySelector('.search-box');
+        const hasSubDropdown = listItem.querySelector('.iq-sub-dropdown');
+        if (hasSearchBox || hasSubDropdown) {
+          listItem.classList.remove('iq-show');
+          const toggle = listItem.querySelector('.search-toggle');
+          if (toggle) {
+            toggle.classList.remove('active');
+          }
+        }
+      });
+    }
+
+    clearSearch(input) {
+      input.value = '';
+      this.hideAllSearchResults();
+    }
+
+    handleKeydown(event) {
+      const resultsContainer = event.target.closest('.form-group').querySelector('.search-results-container');
+      if (!resultsContainer || resultsContainer.style.display === 'none') return;
+
+      const resultItems = resultsContainer.querySelectorAll('.search-result-item');
+      const currentIndex = Array.from(resultItems).findIndex(item => item.classList.contains('selected'));
+
+      switch (event.key) {
+        case 'ArrowDown':
+          event.preventDefault();
+          this.navigateResults(resultItems, currentIndex, 1);
+          break;
+        case 'ArrowUp':
+          event.preventDefault();
+          this.navigateResults(resultItems, currentIndex, -1);
+          break;
+        case 'Enter':
+          event.preventDefault();
+          if (currentIndex >= 0) {
+            resultItems[currentIndex].click();
+          }
+          break;
+        case 'Escape':
+          this.hideAllSearchResults();
+          break;
+      }
+    }
+
+    navigateResults(resultItems, currentIndex, direction) {
+      // Remove current selection
+      resultItems.forEach(item => item.classList.remove('selected'));
+
+      // Calculate new index
+      let newIndex = currentIndex + direction;
+      if (newIndex < 0) newIndex = resultItems.length - 1;
+      if (newIndex >= resultItems.length) newIndex = 0;
+
+      // Add selection to new item
+      if (resultItems[newIndex]) {
+        resultItems[newIndex].classList.add('selected');
+        resultItems[newIndex].scrollIntoView({ block: 'nearest' });
+      }
+    }
+  }
+
+  // Initialize search when DOM is loaded and jQuery is ready
+  if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof jQuery !== 'undefined') {
+        jQuery(document).ready(function () {
+          // Wait a bit for any existing search toggle functionality to initialize
+          setTimeout(function () {
+            new NerflixSearch();
+          }, 100);
+        });
+      } else {
+        // Fallback if jQuery is not available
+        setTimeout(function () {
+          new NerflixSearch();
+        }, 100);
+      }
     });
   }
 
