@@ -1,7 +1,7 @@
 (function (jQuery){
     "use strict";
     
-    const LOADER_COLOR_CYCLE_MS = 5600;
+    const LOADER_COLOR_CYCLE_MS = 5000;
     const GA_MEASUREMENT_ID = 'G-TJ8LYC7Z2N';
 
     // Google Analytics 4 instrumentation (shared across all pages)
@@ -93,8 +93,10 @@
         }
     }
     
-    // Smooth Page Transitions
+    // Smooth Page Transitions with AJAX loading
     function initPageTransitions() {
+        let isLoadingPage = false;
+        
         // Handle all internal links
         document.addEventListener('click', function(e) {
             const link = e.target.closest('a[href]');
@@ -114,15 +116,133 @@
                 
                 e.preventDefault();
                 
-                // Add transition class
-                document.body.classList.add('page-transitioning');
+                // Prevent multiple simultaneous loads
+                if (isLoadingPage) return;
                 
-                // Navigate after short delay
-                runAfterLoaderCycle(function() {
-                    window.location.href = href;
-                });
+                // Show loader and load page content
+                loadPageContent(href);
             }
         });
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.url) {
+                loadPageContent(e.state.url, false);
+            }
+        });
+        
+        // AJAX function to load only main content
+        async function loadPageContent(url, updateHistory = true) {
+            if (isLoadingPage) return;
+            isLoadingPage = true;
+            
+            try {
+                // Show loader
+                document.body.classList.add('page-transitioning');
+                const loader = showLoaderOverlay();
+                
+                // Resolve relative URLs to absolute
+                const absoluteUrl = new URL(url, window.location.origin).href;
+                
+                // Fetch the new page
+                const response = await fetch(absoluteUrl);
+                if (!response.ok) {
+                    throw new Error('Failed to load page');
+                }
+                
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Extract main content from the new page
+                const newMainContent = doc.querySelector('.main-content');
+                const currentMainContent = document.querySelector('.main-content');
+                
+                if (newMainContent && currentMainContent) {
+                    // Wait for loader cycle to complete (5 seconds)
+                    await playLoaderCycle();
+                    
+                    // Replace main content
+                    currentMainContent.innerHTML = newMainContent.innerHTML;
+                    
+                    // Update active menu items
+                    updateActiveMenuItems(url);
+                    
+                    // Reinitialize scripts that need to run on new content
+                    reinitializePageScripts();
+                    
+                    // Update URL without reload
+                    if (updateHistory) {
+                        window.history.pushState({ url: absoluteUrl }, '', url);
+                    }
+                    
+                    // Scroll to top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    // Fallback to full page load if structure is different
+                    window.location.href = url;
+                    return;
+                }
+            } catch (error) {
+                console.error('Error loading page:', error);
+                // Fallback to full page load on error
+                window.location.href = url;
+            } finally {
+                isLoadingPage = false;
+                document.body.classList.remove('page-transitioning');
+            }
+        }
+        
+        // Update active menu items based on current URL
+        function updateActiveMenuItems(url) {
+            const menuItems = document.querySelectorAll('.mf-menu-item, .menu-item a');
+            menuItems.forEach(function(item) {
+                const itemHref = item.getAttribute('href');
+                if (itemHref && (itemHref === url || itemHref === url.split('/').pop())) {
+                    item.classList.add('active');
+                    if (item.parentElement) {
+                        item.parentElement.classList.add('active');
+                    }
+                } else {
+                    item.classList.remove('active');
+                    if (item.parentElement) {
+                        item.parentElement.classList.remove('active');
+                    }
+                }
+            });
+        }
+        
+        // Reinitialize scripts that need to run on dynamically loaded content
+        function reinitializePageScripts() {
+            // Reinitialize carousels/sliders if they exist
+            if (typeof jQuery !== 'undefined') {
+                // Reinitialize slick sliders
+                jQuery('.slick-slider').each(function() {
+                    if (jQuery(this).hasClass('slick-initialized')) {
+                        jQuery(this).slick('unslick');
+                    }
+                });
+                
+                // Reinitialize owl carousels
+                if (typeof jQuery.fn.owlCarousel !== 'undefined') {
+                    jQuery('.owl-carousel').each(function() {
+                        if (jQuery(this).hasClass('owl-loaded')) {
+                            jQuery(this).trigger('destroy.owl.carousel');
+                        }
+                    });
+                }
+                
+                // Reinitialize slick animation
+                if (typeof jQuery.fn.slickAnimation !== 'undefined') {
+                    jQuery('[data-animation-in]').slickAnimation();
+                }
+            }
+            
+            // Reinitialize dynamic content loader if it exists
+            if (window.dynamicLoader && typeof window.dynamicLoader.setupEventListeners === 'function') {
+                window.dynamicLoader.setupEventListeners();
+            }
+        }
     }
 
     // MovieFlix-style mobile sidebar menu (triggered by existing navbar hamburger)
@@ -2147,7 +2267,7 @@
             image: 'images/top-10/03.jpg',
             title: 'Stranger Things',
             rating: 8.7,
-            stars: 5,
+            stars: 4.5,
             genres: ['Drama', 'Fantasy', 'Horror'],
             tags: ['Supernatural', 'Kids', '80s'],
             description: 'When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.',

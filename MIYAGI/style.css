@@ -63,9 +63,9 @@ body{
 
 .video-gallery-container {
     padding: 80px 20px 20px 20px;
-    max-width: 1330px;
+    max-width: 600px;
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: auto;
 }
 
 
@@ -613,7 +613,7 @@ body{
 /* MovieFlix-style Mobile Sidebar Menu */
 .mf-sidebar {
     display: none;
-    width: 260px;
+    width: 240px;
     background-color: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     padding: 25px 0;
@@ -879,7 +879,7 @@ header#main-header{
     backdrop-filter: blur(10px);
 }
 header .navbar-light .navbar-brand img.logo{
-    width: 160px;
+    width: 130px;
 }
 header .navbar .menu-header-menu-container, header .navbar .menu-main-menu-container{
     display: inline-block;
@@ -1635,12 +1635,12 @@ header#main-header.menu-sticky{
     left: 80px;
 }
 #home-slider h1.slider-text{
-    font-size: 80px;
+    font-size: 40px;
     margin: 15px 0;
 }
 #home-slider p{
     margin: 20px 0;
-    width: 600px;
+    width: 800px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -1654,7 +1654,7 @@ header#main-header.menu-sticky{
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: auto;
     position: relative;
     z-index: 1;
 }
@@ -1693,13 +1693,13 @@ header#main-header.menu-sticky{
     font-weight: 500;
 }
 .c-logo{
-    width: 130px;
+    width: 110px;
 }
 
 .channel-logo{
     border-left: 5px solid #e50914;
     background: transparent linear-gradient(270deg, rgba(11,1,2,0) 0%, rgba(255,55,65,0.3) 100%);
-    padding: 10px 10px 10px 15px;
+    padding: 10px 50px 10px 8px;
     width: 255px;
     position: relative;
     overflow : hidden;
@@ -4068,7 +4068,7 @@ span.fa-heart-wrapper.liked {
 
   .chat-container {
     position: fixed;
-    bottom: 70px;
+    bottom: 50px;
     right: 30px;
     z-index: 1000;
     backdrop-filter: blur(20px);
@@ -4076,8 +4076,8 @@ span.fa-heart-wrapper.liked {
   }
 
   .chat-icon {
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     background:  rgba(44, 44, 44, 0.3);
     border-radius: 50%;
     display: flex;
@@ -4095,7 +4095,7 @@ span.fa-heart-wrapper.liked {
   }
 
   .chat-icon i {
-    font-size: 26px;
+    font-size: 20px;
     color: #e50914;
     transition: transform 0.3s ease;
   }
@@ -4106,9 +4106,9 @@ span.fa-heart-wrapper.liked {
 
   .chat-box {
     position: absolute;
-    bottom: 80px;
+    bottom: 50px;
     right: 0;
-    width: 320px;
+    width: 300px;
     height: 100%;
     background: white;
     border-radius: 20px;
@@ -4123,7 +4123,7 @@ span.fa-heart-wrapper.liked {
   }
 
   .chat-box.active {
-    height: 450px;
+    height: 420px;
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
@@ -4535,7 +4535,7 @@ span.fa-heart-wrapper.liked {
   border: 4px solid rgba(0, 0, 0, 0.05);
   border-top-color: #e50914;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite, spinnerColors 5.6s linear infinite;
+  animation: spin 0.8s linear infinite, spinnerColors 5s linear infinite;
 }
 
 .loader-avatar {
