@@ -1640,7 +1640,7 @@ header#main-header.menu-sticky{
 }
 #home-slider p{
     margin: 20px 0;
-    width: 800px;
+    width: 700px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
