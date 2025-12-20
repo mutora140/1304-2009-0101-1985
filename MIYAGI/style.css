@@ -133,6 +133,52 @@ body{
     overflow: hidden;
 }
 
+/* Ensure all sidebar elements are visible and properly spaced on mobile */
+@media (max-width: 991.98px) {
+    .video-info .video-title,
+    .video-info .video-meta,
+    .video-info .rating-section,
+    .video-info .movie-details,
+    .video-info .genres-section,
+    .video-info .tags-section,
+    .video-info .video-description,
+    .video-info .video-actions {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-bottom: 15px;
+    }
+    
+    .video-info .video-actions {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+    
+    .video-info .genres-list,
+    .video-info .tags-list {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+    
+    .video-info .video-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    
+    .video-info .btn-watch-full,
+    .video-info .btn-download {
+        width: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 14px 20px !important;
+        font-size: 14px !important;
+    }
+}
+
 .video-title {
     color: white;
     font-size: 24px;
@@ -562,7 +608,10 @@ body{
     .video-info {
         margin-left: 0;
         margin-top: 20px;
-        height: 330px;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+        padding: 20px 15px;
     }
     
     .video-player-container {
@@ -571,6 +620,31 @@ body{
     
     .video-title {
         font-size: 20px;
+    }
+    
+    /* Ensure all sidebar content is visible on mobile */
+    .video-gallery-content .col-lg-3 {
+        display: block !important;
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .video-meta,
+    .genres-section,
+    .tags-section,
+    .video-description,
+    .video-actions {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .video-description {
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+        overflow: visible;
+        display: block;
     }
     
     /* Force video gallery elements to be visible on mobile */
@@ -719,7 +793,35 @@ body{
 
 @media (max-width: 576px) {
     .video-info {
-        height: 330px;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+        padding: 20px 15px;
+    }
+    
+    /* Ensure all sidebar content is visible on small mobile */
+    .video-gallery-content .col-lg-3 {
+        display: block !important;
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .video-meta,
+    .genres-section,
+    .tags-section,
+    .video-description,
+    .video-actions {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .video-description {
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+        overflow: visible;
+        display: block;
     }
     
     /* Force video gallery elements to be visible on small screens */
@@ -3944,6 +4046,33 @@ span.fa-heart-wrapper.liked {
     .video-gallery-content .col-lg-3 {
         order: 2;
         margin-top: 1.5rem;
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    /* Ensure sidebar displays all content on tablets and mobile */
+    .video-info {
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+        margin-left: 0;
+    }
+    
+    .video-meta,
+    .genres-section,
+    .tags-section,
+    .video-description,
+    .video-actions {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .video-description {
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+        overflow: visible;
+        display: block;
     }
 }
 

@@ -2153,10 +2153,6 @@
             age: '11+',
             duration: '2h 7min',
             year: '2012',
-            vimeoAsset: {
-            vimeoId: '76979871',
-            downloadUrl: 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164'
-            },
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'q78_0TElYME': {
@@ -2490,31 +2486,15 @@
         window.videoData = videoData;
     }
 
-    // Add per-movie watch/download links (prefer Vimeo embed for watch full)
+    // Add per-movie watch/download links
     (function ensureVideoLinks() {
-        const YT_WATCH_BASE = 'https://www.youtube.com/watch?v=';          // fallback to YouTube watch URL
-        const VIMEO_EMBED_BASE = 'https://player.vimeo.com/video/';        // Vimeo embed base URL
+        const YT_WATCH_BASE = 'https://www.youtube.com/watch?v=';
         Object.entries(videoData).forEach(([videoId, movie]) => {
             if (!movie) return;
 
-            // Watch: Prefer Vimeo embed when a vimeoAsset exists; fallback to YouTube watch URL
-            if (movie.vimeoAsset && movie.vimeoAsset.vimeoId) {
-                movie.watchFullLink = `${VIMEO_EMBED_BASE}${movie.vimeoAsset.vimeoId}?autoplay=1&muted=0&controls=1`;
-            } else {
+            // Watch: Use YouTube watch URL
+            if (!movie.watchFullLink) {
                 movie.watchFullLink = `${YT_WATCH_BASE}${videoId}`;
-            }
-
-            // Download: Use Vimeo download URL if available, otherwise use Vimeo video URL
-            if (!movie.downloadLink) {
-                if (movie.vimeoAsset && movie.vimeoAsset.downloadUrl) {
-                    movie.downloadLink = movie.vimeoAsset.downloadUrl;
-                } else if (movie.vimeoAsset && movie.vimeoAsset.vimeoId) {
-                    // Use Vimeo video URL as download link
-                    movie.downloadLink = `${VIMEO_EMBED_BASE}${movie.vimeoAsset.vimeoId}`;
-                } else {
-                    // Default: Use default Vimeo asset download URL
-                    movie.downloadLink = 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164';
-                }
             }
         });
     })();
@@ -2534,40 +2514,6 @@
         downloadLink: null   // Add your download link here
     };
 
-    const defaultVimeoAsset = {
-        vimeoId: '76979871',
-        downloadUrl: 'https://player.vimeo.com/external/76979871.sd.mp4?s=d229c52d5c0f8dc4c48c3a3f2de24c8a6548297b&profile_id=164'
-    };
-
-    const vimeoLibrary = {
-        // Map specific YouTube IDs to Vimeo assets in the future if needed
-    };
-
-    // Ensure each title can stream/download via Vimeo even without a custom asset
-    Object.keys(videoData).forEach((videoId) => {
-        const video = videoData[videoId];
-        if (video && !video.vimeoAsset) {
-            video.vimeoAsset = {
-                vimeoId: defaultVimeoAsset.vimeoId,
-                downloadUrl: defaultVimeoAsset.downloadUrl
-            };
-        }
-    });
-
-    let isVimeoPlayerActive = false;
-    let isVimeoFullscreenActive = false;
-    let currentVimeoId = null;
-
-    function getVimeoAsset(videoId) {
-        const videoEntry = videoData[videoId];
-        if (videoEntry && videoEntry.vimeoAsset) {
-            return videoEntry.vimeoAsset;
-        }
-        if (vimeoLibrary[videoId]) {
-            return vimeoLibrary[videoId];
-        }
-        return defaultVimeoAsset;
-    }
 
     function sanitizeFilename(value) {
         if (!value) return 'nerflix_video';
@@ -2671,9 +2617,6 @@
     
     // Function to load video by ID
     function loadVideoById(videoId) {
-        if (isVimeoPlayerActive) {
-            deactivateVimeoPlayer();
-        }
         if (videoId && videoId !== currentVideoId) {
             createVideoPlayer(videoId);
         }
@@ -2681,81 +2624,11 @@
     
     // Function to stop video
     function stopVideo() {
-        deactivateVimeoPlayer();
         const iframe = document.getElementById('embedded-video');
         if (iframe) {
             iframe.src = '';
         }
     }
-
-    function deactivateVimeoPlayer() {
-        const iframe = document.getElementById('embedded-vimeo');
-        if (iframe && iframe.parentNode) {
-            iframe.parentNode.removeChild(iframe);
-        }
-        isVimeoPlayerActive = false;
-        isVimeoFullscreenActive = false;
-        currentVimeoId = null;
-    }
-
-    function createVimeoPlayer(vimeoId) {
-        const videoContainer = document.getElementById('youtube-player');
-        if (!videoContainer || !vimeoId) {
-            displayNotification('Unable to play the selected video.', 'info');
-            return;
-        }
-        videoContainer.innerHTML = '';
-
-        const iframe = document.createElement('iframe');
-        iframe.id = 'embedded-vimeo';
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.border = 'none';
-        iframe.style.borderRadius = '10px';
-        iframe.allow = 'autoplay; fullscreen; picture-in-picture; accelerometer';
-        iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
-
-        videoContainer.appendChild(iframe);
-        isVimeoPlayerActive = true;
-        currentVimeoId = vimeoId;
-    }
-
-    function enterVimeoFullscreenMode(asset) {
-        if (!asset || !asset.vimeoId) {
-            displayNotification('Full movie stream is not available right now.', 'info');
-            return;
-        }
-        const playerContainer = getVideoPlayerContainer();
-        if (!playerContainer) return;
-        const shouldReload = !isVimeoPlayerActive || currentVimeoId !== asset.vimeoId;
-        if (shouldReload) {
-            stopVideo();
-            createVimeoPlayer(asset.vimeoId);
-        }
-        isVimeoFullscreenActive = true;
-        requestFullscreenOnElement(playerContainer);
-    }
-
-    function exitVimeoFullscreenMode() {
-        if (!isVimeoFullscreenActive) return;
-        isVimeoFullscreenActive = false;
-        exitFullscreenFromDocument();
-    }
-
-    function handleFullscreenChange() {
-        const hasFullscreenElement =
-            document.fullscreenElement ||
-            document.webkitFullscreenElement ||
-            document.mozFullScreenElement ||
-            document.msFullscreenElement;
-        if (!hasFullscreenElement && isVimeoFullscreenActive) {
-            exitVimeoFullscreenMode();
-        }
-    }
-
-    ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach(function(eventName) {
-        document.addEventListener(eventName, handleFullscreenChange);
-    });
 
     // Function to update sidebar content
     function updateSidebarContent(videoId) {
@@ -3268,37 +3141,6 @@
                         // For regular movies, keep default sections visible
                         showDefaultSection();
                     }
-                    
-                    // Enhanced smooth scroll to video player - scroll to top of overlay first
-                    setTimeout(function() {
-                        const videoPlayer = videoGallery.find('.video-player-container');
-                        const playerRow = videoGallery.find('.row').first();
-                        
-                        if (videoPlayer.length && playerRow.length) {
-                            // First, scroll overlay to top smoothly
-                            videoGallery.animate({
-                                scrollTop: 0
-                            }, 400, 'swing', function() {
-                                // Then ensure the player is visible with a slight delay for smoothness
-                                setTimeout(function() {
-                                    const playerElement = playerRow[0];
-                                    if (playerElement) {
-                                        // Use scrollIntoView with smooth behavior
-                                        playerElement.scrollIntoView({ 
-                                            behavior: 'smooth', 
-                                            block: 'start',
-                                            inline: 'nearest'
-                                        });
-                                    }
-                                }, 100);
-                            });
-                        } else {
-                            // Fallback: scroll to top
-                            videoGallery.animate({
-                                scrollTop: 0
-                            }, 400, 'swing');
-                        }
-                    }, 100);
                 }
             }
         });
@@ -3309,20 +3151,8 @@
         // Removed escape key and overlay click functionality
         // Only the Back Home button can close the video gallery
         
-        // Watch Full Movie button - play Vimeo inline, go fullscreen, and keep playing inline after exit
+        // Watch Full Movie button
         jQuery(document).on('click', '.btn-watch-full', function() {
-            const asset = getVimeoAsset(currentVideoId);
-
-            // Prefer in-place Vimeo playback + fullscreen
-            if (asset && asset.vimeoId) {
-                // Ensure Vimeo player is loaded in the existing player container
-                createVimeoPlayer(asset.vimeoId);
-                // Enter fullscreen on the player container
-                setTimeout(() => enterVimeoFullscreenMode(asset), 50);
-                return;
-            }
-
-            // Fallback: use provided link in a new tab if no Vimeo asset exists
             const watchFullLink = jQuery(this).attr('data-movie-link');
             if (watchFullLink) {
                 window.open(watchFullLink, '_blank');
@@ -3338,15 +3168,7 @@
                 // Open the custom download link
                 window.open(downloadLink, '_blank');
             } else {
-                // Fallback to old Vimeo behavior if no link is provided
-                const asset = getVimeoAsset(currentVideoId);
-                if (!asset || !asset.vimeoId) {
-                    displayNotification('Download is not available for this title yet.', 'info');
-                    return;
-                }
-                // Open Vimeo download page in a new tab
-                const vimeoDownloadUrl = `https://vimeo.com/${asset.vimeoId}/download`;
-                window.open(vimeoDownloadUrl, '_blank');
+                displayNotification('Download is not available for this title yet.', 'info');
             }
         });
         
@@ -3455,7 +3277,6 @@
             
             // Show overlay first
             videoGallery.addClass('active');
-            videoGallery.scrollTop(0);
             jQuery('body').css('overflow', 'hidden').addClass('video-gallery-active');
             
             // Show default section by default
@@ -3527,42 +3348,6 @@
             
             // Load video immediately
             loadVideoById(videoId);
-            
-            // Enhanced smooth scroll to video player when gallery opens
-            setTimeout(function() {
-                const videoPlayer = videoGallery.find('.video-player-container');
-                const playerRow = videoGallery.find('.row').first();
-                
-                if (videoPlayer.length && playerRow.length) {
-                    // First, ensure body/html are at top
-                    jQuery('html, body').animate({
-                        scrollTop: 0
-                    }, 0);
-                    
-                    // Then smoothly scroll overlay to top
-                    videoGallery.animate({
-                        scrollTop: 0
-                    }, 500, 'swing', function() {
-                        // After scrolling to top, ensure player is visible
-                        setTimeout(function() {
-                            const playerElement = playerRow[0];
-                            if (playerElement) {
-                                // Use scrollIntoView with smooth behavior for precise positioning
-                                playerElement.scrollIntoView({ 
-                                    behavior: 'smooth', 
-                                    block: 'start',
-                                    inline: 'nearest'
-                                });
-                            }
-                        }, 150);
-                    });
-                } else {
-                    // Fallback: scroll to top smoothly
-                    videoGallery.animate({
-                        scrollTop: 0
-                    }, 500, 'swing');
-                }
-            }, 200);
         }
         
         function openVideoGallery(videoId, title) {
