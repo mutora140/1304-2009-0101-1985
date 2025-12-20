@@ -3652,6 +3652,8 @@
             nav: true,
             navText : ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i> "],
             dots : false,
+            autoplay: false,
+            autoplayTimeout: 0,
             responsive : {
                 0:{ items : 2 },
                 600:{ items : 2 },
