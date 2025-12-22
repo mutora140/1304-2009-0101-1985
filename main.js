@@ -1700,7 +1700,7 @@
             triggerPoint = 80;
             headerHeight();
             jQuery(window).resize(headerHeight);
-            jQuery(window).in('scroll', function() {
+            jQuery(window).on('scroll', function() {
                 yOffset = jQuery(window).scrollTop();
 
                 if(yOffset >= triggerPoint){
@@ -3917,100 +3917,474 @@
     const dynamicLoader = new DynamicContentLoader();
     window.dynamicLoader = dynamicLoader;
 })(jQuery);
-const chatIcon = document.getElementById('chatIcon');
-const chatIconSymbol = document.getElementById('chatIconSymbol');
-const chatBox = document.getElementById('chatBox');
-const closeBtn = document.getElementById('closeBtn');
-const chatBody = document.getElementById('chatBody');
-const messageInput = document.getElementById('messageInput');
-const sendBtn = document.getElementById('sendBtn');
-const notification = document.getElementById('notification');
-const typingIndicator = document.getElementById('typingIndicator');
-
-let isChatOpen = false;
-
-function toggleChat() {
-  isChatOpen = !isChatOpen;
-  if (isChatOpen) {
-    chatBox.classList.add('active');
-    chatIcon.classList.add('send-mode');
-    chatIconSymbol.className = 'fa fa-paper-plane';
-    notification.style.display = 'none';
-    messageInput.focus();
-  } else {
-    chatBox.classList.remove('active');
-    chatIcon.classList.remove('send-mode');
-    chatIconSymbol.className = 'fa fa-paper-plane';
-  }
-}
-
-async function sendMessage() {
-  const message = messageInput.value.trim();
-  if (message === '') return;
-
-  addMessage(message, 'user');
-  messageInput.value = '';
-  typingIndicator.classList.add('active');
-
-  try {
-    const formData = new FormData();
-    formData.append('access_key', '3c0d553f-93ec-43d2-b299-e4399fa49dba');
-    formData.append('subject', 'New message from chat widget');
-    formData.append('message', message);
-
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    });
-
-    const result = await response.json();
-    typingIndicator.classList.remove('active');
-
-    if (result.success) {
-      addMessage("✅ Your message has been sent successfully! We'll reply to you soon.", 'admin');
-    } else {
-      addMessage("❌ Failed to send. Please try again later.", 'admin');
+ // Complete Chat Widget with Toggle and Email Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // ========== CHAT TOGGLE FUNCTIONALITY ==========
+    const chatBody = document.querySelector('.chat-body');
+    const chatFooter = document.querySelector('.chat-footer');
+    const chatIcon = document.getElementById('chatIcon') || document.querySelector('.chat-icon');
+    const chatHeader = document.querySelector('.chat-header');
+    const chatBox = document.getElementById('chatBox') || document.querySelector('.chat-box');
+    const closeBtn = document.getElementById('closeBtn');
+    
+    // Hide chat initially
+    if (chatBody) chatBody.style.display = 'none';
+    if (chatFooter) chatFooter.style.display = 'none';
+    
+    // Ensure chat box starts hidden (don't add 'active' class initially)
+    // The CSS will handle the visibility through the 'active' class
+    
+    // Toggle chat visibility
+    function toggleChat() {
+        const isHidden = !chatBody || chatBody.style.display === 'none' || getComputedStyle(chatBody).display === 'none';
+        if (isHidden) {
+            openChat();
+        } else {
+            closeChat();
+        }
     }
-  } catch (error) {
-    typingIndicator.classList.remove('active');
-    addMessage("⚠️ Network error! Please check your connection.", 'admin');
-  }
-}
-
-function addMessage(text, sender) {
-  const messageDiv = document.createElement('div');
-  messageDiv.classList.add('message', sender);
-
-  const messageContent = document.createElement('div');
-  messageContent.classList.add('message-content');
-  messageContent.textContent = text;
-
-  const messageTime = document.createElement('div');
-  messageTime.classList.add('message-time');
-  const now = new Date();
-  messageTime.textContent = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
-
-  messageDiv.appendChild(messageContent);
-  messageDiv.appendChild(messageTime);
-  chatBody.appendChild(messageDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-chatIcon.addEventListener('click', () => {
-  if (isChatOpen) sendMessage();
-  else toggleChat();
+    
+    function openChat() {
+        // Add 'active' class to chat box to make it visible (CSS requires this)
+        if (chatBox) {
+            chatBox.classList.add('active');
+        }
+        
+        // Show chat body
+        if (chatBody) {
+            chatBody.style.display = 'flex';
+        }
+        
+        // Show chat footer
+        if (chatFooter) {
+            chatFooter.style.display = 'flex';
+        }
+        
+        // Focus input
+        setTimeout(() => {
+            const messageInput = document.getElementById('messageInput');
+            if (messageInput) messageInput.focus();
+        }, 300);
+        
+        // Check if user has email stored
+        const storedEmail = localStorage.getItem('chat_user_email');
+        if (storedEmail) {
+            userEmail = storedEmail;
+            emailAsked = true;
+            // Load user's previous messages
+            loadUserMessages(storedEmail);
+        } else {
+            // Clear chat body and show welcome messages
+            if (chatBody) {
+                chatBody.innerHTML = ''; // Clear default HTML messages
+            }
+            
+            // Add welcome messages - email request FIRST
+            if (chatBody) {
+                setTimeout(() => {
+                    addMessage("Hello! How can we help you today?", "admin", false);
+                }, 400);
+                setTimeout(() => {
+                    addMessage("Please provide your email address so we can reply to you.", "admin", false);
+                }, 800);
+            }
+        }
+    }
+    
+    function closeChat() {
+        // Remove 'active' class to hide chat box
+        if (chatBox) {
+            chatBox.classList.remove('active');
+        }
+        
+        if (chatBody) {
+            chatBody.style.display = 'none';
+        }
+        if (chatFooter) {
+            chatFooter.style.display = 'none';
+        }
+    }
+    
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideUp {
+            from { 
+                transform: translateY(20px);
+                opacity: 0;
+                max-height: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+        
+        @keyframes slideDown {
+            from { 
+                transform: translateY(0);
+                opacity: 1;
+                max-height: 500px;
+            }
+            to { 
+                transform: translateY(20px);
+                opacity: 0;
+                max-height: 0;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        .chat-body {
+            overflow-y: auto !important;
+            overflow-x: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 100%;
+        }
+        
+        /* Tiny scrollbar for chat body */
+        .chat-body::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .chat-body::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+        
+        .chat-body::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+        }
+        
+        .chat-body::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .chat-footer {
+            transition: opacity 0.3s ease-out;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add toggle functionality - use multiple methods to ensure it works
+    if (chatIcon) {
+        chatIcon.style.cursor = 'pointer';
+        chatIcon.style.pointerEvents = 'auto';
+        
+        // Handle clicks on the icon and all its children
+        function handleChatIconClick(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log('Chat icon clicked!'); // Debug log
+            toggleChat();
+            return false;
+        }
+        
+        // Add click handler with capture phase (fires first)
+        chatIcon.addEventListener('click', handleChatIconClick, true);
+        
+        // Also add to capture phase for child elements
+        const chatIconSymbol = document.getElementById('chatIconSymbol');
+        const notification = document.getElementById('notification');
+        if (chatIconSymbol) {
+            chatIconSymbol.style.pointerEvents = 'auto';
+            chatIconSymbol.addEventListener('click', handleChatIconClick, true);
+        }
+        if (notification) {
+            notification.style.pointerEvents = 'auto';
+            notification.addEventListener('click', handleChatIconClick, true);
+        }
+        
+        // Also use jQuery if available (for compatibility)
+        if (typeof jQuery !== 'undefined') {
+            jQuery(chatIcon).off('click').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Chat icon clicked via jQuery!'); // Debug log
+                toggleChat();
+                return false;
+            });
+        }
+    } else {
+        console.error('Chat icon not found!');
+    }
+    
+    // Close button handler
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeChat();
+        });
+    }
+    
+    if (chatHeader) {
+        chatHeader.style.cursor = 'pointer';
+        chatHeader.addEventListener('click', toggleChat);
+    }
+    
+    // ========== EMAIL FUNCTIONALITY ==========
+    const web3FormsKey = '3c0d553f-93ec-43d2-b299-e4399fa49dba';
+    let userEmail = null;
+    let emailAsked = false;
+    
+    // Message storage functions with 1-week expiration
+    function getUserStorageKey(email) {
+        return `chat_messages_${email}`;
+    }
+    
+    function saveMessage(text, type, email) {
+        if (!email) return;
+        
+        const storageKey = getUserStorageKey(email);
+        const messages = loadMessages(email);
+        
+        const messageData = {
+            text: text,
+            type: type,
+            timestamp: Date.now()
+        };
+        
+        messages.push(messageData);
+        
+        // Store with expiration (1 week = 7 days = 604800000 ms)
+        const storageData = {
+            messages: messages,
+            expiresAt: Date.now() + (7 * 24 * 60 * 60 * 1000)
+        };
+        
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(storageData));
+        } catch (e) {
+            console.error('Error saving message:', e);
+        }
+    }
+    
+    function loadMessages(email) {
+        if (!email) return [];
+        
+        const storageKey = getUserStorageKey(email);
+        
+        try {
+            const stored = localStorage.getItem(storageKey);
+            if (!stored) return [];
+            
+            const data = JSON.parse(stored);
+            
+            // Check if expired
+            if (data.expiresAt && Date.now() > data.expiresAt) {
+                localStorage.removeItem(storageKey);
+                return [];
+            }
+            
+            return data.messages || [];
+        } catch (e) {
+            console.error('Error loading messages:', e);
+            return [];
+        }
+    }
+    
+    function clearExpiredMessages() {
+        // Clean up expired messages for all users
+        try {
+            const keys = Object.keys(localStorage);
+            keys.forEach(key => {
+                if (key.startsWith('chat_messages_')) {
+                    try {
+                        const data = JSON.parse(localStorage.getItem(key));
+                        if (data.expiresAt && Date.now() > data.expiresAt) {
+                            localStorage.removeItem(key);
+                        }
+                    } catch (e) {
+                        // Invalid data, remove it
+                        localStorage.removeItem(key);
+                    }
+                }
+            });
+        } catch (e) {
+            console.error('Error clearing expired messages:', e);
+        }
+    }
+    
+    // Clean expired messages on load
+    clearExpiredMessages();
+    
+    // Add message to chat
+    function addMessage(text, type, saveToStorage = true) {
+        const messageDiv = document.createElement('div');
+        // Use 'admin' for admin messages (left side), 'user' for user messages (right side)
+        const messageClass = type === 'sent' ? 'user' : 'admin';
+        messageDiv.className = `message ${messageClass}`;
+        
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        
+        // Use the same structure as the default message
+        messageDiv.innerHTML = `
+            <div class="message-content">
+                ${text}
+            </div>
+            <div class="message-time">${timeString}</div>
+        `;
+        
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        
+        // Save to localStorage if user email exists (save both user and admin messages)
+        if (saveToStorage && userEmail) {
+            saveMessage(text, type, userEmail);
+        }
+    }
+    
+    // Load and display user's messages
+    function loadUserMessages(email) {
+        if (!email || !chatBody) return;
+        
+        const messages = loadMessages(email);
+        
+        // If there are saved messages, clear all and reload full conversation
+        if (messages.length > 0) {
+            // Clear all messages including welcome messages
+            chatBody.innerHTML = '';
+            
+            // Add welcome message first
+            addMessage("Hello! How can we help you today?", "admin", false);
+            
+            // Load and display all saved messages (both user and admin)
+            messages.forEach(msgData => {
+                addMessage(msgData.text, msgData.type, false); // Don't save again (already saved)
+            });
+        } else {
+            // No saved messages, just show welcome messages
+            const existingMessages = chatBody.querySelectorAll('.message');
+            existingMessages.forEach(msg => msg.remove());
+            
+            setTimeout(() => {
+                addMessage("Hello! How can we help you today?", "admin", false);
+            }, 400);
+            setTimeout(() => {
+                addMessage("Please provide your email address so we can reply to you.", "admin", false);
+            }, 800);
+        }
+    }
+    
+    // Send message via Web3Forms
+    async function sendToEmail(message) {
+        if (!userEmail) return false;
+        
+        const formData = new FormData();
+        formData.append('access_key', web3FormsKey);
+        formData.append('name', 'Chat User');
+        formData.append('email', userEmail);
+        formData.append('message', message);
+        formData.append('subject', 'New Message from Chat Widget');
+        formData.append('from_name', 'Chat Widget');
+        formData.append('botcheck', '');
+        
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            return result.success;
+        } catch (error) {
+            console.error('Error:', error);
+            return false;
+        }
+    }
+    
+    // Handle sending message
+    async function handleSendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value.trim();
+        
+        if (!message) return;
+        
+        // If no email, require it FIRST before allowing any messages
+        if (!userEmail) {
+            // Check if it's a valid email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(message)) {
+                userEmail = message;
+                emailAsked = true;
+                
+                // Save email to localStorage
+                try {
+                    localStorage.setItem('chat_user_email', userEmail);
+                } catch (e) {
+                    console.error('Error saving email:', e);
+                }
+                
+                // Don't add email as a message, just confirm
+                messageInput.value = '';
+                
+                setTimeout(() => {
+                    addMessage(`Thank you! We've received your email. Now you can send your message.`, "admin", true);
+                }, 300);
+            } else {
+                // Invalid email
+                messageInput.value = '';
+                setTimeout(() => {
+                    addMessage("Please enter a valid email address (e.g., name@example.com):", "admin", true);
+                }, 300);
+            }
+            return;
+        }
+        
+        // User has email, allow sending messages
+        addMessage(message, 'sent', true); // Save user messages
+        messageInput.value = '';
+        
+        // Show typing indicator
+        const typingIndicator = document.getElementById('typingIndicator');
+        if (typingIndicator) {
+            typingIndicator.style.display = 'flex';
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+        
+        // Send to email
+        setTimeout(async () => {
+            if (typingIndicator) typingIndicator.style.display = 'none';
+            
+            const success = await sendToEmail(message);
+            
+            if (success) {
+                addMessage("Message sent! We'll respond via email soon.", "admin", true);
+            } else {
+                addMessage("Failed to send. Please try again.", "admin", true);
+            }
+        }, 1500);
+    }
+    
+    // Add event listeners for sending
+    const sendButton = document.getElementById('sendBtn');
+    const messageInput = document.getElementById('messageInput');
+    
+    if (sendButton) {
+        sendButton.addEventListener('click', handleSendMessage);
+    }
+    
+    if (messageInput) {
+        messageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSendMessage();
+            }
+        });
+    }
 });
-
-closeBtn.addEventListener('click', toggleChat);
-sendBtn.addEventListener('click', sendMessage);
-messageInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') sendMessage();
-});
-
-setTimeout(() => {
-  addMessage("We're here to help! Ask us anything.", 'admin');
-  notification.style.display = 'flex';
-}, 3000);
 
 
 // Season selection functionality - More robust approach

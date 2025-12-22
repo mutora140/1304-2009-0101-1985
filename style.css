@@ -601,8 +601,21 @@ body{
 
 @media (max-width: 768px) {
     .video-gallery-container {
-        padding: 60px 10px 10px 10px;
+        padding: 60px 0 10px 0;
         max-width: 100%;
+    }
+    
+    .video-gallery-content .row {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .video-gallery-content .col-lg-9,
+    .video-gallery-content .col-lg-3 {
+        width: 100% !important;
+        padding-left: 0;
+        padding-right: 0;
     }
     
     .video-info {
@@ -612,10 +625,12 @@ body{
         min-height: auto;
         overflow: visible;
         padding: 20px 15px;
+        width: 100%;
     }
     
     .video-player-container {
         height: 330px;
+        width: 100%;
     }
     
     .video-title {
@@ -792,11 +807,29 @@ body{
 }
 
 @media (max-width: 576px) {
+    .video-gallery-content .row {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .video-gallery-content .col-lg-9,
+    .video-gallery-content .col-lg-3 {
+        width: 100% !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
     .video-info {
         height: auto;
         min-height: auto;
         overflow: visible;
         padding: 20px 15px;
+        width: 100%;
+    }
+    
+    .video-player-container {
+        width: 100%;
     }
     
     /* Ensure all sidebar content is visible on small mobile */
@@ -1715,7 +1748,7 @@ header#main-header.menu-sticky{
 }
 
 #home-slider ul.slick-dots{
-    bottom: 30px;
+    bottom: 10px;
 }
 
 #home-slider .slick-dots li{
@@ -1747,7 +1780,7 @@ header#main-header.menu-sticky{
 }
 #home-slider p{
     margin: 20px 0;
-    width: 700px;
+    width: 600px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -1817,7 +1850,7 @@ header#main-header.menu-sticky{
 }
 .playbtn img{
     display: inline-block;
-    width: 50px;
+    width: 40px;
     filter: invert(1);
 }
 .playbtn img:hover{
@@ -4030,13 +4063,18 @@ span.fa-heart-wrapper.liked {
 @media (max-width: 991.98px) {
     .video-gallery-content .row {
         flex-direction: column;
-        width: calc(100% - 70px);
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .video-gallery-content .col-lg-9,
     .video-gallery-content .col-lg-3 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .video-gallery-content .col-lg-9 {
@@ -4056,6 +4094,11 @@ span.fa-heart-wrapper.liked {
         min-height: auto;
         overflow: visible;
         margin-left: 0;
+        width: 100%;
+    }
+    
+    .video-player-container {
+        width: 100%;
     }
     
     .video-meta,
@@ -4342,10 +4385,32 @@ span.fa-heart-wrapper.liked {
     min-height: 0;
     padding: 18px;
     overflow-y: auto;
+    overflow-x: hidden;
     background: #f8fafc;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.05);
+  }
+
+  /* Scrollbar for chat body - Webkit browsers (Chrome, Safari, Edge) */
+  .chat-body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .chat-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+  }
+
+  .chat-body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+  }
+
+  .chat-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .message {
