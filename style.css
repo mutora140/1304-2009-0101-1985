@@ -945,7 +945,7 @@ body.video-gallery-active header#main-header {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    z-index: 12000 !important;
+    z-index: 99999 !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -1014,7 +1014,7 @@ header#main-header{
     left: 0;
     right: 0;
     text-align: center;
-    z-index: 9999;
+    z-index: 99999 !important;
     background: transparent;
     backdrop-filter: blur(10px);
 }
@@ -1525,7 +1525,7 @@ header#main-header.menu-sticky{
     width: 100%;
     background: rgba(20, 20, 20, 0.5) !important;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-    z-index: 1;
+    z-index: 99999 !important;
 }
 
 
@@ -2455,6 +2455,72 @@ li.slide-item{
     position: relative;
     overflow: hidden;
 }
+
+/* Ensure top ten trending section is always visible on all devices */
+#iq-topten {
+    position: relative !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1;
+    overflow: visible !important;
+}
+
+/* Ensure top ten slider is visible immediately on page load - before slick initialization */
+#top-ten-slider,
+#top-ten-slider-nav,
+#top-ten-slider .slick-bg,
+#top-ten-slider-nav .slick-slide {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#top-ten-slider .slick-slide,
+#top-ten-slider-nav .slick-slide {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Fix for top ten slider - ensure slides are visible before slick initialization */
+#top-ten-slider.slick-slider .slick-slide,
+#top-ten-slider-nav.slick-slider .slick-slide {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#top-ten-slider.slick-slider .slick-slide.slick-active,
+#top-ten-slider-nav.slick-slider .slick-slide.slick-active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#iq-topten .container-fluid {
+    position: relative !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+}
+
+#iq-topten .row {
+    position: relative !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+}
+
+#iq-topten .col-sm-12.overflow-hidden {
+    overflow: visible !important;
+    position: relative !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
 h1,h2,h3,h4,h5{
     font-size: 1.4em;
     font-weight: 500;
@@ -2494,6 +2560,25 @@ h1 a, h2 a, h3 a , h4 a, h5 a, h6 a{
     bottom: 0;
     left: 35px;
     overflow: hidden;
+}
+
+/* Fix overflow for top ten slider nav on mobile to ensure visibility */
+@media (max-width: 991px) {
+    .vertical_s {
+        overflow: visible !important;
+    }
+    
+    #iq-topten .topten-contents {
+        overflow: visible !important;
+    }
+    
+    #top-ten-slider-nav {
+        overflow: visible !important;
+    }
+    
+    #top-ten-slider {
+        overflow: visible !important;
+    }
 }
 #top-ten-slider-nav{
     width: 300px;
@@ -2666,20 +2751,51 @@ ul#top-ten-slider .slick-bg::before{
 }
 
 @media (max-width: 767px){
+  #iq-topten {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+  
   #iq-topten .topten-contents{
-    display: block;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
   }
 
   #top-ten-slider{
     margin-bottom: 20px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
   }
 
   #top-ten-slider .slick-bg{
     padding: 40px 0;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   #top-ten-slider-nav .slick-slide{
     margin-bottom: 10px;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  #top-ten-slider-nav {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+  
+  .vertical_s {
+    overflow: visible !important;
+    position: static !important;
   }
 }
 
@@ -3008,8 +3124,56 @@ background: rgba(0, 0, 0, 0.8);
 }
 #trending-slider .tranding-block {
     background-size: cover;
-    background-position: top right;
+    background-position: center center;
+    background-repeat: no-repeat;
     position: relative;
+    min-height: 600px;
+    padding: 60px 0;
+}
+
+/* Add overlay shadow to fill entire background image for content readability */
+#trending-slider .tranding-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    z-index: 1 !important;
+    pointer-events: none;
+    display: block !important;
+}
+
+/* Ensure trending content fits within background image */
+#trending-slider .tranding-block .trending-content {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Disable all tab-specific overlays (overview-tab, overlay-tab) for trending slider - using unified full shadow overlay instead */
+#trending-slider .tranding-block .overview-tab::before,
+#trending-slider .tranding-block .overlay-tab::before,
+#trending-slider .tranding-block .tab-pane::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* Ensure all tab panes content appears above the overlay */
+#trending-slider .tranding-block .tab-pane,
+#trending-slider .tranding-block .overview-tab,
+#trending-slider .tranding-block .overlay-tab {
+    position: relative;
+    z-index: 2;
+}
+
+#trending-slider .tranding-block .trending-custom-tab {
+    position: relative;
+    z-index: 2;
 }
 
 .trending-pills{
@@ -3116,6 +3280,10 @@ background: rgba(0, 0, 0, 0.8);
 .trending-content{
     padding : 0 50px;
     display: flex;
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .p-btns{
     display: flex;
@@ -3156,6 +3324,13 @@ background: rgba(0, 0, 0, 0.8);
     left: 13px;
     border-radius: 50%;
 }
+/* Disable overview-tab::before and overlay-tab::before for trending slider - using unified full shadow overlay instead */
+#trending-slider .overview-tab::before,
+#trending-slider .overlay-tab::before {
+    display: none !important;
+    content: none !important;
+}
+
 .overview-tab::before, .slick-bg::before{
     content: "";
     position: absolute;
@@ -3437,7 +3612,18 @@ background: rgba(0, 0, 0, 0.8);
 /* ****************** responsiveness************ */
 @media (max-width: 767px){
     .trending-content{
-        padding: 0;
+        padding: 0 20px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #trending-slider .tranding-block {
+        min-height: 500px;
+        padding: 40px 0;
+    }
+    
+    #trending-slider .tranding-block .trending-content {
+        padding: 0 20px;
     }
     .trending-info .trending-dec{
         width: 70%;
@@ -4800,6 +4986,14 @@ body {
 
 body.loading {
   overflow: hidden;
+}
+
+/* Hide header during page loading */
+body.loading header#main-header,
+body.loading #main-header {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 body.page-transitioning {
