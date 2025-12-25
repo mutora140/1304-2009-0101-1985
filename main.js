@@ -83,12 +83,25 @@
     function initPageLoader() {
         const pageLoader = document.getElementById('page-loader');
         if (pageLoader) {
-            // While loading, keep body non-scrollable and fully covered
-            document.body.classList.add('loading');
+            // Ensure loading class is on body (may already be there from HTML)
+            if (!document.body.classList.contains('loading')) {
+                document.body.classList.add('loading');
+            }
 
-            // Hide loader when page is fully loaded
+            // Hide loader when page is fully loaded and show header/content
             window.addEventListener('load', function() {
-                playLoaderCycle();
+                // Remove loading class to show header and content
+                document.body.classList.remove('loading');
+                
+                // Hide the page loader
+                if (pageLoader) {
+                    pageLoader.classList.add('hidden');
+                    setTimeout(function() {
+                        if (pageLoader.classList.contains('hidden')) {
+                            pageLoader.style.display = 'none';
+                        }
+                    }, 500);
+                }
             });
         }
     }
@@ -5205,5 +5218,131 @@ function switchSeasonEpisodes(selectElement) {
   } else {
     initA11y();
   }
+})();
+
+// Mobile section scroll reveal functionality
+(function() {
+  'use strict';
+  
+  function initMobileSectionReveal() {
+    // Only run on mobile devices
+    if (window.innerWidth > 767) {
+      return;
+    }
+    
+    // Only target sections within .main-content (home page), not video gallery
+    const mainContent = document.querySelector('.main-content');
+    if (!mainContent) {
+      return;
+    }
+    
+    // Ensure all four main sections are visible on mobile (only in home page)
+    // Handle duplicate IDs by using querySelectorAll
+    const favoritesSection = mainContent.querySelector('#iq-favorites');
+    const popularSection = mainContent.querySelector('#iq-upcoming-movie');
+    const suggestedSections = mainContent.querySelectorAll('section[id="iq-suggested"]');
+    
+    if (favoritesSection) {
+      favoritesSection.style.display = 'block';
+      favoritesSection.style.visibility = 'visible';
+      favoritesSection.style.opacity = '1';
+    }
+    
+    if (popularSection) {
+      popularSection.style.display = 'block';
+      popularSection.style.visibility = 'visible';
+      popularSection.style.opacity = '1';
+    }
+    
+    // Show both Cartoons and Recommended For You sections (only in home page)
+    suggestedSections.forEach(function(section) {
+      section.style.display = 'block';
+      section.style.visibility = 'visible';
+      section.style.opacity = '1';
+    });
+    
+    // Sections to reveal on scroll (only in home page)
+    const sectionsToReveal = [
+      mainContent.querySelector('#iq-topten'),
+      mainContent.querySelector('#parallex'),
+      mainContent.querySelector('#iq-trending')
+    ].filter(function(section) {
+      return section !== null;
+    });
+    
+    // Check if Intersection Observer is supported
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          // Only process sections within main-content (home page)
+          if (entry.isIntersecting && entry.target.closest('.main-content')) {
+            entry.target.classList.add('in-view');
+            // Optionally stop observing after it's been revealed
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Observe each section (already filtered to only main-content sections)
+      sectionsToReveal.forEach(function(section) {
+        if (section) {
+          observer.observe(section);
+        }
+      });
+    } else {
+      // Fallback for browsers without Intersection Observer
+      // Reveal sections when they're scrolled into view
+      function checkScroll() {
+        sectionsToReveal.forEach(function(section) {
+          // Only process sections within main-content (home page)
+          if (section && section.closest('.main-content') && !section.classList.contains('in-view')) {
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+            // If section is within viewport (with some margin)
+            if (rect.top < windowHeight + 100 && rect.bottom > -100) {
+              section.classList.add('in-view');
+            }
+          }
+        });
+      }
+      
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            checkScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      // Check on initial load
+      checkScroll();
+    }
+  }
+  
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileSectionReveal);
+  } else {
+    initMobileSectionReveal();
+  }
+  
+  // Re-initialize on window resize (in case user rotates device)
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      initMobileSectionReveal();
+    }, 250);
+  });
 })();
 
