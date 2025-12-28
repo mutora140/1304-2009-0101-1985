@@ -115,10 +115,15 @@ body{
 }
 
 #embedded-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    border: none;
     border-radius: 10px;
     background: #000;
+    display: block;
 }
 
 .video-info {
@@ -255,6 +260,20 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Interpreter tags styled like action button - red with glow */
+.tags-section.interpreter-section .tag-item,
+.tags-section:has(.meta-label:contains("Interpreter:")) .tag-item {
+    background: #8B0000 !important;
+    color: #ff0000 !important;
+    border: none !important;
+    padding: 6px 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3) !important;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.8) !important;
+}
+
 .movie-details {
     display: flex;
     align-items: center;
@@ -283,19 +302,96 @@ body{
     margin-top: auto;
 }
 
-.btn-watch-full {
-    background: #e50914;
-    color: white;
+/* Add to Favorite and Watchlist buttons - small circular icons */
+.btn-add-favorite,
+.btn-add-watchlist {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 0;
 }
 
-.btn-watch-full:hover {
-    background: #f40612;
-    transform: translateY(-2px);
+.btn-add-favorite {
+    color: #ff0000;
+    font-size: 18px;
+}
+
+.btn-add-favorite:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+.btn-add-watchlist {
+    color: #ff0000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-add-watchlist:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+/* Favorite count badge */
+.btn-add-favorite .favorite-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff0000;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip for buttons */
+.btn-add-favorite::after,
+.btn-add-watchlist::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.btn-add-favorite:hover::after,
+.btn-add-watchlist:hover::after {
+    opacity: 1;
+}
+
+/* Active states */
+.btn-add-favorite.active,
+.btn-add-watchlist.active {
+    background: #ff0000;
+    color: white;
+}
+
+/* Watch Full Movie buttons removed - hidden */
+.btn-watch-full {
+    display: none !important;
 }
 
 .btn-download {
@@ -718,8 +814,8 @@ body{
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
     transform: translateX(-100%);
-    /* Make sure sidebar appears above the video gallery overlay */
-    z-index: 12001;
+    /* Make sure sidebar appears above the video gallery overlay and header */
+    z-index: 100000;
 }
 
 .mf-sidebar.open {
@@ -2751,7 +2847,7 @@ ul#top-ten-slider .slick-bg::before{
   }
 }
 
-@media (max-width: 767px){
+@media (max-width: 991px){
   #iq-topten {
     display: block !important;
     visibility: visible !important;
@@ -2815,51 +2911,14 @@ ul#top-ten-slider .slick-bg::before{
     }
 }
 
-/* Position arrows at center left and center right on tablets */
-@media (max-width : 991px) and (min-width : 768px){
+/* Tablets now use mobile layout, so this is handled by the mobile styles above */
+@media (max-width : 991px){
     /* Ensure slider container has relative positioning for arrows */
     #top-ten-slider .slick-bg {
         position: relative !important;
     }
     
-    #top-ten-slider .NextArrow{
-        right: 20px !important;
-        left: auto !important;
-        top: 50% !important;
-        bottom: auto !important;
-        transform: translateY(-50%) !important;
-        margin: 0 !important;
-        position: absolute !important;
-    }
-    #top-ten-slider .PrevArrow{
-        left: 20px !important;
-        right: auto !important;
-        top: 50% !important;
-        bottom: auto !important;
-        transform: translateY(-50%) !important;
-        margin: 0 !important;
-        position: absolute !important;
-    }
-    
-    #top-ten-slider .NextArrow, #top-ten-slider .PrevArrow{
-        width: 45px !important;
-        height: 45px !important;
-        font-size: 22px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        border-radius: 50% !important;
-        background: rgba(0, 0, 0, 0.6) !important;
-        z-index: 999 !important;
-    }
-}
-@media (max-width : 767px){
-    /* Ensure slider container has relative positioning for arrows */
-    #top-ten-slider .slick-bg {
-        position: relative !important;
-    }
-    
-    /* Position arrows at center left and center right on mobile */
+    /* Position arrows at center left and center right on mobile/tablet */
     #top-ten-slider .NextArrow{
         right: 15px !important;
         left: auto !important;
@@ -2946,7 +3005,7 @@ ul#top-ten-slider .slick-bg::before{
 }
 
 /* Show on mobile devices and small tablets (767px and smaller where banner title is visible) */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
     #top-ten-slider .slick-bg {
         position: relative;
     }

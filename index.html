@@ -823,7 +823,14 @@
 
             <div class="video-player-container">
 
-              <div id="youtube-player"></div>
+              <!-- Jetpack VideoPress iframe used by the gallery JS -->
+              <iframe
+                id="video-iframe"
+                src=""
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; display: block; z-index: 1;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
 
             </div>
 
@@ -836,6 +843,26 @@
 
 
               <h2 id="video-title" class="video-title">Avengers: Endgame</h2>
+
+              
+
+              <!-- Interpreter Section -->
+
+              <div class="tags-section interpreter-section">
+
+                <h6 class="meta-label">Interpreter:</h6>
+
+                <div class="tags-list">
+
+                  <span class="tag-item">English</span>
+
+                  <span class="tag-item">Spanish</span>
+
+                  <span class="tag-item">French</span>
+
+                </div>
+
+              </div>
 
               
 
@@ -949,11 +976,6 @@
 
               <div class="video-actions">
 
-                <button class="btn btn-hover btn-watch-full">
-
-                  <i class="fa fa-play mr-2"></i>Watch Full Movie
-
-                </button>
 
                 <button class="btn btn-outline btn-download">
 
@@ -1939,7 +1961,7 @@
 
                 <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
 
-                <a href="#" class="btn btn-hover iq-button" data-video-id="tmeOjFno6Do" data-title="Avengers: Age of Ultron">
+                <a href="#" class="btn btn-hover iq-button" data-video-id="kUJmAcSf" data-title="Pick Up">
 
                   <i class="fa fa-play mr-3"></i>Play Now</a>
 
@@ -1953,7 +1975,7 @@
 
             <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
 
-              <a href="#" class="video-open playbtn" data-video-id="tmeOjFno6Do" data-title="Avengers: Age of Ultron">
+              <a href="#" class="video-open playbtn" data-video-id="kUJmAcSf" data-title="PickUp">
 
                 <img loading="lazy" src="images/play.png" class="play" alt="Play button" />
 
@@ -2081,7 +2103,7 @@
 
                 <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
 
-                  <a href="#" class="btn btn-hover iq-button" data-video-id="FLzfXQSPBOg" data-title="Frozen">
+                  <a href="#" class="btn btn-hover iq-button" data-video-id="FLzfXQSPBOg" data-title="1917">
 
                     <i class="fa fa-play mr-3"></i>Play Now</a>
 
@@ -2095,7 +2117,7 @@
 
             <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
 
-              <a href="#" class="video-open playbtn" data-video-id="FLzfXQSPBOg" data-title="Frozen">
+              <a href="#" class="video-open playbtn" data-video-id="FLzfXQSPBOg" data-title="1917">
 
                 <img loading="lazy" src="images/play.png" class="play" alt="Play button" />
 
@@ -2217,7 +2239,7 @@
 
                 <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
 
-                  <a href="#" class="btn btn-hover iq-button" data-video-id="k10ETZ41q5o" data-title="The Conjuring">
+                  <a href="#" class="btn btn-hover iq-button" data-video-id="k10ETZ41q5o" data-title="Work It">
 
                     <i class="fa fa-play mr-3"></i>Play Now</a>
 
@@ -2231,7 +2253,7 @@
 
             <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
 
-              <a href="#" class="video-open playbtn" data-video-id="k10ETZ41q5o" data-title="The Conjuring">
+              <a href="#" class="video-open playbtn" data-video-id="k10ETZ41q5o" data-title="Work It">
 
                 <img loading="lazy" src="images/play.png" class="play" alt="Play button" />
 
@@ -2313,7 +2335,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="acEoQpJq0qg" data-title="Insidious: The Last Key">
+                        <span class="btn btn-hover iq-button" data-video-id="02-XkOLVnIU" data-title="afterburn">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -2403,7 +2425,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="yQ5U8suTUw0" data-title="War (2019)">
+                        <span class="btn btn-hover iq-button" data-video-id="8jLOx1hD3_o" data-title="Death Race">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -2493,7 +2515,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="4qf9Uyn2acE" data-title="Five Feet Apart (2019)">
+                        <span class="btn btn-hover iq-button" data-video-id="W4DlMggBPvc" data-title="Homefront">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -2583,7 +2605,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="tsxemFXSQXQ" data-title="Chhichhore (2019)">
+                        <span class="btn btn-hover iq-button" data-video-id="sDYVdxFZq8Y" data-title="Mayhem">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -2673,7 +2695,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="Lt-U_t2pUHI" data-title="Doctor Strange (2016)">
+                        <span class="btn btn-hover iq-button" data-video-id="q78_0TElYME" data-title="Shadow Force">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -2803,7 +2825,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="02-XkOLVnIU" data-title="Mulan (2020)">
+                        <span class="btn btn-hover iq-button" data-video-id="acEoQpJq0qg" data-title="Hunting jessica">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -2893,7 +2915,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="8jLOx1hD3_o" data-title="Laxmii (2020)">
+                        <span class="btn btn-hover iq-button" data-video-id="yQ5U8suTUw0" data-title="Frankenstein">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -2983,7 +3005,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="W4DlMggBPvc" data-title="Captain America: The First Avenger">
+                        <span class="btn btn-hover iq-button" data-video-id="4qf9Uyn2acE" data-title="Texas Chain">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -3073,7 +3095,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="sDYVdxFZq8Y" data-title="Life of Pi (2012)">
+                        <span class="btn btn-hover iq-button" data-video-id="tsxemFXSQXQ" data-title="Woman in the yard">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -3163,7 +3185,7 @@
 
                       <div class="hover-buttons">
 
-                        <span class="btn btn-hover iq-button" data-video-id="q78_0TElYME" data-title="Mission Mangal (2019)">
+                        <span class="btn btn-hover iq-button" data-video-id="Lt-U_t2pUHI" data-title="Hunting jessica brok">
 
                           <i class="fa fa-play mr-1"></i>
 
@@ -3319,7 +3341,7 @@
 
                     </div>
 
-                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="CDrieqs-S54" data-title="The Queen's Gambit (2020)">
+                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="CDrieqs-S54" data-title="Lou">
 
                       <i class="fa fa-play mr-1"></i>
 
@@ -3353,7 +3375,7 @@
 
                     </div>
 
-                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="8jLOx1hD3_o" data-title="Scam 1992: The Harshad Mehta Story">
+                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="b9EkMc79ZSU" data-title="F1: The movie">
 
                       <i class="fa fa-play mr-1"></i>
 
@@ -3387,7 +3409,7 @@
 
                     </div>
 
-                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="b9EkMc79ZSU" data-title="Stranger Things (2016)">
+                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="i1eJMig5Ik4" data-title="Play dirty">
 
                       <i class="fa fa-play mr-1"></i>
 
@@ -3421,7 +3443,7 @@
 
                     </div>
 
-                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="i1eJMig5Ik4" data-title="BoJack Horseman (2014)">
+                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="oVzVdvLeICg" data-title="Ice road vegence">
 
                       <i class="fa fa-play mr-1"></i>
 
@@ -3455,7 +3477,7 @@
 
                     </div>
 
-                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="oVzVdvLeICg" data-title="Peaky Blinders (2013)">
+                    <span class="btn btn-hover iq-button mobile-banner-play-now" data-video-id="L_jWHffIx5E" data-title="The carpenter's son">
 
                       <i class="fa fa-play mr-1"></i>
 
@@ -3505,7 +3527,7 @@
 
                         <div class="hover-buttons">
 
-                          <span class="btn btn-hover iq-button" data-video-id="VyHV0BtdCW4" data-title="Harry Potter and the Sorcerer's Stone">
+                          <span class="btn btn-hover iq-button" data-video-id="VyHV0BtdCW4" data-title="Next">
 
                             <i class="fa fa-play mr-1"></i>
 
@@ -3745,7 +3767,7 @@
 
                         <div class="hover-buttons">
 
-                          <span class="btn btn-hover iq-button" data-video-id="oVzVdvLeICg" data-title="Peaky Blinders (2013)">
+                          <span class="btn btn-hover iq-button" data-video-id="L_jWHffIx5E" data-title="Peaky Blinders (2013)">
 
                             <i class="fa fa-play mr-1"></i>
 
@@ -4085,7 +4107,7 @@
 
                       <h6 class="iq-title">
 
-                        <a href="#"> Petr rabbit 1</a>
+                        <a href="#"> Peter rabbit 1</a>
 
                       </h6>
 
@@ -4175,7 +4197,7 @@
 
                       <h6 class="iq-title">
 
-                        <a href="#"> Pter rabbit 2 </a>
+                        <a href="#"> Peter rabbit 2 </a>
 
                       </h6>
 

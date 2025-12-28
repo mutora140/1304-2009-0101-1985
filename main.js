@@ -1259,14 +1259,17 @@
                 const tagElement = slideItem.querySelector('.movie-time .sequel-tag');
                 const tag = tagElement ? tagElement.textContent.trim() : '';
                 
-                const videoButton = slideItem.querySelector('.iq-button[data-video-id]');
-                const videoId = videoButton ? videoButton.getAttribute('data-video-id') : '';
+                // Try data-video-link first, then fallback to data-video-id
+                const videoButton = slideItem.querySelector('.iq-button[data-video-link], .iq-button[data-video-id]');
+                const videoLink = videoButton ? (videoButton.getAttribute('data-video-link') || videoButton.getAttribute('data-video-id')) : '';
+                const videoId = videoLink; // Keep for backward compatibility
                 const videoTitle = videoButton ? (videoButton.getAttribute('data-title') || title) : title;
                 
                 // Optional custom links if provided on the slide item
                 const customWatchUrl = slideItem.getAttribute('data-watch-url') || '';
                 const customDownloadUrl = slideItem.getAttribute('data-download-url') || '';
-                const derivedWatchUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : '';
+                // Get video link - if it's not a full URL, convert it
+                const derivedWatchUrl = videoLink ? (videoLink.startsWith('http://') || videoLink.startsWith('https://') ? videoLink : (typeof getVideoLink === 'function' ? getVideoLink(videoLink) : `https://videopress.com/embed/${videoLink}`)) : '';
                 
                 const descriptionEl = slideItem.querySelector('.block-description p');
                 const description = descriptionEl ? descriptionEl.textContent.trim() : '';
@@ -1542,14 +1545,7 @@
             const descriptionMarkup = item.description ? `<p class="watchlist-description text-white-50 mb-0">${this.escapeHtml(item.description)}</p>` : '';
             const watchHref = item.watchUrl && String(item.watchUrl).trim();
             const downloadHref = item.downloadUrl && String(item.downloadUrl).trim();
-            const playMarkup = watchHref ? `
-                <div class="hover-buttons">
-                    <a class="btn btn-hover iq-button" href="${this.escapeAttribute(watchHref)}" target="_blank" rel="noopener noreferrer">
-                        <i class="fa fa-play mr-1"></i>
-                        Watch Full Movie
-                    </a>
-                </div>
-            ` : '';
+            // Watch Full Movie button removed
             const downloadMarkup = downloadHref ? `
                 <div class="hover-buttons mt-2">
                     <a class="btn btn-outline btn-download" href="${this.escapeAttribute(downloadHref)}" download>
@@ -2065,7 +2061,8 @@
     });
 
     // Video Gallery Functionality
-    var currentVideoId = 'dQw4w9WgXcQ';
+    // Default video link - using a real VideoPress embed URL
+    var currentVideoId = 'https://videopress.com/embed/kUJmAcSf';
     // Track last series scope (the DOM block for the series the user interacted with)
     window.__lastSeriesScope = null;
     
@@ -2076,244 +2073,281 @@
         // To add Watch Full Movie and Download links for each movie, add these properties:
         //   watchFullLink: 'https://your-link.com/watch/movie-name',
         //   downloadLink: 'https://your-link.com/download/movie-name'
+        //   videoLink: 'https://videopress.com/embed/GUID' (REQUIRED for video playback - Jetpack VideoPress embed URL)
         //
-        'tmeOjFno6Do': {
+        'kUJmAcSf': {
             image: 'images/trending/02.jpg',
-            title: 'Avengers: Age of Ultron',
+            title: 'Pick Up',
             rating: 7.3,
             stars: 4,
             genres: ['Action', 'Adventure', 'Sci-Fi'],
+            interpreter: ['Rocky'],
             tags: ['Superhero', 'Marvel', 'Comic Book'],
             description: 'When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it\'s up to Earth\'s mightiest heroes to stop the villainous Ultron from enacting his terrible plan.',
             age: '12+',
             duration: '2h 21min',
             year: '2015',
+            videoLink: 'https://videopress.com/embed/kUJmAcSf',
             downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'FLzfXQSPBOg': {
             image: 'images/trending/03.jpg',
-            title: 'Frozen',
+            title: '1917',
             rating: 7.4,
             stars: 4,
             genres: ['Animation', 'Adventure', 'Comedy'],
+            interpreter: ['Rocky'],
             tags: ['Disney', 'Musical', 'Family'],
             description: 'When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.',
             age: '13+',
             duration: '1h 42min',
             year: '2013',
+            videoLink: 'https://videopress.com/embed/FLzfXQSPBOg',
             downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
         'k10ETZ41q5o': {
             image: 'images/trending/04.jpg',
-            title: 'The Conjuring',
+            title: 'Work It',
             rating: 7.5,
             stars: 4.5,
             genres: ['Horror', 'Mystery', 'Thriller'],
+            interpreter: ['Rocky'],
             tags: ['Supernatural', 'Haunted House', 'True Story'],
             description: 'Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.',
             age: '16+',
             duration: '1h 52min',
             year: '2013',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
         },
         '02-XkOLVnIU': {
             image: 'images/popular/u2.jpg',
-            title: 'Mulan',
+            title: 'afterburn',
             rating: 7.0,
-            stars: 3,
+            stars: 4.5,
             genres: ['Action', 'Adventure', 'Drama'],
+            interpreter: ['Rocky'],
             tags: ['Disney', 'Live Action', 'Warrior'],
             description: 'A young Chinese maiden disguises herself as a male warrior in order to save her father.',
             age: '10+',
             duration: '2h 0min',
             year: '2020',
+            videoLink: 'https://videopress.com/embed/02-XkOLVnIU',
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         '8jLOx1hD3_o': {
             image: 'images/popular/u3.jpg',
-            title: 'Laxmii',
+            title: 'Death Race',
             rating: 6.5,
             stars: 4.5,
             genres: ['Comedy', 'Horror', 'Drama'],
+            interpreter: ['Rocky'],
             tags: ['Bollywood', 'Supernatural', 'Comedy'],
             description: 'A man gets possessed by a ghost and starts behaving like a woman.',
             age: '18+',
             duration: '2h 21min',
             year: '2020',
+            videoLink: 'https://videopress.com/embed/8jLOx1hD3_o',
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'W4DlMggBPvc': {
             image: 'images/popular/u4.jpg',
-            title: 'Captain America: The First Avenger',
+            title: 'Homefront',
             rating: 6.9,
             stars: 4,
             genres: ['Action', 'Adventure', 'Sci-Fi'],
+            interpreter: ['Rocky'],
             tags: ['Marvel', 'Superhero', 'World War II'],
             description: 'Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a "Super-Soldier serum".',
             age: '12+',
             duration: '2h 4min',
             year: '2011',
+            videoLink: 'https://videopress.com/embed/W4DlMggBPvc',
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'sDYVdxFZq8Y': {
             image: 'images/popular/u5.jpg',
-            title: 'Life of Pi',
+            title: 'Mayhem',
             rating: 7.9,
             stars: 4,
             genres: ['Adventure', 'Drama', 'Fantasy'],
+            interpreter: ['Rocky'],
             tags: ['Survival', 'Ocean', 'Philosophy'],
             description: 'A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery.',
             age: '11+',
             duration: '2h 7min',
             year: '2012',
+            videoLink: 'https://videopress.com/embed/sDYVdxFZq8Y',
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'q78_0TElYME': {
             image: 'images/trending/01.jpg',
-            title: 'Mission Mangal',
+            title: 'Shadow Force',
             rating: 6.8,
             stars: 3,
             genres: ['Drama', 'Sci-Fi', 'Thriller'],
+            interpreter: ['Rocky'],
             tags: ['Space', 'India', 'ISRO'],
             description: 'Based on true events of the Indian Space Research Organisation (ISRO) successfully launching the Mars Orbiter Mission.',
             age: '12+',
             duration: '2h 10min',
             year: '2019',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'acEoQpJq0qg': {
             image: 'images/trending/05.jpg',
-            title: 'Insidious: The Last Key',
+            title: 'Hunting jessica',
             rating: 6.2,
             stars: 3,
             genres: ['Horror', 'Mystery', 'Thriller'],
+            interpreter: ['Rocky'],
             tags: ['Supernatural', 'Haunting', 'Sequel'],
             description: 'Paranormal investigator Elise Rainier faces her most fearsome and personal haunting yet.',
             age: '16+',
             duration: '1h 43min',
             year: '2018',
+            videoLink: 'https://videopress.com/embed/acEoQpJq0qg',
             downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
         },
         'yQ5U8suTUw0': {
             image: 'images/trending/06.jpg',
-            title: 'War',
+            title: 'Frankenstein',
             rating: 7.1,
             stars: 4,
             genres: ['Action', 'Thriller', 'Drama'],
+            interpreter: ['Rocky'],
             tags: ['Bollywood', 'Spy', 'Revenge'],
             description: 'An Indian soldier is assigned to eliminate his mentor who has gone rogue.',
             age: '12+',
             duration: '2h 34min',
             year: '2019',
+            videoLink: 'https://videopress.com/embed/yQ5U8suTUw0',
             downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
         },
         '4qf9Uyn2acE': {
             image: 'images/slider/slider1.jpg',
-            title: 'Five Feet Apart',
+            title: 'Texas Chain',
             rating: 7.2,
             stars: 4,
             genres: ['Drama', 'Romance'],
+            interpreter: ['Rocky'],
             tags: ['Teen', 'Illness', 'Love Story'],
             description: 'A pair of teenagers with cystic fibrosis meet in a hospital and fall in love, though their disease means they must maintain a safe distance between them.',
             age: '18+',
             duration: '1h 56min',
             year: '2019',
+            videoLink: 'https://videopress.com/embed/4qf9Uyn2acE',
             downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
         'tsxemFXSQXQ': {
             image: 'images/slider/slider2.jpg',
-            title: 'Chhichhore',
+            title: 'Woman in the yard',
             rating: 8.0,
             stars: 4,
             genres: ['Comedy', 'Drama'],
+            interpreter: ['gaheza'],
             tags: ['College Life', 'Friendship', 'Nostalgia'],
             description: 'A tragic incident forces Anirudh, a middle-aged man, to take a trip down memory lane and reminisce his college days along with his friends.',
             age: '10+',
             duration: '2h 23min',
             year: '2019',
+            videoLink: 'https://videopress.com/embed/tsxemFXSQXQ',
             downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
         },
         'Lt-U_t2pUHI': {
             image: 'images/slider/slider3.jpg',
-            title: 'Doctor Strange',
+            title: 'Hunting jessica brok',
             rating: 7.5,
             stars: 4,
             genres: ['Action', 'Adventure', 'Fantasy'],
+            interpreter: ['gaheza'],
             tags: ['Marvel', 'Magic', 'Superhero'],
             description: 'While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts.',
             age: '12+',
             duration: '1h 55min',
             year: '2016',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'VyHV0BtdCW4': {
             image: 'images/top-10/01.jpg',
-            title: 'Harry Potter and the Sorcerer\'s Stone',
+            title: 'Next',
             rating: 7.6,
             stars: 4,
             genres: ['Adventure', 'Family', 'Fantasy'],
+            interpreter: ['gaheza'],
             tags: ['Magic', 'Wizard', 'School'],
             description: 'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.',
             age: '10+',
             duration: '2h 32min',
             year: '2001',
+            videoLink: 'https://videopress.com/embed/VyHV0BtdCW4',
             downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
         },
         'CDrieqs-S54': {
             image: 'images/top-10/02.jpg',
-            title: 'The Queen\'s Gambit',
+            title: 'Lou',
             rating: 8.6,
             stars: 5,
             genres: ['Drama', 'Sport'],
+            interpreter: ['gaheza'],
             tags: ['Chess', 'Genius', 'Addiction'],
             description: 'Orphaned at the tender age of nine, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA.',
             age: '18+',
             duration: '6h 47min',
             year: '2020',
+            videoLink: 'https://videopress.com/embed/CDrieqs-S54',
             downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
         },
         'b9EkMc79ZSU': {
             image: 'images/top-10/03.jpg',
-            title: 'Stranger Things',
+            title: 'F1: The movie',
             rating: 8.7,
             stars: 4.5,
             genres: ['Drama', 'Fantasy', 'Horror'],
+            interpreter: ['Gaheza'],
             tags: ['Supernatural', 'Kids', '80s'],
             description: 'When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.',
             age: '16+',
             duration: '3 Seasons',
             year: '2016',
+            videoLink: 'https://videopress.com/embed/b9EkMc79ZSU',
             downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
         },
         'i1eJMig5Ik4': {
             image: 'images/top-10/04.jpg',
-            title: 'BoJack Horseman',
+            title: 'Play dirty',
             rating: 8.8,
             stars: 5,
             genres: ['Animation', 'Comedy', 'Drama'],
+            interpreter: ['Gaheza'],
             tags: ['Adult Animation', 'Depression', 'Hollywood'],
             description: 'BoJack Horseman was the star of the hit television show "Horsin\' Around" in the \'80s and \'90s, but now he\'s washed up.',
             age: '15+',
             duration: '6 Seasons',
             year: '2014',
+            videoLink: 'https://videopress.com/embed/i1eJMig5Ik4',
             downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
         },
         'oVzVdvLeICg': {
             image: 'images/top-10/05.jpg',
-            title: 'Peaky Blinders',
+            title: 'Ice road: Vegence',
             rating: 8.8,
             stars: 5,
             genres: ['Crime', 'Drama'],
+            interpreter: ['Gaheza'],
             tags: ['Gangster', 'Historical', 'British'],
             description: 'A notorious gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost.',
             age: '20+',
             duration: '5 Seasons',
             year: '2013',
+            videoLink: 'https://videopress.com/embed/oVzVdvLeICg',
             downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
         },
         'L_jWHffIx5E': {
             image: 'images/top-10/06.jpg',
-            title: 'NBA Basketball Highlights',
+            title: 'Carpenter son',
             rating: 8.5,
             stars: 4,
             genres: ['Sports', 'Basketball'],
@@ -2322,6 +2356,7 @@
             age: 'All Ages',
             duration: 'Various',
             year: '2024',
+            videoLink: 'https://videopress.com/embed/L_jWHffIx5E',
             downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
         '4fVCKy69zUY': {
@@ -2335,6 +2370,7 @@
             age: 'All Ages',
             duration: 'Various',
             year: '2024',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         '5PSNL1qE6VY': {
@@ -2348,6 +2384,7 @@
             age: '12+',
             duration: '2h 42min',
             year: '2009',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
         },
         'JWtnJjn6ngQ': {
@@ -2361,6 +2398,7 @@
             age: '16+',
             duration: '4 Seasons',
             year: '2016',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/the-crown.mp4'
         },
         'WBb3fojjx-0': {
@@ -2374,6 +2412,7 @@
             age: '12+',
             duration: '12 Seasons',
             year: '2007',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/the-big-bang-theory.mp4'
         },
         'Ua0HdsbsDsA': {
@@ -2387,6 +2426,7 @@
             age: '18+',
             duration: '3 Seasons',
             year: '2015',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/narcos.mp4'
         },
         'IEEbUfhFFM0': {
@@ -2399,7 +2439,8 @@
             description: 'Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.',
             age: '12+',
             duration: '10 Seasons',
-            year: '1994'
+            year: '1994',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
         },
         'ej3ioOneQ48': {
             image: 'images/episodes/m1.jpg',
@@ -2412,6 +2453,7 @@
             age: '12+',
             duration: '2h 24min',
             year: '2015',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'n9tzhmJ5hFE': {
@@ -2425,6 +2467,7 @@
             age: '16+',
             duration: '1h 30min',
             year: '2020',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'm4NC26Dk4dE': {
@@ -2438,6 +2481,7 @@
             age: '16+',
             duration: '2h 9min',
             year: '2014',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://example.com/download/kingsman'
         },
         '36mnx8hNvEE': {
@@ -2451,6 +2495,7 @@
             age: '12+',
             duration: '2h 24min',
             year: '2006',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'Ohws8y572KE': {
@@ -2464,6 +2509,7 @@
             age: '12+',
             duration: '1h 50min',
             year: '1996',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         '8jLOx1hD3_': {
@@ -2477,6 +2523,7 @@
             age: '18+',
             duration: '2 Seasons',
             year: '2018',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://example.com/download/mirzapur'
         },
         'IEEbUfhFFM0': {
@@ -2490,6 +2537,7 @@
             age: '12+',
             duration: '10 Seasons',
             year: '1994',
+            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
             downloadLink: 'https://example.com/download/friends'
         }
     };
@@ -2499,15 +2547,55 @@
         window.videoData = videoData;
     }
 
+    // Helper function to find video data by video link
+    function findVideoDataByLink(videoLink) {
+        if (!videoLink) return null;
+        
+        // First, try to find by videoLink property
+        for (const [key, data] of Object.entries(videoData)) {
+            if (data && data.videoLink === videoLink) {
+                return { key, data };
+            }
+        }
+        
+        // If not found, try to extract ID from link and look up by key
+        // This handles backward compatibility
+        const idMatch = videoLink.match(/([a-zA-Z0-9_-]{11})/);
+        if (idMatch && videoData[idMatch[1]]) {
+            return { key: idMatch[1], data: videoData[idMatch[1]] };
+        }
+        
+        return null;
+    }
+    
+    // Helper function to get video link from ID or link
+    function getVideoLink(identifier) {
+        if (!identifier) return null;
+        
+        // If it's already a full URL, return it
+        if (identifier.startsWith('http://') || identifier.startsWith('https://')) {
+            return identifier;
+        }
+        
+        // Otherwise, treat it as an ID and look up in videoData
+        const data = videoData[identifier];
+        if (data && data.videoLink) {
+            return data.videoLink;
+        }
+        
+        // Fallback: construct VideoPress URL from ID
+        return `https://videopress.com/embed/${identifier}`;
+    }
+    
     // Add per-movie watch/download links
     (function ensureVideoLinks() {
-        const YT_WATCH_BASE = 'https://www.youtube.com/watch?v=';
         Object.entries(videoData).forEach(([videoId, movie]) => {
             if (!movie) return;
 
-            // Watch: Use YouTube watch URL
-            if (!movie.watchFullLink) {
-                movie.watchFullLink = `${YT_WATCH_BASE}${videoId}`;
+            // Ensure videoLink exists - use real VideoPress embed URL
+            // Using a real VideoPress video GUID for all videos
+            if (!movie.videoLink) {
+                movie.videoLink = 'https://videopress.com/embed/kUJmAcSf';
             }
         });
     })();
@@ -2518,6 +2606,7 @@
         rating: 7.0,
         stars: 3,
         genres: ['Action', 'Adventure'],
+        interpreter: ['English', 'Spanish'],
         tags: ['Action', 'Adventure'],
         description: 'Movie description goes here.',
         age: '12+',
@@ -2591,61 +2680,75 @@
         return document.querySelector('.video-player-container');
     }
 
-    // Function to create embedded video player
-    function createVideoPlayer(videoId) {
-        const videoContainer = document.getElementById('youtube-player');
-        
-        if (videoContainer && videoId) {
-            try {
-                // Clear existing content
-                videoContainer.innerHTML = '';
-                
-                // Create iframe for YouTube video with autoplay
-                const iframe = document.createElement('iframe');
-                iframe.id = 'embedded-video';
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-                iframe.style.border = 'none';
-                iframe.style.borderRadius = '10px';
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                iframe.allowFullscreen = true;
-                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1&origin=${window.location.origin}`;
-                
-                // Append iframe
-                videoContainer.appendChild(iframe);
-                
-                // Store current video ID
-                currentVideoId = videoId;
-                
-                console.log('Video player created successfully for:', videoId);
-            } catch (error) {
-                console.error('Error creating video player:', error);
-                // Fallback: show error message
-                videoContainer.innerHTML = '<p style="color: white; text-align: center; padding: 20px;">Error loading video. Please try again.</p>';
+    // Helper to update the Jetpack VideoPress iframe in the video gallery
+    function setGalleryVideoByLink(videoLink) {
+        if (!videoLink) return;
+
+        const iframe = document.getElementById('video-iframe');
+        if (!iframe) {
+            console.error('Video iframe (#video-iframe) not found');
+            return;
+        }
+
+        // Use the video link directly for Jetpack VideoPress
+        // If the link is not already an embed URL, convert it to embed format
+        let embedUrl = videoLink;
+        if (videoLink.includes('videopress.com/v/')) {
+            // Convert videopress.com/v/guid to videopress.com/embed/guid
+            embedUrl = videoLink.replace('/v/', '/embed/');
+        } else if (!videoLink.includes('/embed/')) {
+            // If it's a regular VideoPress URL, try to extract and convert
+            const match = videoLink.match(/videopress\.com\/v\/([a-zA-Z0-9]+)/);
+            if (match) {
+                embedUrl = `https://videopress.com/embed/${match[1]}`;
             }
-        } else {
-            console.error('Video container not found or invalid video ID');
         }
+        
+        // Add autoplay parameter if not present
+        if (!embedUrl.includes('autoplay')) {
+            embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1';
+        }
+        
+        iframe.src = embedUrl;
+
+        // Store current video link
+        currentVideoId = videoLink;
+        
+        // Update favorite and watchlist buttons
+        setTimeout(function() {
+            if (typeof updateFavoriteWatchlistButtons === 'function') {
+                updateFavoriteWatchlistButtons();
+            }
+        }, 100);
     }
     
-    // Function to load video by ID
-    function loadVideoById(videoId) {
-        if (videoId && videoId !== currentVideoId) {
-            createVideoPlayer(videoId);
-        }
+    // Keep old function name for backward compatibility, but it now expects video links
+    function setGalleryVideoById(videoLink) {
+        setGalleryVideoByLink(videoLink);
     }
-    
+
     // Function to stop video
     function stopVideo() {
-        const iframe = document.getElementById('embedded-video');
+        const iframe = document.getElementById('video-iframe');
         if (iframe) {
             iframe.src = '';
         }
     }
 
-    // Function to update sidebar content
-    function updateSidebarContent(videoId) {
-        const data = videoData[videoId] || defaultVideoData;
+    // Function to update sidebar content (accepts video ID or video link)
+    function updateSidebarContent(videoIdOrLink) {
+        let data = defaultVideoData;
+        
+        // Try to find video data by link first
+        if (videoIdOrLink) {
+            const found = findVideoDataByLink(videoIdOrLink);
+            if (found) {
+                data = found.data;
+            } else if (videoData[videoIdOrLink]) {
+                // Fallback: try direct lookup by ID
+                data = videoData[videoIdOrLink];
+            }
+        }
         
         // Update title
         const titleElement = document.getElementById('video-title');
@@ -2707,136 +2810,39 @@
             });
         }
         
-        // Update tags
-        const tagsList = document.querySelector('.tags-list');
-        if (tagsList) {
-            tagsList.innerHTML = '';
-            data.tags.forEach(tag => {
-                const tagItem = document.createElement('span');
-                tagItem.className = 'tag-item';
-                tagItem.textContent = tag;
-                tagsList.appendChild(tagItem);
-            });
-        }
-        
-        // Update description
-        const description = document.querySelector('.video-description');
-        if (description) {
-            description.textContent = data.description;
-        }
-    }
-    
-    // Helper function to update action buttons with movie-specific links
-    function updateActionButtonsFromVideoId(videoId) {
-        let watchFullLink = null;
-        let downloadLink = null;
-        
-        // First, try to get links from videoData structure
-        if (typeof videoData !== 'undefined' && videoData[videoId]) {
-            const movieData = videoData[videoId];
-            watchFullLink = movieData.watchFullLink || null;
-            downloadLink = movieData.downloadLink || null;
-        }
-        
-        // If not found in videoData, try to get from HTML data attributes as fallback
-        if (!watchFullLink || !downloadLink) {
-            const movieButton = document.querySelector(`.iq-button[data-video-id="${videoId}"]`);
-            if (movieButton) {
-                watchFullLink = watchFullLink || movieButton.getAttribute('data-watch-full-link');
-                downloadLink = downloadLink || movieButton.getAttribute('data-download-link');
+        // Update interpreter (using tags structure, positioned below title)
+        // Find the interpreter section which is the first tags-section after the title
+        const interpreterSection = document.querySelector('.tags-section');
+        if (interpreterSection) {
+            const sectionLabel = interpreterSection.querySelector('.meta-label');
+            // Check if this is the interpreter section (first tags-section after title)
+            if (sectionLabel && sectionLabel.textContent.trim() === 'Interpreter:') {
+                interpreterSection.classList.add('interpreter-section');
+                const interpreterList = interpreterSection.querySelector('.tags-list');
+                if (interpreterList) {
+                    interpreterList.innerHTML = '';
+                    if (data.interpreter && Array.isArray(data.interpreter)) {
+                        data.interpreter.forEach(interpreter => {
+                            const interpreterTag = document.createElement('span');
+                            interpreterTag.className = 'tag-item';
+                            interpreterTag.textContent = interpreter;
+                            interpreterList.appendChild(interpreterTag);
+                        });
+                    }
+                }
             }
         }
         
-        const watchFullBtn = document.querySelector('.btn-watch-full');
-        const downloadBtn = document.querySelector('.btn-download');
-        
-        if (watchFullBtn) {
-            if (watchFullLink) {
-                watchFullBtn.setAttribute('data-movie-link', watchFullLink);
-                watchFullBtn.style.display = '';
-            } else {
-                watchFullBtn.removeAttribute('data-movie-link');
-                // Keep button visible for fallback functionality
+        // Update tags (the tags-section with "Tags:" label)
+        const tagsSections = document.querySelectorAll('.tags-section');
+        let tagsList = null;
+        for (let i = 0; i < tagsSections.length; i++) {
+            const sectionLabel = tagsSections[i].querySelector('.meta-label');
+            if (sectionLabel && sectionLabel.textContent.trim() === 'Tags:') {
+                tagsList = tagsSections[i].querySelector('.tags-list');
+                break;
             }
         }
-        
-        if (downloadBtn) {
-            if (downloadLink) {
-                downloadBtn.setAttribute('data-movie-link', downloadLink);
-                downloadBtn.style.display = '';
-            } else {
-                downloadBtn.removeAttribute('data-movie-link');
-                // Keep button visible for fallback functionality
-            }
-        }
-    }
-    
-    // Function to update sidebar content
-    function updateSidebarContent(videoId) {
-        const data = videoData[videoId] || defaultVideoData;
-        
-        // Update title
-        const titleElement = document.getElementById('video-title');
-        if (titleElement) {
-            titleElement.textContent = data.title;
-        }
-        
-        // Update rating section
-        const ratingSection = document.querySelector('.rating-section .rating');
-        if (ratingSection) {
-            // Clear existing stars
-            const existingStars = ratingSection.querySelectorAll('.fa-star, .fa-star-half');
-            existingStars.forEach(star => star.remove());
-            
-            // Add new stars based on rating
-            const fullStars = Math.floor(data.stars);
-            const hasHalfStar = data.stars % 1 !== 0;
-            
-            for (let i = 0; i < fullStars; i++) {
-                const star = document.createElement('i');
-                star.className = 'fa fa-star text-primary';
-                ratingSection.insertBefore(star, ratingSection.querySelector('.ml-2'));
-            }
-            
-            if (hasHalfStar) {
-                const halfStar = document.createElement('i');
-                halfStar.className = 'fa fa-star-half text-primary';
-                ratingSection.insertBefore(halfStar, ratingSection.querySelector('.ml-2'));
-            }
-            
-            // Update rating text
-            const ratingText = ratingSection.querySelector('.ml-2');
-            if (ratingText) {
-                ratingText.textContent = data.rating + '/10';
-            }
-        }
-        
-        // Update movie details
-        const movieDetails = document.querySelector('.movie-details');
-        if (movieDetails) {
-            const ageBadge = movieDetails.querySelector('.badge');
-            const duration = movieDetails.querySelector('.duration');
-            const year = movieDetails.querySelector('.year');
-            
-            if (ageBadge) ageBadge.textContent = data.age;
-            if (duration) duration.textContent = data.duration;
-            if (year) year.textContent = data.year;
-        }
-        
-        // Update genres
-        const genresList = document.querySelector('.genres-list');
-        if (genresList) {
-            genresList.innerHTML = '';
-            data.genres.forEach(genre => {
-                const genreTag = document.createElement('span');
-                genreTag.className = 'genre-tag';
-                genreTag.textContent = genre;
-                genresList.appendChild(genreTag);
-            });
-        }
-        
-        // Update tags
-        const tagsList = document.querySelector('.tags-list');
         if (tagsList) {
             tagsList.innerHTML = '';
             data.tags.forEach(tag => {
@@ -2853,19 +2859,31 @@
             description.textContent = data.description;
         }
         
-        // Update action buttons with movie-specific links
-        updateActionButtonsFromVideoId(videoId);
+        // Update favorite and watchlist buttons
+        if (typeof updateFavoriteWatchlistButtons === 'function') {
+            setTimeout(function() {
+                updateFavoriteWatchlistButtons();
+            }, 100);
+        }
     }
     
     // Video Gallery Event Handlers
     jQuery(document).ready(function() {
         const videoGallery = jQuery('#video-gallery-overlay');
         const closeBtn = jQuery('#close-video-gallery');
-        const playNowButtons = jQuery('.btn-hover.iq-button, .play-now-btn');
+        // Select all play buttons: play now buttons, play icon buttons, and any iq-button with video data
+        const playNowButtons = jQuery('.btn-hover.iq-button, .play-now-btn, .iq-button[data-video-link], .iq-button[data-video-id]');
         
         // Initialize video player with default video and update sidebar
-        createVideoPlayer(currentVideoId);
+        setGalleryVideoByLink(currentVideoId);
         updateSidebarContent(currentVideoId);
+        
+        // Initialize favorite and watchlist buttons after a delay
+        setTimeout(function() {
+            if (typeof updateFavoriteWatchlistButtons === 'function') {
+                updateFavoriteWatchlistButtons();
+            }
+        }, 500);
         
                  // Close video gallery
          function closeVideoGallery() {
@@ -2882,19 +2900,89 @@
          // Make closeVideoGallery function globally accessible
          window.closeVideoGallery = closeVideoGallery;
         
-        // Event listeners for Play Now buttons
+        // Event listeners for Play Now buttons and play icon buttons
+        // These should always open the video gallery with their own video and sidebar
         playNowButtons.on('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             
-            const videoId = jQuery(this).attr('data-video-id') || 'dQw4w9WgXcQ';
+            // Get the video link from the button (prefer data-video-link, fallback to data-video-id for backward compatibility)
+            const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id') || '';
             const title = jQuery(this).attr('data-title') || 'Movie Title';
+            
+            if (!videoLink) {
+                console.warn('No video link found for play button');
+                return;
+            }
+            
+            // If we got a video link, use it; otherwise try to get video link from videoData
+            let finalVideoLink = videoLink;
+            if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
+                // Treat as ID and get video link from videoData
+                finalVideoLink = getVideoLink(videoLink);
+                if (!finalVideoLink) {
+                    // Fallback: construct videopress embed URL
+                    finalVideoLink = `https://videopress.com/embed/${videoLink}`;
+                }
+            }
+            
             // Remember the series scope where this click happened
-            const scope = jQuery(this).closest('.trending-info, .slide-item').get(0);
+            const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
             if (scope) {
                 window.__lastSeriesScope = scope;
             }
             
-            openVideoGallery(videoId, title);
+            // Always open video gallery with the video link (for sidebar data and playback)
+            // This ensures each video opens with its own sidebar content
+            if (typeof openVideoGallery === 'function') {
+                openVideoGallery(finalVideoLink, title);
+            } else {
+                console.error('openVideoGallery function not found');
+            }
+        });
+        
+        // Additional catch-all handler for any .iq-button clicks (play icon buttons)
+        // These should always open the video gallery with their own video and sidebar
+        jQuery(document).on('click', '.iq-button[data-video-link], .iq-button[data-video-id]', function(e) {
+            // Skip if already handled by playNowButtons handler
+            if (jQuery(this).hasClass('btn-hover') || jQuery(this).hasClass('play-now-btn')) {
+                return;
+            }
+            
+            // Skip if this is inside video gallery default section (handled separately)
+            if (jQuery(this).closest('.video-gallery-default-section').length) {
+                return;
+            }
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id') || '';
+            const title = jQuery(this).attr('data-title') || 'Movie Title';
+            
+            if (!videoLink) {
+                return;
+            }
+            
+            let finalVideoLink = videoLink;
+            if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
+                finalVideoLink = getVideoLink(videoLink);
+                if (!finalVideoLink) {
+                    // Fallback: construct videopress embed URL
+                    finalVideoLink = `https://videopress.com/embed/${videoLink}`;
+                }
+            }
+            
+            // Remember the series scope where this click happened
+            const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
+            if (scope) {
+                window.__lastSeriesScope = scope;
+            }
+            
+            // Always open video gallery with the video link (for sidebar data and playback)
+            if (typeof openVideoGallery === 'function') {
+                openVideoGallery(finalVideoLink, title);
+            }
         });
         
         let activeShareCopyPopup = null;
@@ -2910,14 +2998,17 @@
         }
 
         function getVideoDataForShare($trigger) {
-            const directDataElement = $trigger.closest('[data-video-id]');
+            // Try data-video-link first, then fallback to data-video-id for backward compatibility
+            const directDataElement = $trigger.closest('[data-video-link], [data-video-id]');
+            let videoLink = directDataElement.attr('data-video-link');
             let videoId = directDataElement.attr('data-video-id');
             let title = directDataElement.attr('data-title');
 
-            if (!videoId) {
+            if (!videoLink && !videoId) {
                 const block = $trigger.closest('.block-images, .e-item, .slide-item, .shows-img');
-                const buttonWithData = block.find('[data-video-id]').first();
+                const buttonWithData = block.find('[data-video-link], [data-video-id]').first();
                 if (buttonWithData.length) {
+                    videoLink = buttonWithData.attr('data-video-link');
                     videoId = buttonWithData.attr('data-video-id');
                     title = title || buttonWithData.attr('data-title');
                 }
@@ -2930,8 +3021,12 @@
                 }
             }
 
+            // Use video link if available, otherwise use video ID
+            const finalVideoLink = videoLink || (videoId ? getVideoLink(videoId) : null) || window.currentVideoId || null;
+
             return {
-                videoId: videoId || window.currentVideoId || null,
+                videoId: finalVideoLink, // Store as videoLink for consistency
+                videoLink: finalVideoLink,
                 title: title || 'Movie'
             };
         }
@@ -3029,28 +3124,48 @@
         });
 
         // Event listeners for notification bell items
+        // These should always open the video gallery with their own video and sidebar
         jQuery(document).on('click', '.notification-item', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
-            const videoId = jQuery(this).attr('data-video-id');
+            // Try data-video-link first, then fallback to data-video-id
+            const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id');
             const title = jQuery(this).attr('data-title') || 'Movie Title';
             
-            if (videoId) {
-                // Close notification dropdown if open
-                const dropdown = jQuery(this).closest('.iq-sub-dropdown');
-                dropdown.removeClass('show');
-                
-                const listItem = jQuery(this).closest('li');
-                if (listItem.length) {
-                    listItem.removeClass('iq-show');
-                    listItem.find('.search-toggle').removeClass('active');
+            if (!videoLink) {
+                return;
+            }
+            
+            // Close notification dropdown if open
+            const dropdown = jQuery(this).closest('.iq-sub-dropdown');
+            dropdown.removeClass('show');
+            
+            const listItem = jQuery(this).closest('li');
+            if (listItem.length) {
+                listItem.removeClass('iq-show');
+                listItem.find('.search-toggle').removeClass('active');
+            }
+            
+            // Get video link if we have an ID
+            let finalVideoLink = videoLink;
+            if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
+                finalVideoLink = getVideoLink(videoLink);
+                if (!finalVideoLink) {
+                    // Fallback: construct videopress embed URL
+                    finalVideoLink = `https://videopress.com/embed/${videoLink}`;
                 }
-                
-                // Open video gallery
-                if (typeof openVideoGallery === 'function') {
-                    openVideoGallery(videoId, title);
-                }
+            }
+            
+            // Remember the series scope where this click happened
+            const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
+            if (scope) {
+                window.__lastSeriesScope = scope;
+            }
+            
+            // Always open video gallery with the video link (for sidebar data and playback)
+            if (typeof openVideoGallery === 'function') {
+                openVideoGallery(finalVideoLink, title);
             }
         });
 
@@ -3072,7 +3187,7 @@
             e.stopPropagation();
 
             const videoData = getVideoDataForShare(jQuery(this));
-            if (!videoData.videoId) {
+            if (!videoData.videoLink && !videoData.videoId) {
                 showShareCopyPopup({
                     title: videoData.title,
                     link: 'Link unavailable',
@@ -3081,15 +3196,12 @@
                 return;
             }
 
-            let shareLink;
+            // Use video link if available, otherwise use current page URL
+            let shareLink = videoData.videoLink || videoData.videoId || window.location.href;
+            
+            // For Facebook, use current page URL for better sharing
             if (isFacebook) {
-                // Facebook share link - using the current page URL or YouTube link
-                const currentUrl = window.location.href;
-                shareLink = `https://www.youtube.com/watch?v=${videoData.videoId}`;
-                // You can customize this to use the actual page URL instead
-                // shareLink = currentUrl;
-            } else {
-                shareLink = `https://www.youtube.com/watch?v=${videoData.videoId}`;
+                shareLink = window.location.href;
             }
 
             showShareCopyPopup({
@@ -3104,55 +3216,61 @@
             e.stopPropagation();
 
             const trigger = jQuery(this);
-            let videoId = trigger.attr('data-video-id');
+            // Try data-video-link first, then fallback to data-video-id
+            let videoLink = trigger.attr('data-video-link') || trigger.attr('data-video-id');
             let title = trigger.attr('data-title');
 
-            if (!videoId) {
+            if (!videoLink) {
                 const slideScope = trigger.closest('.slide');
-                const fallbackButton = slideScope.find('.iq-button[data-video-id]').first();
+                const fallbackButton = slideScope.find('.iq-button[data-video-link], .iq-button[data-video-id]').first();
                 if (fallbackButton.length) {
-                    videoId = fallbackButton.attr('data-video-id');
+                    videoLink = fallbackButton.attr('data-video-link') || fallbackButton.attr('data-video-id');
                     title = title || fallbackButton.attr('data-title');
                 }
             }
 
-            if (videoId && typeof openVideoGallery === 'function') {
-                openVideoGallery(videoId, title || 'Trailer');
+            if (videoLink) {
+                // Get video link if we have an ID
+                let finalVideoLink = videoLink;
+                if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
+                    finalVideoLink = getVideoLink(videoLink);
+                }
+                
+                if (typeof openVideoGallery === 'function') {
+                    openVideoGallery(finalVideoLink, title || 'Trailer');
+                }
             }
         });
         
         // Event listeners for buttons inside video gallery (delegated event)
         // This handles clicks on play buttons within the video gallery default sections
-        jQuery(document).on('click', '.video-gallery-overlay .iq-button', function(e) {
-            // Check if this click is from within the video gallery
+        // When clicked, it should open the video gallery as if it's a new opening
+        jQuery(document).on('click', '.video-gallery-overlay .video-gallery-default-section .iq-button', function(e) {
+            // Check if this click is from within the video gallery default section
             if (videoGallery.hasClass('active')) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                const videoId = jQuery(this).attr('data-video-id');
+                // Get video link (prefer data-video-link, fallback to data-video-id)
+                const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id') || '';
                 const title = jQuery(this).attr('data-title') || 'Movie Title';
                 
-                if (videoId) {
-                    // Keep default sections visible (only hide for series with episodes)
-                    showDefaultSection();
+                if (videoLink) {
+                    // Get final video link
+                    let finalVideoLink = videoLink;
+                    if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
+                        finalVideoLink = getVideoLink(videoLink);
+                    }
                     
-                    // Load the video
-                    loadVideoById(videoId);
-                    updateSidebarContent(videoId);
+                    // Remember the series scope where this click happened
+                    const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
+                    if (scope) {
+                        window.__lastSeriesScope = scope;
+                    }
                     
-                    // Check if this is a series with episodes
-                    const btn = this;
-                    const eItem = jQuery(btn).closest('.e-item');
-                    // Check if there's a series select nearby (indicating it's a series)
-                    const hasSeriesContext = eItem.length && (
-                        eItem.closest('.trending-info').find('.season-select').length > 0 ||
-                        document.querySelector('.trending-info .season-select')
-                    );
-                    
-                    // Only show episodes if it's actually a series
-                    if (!hasSeriesContext) {
-                        // For regular movies, keep default sections visible
-                        showDefaultSection();
+                    // Open video gallery as if it's a new opening - this will properly reset and show the video
+                    if (typeof openVideoGallery === 'function') {
+                        openVideoGallery(finalVideoLink, title);
                     }
                 }
             }
@@ -3164,25 +3282,201 @@
         // Removed escape key and overlay click functionality
         // Only the Back Home button can close the video gallery
         
-        // Watch Full Movie button
-        jQuery(document).on('click', '.btn-watch-full', function() {
-            const watchFullLink = jQuery(this).attr('data-movie-link');
-            if (watchFullLink) {
-                window.open(watchFullLink, '_blank');
-            } else {
-                displayNotification('Watch Full Movie link is not available for this title yet.', 'info');
+        // Add to Favorite button
+        jQuery(document).on('click', '.btn-add-favorite', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const videoId = currentVideoId || '';
+            const title = jQuery('#video-title').text() || 'Movie';
+            const videoGallery = jQuery('#video-gallery-overlay');
+            const imgElement = videoGallery.find('.video-poster img, .video-thumbnail img').first();
+            const imageSrc = imgElement.attr('src') || imgElement.attr('data-src') || '';
+            
+            if (!videoId) {
+                displayNotification('Unable to add to favorites. Please select a movie first.', 'error');
+                return;
+            }
+            
+            // Use WatchlistManager to add to favorites
+            if (window.watchlistManager) {
+                const itemData = {
+                    itemId: videoId,
+                    title: title,
+                    image: imageSrc,
+                    addedAt: Date.now()
+                };
+                
+                const existingIndex = window.watchlistManager.favorites.findIndex(item => item.itemId === videoId);
+                if (existingIndex >= 0) {
+                    // Remove from favorites
+                    window.watchlistManager.favorites.splice(existingIndex, 1);
+                    window.watchlistManager.saveFavorites();
+                    jQuery(this).removeClass('active');
+                    displayNotification(`${title} removed from favorites.`, 'info');
+                } else {
+                    // Add to favorites
+                    window.watchlistManager.favorites.push(itemData);
+                    window.watchlistManager.favorites.sort((a, b) => a.addedAt - b.addedAt);
+                    window.watchlistManager.saveFavorites();
+                    jQuery(this).addClass('active');
+                    displayNotification(`${title} added to favorites!`, 'success');
+                    
+                    // Increment like count
+                    if (window.likeSystem) {
+                        const slideItem = document.querySelector(`.slide-item [data-video-id="${videoId}"], .slide-item [data-video-link="${videoId}"]`);
+                        if (slideItem) {
+                            const heartButton = slideItem.closest('.slide-item, .e-item, .block-images')?.querySelector('.fa-heart');
+                            if (heartButton) {
+                                window.likeSystem.handleLikeClick({ target: heartButton });
+                            }
+                        }
+                    }
+                }
+                
+                // Update favorite count badge
+                updateFavoriteCountBadge();
             }
         });
         
-        // Download button - uses dynamic link from data-movie-link attribute
-        jQuery(document).on('click', '.btn-download', function() {
-            const downloadLink = jQuery(this).attr('data-movie-link');
-            if (downloadLink) {
-                // Open the custom download link
-                window.open(downloadLink, '_blank');
-            } else {
-                displayNotification('Download is not available for this title yet.', 'info');
+        // Add to Watchlist button
+        jQuery(document).on('click', '.btn-add-watchlist', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const videoId = currentVideoId || '';
+            const title = jQuery('#video-title').text() || 'Movie';
+            const videoGallery = jQuery('#video-gallery-overlay');
+            const imgElement = videoGallery.find('.video-poster img, .video-thumbnail img').first();
+            const imageSrc = imgElement.attr('src') || imgElement.attr('data-src') || '';
+            
+            if (!videoId) {
+                displayNotification('Unable to add to watchlist. Please select a movie first.', 'error');
+                return;
             }
+            
+            // Use WatchlistManager to add to watchlist
+            if (window.watchlistManager) {
+                const itemData = {
+                    itemId: videoId,
+                    title: title,
+                    image: imageSrc,
+                    addedAt: Date.now()
+                };
+                
+                const existingIndex = window.watchlistManager.watchlist.findIndex(item => item.itemId === videoId);
+            if (existingIndex >= 0) {
+                    // Remove from watchlist
+                    window.watchlistManager.watchlist.splice(existingIndex, 1);
+                    window.watchlistManager.saveWatchlist();
+                jQuery(this).removeClass('active');
+                    displayNotification(`${title} removed from watchlist.`, 'info');
+            } else {
+                    // Add to watchlist
+                    window.watchlistManager.watchlist.push(itemData);
+                    window.watchlistManager.watchlist.sort((a, b) => a.addedAt - b.addedAt);
+                    window.watchlistManager.saveWatchlist();
+                jQuery(this).addClass('active');
+                    displayNotification(`${title} added to watchlist!`, 'success');
+                }
+            }
+        });
+        
+        // Extract video ID from URL or use as-is
+        function extractVideoId(videoIdOrUrl) {
+            if (!videoIdOrUrl) return '';
+            if (videoIdOrUrl.includes('videopress.com')) {
+                const match = videoIdOrUrl.match(/videopress\.com\/(?:embed\/|v\/)?([a-zA-Z0-9]+)/);
+                if (match) {
+                    return match[1];
+                }
+            }
+            return videoIdOrUrl;
+        }
+        
+        // Update favorite count badge
+        function updateFavoriteCountBadge() {
+            const favoriteBtn = jQuery('.btn-add-favorite');
+            if (favoriteBtn.length && window.likeSystem) {
+                let videoId = currentVideoId || '';
+                if (videoId) {
+                    // Extract video ID for like system
+                    const extractedId = extractVideoId(videoId);
+                    const likeCount = window.likeSystem.getLikeCount(extractedId) || 0;
+                    const countBadge = favoriteBtn.find('.favorite-count');
+                    if (countBadge.length) {
+                        countBadge.text(likeCount + '+');
+                    } else {
+                        favoriteBtn.append(`<span class="favorite-count">${likeCount}+</span>`);
+                    }
+                }
+            }
+        }
+        
+        // Update button states when video changes
+        function updateFavoriteWatchlistButtons() {
+            const videoId = currentVideoId || '';
+            if (!videoId) return;
+            
+            const favoriteBtn = jQuery('.btn-add-favorite');
+            const watchlistBtn = jQuery('.btn-add-watchlist');
+            
+            if (window.watchlistManager) {
+                // Check if in favorites (use full videoId for matching)
+                const inFavorites = window.watchlistManager.favorites.some(item => item.itemId === videoId);
+                if (inFavorites) {
+                    favoriteBtn.addClass('active');
+                } else {
+                    favoriteBtn.removeClass('active');
+                }
+                
+                // Check if in watchlist (use full videoId for matching)
+                const inWatchlist = window.watchlistManager.watchlist.some(item => item.itemId === videoId);
+                if (inWatchlist) {
+                    watchlistBtn.addClass('active');
+                } else {
+                    watchlistBtn.removeClass('active');
+                }
+            }
+            
+            // Update favorite count
+            updateFavoriteCountBadge();
+        }
+        
+        // Make updateFavoriteWatchlistButtons globally accessible
+        window.updateFavoriteWatchlistButtons = updateFavoriteWatchlistButtons;
+        
+        // Download button - download from videopress
+        jQuery(document).on('click', '.btn-download', function(e) {
+            e.preventDefault();
+            let videoId = currentVideoId || '';
+            if (!videoId) {
+                displayNotification('Download is not available for this title yet.', 'info');
+                return;
+            }
+            
+            // Extract video ID from videopress URL if it's a full URL
+            if (videoId.includes('videopress.com')) {
+                const match = videoId.match(/videopress\.com\/(?:embed\/|v\/)?([a-zA-Z0-9]+)/);
+                if (match) {
+                    videoId = match[1];
+                }
+            }
+            
+            // Construct videopress download URL
+            // Format: https://videopress.com/v/{videoId}/download
+            const downloadUrl = `https://videopress.com/v/${videoId}/download`;
+            
+            // Create a temporary link to trigger download
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = '';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            displayNotification('Download started...', 'success');
         });
         
         // Initialize sliders for video gallery sections
@@ -3285,8 +3579,8 @@
         }
         
         // Initialize sliders when video gallery opens
-        function showVideoGalleryOverlay(videoId, title) {
-            console.log('Opening video gallery with:', videoId, title);
+        function showVideoGalleryOverlay(videoLink, title) {
+            console.log('Opening video gallery with:', videoLink, title);
             
             // Show overlay first
             videoGallery.addClass('active');
@@ -3296,18 +3590,18 @@
             showDefaultSection();
             
             // Update sidebar content with video-specific data
-            updateSidebarContent(videoId);
-            // Render episodes under the player for THIS series (videoId) - only if it's a series
+            updateSidebarContent(videoLink);
+            // Render episodes under the player for THIS series (videoLink) - only if it's a series
             try {
-                const findSelectForVideoId = (vid) => {
+                const findSelectForVideoLink = (vidLink) => {
                     // Prefer the last clicked series scope
                     if (window.__lastSeriesScope) {
                         const selInScope = window.__lastSeriesScope.querySelector('.season-select');
                         if (selInScope) return selInScope;
                         // If no select, later we will fallback to episodes container in scope
                     }
-                    // Find the slide item that owns this videoId
-                    const btn = document.querySelector('.slide-item .iq-button[data-video-id="' + vid + '"]');
+                    // Find the slide item that owns this videoLink (try both data-video-link and data-video-id)
+                    const btn = document.querySelector('.slide-item .iq-button[data-video-link="' + vidLink + '"], .slide-item .iq-button[data-video-id="' + vidLink + '"]');
                     if (!btn) return null;
                     const slide = btn.closest('.slide-item');
                     if (!slide) return null;
@@ -3325,7 +3619,7 @@
                     }
                     return null;
                 };
-                const seriesSelect = findSelectForVideoId(videoId);
+                const seriesSelect = findSelectForVideoLink(videoLink);
                 if (seriesSelect) {
                     // This is a series with episodes - show episodes and hide default section
                     showEpisodesSection();
@@ -3339,7 +3633,7 @@
                     // Check if there are episodes available
                     let scopeEl = window.__lastSeriesScope || null;
                     if (!scopeEl) {
-                        const scopeBtn = document.querySelector('.slide-item .iq-button[data-video-id="' + videoId + '"]');
+                        const scopeBtn = document.querySelector('.slide-item .iq-button[data-video-link="' + videoLink + '"], .slide-item .iq-button[data-video-id="' + videoLink + '"]');
                         scopeEl = scopeBtn ? (scopeBtn.closest('.trending-info') || scopeBtn.closest('.overlay-tab') || scopeBtn.closest('.slide-item')) : null;
                     }
                     // Check if episodes exist in scope
@@ -3359,13 +3653,20 @@
                 initializeVideoGallerySliders();
             }, 200);
             
-            // Load video immediately
-            loadVideoById(videoId);
+            // Load video immediately using the provided video link
+            setGalleryVideoByLink(videoLink);
+            
+            // Update favorite and watchlist buttons after video loads
+            setTimeout(function() {
+                if (typeof updateFavoriteWatchlistButtons === 'function') {
+                    updateFavoriteWatchlistButtons();
+                }
+            }, 300);
         }
         
-        function openVideoGallery(videoId, title) {
+        function openVideoGallery(videoLink, title) {
             return runAfterLoaderCycle(function() {
-                showVideoGalleryOverlay(videoId, title);
+                showVideoGalleryOverlay(videoLink, title);
             });
         }
         
@@ -3911,9 +4212,9 @@
             const description = document.querySelector('.video-description');
             if (description) description.textContent = contentData.description;
             
-            // Update Watch Full Movie and Download buttons with movie-specific links
-            if (typeof updateActionButtonsFromVideoId === 'function') {
-                updateActionButtonsFromVideoId(contentData.videoId);
+            // Update favorite and watchlist buttons
+            if (typeof updateFavoriteWatchlistButtons === 'function') {
+                updateFavoriteWatchlistButtons();
             }
         }
         
@@ -4954,8 +5255,10 @@ function switchSeasonEpisodes(selectElement) {
     }
 
     createMovieResultHTML(movie) {
+      // Get video link from movie data
+      const videoLink = movie.videoLink || (movie.videoId ? (typeof getVideoLink === 'function' ? getVideoLink(movie.videoId) : `https://videopress.com/embed/${movie.videoId}`) : '');
       return `
-            <div class="search-result-item" data-video-id="${movie.videoId}" data-title="${this.escapeHTML(movie.title)}">
+            <div class="search-result-item" data-video-link="${videoLink}" data-video-id="${movie.videoId || ''}" data-title="${this.escapeHTML(movie.title)}">
                 <div class="search-result-content">
                     <div class="search-result-image">
                         <img src="${movie.image}" alt="${this.escapeHTML(movie.title)}" 
@@ -5016,11 +5319,18 @@ function switchSeasonEpisodes(selectElement) {
           e.preventDefault();
           e.stopPropagation();
 
-          const videoId = item.dataset.videoId;
+          // Try data-video-link first, then fallback to data-video-id
+          const videoLink = item.dataset.videoLink || item.dataset.videoId;
+          const videoId = item.dataset.videoId; // Keep for lookup
           const title = item.dataset.title || item.querySelector('.search-result-title')?.textContent || 'Movie';
 
-          if (videoId) {
-            const movie = this.movieData.find(m => m.videoId === videoId) || { videoId, title };
+          if (videoLink || videoId) {
+            // Find movie by videoId in movieData, or create a new object
+            const movie = this.movieData.find(m => m.videoId === videoId) || { 
+              videoId, 
+              videoLink: videoLink || (videoId && typeof getVideoLink === 'function' ? getVideoLink(videoId) : `https://videopress.com/embed/${videoId}`),
+              title 
+            };
             this.handleMovieSelection(movie);
           }
         });
@@ -5046,16 +5356,27 @@ function switchSeasonEpisodes(selectElement) {
       console.log('Movie selected from search:', movie);
       console.log('openVideoGallery available:', typeof window.openVideoGallery);
 
-      // Open video gallery exactly like Play Now button does
+      // Always open video gallery with the selected movie's video and sidebar
       if (typeof window.openVideoGallery === 'function') {
-        const videoId = movie.videoId;
+        // Use videoLink if available, otherwise get it from videoId
+        let videoLink = movie.videoLink;
+        if (!videoLink && movie.videoId) {
+          videoLink = typeof getVideoLink === 'function' ? getVideoLink(movie.videoId) : `https://videopress.com/embed/${movie.videoId}`;
+        }
+        
+        if (!videoLink) {
+          console.error('No video link found for movie:', movie);
+          return;
+        }
+        
         const title = movie.title || 'Movie';
 
-        console.log('Calling openVideoGallery with:', videoId, title);
+        console.log('Calling openVideoGallery with:', videoLink, title);
 
         // Use setTimeout to ensure the search results are hidden first
+        // This will open the video gallery as if it's a new opening with the selected video
         setTimeout(() => {
-          window.openVideoGallery(videoId, title);
+          window.openVideoGallery(videoLink, title);
         }, 100);
       } else {
         console.error('openVideoGallery function not found!');
@@ -5068,13 +5389,23 @@ function switchSeasonEpisodes(selectElement) {
       // Fallback method to trigger video gallery
       console.log('Using fallback method to open video gallery');
 
-      // Try to find and click a Play Now button with the same video ID
-      const playNowButton = document.querySelector(`[data-video-id="${movie.videoId}"]`);
+      // Try to find and click a Play Now button with the same video link or ID
+      const videoLink = movie.videoLink || (movie.videoId && typeof getVideoLink === 'function' ? getVideoLink(movie.videoId) : null);
+      let playNowButton = null;
+      
+      if (videoLink) {
+        playNowButton = document.querySelector(`[data-video-link="${videoLink}"], [data-video-id="${videoLink}"]`);
+      }
+      
+      if (!playNowButton && movie.videoId) {
+        playNowButton = document.querySelector(`[data-video-link="${movie.videoId}"], [data-video-id="${movie.videoId}"]`);
+      }
+      
       if (playNowButton) {
         console.log('Found Play Now button, clicking it');
         playNowButton.click();
       } else {
-        console.error('No Play Now button found for video ID:', movie.videoId);
+        console.error('No Play Now button found for video:', movie.videoLink || movie.videoId);
       }
     }
 
