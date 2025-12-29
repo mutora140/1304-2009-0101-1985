@@ -457,7 +457,7 @@
                 padding: 15px 20px;
                 border-radius: 8px;
                 box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
-                z-index: 10000;
+                z-index: 100000;
                 transform: translateX(100%);
                 transition: transform 0.3s ease;
                 font-family: Arial, sans-serif;
@@ -2351,6 +2351,7 @@
             rating: 8.5,
             stars: 4,
             genres: ['Sports', 'Basketball'],
+            interpreter: ['Gaheza'],
             tags: ['NBA', 'Highlights', 'Basketball'],
             description: 'Best moments and highlights from NBA basketball games featuring top players and teams.',
             age: 'All Ages',
@@ -2359,32 +2360,34 @@
             videoLink: 'https://videopress.com/embed/L_jWHffIx5E',
             downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
-        '4fVCKy69zUY': {
+        'dQw4w9WgXcQ': {
             image: 'images/footer/01.jpg',
-            title: 'PGA Golf Championship',
+            title: 'Monkey King',
             rating: 8.2,
             stars: 4,
             genres: ['Sports', 'Golf'],
+            interpreter: ['Sankara'],
             tags: ['PGA', 'Golf', 'Championship'],
             description: 'Highlights from the PGA Golf Championship featuring top golfers and amazing shots.',
             age: 'All Ages',
             duration: 'Various',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         '5PSNL1qE6VY': {
             image: 'images/parallax/avatar.jpg',
-            title: 'Avatar',
+            title: 'Sisu: Road To Revenge',
             rating: 7.8,
             stars: 4,
             genres: ['Action', 'Adventure', 'Fantasy'],
+            interpreter: ['Sankara'],
             tags: ['Sci-Fi', '3D', 'James Cameron'],
             description: 'A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
             age: '12+',
             duration: '2h 42min',
             year: '2009',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://videopress.com/embed/5PSNL1qE6VY',
             downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
         },
         'JWtnJjn6ngQ': {
@@ -2393,6 +2396,7 @@
             rating: 8.7,
             stars: 5,
             genres: ['Drama', 'History'],
+            interpreter: ['Sankara'],
             tags: ['Royal Family', 'British', 'Netflix'],
             description: 'Follows the political rivalries and romance of Queen Elizabeth II\'s reign and the events that shaped the second half of the twentieth century.',
             age: '16+',
@@ -2407,6 +2411,7 @@
             rating: 8.1,
             stars: 4,
             genres: ['Comedy', 'Romance'],
+            interpreter: ['Sankara'],
             tags: ['Sitcom', 'Scientists', 'Friendship'],
             description: 'A woman who moves into an apartment across the hall from two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory.',
             age: '12+',
@@ -2421,6 +2426,7 @@
             rating: 8.8,
             stars: 5,
             genres: ['Crime', 'Drama', 'Thriller'],
+            interpreter: ['Sankara'],
             tags: ['Drug Cartel', 'Colombia', 'True Story'],
             description: 'A chronicled look at the criminal exploits of Colombian drug lord Pablo Escobar, as well as the many other drug kingpins who plagued the country through the years.',
             age: '18+',
@@ -2444,35 +2450,37 @@
         },
         'ej3ioOneQ48': {
             image: 'images/episodes/m1.jpg',
-            title: 'The Martian',
+            title: 'War 2',
             rating: 8.0,
             stars: 4,
             genres: ['Adventure', 'Drama', 'Sci-Fi'],
+            interpreter: ['Rocky'],
             tags: ['Space', 'Survival', 'Mars'],
             description: 'An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.',
             age: '12+',
             duration: '2h 24min',
             year: '2015',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'n9tzhmJ5hFE': {
             image: 'images/trending/02.jpg',
-            title: 'Unhinged',
+            title: "Don't hang up",
             rating: 6.1,
             stars: 3,
             genres: ['Action', 'Thriller'],
+            interpreter: ['Sankara'],
             tags: ['Road Rage', 'Thriller', 'Russell Crowe'],
             description: 'After a confrontation with an unstable man at an intersection, a woman becomes the target of his rage.',
             age: '16+',
             duration: '1h 30min',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'm4NC26Dk4dE': {
             image: 'images/trending/03.jpg',
-            title: 'Kingsman: The Secret Service',
+            title: 'Doctor Strange',
             rating: 7.7,
             stars: 4,
             genres: ['Action', 'Adventure', 'Comedy'],
@@ -2481,35 +2489,37 @@
             age: '16+',
             duration: '2h 9min',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://videopress.com/embed/m4NC26Dk4dE',
             downloadLink: 'https://example.com/download/kingsman'
         },
         '36mnx8hNvEE': {
             image: 'images/trending/04.jpg',
-            title: 'Casino Royale',
+            title: 'Jurassic world: Rebirth',
             rating: 8.0,
             stars: 4.5,
             genres: ['Action', 'Adventure', 'Thriller'],
+            interpreter: ['Gaheza'],
             tags: ['James Bond', 'Spy', 'Daniel Craig'],
             description: 'After earning 00 status and a licence to kill, secret agent James Bond sets out on his first mission as 007. Bond must defeat a private banker to terrorists in a high stakes game of poker at Casino Royale.',
             age: '12+',
             duration: '2h 24min',
             year: '2006',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://videopress.com/embed/36mnx8hNvEE',
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'Ohws8y572KE': {
             image: 'images/popular/u1.jpg',
-            title: 'Mission: Impossible',
+            title: 'Black Widow',
             rating: 7.1,
             stars: 4,
             genres: ['Action', 'Adventure', 'Thriller',],
+            interpreter: ['Sankara'],
             tags: ['Tom Cruise', 'Spy', 'Action'],
             description: 'An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.',
             age: '12+',
             duration: '1h 50min',
             year: '1996',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         '8jLOx1hD3_': {
@@ -3244,7 +3254,7 @@
         
         // Event listeners for buttons inside video gallery (delegated event)
         // This handles clicks on play buttons within the video gallery default sections
-        // When clicked, it should open the video gallery as if it's a new opening
+        // When clicked, it should switch the video without closing/reopening the gallery
         jQuery(document).on('click', '.video-gallery-overlay .video-gallery-default-section .iq-button', function(e) {
             // Check if this click is from within the video gallery default section
             if (videoGallery.hasClass('active')) {
@@ -3268,10 +3278,20 @@
                         window.__lastSeriesScope = scope;
                     }
                     
-                    // Open video gallery as if it's a new opening - this will properly reset and show the video
-                    if (typeof openVideoGallery === 'function') {
-                        openVideoGallery(finalVideoLink, title);
-                    }
+                    // Since gallery is already open, directly update video and sidebar without loader cycle
+                    // This prevents the overlay from closing/reopening and flickering
+                    updateSidebarContent(finalVideoLink);
+                    setGalleryVideoByLink(finalVideoLink);
+                    
+                    // Show default section (in case it was hidden by episodes)
+                    showDefaultSection();
+                    
+                    // Update favorite and watchlist buttons
+                    setTimeout(function() {
+                        if (typeof updateFavoriteWatchlistButtons === 'function') {
+                            updateFavoriteWatchlistButtons();
+                        }
+                    }, 100);
                 }
             }
         });
@@ -3457,26 +3477,50 @@
             
             // Extract video ID from videopress URL if it's a full URL
             if (videoId.includes('videopress.com')) {
-                const match = videoId.match(/videopress\.com\/(?:embed\/|v\/)?([a-zA-Z0-9]+)/);
+                const match = videoId.match(/videopress\.com\/(?:embed\/|v\/)?([a-zA-Z0-9_-]+)/);
                 if (match) {
                     videoId = match[1];
                 }
             }
             
-            // Construct videopress download URL
-            // Format: https://videopress.com/v/{videoId}/download
-            const downloadUrl = `https://videopress.com/v/${videoId}/download`;
+            // Get video title for filename
+            const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
+            const safeTitle = sanitizeFilename(videoTitle);
             
-            // Create a temporary link to trigger download
+            // VideoPress direct video file URL format
+            // Format: https://videos.files.wordpress.com/{videoId}/{videoId}.mp4
+            const downloadUrl = `https://videos.files.wordpress.com/${videoId}/${videoId}.mp4`;
+            
+            // Alternative URL format (HD version)
+            const downloadUrlHD = `https://videos.files.wordpress.com/${videoId}/${videoId}-hd.mp4`;
+            
+            displayNotification('Preparing download...', 'info');
+            
+            // Create download link with the standard format
             const link = document.createElement('a');
             link.href = downloadUrl;
-            link.download = '';
+            link.download = `${safeTitle}.mp4`;
             link.target = '_blank';
+            link.style.display = 'none';
             document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
             
-            displayNotification('Download started...', 'success');
+            // Attempt download
+            try {
+                link.click();
+                displayNotification('Download started. Check your browser downloads.', 'success');
+            } catch (error) {
+                console.error('Download error:', error);
+                // Fallback: open in new tab
+                window.open(downloadUrl, '_blank');
+                displayNotification('Opening download page in new tab...', 'info');
+            }
+            
+            // Clean up
+            setTimeout(() => {
+                if (link.parentNode) {
+                    document.body.removeChild(link);
+                }
+            }, 1000);
         });
         
         // Initialize sliders for video gallery sections
@@ -3582,12 +3626,19 @@
         function showVideoGalleryOverlay(videoLink, title) {
             console.log('Opening video gallery with:', videoLink, title);
             
-            // Show overlay first
-            videoGallery.addClass('active');
-            jQuery('body').css('overflow', 'hidden').addClass('video-gallery-active');
+            // Check if gallery is already open
+            const isAlreadyOpen = videoGallery.hasClass('active');
             
-            // Show default section by default
-            showDefaultSection();
+            // Show overlay first (only if not already open to prevent flicker)
+            if (!isAlreadyOpen) {
+                videoGallery.addClass('active');
+                jQuery('body').css('overflow', 'hidden').addClass('video-gallery-active');
+            }
+            
+            // Show default section by default (only if gallery was just opened, not when switching videos)
+            if (!isAlreadyOpen) {
+                showDefaultSection();
+            }
             
             // Update sidebar content with video-specific data
             updateSidebarContent(videoLink);
@@ -3974,7 +4025,7 @@
                 padding: 10px 15px;
                 border-radius: 6px;
                 font-size: 12px;
-                z-index: 10002;
+                z-index: 100000;
                 opacity: 0;
                 transform: translateX(-20px);
                 transition: all 0.3s ease;
