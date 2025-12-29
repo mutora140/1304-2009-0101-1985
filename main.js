@@ -1546,6 +1546,7 @@
             const watchHref = item.watchUrl && String(item.watchUrl).trim();
             const downloadHref = item.downloadUrl && String(item.downloadUrl).trim();
             // Watch Full Movie button removed
+            const playMarkup = '';
             const downloadMarkup = downloadHref ? `
                 <div class="hover-buttons mt-2">
                     <a class="btn btn-outline btn-download" href="${this.escapeAttribute(downloadHref)}" download>
