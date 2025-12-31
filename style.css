@@ -5528,9 +5528,14 @@ img[src*="trending-label.png"],
     .favorites-slider img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m),
     .top-ten-slider img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m),
     #top-ten-slider-nav img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m),
-    .tranding-block img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m),
-    .parallax-img img {
+    .tranding-block img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m) {
         height: 165px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+    
+    .parallax-img img {
+        height: 450px !important;
         object-fit: cover !important;
         object-position: center !important;
     }
@@ -5549,6 +5554,8 @@ img[src*="trending-label.png"],
         object-fit: cover !important;
         object-position: center !important;
     }
+    
+    /* Video gallery on tablets - match mobile spacing exactly */
 }
 
 /* Large tablets (992px - 1199px): top-ten like desktop (600px) */
