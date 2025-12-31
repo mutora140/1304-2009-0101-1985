@@ -68,6 +68,43 @@ body{
     min-height: auto;
 }
 
+/* Tablet and larger screens - same size and styles as desktop */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .video-gallery-container {
+        max-width: 1200px;
+        padding: 80px 40px 20px 40px;
+    }
+    
+    .video-gallery-content {
+        padding-top: 100px;
+    }
+    
+    .video-player-container {
+        height: 500px;
+    }
+    
+    .video-info {
+        height: 500px;
+        margin-left: 20px;
+    }
+}
+
+/* Large tablets and desktop - full desktop experience */
+@media (min-width: 1200px) {
+    .video-gallery-container {
+        max-width: 1400px;
+        padding: 80px 60px 20px 60px;
+    }
+    
+    .video-player-container {
+        height: 550px;
+    }
+    
+    .video-info {
+        height: 550px;
+    }
+}
+
 
 .close-btn {
     background: rgba(255, 255, 255, 0.1);
@@ -184,6 +221,38 @@ body{
     }
 }
 
+/* When width is corrupted (narrow screens), move sidebar below video like mobile */
+@media (max-width: 991.98px) {
+    .video-gallery-content .row {
+        flex-direction: column !important;
+    }
+    
+    .video-gallery-content .col-lg-9 {
+        order: 1;
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+    
+    .video-gallery-content .col-lg-3 {
+        order: 2;
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .video-info {
+        margin-left: 0 !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+    
+    .video-player-container {
+        margin-bottom: 20px;
+    }
+}
+
 .video-title {
     color: white;
     font-size: 24px;
@@ -293,6 +362,17 @@ body{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-height: 4.5em; /* Approximately 3 lines */
+}
+
+/* When height is corrupted, ensure description is truncated */
+.video-info {
+    overflow-y: auto;
+}
+
+.video-info .video-description {
+    flex-shrink: 0;
+    min-height: 0;
 }
 
 .video-actions {
@@ -4956,6 +5036,70 @@ span.fa-heart-wrapper.liked {
 }
 
 .watchlist-clear-all:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Favorites hero section - similar to watchlist */
+.favorites-hero {
+  background: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+}
+
+.favorites-hero .btn {
+  min-width: 180px;
+}
+
+.favorites-clear-all {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.favorites-clear-all:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Delete button for individual favorite items */
+.favorites-slider .slide-item .favorite-delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(229, 9, 20, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.favorites-slider .slide-item:hover .favorite-delete-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.favorites-slider .slide-item .favorite-delete-btn:hover {
+  background: #e50914;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.8);
+}
+
+.favorites-slider .slide-item .favorite-delete-btn i {
+  font-size: 14px;
+}
+
+.watchlist-clear-all:hover {
   background: rgba(229, 9, 20, 0.9);
   transform: translateY(-2px);
 }
@@ -5034,6 +5178,25 @@ span.fa-heart-wrapper.liked {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+/* Hide all content while loading */
+body.loading .main-content,
+body.loading header,
+body.loading footer,
+body.loading .video-gallery-overlay:not(.active) {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show all content when loaded */
+body:not(.loading) .main-content,
+body:not(.loading) header,
+body:not(.loading) footer {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .loader-spinner {

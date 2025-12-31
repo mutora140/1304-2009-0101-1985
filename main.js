@@ -88,20 +88,70 @@
                 document.body.classList.add('loading');
             }
 
-            // Hide loader when page is fully loaded and show header/content
-            window.addEventListener('load', function() {
-                // Remove loading class to show header and content
-                document.body.classList.remove('loading');
-                
-                // Hide the page loader
-                if (pageLoader) {
-                    pageLoader.classList.add('hidden');
+            // Wait for all resources to load (images, scripts, etc.)
+            let imagesLoaded = 0;
+            let totalImages = 0;
+            const images = document.querySelectorAll('img');
+            totalImages = images.length;
+
+            function checkAllLoaded() {
+                // Check if all images are loaded
+                if (totalImages === 0 || imagesLoaded === totalImages) {
+                    // Additional small delay to ensure everything is rendered
                     setTimeout(function() {
-                        if (pageLoader.classList.contains('hidden')) {
-                            pageLoader.style.display = 'none';
+                        // Remove loading class to show header and content
+                        document.body.classList.remove('loading');
+                        
+                        // Hide the page loader
+                        if (pageLoader) {
+                            pageLoader.classList.add('hidden');
+                            setTimeout(function() {
+                                if (pageLoader.classList.contains('hidden')) {
+                                    pageLoader.style.display = 'none';
+                                }
+                            }, 500);
                         }
-                    }, 500);
+                    }, 200);
                 }
+            }
+
+            // Track image loading
+            if (totalImages > 0) {
+                images.forEach(function(img) {
+                    if (img.complete) {
+                        imagesLoaded++;
+                    } else {
+                        img.addEventListener('load', function() {
+                            imagesLoaded++;
+                            checkAllLoaded();
+                        });
+                        img.addEventListener('error', function() {
+                            imagesLoaded++;
+                            checkAllLoaded();
+                        });
+                    }
+                });
+                checkAllLoaded();
+            } else {
+                // No images, just wait for window load
+                checkAllLoaded();
+            }
+
+            // Fallback: Hide loader when page is fully loaded (even if images aren't all loaded)
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    if (document.body.classList.contains('loading')) {
+                        document.body.classList.remove('loading');
+                        if (pageLoader) {
+                            pageLoader.classList.add('hidden');
+                            setTimeout(function() {
+                                if (pageLoader.classList.contains('hidden')) {
+                                    pageLoader.style.display = 'none';
+                                }
+                            }, 500);
+                        }
+                    }
+                }, 300);
             });
         }
     }
@@ -1029,6 +1079,35 @@
                     this.showNotification('Favorites cleared.', 'info');
                 });
             }
+            
+            // Setup individual favorite delete buttons
+            this.setupFavoriteDeleteButtons();
+        }
+        
+        setupFavoriteDeleteButtons() {
+            // Use event delegation for dynamically added buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.favorite-delete-btn')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const button = e.target.closest('.favorite-delete-btn');
+                    const itemId = button.getAttribute('data-favorite-id');
+                    if (!itemId) return;
+                    
+                    const existingIndex = this.favorites.findIndex(item => item.itemId === itemId);
+                    if (existingIndex === -1) {
+                        this.showNotification('Item not found in favorites.', 'info');
+                        return;
+                    }
+                    
+                    const removedItem = this.favorites.splice(existingIndex, 1)[0];
+                    this.saveFavorites();
+                    this.renderFavoritesPage();
+                    this.markExistingItems();
+                    const title = removedItem && removedItem.title ? removedItem.title : 'Title';
+                    this.showNotification(`${title} removed from favorites.`, 'info');
+                }
+            });
         }
         
         setupPlusButtonListener() {
@@ -1438,7 +1517,7 @@
                 this.resetSlider(latestList);
                 const latestItems = activeItems.slice(-10).reverse();
                 latestItems.forEach(item => {
-                    latestList.appendChild(this.createWatchlistSlide(item));
+                    latestList.appendChild(this.createWatchlistSlide(item, true));
                 });
                 const latestEmptyState = document.querySelector('.watchlist-empty[data-section="favorites-latest"]');
                 this.toggleEmptyState(latestEmptyState, latestItems.length === 0, latestList);
@@ -1449,7 +1528,7 @@
             if (allList) {
                 this.resetSlider(allList);
                 activeItems.forEach(item => {
-                    allList.appendChild(this.createWatchlistSlide(item));
+                    allList.appendChild(this.createWatchlistSlide(item, true));
                 });
                 const allEmptyState = document.querySelector('.watchlist-empty[data-section="favorites-all"]');
                 this.toggleEmptyState(allEmptyState, activeItems.length === 0, allList);
@@ -1530,7 +1609,7 @@
             return true;
         }
         
-        createWatchlistSlide(item) {
+        createWatchlistSlide(item, isFavorite = false) {
             const li = document.createElement('li');
             li.className = 'slide-item';
             li.setAttribute('data-item-id', item.itemId);
@@ -1556,8 +1635,16 @@
                 </div>
             ` : '';
             
+            // Add delete button for favorites
+            const deleteButtonMarkup = isFavorite ? `
+                <button class="favorite-delete-btn" data-favorite-id="${this.escapeAttribute(item.itemId)}" title="Remove from favorites">
+                    <i class="fa fa-times"></i>
+                </button>
+            ` : '';
+            
             li.innerHTML = `
                 <div class="block-images position-relative">
+                    ${deleteButtonMarkup}
                     <div class="img-box">
                         <img src="${this.escapeAttribute(imageSrc)}" class="img-fluid" alt="${this.escapeAttribute(safeTitle)}" />
                     </div>
@@ -3279,6 +3366,12 @@
                         window.__lastSeriesScope = scope;
                     }
                     
+                    // Scroll video gallery to top when switching videos from default section
+                    const overlayElement = document.getElementById('video-gallery-overlay');
+                    if (overlayElement) {
+                        overlayElement.scrollTop = 0;
+                    }
+                    
                     // Since gallery is already open, directly update video and sidebar without loader cycle
                     // This prevents the overlay from closing/reopening and flickering
                     updateSidebarContent(finalVideoLink);
@@ -3634,6 +3727,22 @@
             if (!isAlreadyOpen) {
                 videoGallery.addClass('active');
                 jQuery('body').css('overflow', 'hidden').addClass('video-gallery-active');
+                
+                // Scroll video gallery to top when opening
+                setTimeout(function() {
+                    const overlayElement = document.getElementById('video-gallery-overlay');
+                    if (overlayElement) {
+                        overlayElement.scrollTop = 0;
+                    }
+                }, 100);
+            } else {
+                // Even if already open, scroll to top when switching videos
+                setTimeout(function() {
+                    const overlayElement = document.getElementById('video-gallery-overlay');
+                    if (overlayElement) {
+                        overlayElement.scrollTop = 0;
+                    }
+                }, 100);
             }
             
             // Show default section by default (only if gallery was just opened, not when switching videos)
