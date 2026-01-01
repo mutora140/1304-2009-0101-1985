@@ -159,77 +159,153 @@
     // Smooth Page Transitions with AJAX loading
     function initPageTransitions() {
         let isLoadingPage = false;
-    
-        document.addEventListener('click', function (e) {
+        
+        // Handle all internal links
+        document.addEventListener('click', function(e) {
             const link = e.target.closest('a[href]');
             if (!link) return;
-    
+            
             const href = link.getAttribute('href');
-    
-            if (
-                !href ||
-                href.startsWith('#') ||
-                href.startsWith('mailto:') ||
-                href.startsWith('tel:') ||
-                href.startsWith('javascript:')
-            ) {
-                return;
-            }
-    
-            const isAsset = href.match(/\.(css|js|png|jpg|jpeg|gif|svg|webp|mp4|webm|woff|woff2)$/i);
-            if (isAsset) return;
-    
-            if (href.startsWith('http') && !href.includes(location.hostname)) {
-                return;
-            }
-    
-            e.preventDefault();
-            if (isLoadingPage) return;
-    
-            loadPage(href);
-        });
-    
-        async function loadPage(url) {
-            isLoadingPage = true;
-            const loader = showLoaderOverlay();
-    
-            try {
-                const absoluteUrl = new URL(url, location.origin).href;
-                const res = await fetch(absoluteUrl);
-                if (!res.ok) throw new Error('Fetch failed');
-    
-                const html = await res.text();
-                const doc = new DOMParser().parseFromString(html, 'text/html');
-    
-                const newContent = doc.querySelector('.main-content');
-                const currentContent = document.querySelector('.main-content');
-    
-                if (!newContent || !currentContent) {
-                    location.href = url;
+            // Only handle internal links (same domain)
+            if (href && !href.startsWith('#') && !href.startsWith('javascript:') && 
+                !href.startsWith('mailto:') && !href.startsWith('tel:') &&
+                (href.startsWith('/') || href.includes(window.location.hostname) || 
+                 !href.includes('http'))) {
+                
+                // Don't prevent default for video gallery links
+                if (link.classList.contains('iq-button') || link.closest('.video-gallery-overlay')) {
                     return;
                 }
-    
-                await playLoaderCycle();
-                currentContent.innerHTML = newContent.innerHTML;
-    
-                history.pushState({ url }, '', url);
-                window.scrollTo(0, 0);
-    
-                reinitializePageScripts();
-            } catch (err) {
-                console.error(err);
-                location.href = url;
-            } finally {
-                hideLoaderOverlay(loader);
-                isLoadingPage = false;
-            }
-        }
-    
-        window.addEventListener('popstate', (e) => {
-            if (e.state?.url) {
-                loadPage(e.state.url);
+                
+                e.preventDefault();
+                
+                // Prevent multiple simultaneous loads
+                if (isLoadingPage) return;
+                
+                // Show loader and load page content
+                loadPageContent(href);
             }
         });
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.url) {
+                loadPageContent(e.state.url, false);
+            }
+        });
+        
+        // AJAX function to load only main content
+        async function loadPageContent(url, updateHistory = true) {
+            if (isLoadingPage) return;
+            isLoadingPage = true;
+            
+            try {
+                // Show loader
+                document.body.classList.add('page-transitioning');
+                const loader = showLoaderOverlay();
+                
+                // Resolve relative URLs to absolute
+                const absoluteUrl = new URL(url, window.location.origin).href;
+                
+                // Fetch the new page
+                const response = await fetch(absoluteUrl);
+                if (!response.ok) {
+                    throw new Error('Failed to load page');
+                }
+                
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Extract main content from the new page
+                const newMainContent = doc.querySelector('.main-content');
+                const currentMainContent = document.querySelector('.main-content');
+                
+                if (newMainContent && currentMainContent) {
+                    // Wait for loader cycle to complete (5 seconds)
+                    await playLoaderCycle();
+                    
+                    // Replace main content
+                    currentMainContent.innerHTML = newMainContent.innerHTML;
+                    
+                    // Update active menu items
+                    updateActiveMenuItems(url);
+                    
+                    // Reinitialize scripts that need to run on new content
+                    reinitializePageScripts();
+                    
+                    // Update URL without reload
+                    if (updateHistory) {
+                        window.history.pushState({ url: absoluteUrl }, '', url);
+                    }
+                    
+                    // Scroll to top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    // Fallback to full page load if structure is different
+                    window.location.href = url;
+                    return;
+                }
+            } catch (error) {
+                console.error('Error loading page:', error);
+                // Fallback to full page load on error
+                window.location.href = url;
+            } finally {
+                isLoadingPage = false;
+                document.body.classList.remove('page-transitioning');
+            }
+        }
+        
+        // Update active menu items based on current URL
+        function updateActiveMenuItems(url) {
+            const menuItems = document.querySelectorAll('.mf-menu-item, .menu-item a');
+            menuItems.forEach(function(item) {
+                const itemHref = item.getAttribute('href');
+                if (itemHref && (itemHref === url || itemHref === url.split('/').pop())) {
+                    item.classList.add('active');
+                    if (item.parentElement) {
+                        item.parentElement.classList.add('active');
+                    }
+                } else {
+                    item.classList.remove('active');
+                    if (item.parentElement) {
+                        item.parentElement.classList.remove('active');
+                    }
+                }
+            });
+        }
+        
+        // Reinitialize scripts that need to run on dynamically loaded content
+        function reinitializePageScripts() {
+            // Reinitialize carousels/sliders if they exist
+            if (typeof jQuery !== 'undefined') {
+                // Reinitialize slick sliders
+                jQuery('.slick-slider').each(function() {
+                    if (jQuery(this).hasClass('slick-initialized')) {
+                        jQuery(this).slick('unslick');
+                    }
+                });
+                
+                // Reinitialize owl carousels
+                if (typeof jQuery.fn.owlCarousel !== 'undefined') {
+                    jQuery('.owl-carousel').each(function() {
+                        if (jQuery(this).hasClass('owl-loaded')) {
+                            jQuery(this).trigger('destroy.owl.carousel');
+                        }
+                    });
+                }
+                
+                // Reinitialize slick animation
+                if (typeof jQuery.fn.slickAnimation !== 'undefined') {
+                    jQuery('[data-animation-in]').slickAnimation();
+                }
+            }
+            
+            // Reinitialize dynamic content loader if it exists
+            if (window.dynamicLoader && typeof window.dynamicLoader.setupEventListeners === 'function') {
+                window.dynamicLoader.setupEventListeners();
+            }
+        }
     }
     
 
