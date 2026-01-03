@@ -1,3 +1,20 @@
+
+/* =====================================================
+   SAFE SLICK INITIALIZER (ADDED - NO CODE REMOVED)
+   Prevents double initialization on dynamic navigation
+===================================================== */
+function safeInitSlick(selector, options) {
+    if (typeof window.jQuery === 'undefined') return;
+    var $el = window.jQuery(selector);
+    if (!$el || !$el.length) return;
+    if (typeof $el.slick !== 'function') return;
+    if ($el.hasClass('slick-initialized')) {
+        try { $el.slick('unslick'); } catch (e) {}
+    }
+    $el.slick(options);
+}
+/* ===================================================== */
+
 (function (jQuery){
     "use strict";
     
