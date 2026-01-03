@@ -178,31 +178,29 @@ function safeInitSlick(selector, options) {
         let isLoadingPage = false;
         
         // Handle all internal links
-        document.addEventListener('click', function(e) {
-            const link = e.target.closest('a[href]');
-            if (!link) return;
-            
-            const href = link.getAttribute('href');
-            // Only handle internal links (same domain)
-            if (href && !href.startsWith('#') && !href.startsWith('javascript:') && 
-                !href.startsWith('mailto:') && !href.startsWith('tel:') &&
-                (href.startsWith('/') || href.includes(window.location.hostname) || 
-                 !href.includes('http'))) {
-                
-                // Don't prevent default for video gallery links
-                if (link.classList.contains('iq-button') || link.closest('.video-gallery-overlay')) {
-                    return;
-                }
-                
-                e.preventDefault();
-                
-                // Prevent multiple simultaneous loads
-                if (isLoadingPage) return;
-                
-                // Show loader and load page content
-                loadPageContent(href);
-            }
-        });
+/* =====================================================
+   DISABLED: Dynamic Page Loading (AJAX Navigation)
+   Reason:
+   - Breaks CSS when returning Home
+   - Breaks Slick sliders
+   - Causes layout destruction
+   Status:
+   - Code KEPT (not deleted)
+   - Normal browser navigation restored
+   ===================================================== */
+
+/*
+document.addEventListener("click", function (e) {
+  const link = e.target.closest("a");
+  if (!link || !link.href) return;
+
+  if (link.href.startsWith(location.origin)) {
+    e.preventDefault();
+    loadPage(link.href);
+  }
+});
+*/
+
         
         // Handle browser back/forward buttons
         window.addEventListener('popstate', function(e) {
