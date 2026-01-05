@@ -2180,7 +2180,7 @@ document.addEventListener("click", function (e) {
         //   videoLink: 'https://videopress.com/embed/GUID' (REQUIRED for video playback - Jetpack VideoPress embed URL)
         //
         'kUJmAcSf': {
-            image: 'images/trending/02.jpg',
+            image: '/images/trending/02.jpg',
             title: 'Pick Up',
             rating: 7.3,
             stars: 4,
@@ -2195,7 +2195,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'FLzfXQSPBOg': {
-            image: 'images/trending/03.jpg',
+            image: '/images/trending/03.jpg',
             title: '1917',
             rating: 7.4,
             stars: 4,
@@ -2210,7 +2210,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
         'k10ETZ41q5o': {
-            image: 'images/trending/04.jpg',
+            image: '/images/trending/04.jpg',
             title: 'Work It',
             rating: 7.5,
             stars: 4.5,
@@ -2225,7 +2225,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
         },
         '02-XkOLVnIU': {
-            image: 'images/popular/u2.jpg',
+            image: '/images/popular/u2.jpg',
             title: 'afterburn',
             rating: 7.0,
             stars: 4.5,
@@ -2240,7 +2240,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         '8jLOx1hD3_o': {
-            image: 'images/popular/u3.jpg',
+            image: '/images/popular/u3.jpg',
             title: 'Death Race',
             rating: 6.5,
             stars: 4.5,
@@ -2255,7 +2255,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'W4DlMggBPvc': {
-            image: 'images/popular/u4.jpg',
+            image: '/images/popular/u4.jpg',
             title: 'Homefront',
             rating: 6.9,
             stars: 4,
@@ -2270,7 +2270,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'sDYVdxFZq8Y': {
-            image: 'images/popular/u5.jpg',
+            image: '/images/popular/u5.jpg',
             title: 'Mayhem',
             rating: 7.9,
             stars: 4,
@@ -2285,7 +2285,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'q78_0TElYME': {
-            image: 'images/trending/01.jpg',
+            image: '/images/trending/01.jpg',
             title: 'Shadow Force',
             rating: 6.8,
             stars: 3,
@@ -2300,7 +2300,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'acEoQpJq0qg': {
-            image: 'images/trending/05.jpg',
+            image: '/images/trending/05.jpg',
             title: 'Hunting jessica',
             rating: 6.2,
             stars: 3,
@@ -2315,7 +2315,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
         },
         'yQ5U8suTUw0': {
-            image: 'images/trending/06.jpg',
+            image: '/images/trending/06.jpg',
             title: 'Frankenstein',
             rating: 7.1,
             stars: 4,
@@ -2330,7 +2330,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
         },
         '4qf9Uyn2acE': {
-            image: 'images/slider/slider1.jpg',
+            image: '/images/slider/slider1.jpg',
             title: 'Texas Chain',
             rating: 7.2,
             stars: 4,
@@ -2345,7 +2345,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
         'tsxemFXSQXQ': {
-            image: 'images/slider/slider2.jpg',
+            image: '/images/slider/slider2.jpg',
             title: 'Woman in the yard',
             rating: 8.0,
             stars: 4,
@@ -2360,7 +2360,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
         },
         'Lt-U_t2pUHI': {
-            image: 'images/slider/slider3.jpg',
+            image: '/images/slider/slider3.jpg',
             title: 'Hunting jessica brok',
             rating: 7.5,
             stars: 4,
@@ -2375,7 +2375,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'VyHV0BtdCW4': {
-            image: 'images/top-10/01.jpg',
+            image: '/images/top-10/01.jpg',
             title: 'Next',
             rating: 7.6,
             stars: 4,
@@ -2390,7 +2390,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
         },
         'CDrieqs-S54': {
-            image: 'images/top-10/02.jpg',
+            image: '/images/top-10/02.jpg',
             title: 'Lou',
             rating: 8.6,
             stars: 5,
@@ -2405,7 +2405,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
         },
         'b9EkMc79ZSU': {
-            image: 'images/top-10/03.jpg',
+            image: '/images/top-10/03.jpg',
             title: 'F1: The movie',
             rating: 8.7,
             stars: 4.5,
@@ -2420,7 +2420,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
         },
         'i1eJMig5Ik4': {
-            image: 'images/top-10/04.jpg',
+            image: '/images/top-10/04.jpg',
             title: 'Play dirty',
             rating: 8.8,
             stars: 5,
@@ -2435,7 +2435,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
         },
         'oVzVdvLeICg': {
-            image: 'images/top-10/05.jpg',
+            image: '/images/top-10/05.jpg',
             title: 'Ice road: Vegence',
             rating: 8.8,
             stars: 5,
@@ -2450,7 +2450,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
         },
         'L_jWHffIx5E': {
-            image: 'images/top-10/06.jpg',
+            image: '/images/top-10/06.jpg',
             title: 'Carpenter son',
             rating: 8.5,
             stars: 4,
@@ -2465,7 +2465,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
         'dQw4w9WgXcQ': {
-            image: 'images/footer/01.jpg',
+            image: '/images/footer/01.jpg',
             title: 'Monkey King',
             rating: 8.2,
             stars: 4,
@@ -2480,7 +2480,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         '5PSNL1qE6VY': {
-            image: 'images/parallax/avatar.jpg',
+            image: '/images/parallax/avatar.jpg',
             title: 'Sisu: Road To Revenge',
             rating: 7.8,
             stars: 4,
@@ -2495,7 +2495,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
         },
         'JWtnJjn6ngQ': {
-            image: 'images/footer/02.jpg',
+            image: '/images/footer/02.jpg',
             title: 'The Crown',
             rating: 8.7,
             stars: 5,
@@ -2510,7 +2510,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/the-crown.mp4'
         },
         'WBb3fojjx-0': {
-            image: 'images/episodes/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'The Big Bang Theory',
             rating: 8.1,
             stars: 4,
@@ -2525,7 +2525,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/the-big-bang-theory.mp4'
         },
         'Ua0HdsbsDsA': {
-            image: 'images/trending/01.jpg',
+            image: '/images/trending/01.jpg',
             title: 'Narcos',
             rating: 8.8,
             stars: 5,
@@ -2540,7 +2540,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/narcos.mp4'
         },
         'IEEbUfhFFM0': {
-            image: 'images/favorite/f1.jpg',
+            image: '/images/favorite/f1.jpg',
             title: 'Friends',
             rating: 8.9,
             stars: 5,
@@ -2553,7 +2553,7 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
         },
         'ej3ioOneQ48': {
-            image: 'images/episodes/m1.jpg',
+            image: '/images/episodes/m1.jpg',
             title: 'War 2',
             rating: 8.0,
             stars: 4,
@@ -2568,7 +2568,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'n9tzhmJ5hFE': {
-            image: 'images/trending/02.jpg',
+            image: '/images/trending/02.jpg',
             title: "Don't hang up",
             rating: 6.1,
             stars: 3,
@@ -2583,7 +2583,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'm4NC26Dk4dE': {
-            image: 'images/trending/03.jpg',
+            image: '/images/trending/03.jpg',
             title: 'Doctor Strange',
             rating: 7.7,
             stars: 4,
@@ -2597,7 +2597,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://example.com/download/kingsman'
         },
         '36mnx8hNvEE': {
-            image: 'images/trending/04.jpg',
+            image: '/images/trending/04.jpg',
             title: 'Jurassic world: Rebirth',
             rating: 8.0,
             stars: 4.5,
@@ -2612,7 +2612,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'Ohws8y572KE': {
-            image: 'images/popular/u1.jpg',
+            image: '/images/popular/u1.jpg',
             title: 'Black Widow',
             rating: 7.1,
             stars: 4,
@@ -2627,7 +2627,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         '8jLOx1hD3_': {
-            image: 'images/episodes/m5.jpg',
+            image: '/images/episodes/m5.jpg',
             title: 'Mirzapur',
             rating: 8.4,
             stars: 4,
@@ -2641,7 +2641,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://example.com/download/mirzapur'
         },
         'IEEbUfhFFM0': {
-            image: 'images/favorite/f2.jpg',
+            image: '/images/favorite/f2.jpg',
             title: 'Friends',
             rating: 8.9,
             stars: 5,
