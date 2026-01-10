@@ -5065,6 +5065,7 @@ span.fa-heart-wrapper.liked {
 
 /* Delete button for individual favorite items */
 .favorites-slider .slide-item .favorite-delete-btn {
+  display: none !important; /* Hide delete button in favorites */
   position: absolute;
   top: 10px;
   right: 10px;
@@ -5085,8 +5086,9 @@ span.fa-heart-wrapper.liked {
 }
 
 .favorites-slider .slide-item:hover .favorite-delete-btn {
-  opacity: 1;
-  visibility: visible;
+  display: none !important; /* Always hide delete button in favorites */
+  opacity: 0;
+  visibility: hidden;
 }
 
 .favorites-slider .slide-item .favorite-delete-btn:hover {
@@ -5109,7 +5111,11 @@ span.fa-heart-wrapper.liked {
   letter-spacing: 0.02em;
 }
 
-.watchlist-source,
+/* Hide watchlist-source (Saved from text) - user requested removal */
+.watchlist-source {
+  display: none !important;
+}
+
 .watchlist-description {
   font-size: 0.85rem;
   line-height: 1.4;
@@ -5117,6 +5123,51 @@ span.fa-heart-wrapper.liked {
 
 .watchlist-description {
   max-width: 90%;
+}
+
+/* Play Now button styling for favorites and watchlist - red background, small width */
+.favorites-slider .slide-item .btn-play-now-favorites,
+.favorites-slider .slide-item .btn-play-now,
+.watchlist-slider .slide-item .btn-play-now-favorites,
+.watchlist-slider .slide-item .btn-play-now,
+.favorites-slider .slide-item .hover-buttons .btn-play-now-favorites,
+.favorites-slider .slide-item .hover-buttons .btn-play-now,
+.watchlist-slider .slide-item .hover-buttons .btn-play-now-favorites,
+.watchlist-slider .slide-item .hover-buttons .btn-play-now {
+  background: #e50914 !important;
+  color: white !important;
+  border: none !important;
+  padding: 7px 14px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  width: auto !important;
+  min-width: 120px !important;
+}
+
+.favorites-slider .slide-item .btn-play-now-favorites:hover,
+.favorites-slider .slide-item .btn-play-now:hover,
+.watchlist-slider .slide-item .btn-play-now-favorites:hover,
+.watchlist-slider .slide-item .btn-play-now:hover,
+.favorites-slider .slide-item .hover-buttons .btn-play-now-favorites:hover,
+.favorites-slider .slide-item .hover-buttons .btn-play-now:hover,
+.watchlist-slider .slide-item .hover-buttons .btn-play-now-favorites:hover,
+.watchlist-slider .slide-item .hover-buttons .btn-play-now:hover {
+  background: #ff3b47 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
+}
+
+.favorites-slider .slide-item .btn-play-now-favorites i,
+.favorites-slider .slide-item .btn-play-now i,
+.watchlist-slider .slide-item .btn-play-now-favorites i,
+.watchlist-slider .slide-item .btn-play-now i {
+  margin-right: 5px;
 }
 
 .music-play-lists li span.watchlist-added {
@@ -5180,22 +5231,49 @@ span.fa-heart-wrapper.liked {
   pointer-events: none;
 }
 
-/* Hide all content while loading */
+/* Enhanced loading state - hide all content until fully loaded */
 body.loading .main-content,
 body.loading header,
 body.loading footer,
-body.loading .video-gallery-overlay:not(.active) {
-  opacity: 0;
-  visibility: hidden;
+body.loading .video-gallery-overlay:not(.active),
+body.loading #video-gallery-overlay,
+body.loading .iq-main-header,
+body.loading .iq-bg-dark,
+body.loading .container-fluid,
+body.loading .row,
+body.loading [class*="col-"],
+body.loading .slide-item,
+body.loading .block-images,
+body.loading .block-description,
+body.loading .episodes-slider1,
+body.loading .e-item,
+body.loading .video-player-container,
+body.loading .video-info {
+  opacity: 0 !important;
+  visibility: hidden !important;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Show all content when loaded */
+/* Show all content when loaded - smooth reveal */
 body:not(.loading) .main-content,
 body:not(.loading) header,
-body:not(.loading) footer {
-  opacity: 1;
-  visibility: visible;
+body:not(.loading) footer,
+body:not(.loading) .video-gallery-overlay,
+body:not(.loading) #video-gallery-overlay,
+body:not(.loading) .iq-main-header,
+body:not(.loading) .iq-bg-dark,
+body:not(.loading) .container-fluid,
+body:not(.loading) .row,
+body:not(.loading) [class*="col-"],
+body:not(.loading) .slide-item,
+body:not(.loading) .block-images,
+body:not(.loading) .block-description,
+body:not(.loading) .episodes-slider1,
+body:not(.loading) .e-item,
+body:not(.loading) .video-player-container,
+body:not(.loading) .video-info {
+  opacity: 1 !important;
+  visibility: visible !important;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 

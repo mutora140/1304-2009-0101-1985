@@ -96,7 +96,7 @@ function safeInitSlick(selector, options) {
     // Smooth Loading and Page Transitions
     // ============================================
     
-    // Page Loader Handler
+    // Page Loader Handler - Enhanced to hide all content until fully loaded
     function initPageLoader() {
         const pageLoader = document.getElementById('page-loader');
         if (pageLoader) {
@@ -105,71 +105,138 @@ function safeInitSlick(selector, options) {
                 document.body.classList.add('loading');
             }
 
-            // Wait for all resources to load (images, scripts, etc.)
-            let imagesLoaded = 0;
-            let totalImages = 0;
-            const images = document.querySelectorAll('img');
-            totalImages = images.length;
+            // Track all resources that need to load
+            let resourcesLoaded = 0;
+            let totalResources = 0;
+            let allResourcesReady = false;
+
+            // Wait for all resources to load (images, scripts, iframes, etc.)
+            const images = document.querySelectorAll('img:not([loading="lazy"])');
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            const iframes = document.querySelectorAll('iframe:not([loading="lazy"])');
+            const scripts = document.querySelectorAll('script[src]');
+            
+            // Count critical resources (non-lazy images and iframes)
+            totalResources = images.length + iframes.length;
+            
+            // For lazy-loaded images, we don't wait for them
+            // But we still add loading="lazy" to optimize
 
             function checkAllLoaded() {
-                // Check if all images are loaded
-                if (totalImages === 0 || imagesLoaded === totalImages) {
-                    // Additional small delay to ensure everything is rendered
-                    setTimeout(function() {
-                        // Remove loading class to show header and content
-                        document.body.classList.remove('loading');
-                        
-                        // Hide the page loader
-                        if (pageLoader) {
-                            pageLoader.classList.add('hidden');
+                // Check if all critical resources are loaded
+                if (totalResources === 0 || resourcesLoaded === totalResources) {
+                    // Also wait for DOMContentLoaded and window load
+                    if (document.readyState === 'complete') {
+                        allResourcesReady = true;
+                        showAllContent();
+                    } else {
+                        // Wait for window load event
+                        window.addEventListener('load', function() {
                             setTimeout(function() {
-                                if (pageLoader.classList.contains('hidden')) {
-                                    pageLoader.style.display = 'none';
-                                }
-                            }, 500);
-                        }
-                    }, 200);
+                                allResourcesReady = true;
+                                showAllContent();
+                            }, 100);
+                        });
+                    }
                 }
             }
 
-            // Track image loading
-            if (totalImages > 0) {
+            function showAllContent() {
+                if (!allResourcesReady) return;
+                
+                // Small delay to ensure everything is rendered
+                setTimeout(function() {
+                    // Remove loading class to show header and content
+                    document.body.classList.remove('loading');
+                    
+                    // Hide the page loader
+                    if (pageLoader) {
+                        pageLoader.classList.add('hidden');
+                        setTimeout(function() {
+                            if (pageLoader.classList.contains('hidden')) {
+                                pageLoader.style.display = 'none';
+                            }
+                        }, 500);
+                    }
+                }, 150);
+            }
+
+            // Track image loading (only critical images, not lazy ones)
+            if (images.length > 0) {
                 images.forEach(function(img) {
                     if (img.complete) {
-                        imagesLoaded++;
+                        resourcesLoaded++;
                     } else {
                         img.addEventListener('load', function() {
-                            imagesLoaded++;
+                            resourcesLoaded++;
                             checkAllLoaded();
                         });
                         img.addEventListener('error', function() {
-                            imagesLoaded++;
+                            resourcesLoaded++;
                             checkAllLoaded();
                         });
                     }
                 });
-                checkAllLoaded();
-            } else {
-                // No images, just wait for window load
-                checkAllLoaded();
             }
 
-            // Fallback: Hide loader when page is fully loaded (even if images aren't all loaded)
+            // Track iframe loading (only critical iframes)
+            if (iframes.length > 0) {
+                iframes.forEach(function(iframe) {
+                    if (iframe.complete || iframe.contentDocument?.readyState === 'complete') {
+                        resourcesLoaded++;
+                    } else {
+                        iframe.addEventListener('load', function() {
+                            resourcesLoaded++;
+                            checkAllLoaded();
+                        });
+                        iframe.addEventListener('error', function() {
+                            resourcesLoaded++;
+                            checkAllLoaded();
+                        });
+                    }
+                });
+            }
+
+            // Initial check
+            checkAllLoaded();
+
+            // Fallback: Hide loader when page is fully loaded (max 5 seconds)
+            const maxWaitTime = setTimeout(function() {
+                if (document.body.classList.contains('loading')) {
+                    allResourcesReady = true;
+                    showAllContent();
+                }
+            }, 5000);
+
+            // Clear timeout when content is shown
             window.addEventListener('load', function() {
+                clearTimeout(maxWaitTime);
+            });
+            
+            // Force hide loader after page is fully interactive (safety measure)
+            if (document.readyState === 'complete') {
                 setTimeout(function() {
                     if (document.body.classList.contains('loading')) {
                         document.body.classList.remove('loading');
                         if (pageLoader) {
                             pageLoader.classList.add('hidden');
-                            setTimeout(function() {
-                                if (pageLoader.classList.contains('hidden')) {
-                                    pageLoader.style.display = 'none';
-                                }
-                            }, 500);
+                            pageLoader.style.display = 'none';
                         }
                     }
-                }, 300);
-            });
+                }, 1000);
+            } else {
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        if (document.body.classList.contains('loading')) {
+                            document.body.classList.remove('loading');
+                            if (pageLoader) {
+                                pageLoader.classList.add('hidden');
+                                pageLoader.style.display = 'none';
+                            }
+                        }
+                    }, 1000);
+                });
+            }
         }
     }
     
@@ -1096,32 +1163,64 @@ document.addEventListener("click", function (e) {
                 });
             }
             
-            // Setup individual favorite delete buttons
+            // Setup individual favorite delete buttons (removed - no delete buttons)
             this.setupFavoriteDeleteButtons();
+            
+            // Setup Play Now buttons
+            this.setupPlayNowButtons();
         }
         
         setupFavoriteDeleteButtons() {
-            // Use event delegation for dynamically added buttons
+            // Removed - no delete buttons in favorites anymore
+        }
+        
+        setupPlayNowButtons() {
+            // Handle Play Now button clicks in favorites and watchlist
             document.addEventListener('click', (e) => {
-                if (e.target.closest('.favorite-delete-btn')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const button = e.target.closest('.favorite-delete-btn');
-                    const itemId = button.getAttribute('data-favorite-id');
-                    if (!itemId) return;
-                    
-                    const existingIndex = this.favorites.findIndex(item => item.itemId === itemId);
-                    if (existingIndex === -1) {
-                        this.showNotification('Item not found in favorites.', 'info');
-                        return;
+                // Check for both button classes
+                const playButton = e.target.closest('.btn-play-now-favorites') || e.target.closest('.btn-play-now');
+                if (!playButton) return;
+                
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Get video ID or link from button
+                let videoId = playButton.getAttribute('data-video-id');
+                const videoTitle = playButton.getAttribute('data-video-title') || 'Movie';
+                
+                // If no videoId, try to get from parent slide item's data
+                if (!videoId) {
+                    const slideItem = playButton.closest('.slide-item');
+                    if (slideItem) {
+                        const itemId = slideItem.getAttribute('data-item-id');
+                        // Try to get videoId from stored payload
+                        try {
+                            const payloadStr = slideItem.getAttribute('data-watchlist-payload');
+                            if (payloadStr) {
+                                const payload = JSON.parse(payloadStr);
+                                videoId = payload.videoId || payload.itemId;
+                            }
+                        } catch (err) {
+                            // If parsing fails, use itemId
+                            videoId = itemId;
+                        }
                     }
-                    
-                    const removedItem = this.favorites.splice(existingIndex, 1)[0];
-                    this.saveFavorites();
-                    this.renderFavoritesPage();
-                    this.markExistingItems();
-                    const title = removedItem && removedItem.title ? removedItem.title : 'Title';
-                    this.showNotification(`${title} removed from favorites.`, 'info');
+                }
+                
+                if (videoId) {
+                    // Use navigateToWatchPage if available (shows loading overlay and navigates)
+                    // This works the same way as other play buttons on the site
+                    if (typeof window.navigateToWatchPage === 'function') {
+                        window.navigateToWatchPage(videoId, videoTitle);
+                    } else {
+                        // Fallback: show loading overlay and navigate directly
+                        if (typeof window.showPageLoadOverlay === 'function') {
+                            window.showPageLoadOverlay();
+                        }
+                        window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+                    }
+                } else {
+                    console.warn('No video ID found for Play Now button');
                 }
             });
         }
@@ -1164,10 +1263,11 @@ document.addEventListener("click", function (e) {
                         this.saveFavorites();
                         this.renderFavoritesPage();
                         
-                        // Also remove from likes system when removing from favorites
+                        // Also unlike when removing from favorites
                         if (window.likeSystem && typeof window.likeSystem.toggleLike === 'function') {
                             const wasLiked = window.likeSystem.hasUserLiked(itemId);
                             if (wasLiked) {
+                                // Unlike it
                                 window.likeSystem.toggleLike(itemId);
                             } else {
                                 // Just update the UI to show current count
@@ -1177,7 +1277,7 @@ document.addEventListener("click", function (e) {
                         }
                         
                         const title = removedFav && removedFav.title ? removedFav.title : 'Title';
-                        this.showNotification(`${title} removed from favorites.`, 'info');
+                        this.showNotification(`${title} removed from favorites and unliked.`, 'info');
                         return;
                     }
                 }
@@ -1636,12 +1736,24 @@ document.addEventListener("click", function (e) {
             const badgeMarkup = item.badge ? `<div class="badge badge-secondary p-1 mr-2">${this.escapeHtml(item.badge)}</div>` : '';
             const durationMarkup = item.duration ? `<span class="text-white">${this.escapeHtml(item.duration)}</span>` : '';
             const tagMarkup = item.tag ? `<span class="sequel-tag">${this.escapeHtml(item.tag)}</span>` : '';
-            const sourceMarkup = item.sourceSection ? `<p class="watchlist-source text-white-50 mb-2">Saved from ${this.escapeHtml(item.sourceSection)}</p>` : '';
+            // Remove sourceSection text - user requested removal
+            const sourceMarkup = ''; // Removed - not needed
             const descriptionMarkup = item.description ? `<p class="watchlist-description text-white-50 mb-0">${this.escapeHtml(item.description)}</p>` : '';
             const watchHref = item.watchUrl && String(item.watchUrl).trim();
             const downloadHref = item.downloadUrl && String(item.downloadUrl).trim();
-            // Watch Full Movie button removed
-            const playMarkup = '';
+            const videoId = item.videoId || item.itemId;
+            const videoTitle = item.videoTitle || item.title || 'Movie';
+            
+            // Play Now button - styled like other pages (red background, small width)
+            const playMarkup = videoId ? `
+                <div class="hover-buttons mt-2">
+                    <button class="btn btn-play-now-favorites" data-video-id="${this.escapeAttribute(videoId)}" data-video-title="${this.escapeAttribute(videoTitle)}">
+                        <i class="fa fa-play mr-1"></i>
+                        Play Now
+                    </button>
+                </div>
+            ` : '';
+            
             const downloadMarkup = downloadHref ? `
                 <div class="hover-buttons mt-2">
                     <a class="btn btn-outline btn-download" href="${this.escapeAttribute(downloadHref)}" download>
@@ -1651,12 +1763,8 @@ document.addEventListener("click", function (e) {
                 </div>
             ` : '';
             
-            // Add delete button for favorites
-            const deleteButtonMarkup = isFavorite ? `
-                <button class="favorite-delete-btn" data-favorite-id="${this.escapeAttribute(item.itemId)}" title="Remove from favorites">
-                    <i class="fa fa-times"></i>
-                </button>
-            ` : '';
+            // Remove delete button for favorites (user requested to remove close button on hover)
+            const deleteButtonMarkup = ''; // Removed - no close button in favorites
             
             li.innerHTML = `
                 <div class="block-images position-relative">
@@ -1829,31 +1937,105 @@ document.addEventListener("click", function (e) {
             jQuery(this).next().toggleClass('show');
         });
 
+        // Enhanced search and notification toggle functionality
+        // Use capture phase to handle before other handlers
         jQuery(document).on('click', function(e){
-            let myTargetElement = e.target;
-            let selector, mainElement;
-            if(jQuery(myTargetElement).hasClass('search-toggle') || jQuery(myTargetElement).parent().hasClass('search-toggle') || jQuery(myTargetElement).parent().parent().hasClass('search-toggle') ){
-                if(jQuery(myTargetElement).hasClass('search-toggle')) {
-                    selector = jQuery(myTargetElement).parent();
-                    mainElement = jQuery(myTargetElement);
-                } else if (jQuery(myTargetElement).parent().hasClass('search-toggle')){
-                    selector = jQuery(myTargetElement).parent().parent();
-                    mainElement = jQuery(myTargetElement).parent();
-                }else if (jQuery(myTargetElement).parent().parent().hasClass('search-toggle')){
-                    selector = jQuery(myTargetElement).parent().parent().parent();
-                    mainElement = jQuery(myTargetElement).parent().parent();
+            // IMPORTANT: Prevent default early for dropdown toggles to avoid navigation
+            const target = e.target;
+            const closestToggle = jQuery(target).closest('.search-toggle, .iq-sub-dropdown, .notification-item').length > 0;
+            const closestDropdown = jQuery(target).closest('.iq-show, .search-box, .iq-sub-dropdown').length > 0;
+            
+            // If clicking on toggle elements, prevent default immediately
+            if (jQuery(target).hasClass('search-toggle') || 
+                jQuery(target).closest('.search-toggle').length > 0 ||
+                jQuery(target).closest('li').find('.search-box, .iq-sub-dropdown').length > 0) {
+                
+                // Check if it's actually a link that would navigate
+                const link = jQuery(target).closest('a');
+                if (link.length && (link.attr('href') === '#' || link.attr('href') === 'javascript:void(0);' || link.attr('href') === '')) {
+                    e.preventDefault();
+                    e.stopPropagation();
                 }
-                if(!mainElement.hasClass('active') && jQuery('.navbar-list li').find('.active')){
-                    jQuery('.navbar-right li').removeClass('.iq-show');
+            }
+            
+            let myTargetElement = e.target;
+            let clickedInsideSearch = false;
+            let clickedInsideNotification = false;
+            
+            // Check if click is inside search box or results
+            if (jQuery(myTargetElement).closest('.search-box, .search-input, .search-results-container, .form-group').length) {
+                clickedInsideSearch = true;
+            }
+            
+            // Check if click is inside notification dropdown (but not on notification items that should navigate)
+            if (jQuery(myTargetElement).closest('.iq-sub-dropdown').length && !jQuery(myTargetElement).closest('.notification-item').length) {
+                clickedInsideNotification = true;
+            }
+            
+            // Handle search toggle clicks
+            if(jQuery(myTargetElement).hasClass('search-toggle') || 
+               jQuery(myTargetElement).parent().hasClass('search-toggle') || 
+               jQuery(myTargetElement).parent().parent().hasClass('search-toggle') ||
+               jQuery(myTargetElement).closest('.search-toggle').length){
+                
+                let toggleElement = jQuery(myTargetElement);
+                if (toggleElement.hasClass('search-toggle')) {
+                    toggleElement = toggleElement;
+                } else {
+                    toggleElement = jQuery(myTargetElement).closest('.search-toggle');
+                }
+                
+                let listItem = toggleElement.closest('li');
+                
+                // Check if this is a search icon (has search-box) or notification bell (has iq-sub-dropdown)
+                const hasSearchBox = listItem.find('.search-box').length > 0;
+                const hasNotificationDropdown = listItem.find('.iq-sub-dropdown').length > 0 && !hasSearchBox;
+                
+                if (hasSearchBox) {
+                    // This is a search toggle - prevent navigation
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close other dropdowns first
+                    jQuery('.navbar-right li').not(listItem).removeClass('iq-show');
+                    jQuery('.navbar-right li .search-toggle').not(toggleElement).removeClass('active');
+                    
+                    // Toggle this search dropdown
+                    listItem.toggleClass('iq-show');
+                    toggleElement.toggleClass('active');
+                    
+                    // Focus on search input when opened
+                    if (listItem.hasClass('iq-show')) {
+                        setTimeout(function() {
+                            const searchInput = listItem.find('.search-input').first();
+                            if (searchInput.length) {
+                                searchInput.focus();
+                            }
+                        }, 100);
+                    }
+                    return false; // Stop event propagation
+                } else if (hasNotificationDropdown) {
+                    // This is a notification bell toggle - prevent navigation
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close other dropdowns first
+                    jQuery('.navbar-right li').not(listItem).removeClass('iq-show');
+                    jQuery('.navbar-right li .search-toggle').not(toggleElement).removeClass('active');
+                    
+                    // Toggle notification dropdown
+                    listItem.toggleClass('iq-show');
+                    toggleElement.toggleClass('active');
+                    return false; // Stop event propagation
+                }
+            } 
+            // Close dropdowns when clicking outside (but not if clicking inside search/notification)
+            else if (!clickedInsideSearch && !clickedInsideNotification) {
+                // Don't close if clicking on search input or results or notification items
+                if (!jQuery(myTargetElement).closest('.search-input, .search-results-container, .iq-sub-dropdown, .notification-item, .search-box').length) {
+                    jQuery('.navbar-right li').removeClass('iq-show');
                     jQuery('.navbar-right li .search-toggle').removeClass('active');
                 }
-
-                selector.toggleClass('iq-show');
-                mainElement.toggleClass('active');
-                e.preventDefault();
-            } else if (jQuery(myTargetElement).is('search-input')){} else {
-                jQuery('.navbar-right li').removeClass('.iq-show');
-                jQuery('.navbar-right li .search-toggle').removeClass('active');
             }
         });
         jQuery(document).on('click', function(event){
@@ -2105,7 +2287,14 @@ document.addEventListener("click", function (e) {
         });
         
         // Heart functionality for like/unlike
+        // Note: For favorites/watchlist pages, the WatchlistManager handles heart clicks
+        // This handler is for other pages
         jQuery(document).on('click', '.fa-heart, .heart-icon', function(e) {
+            // Skip if this is in favorites or watchlist page (let WatchlistManager handle it)
+            if (jQuery(this).closest('.favorites-slider, .watchlist-slider, #favorites-latest-list, #favorites-all-list, #watchlist-latest-list, #watchlist-all-list').length) {
+                return; // Let WatchlistManager.setupPlusButtonListener handle it
+            }
+            
             e.preventDefault();
             e.stopPropagation();
             
@@ -2701,6 +2890,112 @@ document.addEventListener("click", function (e) {
         return `https://videopress.com/embed/${identifier}`;
     }
     
+    // Helper function to extract video ID from link or ID for navigation
+    // This replaces overlay logic with page navigation to /watch/?id=VIDEO_ID
+    function getVideoIdForNavigation(identifier) {
+        if (!identifier) return null;
+        
+        // If it's already an ID (not a URL), return it
+        if (!identifier.startsWith('http://') && !identifier.startsWith('https://')) {
+            return identifier;
+        }
+        
+        // If it's a VideoPress embed URL, extract the ID
+        const embedMatch = identifier.match(/embed\/([a-zA-Z0-9_-]+)/);
+        if (embedMatch) {
+            return embedMatch[1];
+        }
+        
+        // Try to find by videoLink in videoData
+        for (const [id, data] of Object.entries(videoData)) {
+            if (data && data.videoLink === identifier) {
+                return id;
+            }
+        }
+        
+        // Fallback: try to extract any ID-like string from the URL
+        const idMatch = identifier.match(/([a-zA-Z0-9_-]{8,})/);
+        if (idMatch && videoData[idMatch[1]]) {
+            return idMatch[1];
+        }
+        
+        return null;
+    }
+    
+    // Function to navigate to watch page instead of opening overlay
+    function navigateToWatchPage(videoLinkOrId, title) {
+        // Only show loading overlay if we have a valid video ID
+        const videoId = getVideoIdForNavigation(videoLinkOrId);
+        
+        if (videoId) {
+            // Show loading overlay before navigation
+            showPageLoadOverlay();
+            // Navigate immediately
+            window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+        } else {
+            console.error('Could not extract video ID for navigation:', videoLinkOrId);
+            // Fallback: try to use the identifier as-is
+            const fallbackId = videoLinkOrId ? String(videoLinkOrId).replace(/https?:\/\/[^\/]+\/embed\//, '').replace(/[^a-zA-Z0-9_-]/g, '') : '';
+            if (fallbackId && fallbackId.length > 0) {
+                showPageLoadOverlay();
+                window.location.href = `/watch/?id=${encodeURIComponent(fallbackId)}`;
+            } else {
+                // Hide overlay if navigation fails (no valid ID)
+                console.error('No valid video ID found, not navigating');
+                hidePageLoadOverlay();
+            }
+        }
+    }
+    
+    // Show loading overlay for page navigation
+    function showPageLoadOverlay() {
+        const pageLoader = document.getElementById('page-loader');
+        if (pageLoader) {
+            pageLoader.style.display = 'flex';
+            pageLoader.classList.remove('hidden');
+            document.body.classList.add('loading');
+        }
+    }
+    
+    // Hide loading overlay (called when page is fully loaded)
+    function hidePageLoadOverlay() {
+        const pageLoader = document.getElementById('page-loader');
+        if (pageLoader) {
+            pageLoader.classList.add('hidden');
+            document.body.classList.remove('loading');
+            // Force hide immediately as well
+            setTimeout(function() {
+                pageLoader.style.display = 'none';
+                document.body.classList.remove('loading');
+            }, 100);
+        } else {
+            // If page loader element not found, just remove loading class
+            document.body.classList.remove('loading');
+        }
+    }
+    
+    // Global function to force hide loader (safety mechanism)
+    window.forceHideLoader = function() {
+        hidePageLoadOverlay();
+        const pageLoader = document.getElementById('page-loader');
+        if (pageLoader) {
+            pageLoader.style.display = 'none';
+            pageLoader.classList.add('hidden');
+        }
+        document.body.classList.remove('loading');
+    };
+    
+    // Make functions globally accessible
+    window.showPageLoadOverlay = showPageLoadOverlay;
+    window.hidePageLoadOverlay = hidePageLoadOverlay;
+    
+    // Make navigateToWatchPage globally accessible for search and other modules
+    window.navigateToWatchPage = navigateToWatchPage;
+    
+    // REMOVED: Global navigation handler that was causing infinite loading
+    // The loading overlay is now only shown explicitly in navigateToWatchPage function
+    // This prevents the overlay from showing for dropdown toggles, buttons, etc.
+    
     // Add per-movie watch/download links
     (function ensureVideoLinks() {
         Object.entries(videoData).forEach(([videoId, movie]) => {
@@ -2840,6 +3135,9 @@ document.addEventListener("click", function (e) {
     function setGalleryVideoById(videoLink) {
         setGalleryVideoByLink(videoLink);
     }
+    
+    // Make setGalleryVideoByLink globally accessible for watch page
+    window.setGalleryVideoByLink = setGalleryVideoByLink;
 
     // Function to stop video
     function stopVideo() {
@@ -3015,29 +3313,37 @@ document.addEventListener("click", function (e) {
          window.closeVideoGallery = closeVideoGallery;
         
         // Event listeners for Play Now buttons and play icon buttons
-        // These should always open the video gallery with their own video and sidebar
+        // These should always navigate to watch page with the selected video
         playNowButtons.on('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
-            // Get the video link from the button (prefer data-video-link, fallback to data-video-id for backward compatibility)
-            const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id') || '';
+            // Prefer data-video-id (actual video ID) over data-video-link
+            let videoId = jQuery(this).attr('data-video-id');
+            const videoLink = jQuery(this).attr('data-video-link');
             const title = jQuery(this).attr('data-title') || 'Movie Title';
             
-            if (!videoLink) {
-                console.warn('No video link found for play button');
-                return;
+            // If no videoId, try to extract from videoLink
+            if (!videoId && videoLink) {
+                if (videoLink.includes('videopress.com')) {
+                    const match = videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+                    if (match) {
+                        videoId = match[1];
+                    }
+                } else if (!videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
+                    // Assume it's already a video ID
+                    videoId = videoLink;
+                }
             }
             
-            // If we got a video link, use it; otherwise try to get video link from videoData
-            let finalVideoLink = videoLink;
-            if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
-                // Treat as ID and get video link from videoData
-                finalVideoLink = getVideoLink(videoLink);
-                if (!finalVideoLink) {
-                    // Fallback: construct videopress embed URL
-                    finalVideoLink = `https://videopress.com/embed/${videoLink}`;
-                }
+            // If still no videoId, try to use videoLink as-is (it might be an ID)
+            if (!videoId) {
+                videoId = videoLink;
+            }
+            
+            if (!videoId) {
+                console.warn('No video ID found for play button');
+                return;
             }
             
             // Remember the series scope where this click happened
@@ -3046,17 +3352,17 @@ document.addEventListener("click", function (e) {
                 window.__lastSeriesScope = scope;
             }
             
-            // Always open video gallery with the video link (for sidebar data and playback)
-            // This ensures each video opens with its own sidebar content
-            if (typeof openVideoGallery === 'function') {
-                openVideoGallery(finalVideoLink, title);
+            // Navigate to watch page with video ID
+            // The watch page will handle loading the video and sidebar data
+            if (typeof window.navigateToWatchPage === 'function') {
+                window.navigateToWatchPage(videoId, title);
             } else {
-                console.error('openVideoGallery function not found');
+                window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
             }
         });
         
         // Additional catch-all handler for any .iq-button clicks (play icon buttons)
-        // These should always open the video gallery with their own video and sidebar
+        // These should always navigate to watch page with the selected video
         jQuery(document).on('click', '.iq-button[data-video-link], .iq-button[data-video-id]', function(e) {
             // Skip if already handled by playNowButtons handler
             if (jQuery(this).hasClass('btn-hover') || jQuery(this).hasClass('play-now-btn')) {
@@ -3071,20 +3377,31 @@ document.addEventListener("click", function (e) {
             e.preventDefault();
             e.stopPropagation();
             
-            const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id') || '';
+            // Prefer data-video-id (actual video ID) over data-video-link
+            let videoId = jQuery(this).attr('data-video-id');
+            const videoLink = jQuery(this).attr('data-video-link');
             const title = jQuery(this).attr('data-title') || 'Movie Title';
             
-            if (!videoLink) {
-                return;
+            // If no videoId, try to extract from videoLink
+            if (!videoId && videoLink) {
+                if (videoLink.includes('videopress.com')) {
+                    const match = videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+                    if (match) {
+                        videoId = match[1];
+                    }
+                } else if (!videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
+                    // Assume it's already a video ID
+                    videoId = videoLink;
+                }
             }
             
-            let finalVideoLink = videoLink;
-            if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
-                finalVideoLink = getVideoLink(videoLink);
-                if (!finalVideoLink) {
-                    // Fallback: construct videopress embed URL
-                    finalVideoLink = `https://videopress.com/embed/${videoLink}`;
-                }
+            // If still no videoId, try to use videoLink as-is (it might be an ID)
+            if (!videoId) {
+                videoId = videoLink;
+            }
+            
+            if (!videoId) {
+                return;
             }
             
             // Remember the series scope where this click happened
@@ -3093,9 +3410,12 @@ document.addEventListener("click", function (e) {
                 window.__lastSeriesScope = scope;
             }
             
-            // Always open video gallery with the video link (for sidebar data and playback)
-            if (typeof openVideoGallery === 'function') {
-                openVideoGallery(finalVideoLink, title);
+            // Navigate to watch page with video ID
+            // The watch page will handle loading the video and sidebar data
+            if (typeof window.navigateToWatchPage === 'function') {
+                window.navigateToWatchPage(videoId, title);
+            } else {
+                window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
             }
         });
         
@@ -3238,48 +3558,49 @@ document.addEventListener("click", function (e) {
         });
 
         // Event listeners for notification bell items
-        // These should always open the video gallery with their own video and sidebar
+        // These should always navigate to watch page with correct movie and sidebar data
         jQuery(document).on('click', '.notification-item', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
-            // Try data-video-link first, then fallback to data-video-id
-            const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id');
+            // Try data-video-id first (this is the actual video ID), then fallback to data-video-link
+            let videoId = jQuery(this).attr('data-video-id');
+            const videoLink = jQuery(this).attr('data-video-link');
             const title = jQuery(this).attr('data-title') || 'Movie Title';
             
-            if (!videoLink) {
+            // If we have videoId, use it directly for navigation (preferred)
+            // If we only have videoLink, extract ID from it or use it as-is
+            if (!videoId && videoLink) {
+                // Extract video ID from VideoPress URL if it's a full URL
+                if (videoLink.includes('videopress.com')) {
+                    const match = videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+                    if (match) {
+                        videoId = match[1];
+                    }
+                } else {
+                    // Assume it's already a video ID
+                    videoId = videoLink;
+                }
+            }
+            
+            if (!videoId) {
+                console.warn('No video ID found for notification item');
                 return;
             }
             
             // Close notification dropdown if open
-            const dropdown = jQuery(this).closest('.iq-sub-dropdown');
-            dropdown.removeClass('show');
-            
             const listItem = jQuery(this).closest('li');
             if (listItem.length) {
                 listItem.removeClass('iq-show');
                 listItem.find('.search-toggle').removeClass('active');
             }
             
-            // Get video link if we have an ID
-            let finalVideoLink = videoLink;
-            if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
-                finalVideoLink = getVideoLink(videoLink);
-                if (!finalVideoLink) {
-                    // Fallback: construct videopress embed URL
-                    finalVideoLink = `https://videopress.com/embed/${videoLink}`;
-                }
-            }
-            
-            // Remember the series scope where this click happened
-            const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
-            if (scope) {
-                window.__lastSeriesScope = scope;
-            }
-            
-            // Always open video gallery with the video link (for sidebar data and playback)
-            if (typeof openVideoGallery === 'function') {
-                openVideoGallery(finalVideoLink, title);
+            // Navigate to watch page with video ID (not full URL)
+            // The watch page will handle loading the video and sidebar data
+            if (typeof window.navigateToWatchPage === 'function') {
+                window.navigateToWatchPage(videoId, title);
+            } else {
+                window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
             }
         });
 
@@ -3350,58 +3671,47 @@ document.addEventListener("click", function (e) {
                     finalVideoLink = getVideoLink(videoLink);
                 }
                 
-                if (typeof openVideoGallery === 'function') {
-                    openVideoGallery(finalVideoLink, title || 'Trailer');
-                }
+                // Navigate to watch page instead of opening overlay
+                navigateToWatchPage(finalVideoLink || videoLink, title || 'Trailer');
             }
         });
         
         // Event listeners for buttons inside video gallery (delegated event)
-        // This handles clicks on play buttons within the video gallery default sections
-        // When clicked, it should switch the video without closing/reopening the gallery
+        // This navigates to watch page with the selected video
         jQuery(document).on('click', '.video-gallery-overlay .video-gallery-default-section .iq-button', function(e) {
-            // Check if this click is from within the video gallery default section
-            if (videoGallery.hasClass('active')) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Get video link (prefer data-video-link, fallback to data-video-id)
-                const videoLink = jQuery(this).attr('data-video-link') || jQuery(this).attr('data-video-id') || '';
-                const title = jQuery(this).attr('data-title') || 'Movie Title';
-                
-                if (videoLink) {
-                    // Get final video link
-                    let finalVideoLink = videoLink;
-                    if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
-                        finalVideoLink = getVideoLink(videoLink);
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Prefer data-video-id (actual video ID) over data-video-link
+            let videoId = jQuery(this).attr('data-video-id');
+            const videoLink = jQuery(this).attr('data-video-link');
+            const title = jQuery(this).attr('data-title') || 'Movie Title';
+            
+            // If no videoId, try to extract from videoLink
+            if (!videoId && videoLink) {
+                if (videoLink.includes('videopress.com')) {
+                    const match = videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+                    if (match) {
+                        videoId = match[1];
                     }
-                    
-                    // Remember the series scope where this click happened
-                    const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
-                    if (scope) {
-                        window.__lastSeriesScope = scope;
-                    }
-                    
-                    // Scroll video gallery to top when switching videos from default section
-                    const overlayElement = document.getElementById('video-gallery-overlay');
-                    if (overlayElement) {
-                        overlayElement.scrollTop = 0;
-                    }
-                    
-                    // Since gallery is already open, directly update video and sidebar without loader cycle
-                    // This prevents the overlay from closing/reopening and flickering
-                    updateSidebarContent(finalVideoLink);
-                    setGalleryVideoByLink(finalVideoLink);
-                    
-                    // Show default section (in case it was hidden by episodes)
-                    showDefaultSection();
-                    
-                    // Update favorite and watchlist buttons
-                    setTimeout(function() {
-                        if (typeof updateFavoriteWatchlistButtons === 'function') {
-                            updateFavoriteWatchlistButtons();
-                        }
-                    }, 100);
+                } else if (!videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
+                    // Assume it's already a video ID
+                    videoId = videoLink;
+                }
+            }
+            
+            // If still no videoId, try to use videoLink as-is (it might be an ID)
+            if (!videoId) {
+                videoId = videoLink;
+            }
+            
+            if (videoId) {
+                // Navigate to watch page with video ID
+                // The watch page will handle loading the video and sidebar data
+                if (typeof window.navigateToWatchPage === 'function') {
+                    window.navigateToWatchPage(videoId, title);
+                } else {
+                    window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
                 }
             }
         });
@@ -4361,8 +4671,11 @@ document.addEventListener("click", function (e) {
             
             this.updateVideoGallery(contentData);
             
-            if (typeof openVideoGallery === 'function') {
-                openVideoGallery(contentData.videoId, contentData.title);
+            // Navigate to watch page instead of opening overlay
+            if (typeof window.navigateToWatchPage === 'function') {
+                window.navigateToWatchPage(contentData.videoId, contentData.title);
+            } else {
+                window.location.href = `/watch/?id=${contentData.videoId}`;
             }
         }
         
@@ -5496,19 +5809,52 @@ function switchSeasonEpisodes(selectElement) {
           e.preventDefault();
           e.stopPropagation();
 
-          // Try data-video-link first, then fallback to data-video-id
-          const videoLink = item.dataset.videoLink || item.dataset.videoId;
-          const videoId = item.dataset.videoId; // Keep for lookup
+          // Prefer data-video-id (actual video ID) over data-video-link
+          let videoId = item.dataset.videoId;
+          const videoLink = item.dataset.videoLink;
           const title = item.dataset.title || item.querySelector('.search-result-title')?.textContent || 'Movie';
 
-          if (videoLink || videoId) {
-            // Find movie by videoId in movieData, or create a new object
-            const movie = this.movieData.find(m => m.videoId === videoId) || { 
-              videoId, 
-              videoLink: videoLink || (videoId && typeof getVideoLink === 'function' ? getVideoLink(videoId) : `https://videopress.com/embed/${videoId}`),
-              title 
-            };
-            this.handleMovieSelection(movie);
+          // If no videoId but we have videoLink, try to extract ID from it
+          if (!videoId && videoLink) {
+            if (videoLink.includes('videopress.com')) {
+              const match = videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+              if (match) {
+                videoId = match[1];
+              }
+            } else {
+              // Assume videoLink is the ID itself
+              videoId = videoLink.replace(/https?:\/\/[^\/]+\/embed\//, '').replace(/[^a-zA-Z0-9_-]/g, '');
+            }
+          }
+
+          if (videoId) {
+            // Find movie by videoId in movieData
+            const movie = this.movieData.find(m => m.videoId === videoId);
+            if (movie) {
+              this.handleMovieSelection(movie);
+            } else {
+              // Movie not found in data, but we have videoId, so navigate directly
+              console.log('Movie not found in data, navigating directly with videoId:', videoId);
+              this.closeSearchDropdowns();
+              this.hideAllSearchResults();
+              
+              // Clear search input
+              this.searchInputs.forEach(input => {
+                if (input.value.trim()) {
+                  input.value = '';
+                }
+                input.blur();
+              });
+              
+              // Navigate to watch page
+              setTimeout(() => {
+                if (typeof window.navigateToWatchPage === 'function') {
+                  window.navigateToWatchPage(videoId, title);
+                } else {
+                  window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+                }
+              }, 100);
+            }
           }
         });
       });
@@ -5531,35 +5877,52 @@ function switchSeasonEpisodes(selectElement) {
 
       // Debug: Log the movie selection
       console.log('Movie selected from search:', movie);
-      console.log('openVideoGallery available:', typeof window.openVideoGallery);
 
-      // Always open video gallery with the selected movie's video and sidebar
-      if (typeof window.openVideoGallery === 'function') {
-        // Use videoLink if available, otherwise get it from videoId
-        let videoLink = movie.videoLink;
-        if (!videoLink && movie.videoId) {
-          videoLink = typeof getVideoLink === 'function' ? getVideoLink(movie.videoId) : `https://videopress.com/embed/${movie.videoId}`;
+      // Get video ID (preferred for navigation)
+      let videoId = movie.videoId;
+      
+      // If videoId is a full URL, extract the ID from it
+      if (videoId && (videoId.startsWith('http://') || videoId.startsWith('https://'))) {
+        if (videoId.includes('videopress.com')) {
+          const match = videoId.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+          if (match) {
+            videoId = match[1];
+          }
         }
-        
-        if (!videoLink) {
-          console.error('No video link found for movie:', movie);
-          return;
-        }
-        
-        const title = movie.title || 'Movie';
-
-        console.log('Calling openVideoGallery with:', videoLink, title);
-
-        // Use setTimeout to ensure the search results are hidden first
-        // This will open the video gallery as if it's a new opening with the selected video
-        setTimeout(() => {
-          window.openVideoGallery(videoLink, title);
-        }, 100);
-      } else {
-        console.error('openVideoGallery function not found!');
-        // Fallback: Try to trigger the video gallery manually
-        this.triggerVideoGallery(movie);
       }
+      
+      // If still no videoId, try to extract from videoLink
+      if (!videoId && movie.videoLink) {
+        if (movie.videoLink.includes('videopress.com')) {
+          const match = movie.videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+          if (match) {
+            videoId = match[1];
+          }
+        } else {
+          // Assume videoLink is the ID itself
+          videoId = movie.videoLink.replace(/https?:\/\/[^\/]+\/embed\//, '').replace(/[^a-zA-Z0-9_-]/g, '');
+        }
+      }
+      
+      if (!videoId) {
+        console.error('No video ID found for movie:', movie);
+        return;
+      }
+      
+      const title = movie.title || 'Movie';
+
+      console.log('Navigating to watch page with video ID:', videoId, 'title:', title);
+
+      // Navigate to watch page with video ID
+      // The watch page will handle loading the video and sidebar data based on the videoId
+      setTimeout(() => {
+        if (typeof window.navigateToWatchPage === 'function') {
+          window.navigateToWatchPage(videoId, title);
+        } else {
+          // Fallback: construct URL directly
+          window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+        }
+      }, 100);
     }
 
     triggerVideoGallery(movie) {
@@ -5852,5 +6215,537 @@ function switchSeasonEpisodes(selectElement) {
       initMobileSectionReveal();
     }, 250);
   });
+})();
+
+// ============================================================================
+// WATCH PAGE FUNCTIONALITY
+// ============================================================================
+// This section handles the standalone watch page (/watch/index.html)
+// It reads video ID from URL parameters and dynamically loads video content
+// ============================================================================
+
+(function() {
+    'use strict';
+    
+    // Check if we're on the watch page
+    function isWatchPage() {
+        return window.location.pathname.includes('/watch/') || 
+               window.location.pathname === '/watch' ||
+               document.getElementById('video-gallery-overlay') !== null && 
+               document.getElementById('backButton') !== null;
+    }
+    
+    // Wait for DOM and videoData to be available
+    if (isWatchPage()) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a bit for main.js to load videoData
+            setTimeout(initializeWatchPage, 100);
+        });
+    }
+    
+    /**
+     * Initialize the watch page
+     * Reads video ID from URL and loads the video
+     */
+    function initializeWatchPage() {
+        // Get video ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('id');
+        
+        if (!videoId) {
+            console.error('No video ID provided in URL');
+            showWatchPageError('No video ID provided. Please select a video to watch.');
+            return;
+        }
+        
+        console.log('Loading video with ID:', videoId);
+        
+        // Access videoData from the global scope (loaded from main.js)
+        const videoData = window.videoData;
+        
+        if (!videoData) {
+            console.error('videoData not available. Make sure main.js is loaded.');
+            showWatchPageError('Video data not available. Please refresh the page.');
+            return;
+        }
+        
+        // Find video data by ID or link
+        let videoInfo = findWatchPageVideoData(videoId, videoData);
+        
+        if (!videoInfo) {
+            console.error('Video not found for ID:', videoId);
+            showWatchPageError('Video not found. Please select a valid video.');
+            return;
+        }
+        
+        // Load the video
+        loadWatchPageVideo(videoInfo.data, videoInfo.id, videoData);
+    }
+    
+    /**
+     * Find video data by ID or link
+     * @param {string} identifier - Video ID or video link
+     * @param {object} videoData - The videoData object
+     * @returns {object|null} - Video data and ID, or null if not found
+     */
+    function findWatchPageVideoData(identifier, videoData) {
+        if (!identifier || !videoData) return null;
+        
+        // If identifier is a full URL, extract ID or find by videoLink
+        if (identifier.startsWith('http://') || identifier.startsWith('https://')) {
+            // Try to find by videoLink property
+            for (const [id, data] of Object.entries(videoData)) {
+                if (data && data.videoLink === identifier) {
+                    return { id: id, data: data };
+                }
+            }
+            
+            // Extract ID from VideoPress URL (e.g., https://videopress.com/embed/kUJmAcSf)
+            const match = identifier.match(/embed\/([a-zA-Z0-9_-]+)/);
+            if (match && videoData[match[1]]) {
+                return { id: match[1], data: videoData[match[1]] };
+            }
+        } else {
+            // Direct ID lookup
+            if (videoData[identifier]) {
+                return { id: identifier, data: videoData[identifier] };
+            }
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Load video and update the page
+     * @param {object} data - Video data object
+     * @param {string} videoId - Video ID
+     * @param {object} videoData - Full videoData object for recommendations
+     */
+    function loadWatchPageVideo(data, videoId, videoData) {
+        console.log('Loading video:', data.title);
+        
+        // Update video iframe using the same function as gallery overlay for consistency
+        // Use requestIdleCallback for better performance if available
+        const loadVideo = function() {
+            if (data.videoLink) {
+                // Use the existing setGalleryVideoByLink function if available
+                if (typeof window.setGalleryVideoByLink === 'function') {
+                    window.setGalleryVideoByLink(data.videoLink);
+                } else if (typeof setGalleryVideoByLink === 'function') {
+                    setGalleryVideoByLink(data.videoLink);
+                } else {
+                    // Fallback: direct iframe update with VideoPress handling
+                    const iframe = document.getElementById('video-iframe');
+                    if (iframe) {
+                        let embedUrl = data.videoLink;
+                        if (data.videoLink.includes('videopress.com/v/')) {
+                            embedUrl = data.videoLink.replace('/v/', '/embed/');
+                        } else if (!data.videoLink.includes('/embed/') && !data.videoLink.includes('videopress.com')) {
+                            const match = data.videoLink.match(/videopress\.com\/v\/([a-zA-Z0-9]+)/);
+                            if (match) {
+                                embedUrl = `https://videopress.com/embed/${match[1]}`;
+                            } else {
+                                embedUrl = `https://videopress.com/embed/${data.videoLink}`;
+                            }
+                        }
+                        if (!embedUrl.includes('autoplay')) {
+                            embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1';
+                        }
+                        // Use loading="eager" when video is selected to load immediately
+                        iframe.removeAttribute('loading');
+                        iframe.src = embedUrl;
+                    }
+                }
+            }
+        };
+        
+        // Load video asynchronously for better performance
+        if (window.requestIdleCallback) {
+            requestIdleCallback(loadVideo, { timeout: 1000 });
+        } else {
+            setTimeout(loadVideo, 0);
+        }
+        
+        // Update title
+        const titleElement = document.getElementById('video-title');
+        if (titleElement) {
+            titleElement.textContent = data.title || 'Untitled';
+        }
+        
+        // Update description
+        const descElement = document.getElementById('video-description');
+        if (descElement) {
+            descElement.textContent = data.description || 'No description available.';
+        }
+        
+        // Update rating
+        updateWatchPageRating(data.rating, data.stars);
+        
+        // Update movie details (age, duration, year)
+        updateWatchPageMovieDetails(data);
+        
+        // Update genres
+        updateWatchPageGenres(data.genres);
+        
+        // Update tags
+        updateWatchPageTags(data.tags);
+        
+        // Update interpreter
+        updateWatchPageInterpreter(data.interpreter);
+        
+        // Update download button
+        updateWatchPageDownloadButton(data.downloadLink);
+        
+        // Load recommended videos
+        loadWatchPageRecommendedVideos(videoData, videoId);
+        
+        // Update page title with SEO format
+        const movieTitle = data.title || 'Video';
+        document.title = movieTitle + ' - Miyagifilms | Watch Movies & TV Shows Online | HD Streaming';
+        
+        // Update meta description for SEO
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.content = `Watch ${movieTitle} in HD on Miyagifilms. Stream movies and TV shows online for free.`;
+        }
+        
+        // Update Open Graph tags for better social sharing
+        updateOGTags(movieTitle, data.description || 'Watch HD movies and TV shows on Miyagifilms');
+    }
+    
+    /**
+     * Update Open Graph and Twitter Card meta tags for SEO
+     * @param {string} title - Page title
+     * @param {string} description - Page description
+     */
+    function updateOGTags(title, description) {
+        // Open Graph tags
+        setMetaTag('property', 'og:title', title);
+        setMetaTag('property', 'og:description', description);
+        setMetaTag('property', 'og:type', 'video.movie');
+        setMetaTag('property', 'og:url', window.location.href);
+        setMetaTag('property', 'og:site_name', 'Miyagifilms');
+        
+        // Twitter Card tags
+        setMetaTag('name', 'twitter:card', 'summary_large_image');
+        setMetaTag('name', 'twitter:title', title);
+        setMetaTag('name', 'twitter:description', description);
+    }
+    
+    /**
+     * Helper function to set or update meta tags
+     * @param {string} attr - Attribute name ('property' or 'name')
+     * @param {string} value - Attribute value
+     * @param {string} content - Meta tag content
+     */
+    function setMetaTag(attr, value, content) {
+        let meta = document.querySelector(`meta[${attr}="${value}"]`);
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.setAttribute(attr, value);
+            document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', content);
+    }
+    
+    /**
+     * Update rating stars and text
+     * @param {number} rating - Rating out of 10
+     * @param {number} stars - Star rating (0-5)
+     */
+    function updateWatchPageRating(rating, stars) {
+        const ratingElement = document.getElementById('rating-stars');
+        if (!ratingElement) return;
+        
+        // Clear existing stars
+        ratingElement.innerHTML = '';
+        
+        // Calculate stars
+        const fullStars = Math.floor(stars || (rating ? rating / 2 : 0));
+        const hasHalfStar = (stars || (rating ? rating / 2 : 0)) % 1 !== 0;
+        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+        
+        // Add full stars
+        for (let i = 0; i < fullStars; i++) {
+            const star = document.createElement('i');
+            star.className = 'fa fa-star text-primary';
+            ratingElement.appendChild(star);
+        }
+        
+        // Add half star if needed
+        if (hasHalfStar) {
+            const halfStar = document.createElement('i');
+            halfStar.className = 'fa fa-star-half text-primary';
+            ratingElement.appendChild(halfStar);
+        }
+        
+        // Add empty stars
+        for (let i = 0; i < emptyStars; i++) {
+            const star = document.createElement('i');
+            star.className = 'fa fa-star';
+            star.style.color = '#666';
+            ratingElement.appendChild(star);
+        }
+        
+        // Add rating text
+        const ratingText = document.createElement('span');
+        ratingText.className = 'ml-2';
+        ratingText.textContent = (rating || 0).toFixed(1) + '/10';
+        ratingElement.appendChild(ratingText);
+    }
+    
+    /**
+     * Update movie details (age, duration, year)
+     * @param {object} data - Video data
+     */
+    function updateWatchPageMovieDetails(data) {
+        const ageElement = document.getElementById('age-badge');
+        if (ageElement) {
+            ageElement.textContent = data.age || '-';
+        }
+        
+        const durationElement = document.getElementById('duration-text');
+        if (durationElement) {
+            durationElement.textContent = data.duration || '-';
+        }
+        
+        const yearElement = document.getElementById('year-text');
+        if (yearElement) {
+            yearElement.textContent = data.year || '-';
+        }
+    }
+    
+    /**
+     * Update genres list
+     * @param {array} genres - Array of genre strings
+     */
+    function updateWatchPageGenres(genres) {
+        const genresElement = document.getElementById('genres-list');
+        if (!genresElement) return;
+        
+        genresElement.innerHTML = '';
+        
+        if (Array.isArray(genres) && genres.length > 0) {
+            genres.forEach(genre => {
+                const tag = document.createElement('span');
+                tag.className = 'genre-tag';
+                tag.textContent = genre;
+                genresElement.appendChild(tag);
+            });
+        } else {
+            const tag = document.createElement('span');
+            tag.className = 'genre-tag';
+            tag.textContent = 'Not specified';
+            genresElement.appendChild(tag);
+        }
+    }
+    
+    /**
+     * Update tags list
+     * @param {array} tags - Array of tag strings
+     */
+    function updateWatchPageTags(tags) {
+        const tagsElement = document.getElementById('tags-list');
+        if (!tagsElement) return;
+        
+        tagsElement.innerHTML = '';
+        
+        if (Array.isArray(tags) && tags.length > 0) {
+            tags.forEach(tag => {
+                const tagItem = document.createElement('span');
+                tagItem.className = 'tag-item';
+                tagItem.textContent = tag;
+                tagsElement.appendChild(tagItem);
+            });
+        } else {
+            const tagItem = document.createElement('span');
+            tagItem.className = 'tag-item';
+            tagItem.textContent = 'Not specified';
+            tagsElement.appendChild(tagItem);
+        }
+    }
+    
+    /**
+     * Update interpreter list
+     * @param {array} interpreter - Array of interpreter strings
+     */
+    function updateWatchPageInterpreter(interpreter) {
+        const interpreterElement = document.getElementById('interpreter-list');
+        if (!interpreterElement) return;
+        
+        interpreterElement.innerHTML = '';
+        
+        if (Array.isArray(interpreter) && interpreter.length > 0) {
+            interpreter.forEach(interp => {
+                const tag = document.createElement('span');
+                tag.className = 'tag-item';
+                tag.textContent = interp;
+                interpreterElement.appendChild(tag);
+            });
+        } else {
+            const tag = document.createElement('span');
+            tag.className = 'tag-item';
+            tag.textContent = 'Not specified';
+            interpreterElement.appendChild(tag);
+        }
+    }
+    
+    /**
+     * Update download button with link
+     * @param {string} downloadLink - Download URL
+     */
+    function updateWatchPageDownloadButton(downloadLink) {
+        const downloadBtn = document.getElementById('download-btn');
+        if (!downloadBtn) return;
+        
+        if (downloadLink) {
+            downloadBtn.onclick = function(e) {
+                e.preventDefault();
+                window.open(downloadLink, '_blank');
+            };
+            downloadBtn.style.cursor = 'pointer';
+        } else {
+            downloadBtn.onclick = function(e) {
+                e.preventDefault();
+                alert('Download link not available for this video.');
+            };
+        }
+    }
+    
+    /**
+     * Load recommended videos carousel
+     * @param {object} videoData - Full videoData object
+     * @param {string} currentVideoId - Current video ID to exclude
+     */
+    function loadWatchPageRecommendedVideos(videoData, currentVideoId) {
+        // Get all videos except current one
+        const recommendedVideos = [];
+        for (const [id, data] of Object.entries(videoData)) {
+            if (id !== currentVideoId && data) {
+                recommendedVideos.push({ id: id, data: data });
+            }
+        }
+        
+        // Shuffle and take first 10
+        const shuffled = recommendedVideos.sort(() => 0.5 - Math.random());
+        const topPicks = shuffled.slice(0, 10);
+        
+        // Render top picks
+        renderWatchPageVideoCarousel('top-picks-carousel', topPicks);
+        
+        // Render recommended (different set)
+        const recommended = shuffled.slice(10, 20);
+        if (recommended.length === 0) {
+            recommended.push(...topPicks.slice(0, 5));
+        }
+        renderWatchPageVideoCarousel('recommended-carousel', recommended);
+        
+        // Initialize carousels if jQuery and Owl Carousel are available
+        if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+            setTimeout(function() {
+                jQuery('.episodes-slider1').owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    nav: true,
+                    dots: false,
+                    autoplay: false,
+                    responsive: {
+                        0: { items: 2 },
+                        576: { items: 3 },
+                        768: { items: 4 },
+                        992: { items: 5 },
+                        1200: { items: 6 }
+                    }
+                });
+            }, 100);
+        }
+    }
+    
+    /**
+     * Render video carousel items
+     * @param {string} containerId - ID of carousel container
+     * @param {array} videos - Array of video objects
+     */
+    function renderWatchPageVideoCarousel(containerId, videos) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        videos.forEach(video => {
+            const item = document.createElement('div');
+            item.className = 'e-item';
+            
+            const videoLink = video.data.videoLink || `https://videopress.com/embed/${video.id}`;
+            const videoId = video.id;
+            
+            item.innerHTML = `
+                <div class="block-image position-relative">
+                    <a href="/watch/?id=${videoId}">
+                        <img loading="lazy" src="${video.data.image || '/images/placeholder.jpg'}" class="img-fluid" alt="${video.data.title || 'Video'}">
+                    </a>
+                    <div class="episode-play-info">
+                        <div class="episode-play">
+                            <a href="/watch/?id=${videoId}" class="iq-button" data-video-id="${videoId}" data-title="${video.data.title || 'Video'}" tabindex="0">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="episodes-description text-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="/watch/?id=${videoId}">${video.data.title || 'Video'}</a>
+                        <span class="text-primary">${video.data.duration || '-'}</span>
+                    </div>
+                    <p class="mb-0">${(video.data.description || '').substring(0, 60)}${(video.data.description || '').length > 60 ? '...' : ''}</p>
+                </div>
+            `;
+            
+            container.appendChild(item);
+        });
+    }
+    
+    /**
+     * Show error message on watch page
+     * @param {string} message - Error message
+     */
+    function showWatchPageError(message) {
+        const titleElement = document.getElementById('video-title');
+        if (titleElement) {
+            titleElement.textContent = 'Error';
+        }
+        
+        const descElement = document.getElementById('video-description');
+        if (descElement) {
+            descElement.textContent = message;
+            descElement.style.color = '#e50914';
+        }
+    }
+    
+    /**
+     * Go back to previous page
+     * This function is called by the back button on watch page
+     */
+    window.goBack = function() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    };
+    
+    // Handle play button clicks in carousels to navigate to watch page
+    if (isWatchPage()) {
+        document.addEventListener('click', function(e) {
+            const playButton = e.target.closest('.iq-button[data-video-id]');
+            if (playButton) {
+                e.preventDefault();
+                const videoId = playButton.getAttribute('data-video-id');
+                if (videoId) {
+                    window.location.href = `/watch/?id=${videoId}`;
+                }
+            }
+        });
+    }
 })();
 

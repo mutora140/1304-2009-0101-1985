@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BASIC SETTINGS -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+
+  <!-- SEO TITLE -->
+  <title>Watch Video - MIYAGI Films</title>
+
+  <!-- SEO META DESCRIPTION -->
+  <meta name="description" content="Watch HD movies and TV shows on MIYAGI Films" />
+  
+  <!-- SEO META TAGS -->
+  <meta name="keywords" content="watch movies online, HD streaming, TV shows, free movies, Miyagifilms" />
+  <meta name="author" content="Miyagifilms" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="video.movie" />
+  <meta property="og:site_name" content="Miyagifilms" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <!-- PRELOAD & PREFETCH FOR PERFORMANCE -->
+  <link rel="preconnect" href="https://videopress.com" />
+  <link rel="dns-prefetch" href="https://videopress.com" />
+  <link rel="preconnect" href="https://stackpath.bootstrapcdn.com" />
+  <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com" />
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/user/user.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/user/user.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/user/user.png" />
+  <link rel="shortcut icon" href="/images/user/user.png" />
+
+  <!-- CSS LINKS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/slick.css" />
+  <link rel="stylesheet" href="/css/slick-theme.css" />
+  <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/css/animate.min.css" />
+  <link rel="stylesheet" href="/css/magnific-popup.css" />
+  <link rel="stylesheet" href="/css/select2.min.css" />
+  <link rel="stylesheet" href="/css/select2-bootstrap4.min.css" />
+  <link rel="stylesheet" href="/css/slick-animation.css" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    /* Ensure page uses the same dark canvas as the overlay */
+    body {
+      background: #000000 !important;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Hide all content until fully loaded for better UX */
+    body.loading #main-header,
+    body.loading #video-gallery-overlay,
+    body.loading footer {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+    
+    /* Show content smoothly when loaded */
+    body:not(.loading) #main-header,
+    body:not(.loading) #video-gallery-overlay,
+    body:not(.loading) footer {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+    
+    /* Force the gallery to behave as a full page (not hidden overlay) but keep overlay styling */
+    #video-gallery-overlay,
+    .video-gallery-overlay {
+      position: relative !important;
+      display: block !important;
+      background: #000000 !important;
+      z-index: 1 !important;
+      overflow: visible !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      height: auto !important;
+      min-height: auto !important;
+      padding-top: 20px; /* Reduced from 80px */
+    }
+    
+    .video-gallery-container,
+    .video-gallery-content {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    /* Row should use flexbox, not block */
+    .video-gallery-content .row {
+      opacity: 1 !important;
+      visibility: visible !important;
+      /* display: flex is set in the specific rule below */
+    }
+    
+    /* Columns should use flexbox, not block */
+    .video-gallery-content .col-lg-9,
+    .video-gallery-content .col-lg-3 {
+      opacity: 1 !important;
+      visibility: visible !important;
+      /* display: flex is set in the specific rules below */
+    }
+    
+    .video-gallery-container {
+      padding: 20px 20px 20px 20px; /* Reduced top padding from 80px */
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    @media (min-width: 1200px) {
+      .video-gallery-container {
+        padding: 20px 60px 20px 60px; /* Reduced top padding from 80px */
+      }
+    }
+    
+    /* On mobile/tablet, adjust container padding */
+    @media (max-width: 991.98px) {
+      .video-gallery-container {
+        padding: 20px 0 20px 0 !important; /* No horizontal padding, let columns handle margins */
+      }
+    }
+    
+    .video-player-container,
+    .video-info,
+    .video-gallery-default-section,
+    .episodes-slider1,
+    .e-item,
+    .video-gallery-overlay .container-fluid,
+    .video-gallery-overlay .row,
+    .video-gallery-overlay .col-sm-12,
+    .video-gallery-overlay .col-lg-8,
+    .video-gallery-overlay .col-lg-4 {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      height: auto !important;
+      min-height: auto !important;
+    }
+    
+    /* CRITICAL: Row must stretch children to equal height */
+    .video-gallery-content .row {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: stretch !important; /* KEY: This makes columns equal height */
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    /* Video player column - left side */
+    .video-gallery-content .col-lg-9 {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 0 0 73% !important;
+      max-width: 73% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      align-self: stretch !important; /* Stretch to match other column */
+      height: 100% !important; /* Take full height from row */
+    }
+    
+    /* Sidebar column - right side with 20px gap */
+    .video-gallery-content .col-lg-3 {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 0 0 27% !important;
+      max-width: 27% !important;
+      margin-left: 20px !important; /* 20px gap between video and sidebar */
+      margin-top: 20px !important;
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+      padding: 0 !important;
+      align-self: stretch !important; /* Stretch to match other column */
+      height: 100% !important; /* Take full height from row */
+    }
+    
+    /* Video player container - must fill its column completely */
+    .video-gallery-overlay .video-player-container {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important; /* Fill parent column 100% */
+      min-height: 500px !important;
+      background: #000 !important;
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      flex: 1 1 100% !important; /* Grow to fill column */
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    }
+    
+    .video-gallery-overlay .video-player-container > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Video info sidebar - must fill its column completely and match video player */
+    .video-gallery-overlay .video-info {
+      width: 100% !important;
+      height: 100% !important; /* Fill parent column 100% - same as video player */
+      min-height: 500px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 1 100% !important; /* Grow to fill column - same as video player */
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      margin: 0 !important; /* CRITICAL: Override style.css margin-left: 20px */
+      padding: 15px !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Additional overrides for style.css conflicts */
+    .video-gallery-overlay .video-info {
+      margin-left: 0 !important; /* Override style.css */
+      height: 430px !important; /* Override style.css - will be set by JS */
+    }
+    
+    .video-gallery-overlay .video-player-container {
+      height: 430px !important; /* Override style.css - will be set by JS */
+    }
+    
+    /* On mobile and tablet devices */
+    @media (max-width: 991.98px) {
+      .video-gallery-content .row {
+        flex-direction: column !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      /* Video player column - full width with 10px margins */
+      .video-gallery-content .col-lg-9 {
+        order: 1 !important;
+        width: calc(100% - 20px) !important; /* Full width minus 20px (10px each side) */
+        max-width: calc(100% - 20px) !important;
+        flex: 0 0 calc(100% - 20px) !important;
+        margin: 0 10px 30px 10px !important; /* 10px from page walls, 20px bottom */
+        padding: 0 !important;
+      }
+      
+      /* Sidebar column - below video player, same width */
+      .video-gallery-content .col-lg-3 {
+        order: 2 !important;
+        width: calc(100% - 20px) !important; /* Same width as video player */
+        max-width: calc(100% - 20px) !important;
+        flex: 0 0 calc(100% - 20px) !important;
+        margin: 0 10px 0 10px !important; /* 10px from page walls, no bottom margin */
+        padding: 0 !important;
+      }
+      
+      /* Video player container on mobile */
+      .video-gallery-overlay .video-player-container {
+        min-height: 300px !important; /* Smaller height on mobile */
+        height: auto !important;
+        padding-bottom: 56.25% !important; /* Use aspect ratio on mobile */
+        margin-bottom: 0 !important;
+      }
+      
+      /* Video info sidebar on mobile */
+      .video-gallery-overlay .video-info {
+        min-height: auto !important; /* Auto height on mobile */
+        height: auto !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important; /* Remove left margin on mobile */
+      }
+    }
+  </style>
+</head>
+
+<body class="loading video-gallery-page">
+  <!-- MovieFlix-style Mobile Sidebar Menu -->
+  <nav class="mf-sidebar" id="mfSidebar">
+    <div class="mf-menu-section">
+      <div class="mf-section-title">Main Menu</div>
+      <a href="/" class="mf-menu-item active">
+        <div class="mf-menu-icon">
+          <i class="fa fa-home"></i>
+        </div>
+        <div class="mf-menu-text">Home</div>
+      </a>
+      <a href="/trending/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-fire"></i>
+        </div>
+        <div class="mf-menu-text">Trending</div>
+      </a>
+      <a href="/toprated/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-star"></i>
+        </div>
+        <div class="mf-menu-text">Top Rated</div>
+      </a>
+      <a href="/latestmovies/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-calendar"></i>
+        </div>
+        <div class="mf-menu-text">Latest</div>
+      </a>
+    </div>
+    <div class="mf-menu-section">
+      <div class="mf-section-title">Interpreters</div>
+      <a href="/rocky/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <div class="mf-menu-text">Rocky</div>
+      </a>
+      <a href="/gaheza/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <div class="mf-menu-text">Gaheza</div>
+      </a>
+      <a href="/juniorgiti/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <div class="mf-menu-text">Junior Giti</div>
+      </a>
+      <a href="/sankara/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <div class="mf-menu-text">Sankara</div>
+      </a>
+    </div>
+    <div class="mf-menu-section">
+      <div class="mf-section-title">Library</div>
+      <a href="/show/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-fire"></i>
+        </div>
+        <div class="mf-menu-text">Show</div>
+      </a>
+      <a href="/watchlist/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-bookmark"></i>
+        </div>
+        <div class="mf-menu-text">Watchlist</div>
+      </a>
+      <a href="/favorites/" class="mf-menu-item">
+        <div class="mf-menu-icon">
+          <i class="fa fa-heart"></i>
+        </div>
+        <div class="mf-menu-text">Favorites</div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner">
+      <img src="/images/user/user.png" alt="User avatar" class="loader-avatar rounded-circle" />
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="main-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="navbar-toggler-icon" data-toggle="collapse">
+                  <span class="navbar-menu-icon navbar-menu-icon--top"></span>
+                  <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
+                  <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
+                </div>
+              </a>
+
+              <div class="navbar-brand" onclick="window.location.href='/'; return false;">
+                <img loading="lazy" src="/images/logo.png" class="img-fluid logo" alt="MIYAGI streaming platform logo" />
+              </div>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="menu-main-menu-container">
+                  <ul id="top-menu" class="navbar-nav ml-auto">
+                    <li class="menu-item"><a href="/">home</a></li>
+                    <li class="menu-item"><a href="/show/">show</a></li>
+                    <li class="menu-item"><a href="/trending/">trending</a></li>
+                    <li class="menu-item">
+                      <a href="#">interpreters</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a href="/rocky/">Rocky</a></li>
+                        <li class="menu-item"><a href="/gaheza/">Gaheza</a></li>
+                        <li class="menu-item"><a href="/sankara/">Sankara</a></li>
+                        <li class="menu-item">
+                          <a href="/juniorgiti/">Junior Giti</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="#">Others</a>
+                          <ul class="sub-menu">
+                            <li class="menu-item">
+                              <a href="/dylan/">Dylan</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="/pk/">P.K</a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="/savimbi/">Savimbi</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>                   
+                  </ul>
+                </div>
+              </div>
+
+              <div class="mobile-more-menu">
+                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-ellipsis-h"></i>
+                </a>
+                <div class="more-menu" aria-labelledby="dropdownMenuButton">
+                  <div class="navbar-right position-relative">
+                    <ul class="d-flex align-items-center justify-content-end list-inline m-0">
+                      <li>
+                        <a href="#" class="search-toggle">
+                          <i class="fa fa-search"></i>
+                        </a>
+                        <div class="search-box iq-search-bar">
+                          <form action="#" class="searchbox">
+                            <div class="form-group position-relative">
+                              <input type="text" class="text search-input font-size-12"
+                                placeholder="type here to search..." />
+                              <i class="search-link fa fa-search"></i>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="nav-item nav-icon">
+                        <a href="#" class="search-toggle position-relative">
+                          <i class="fa fa-bell"></i>
+                          <span class="bg-danger dots"></span>
+                        </a>
+                        <div class="iq-sub-dropdown">
+                          <div class="iq-card shadow-none m-0">
+                            <div class="iq-card-body">
+                              <a href="#" class="iq-sub-card notification-item" data-video-id="tmeOjFno6Do" data-title="Captain Marvel">
+                                <div class="media align-items-center">
+                                  <img loading="lazy" src="/images/notify/thumb-1.jpg" alt="Captain Marvel movie thumbnail" class="img-fluid mr-3" />
+                                  <div class="media-body">
+                                    <h6 class="mb-0">Captain Marvel</h6>
+                                    <small class="font-size-12">just now</small>
+                                  </div>
+                                </div>
+                              </a>
+                              <a href="#" class="iq-sub-card notification-item" data-video-id="dQw4w9WgXcQ" data-title="Dora and The Lost City of Gold">
+                                <div class="media align-items-center">
+                                  <img loading="lazy" src="/images/notify/thumb-2.jpg" alt="Dora and The Lost City of Gold movie thumbnail" class="img-fluid mr-3" />
+                                  <div class="media-body">
+                                    <h6 class="mb-0">Dora and The Lost City of Gold</h6>
+                                    <small class="font-size-12">25 mins ago</small>
+                                  </div>
+                                </div>
+                              </a>
+                              <a href="#" class="iq-sub-card notification-item" data-video-id="02-XkOLVnIU" data-title="Mulan (2020)">
+                                <div class="media align-items-center">
+                                  <img loading="lazy" src="/images/notify/thumb-3.jpg" alt="Mulan movie thumbnail" class="img-fluid mr-3" />
+                                  <div class="media-body">
+                                    <h6 class="mb-0">Mulan</h6>
+                                    <small class="font-size-12">1h 30 mins ago</small>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
+                          <img loading="lazy" src="/images/user/user.png" class="img-fluid user-m rounded-circle" alt="User profile avatar" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="navbar-right menu-right">
+                <ul class="d-flex align-items-center list-inline m-0">
+                  <li class="nav-item nav-icon">
+                    <a href="#" class="search-toggle device-search">
+                      <i class="fa fa-search"></i>
+                    </a>
+                    <div class="search-box iq-search-bar d-search">
+                      <form action="#" class="searchbox">
+                        <div class="form-group position-relative">
+                          <input type="text" class="text search-input font-size-12"
+                            placeholder="type here to search..." />
+                          <i class="search-link fa fa-search"></i>
+                        </div>
+                      </form>
+                    </div>
+                  </li>
+                  <li class="nav-item nav-icon">
+                    <a href="#" class="search-toggle" data-toggle="search-toggle">
+                      <i class="fa fa-bell"></i>
+                      <span class="bg-danger dots"></span>
+                    </a>
+                    <div class="iq-sub-dropdown">
+                      <div class="iq-card shadow-none m-0">
+                        <div class="iq-card-body">
+                          <a href="#" class="iq-sub-card notification-item" data-video-id="tmeOjFno6Do" data-title="Captain Marvel">
+                            <div class="media align-items-center">
+                              <img loading="lazy" src="/images/notify/thumb-1.jpg" alt="Captain Marvel movie thumbnail" class="img-fluid mr-3" />
+                              <div class="media-body">
+                                <h6 class="mb-0">Captain Marvel</h6>
+                                <small class="font-size-12">just now</small>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="iq-sub-card notification-item" data-video-id="dQw4w9WgXcQ" data-title="Dora and The Lost City of Gold">
+                            <div class="media align-items-center">
+                              <img loading="lazy" src="/images/notify/thumb-2.jpg" alt="Dora and The Lost City of Gold movie thumbnail" class="img-fluid mr-3" />
+                              <div class="media-body">
+                                <h6 class="mb-0">Dora and The Lost City of Gold</h6>
+                                <small class="font-size-12">25 mins ago</small>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="iq-sub-card notification-item" data-video-id="02-XkOLVnIU" data-title="Mulan (2020)">
+                            <div class="media align-items-center">
+                              <img loading="lazy" src="/images/notify/thumb-3.jpg" alt="Mulan movie thumbnail" class="img-fluid mr-3" />
+                              <div class="media-body">
+                                <h6 class="mb-0">Mulan</h6>
+                                <small class="font-size-12">1h 30 mins ago</small>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item nav-icon">
+                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+                      <img loading="lazy" src="/images/user/user.png" class="img-fluid user-m rounded-circle" alt="User profile avatar" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="nav-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="video-gallery-overlay" class="video-gallery-overlay">
+
+    <div class="video-gallery-container">
+
+      <div class="video-gallery-content">
+
+        <div class="row">
+
+          <div class="col-lg-9">
+
+            <div class="video-player-container">
+              
+              <!-- VideoPress iframe container -->
+              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <!-- Jetpack VideoPress iframe used by the gallery JS -->
+                <!-- Lazy loading: iframe will load when video is selected -->
+                <iframe
+                  id="video-iframe"
+                  src=""
+                  loading="lazy"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; display: block; z-index: 1;"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-3">
+
+            <div class="video-info">
+
+
+
+              <h2 id="video-title" class="video-title">Avengers: Endgame</h2>
+
+              
+
+              <!-- Interpreter Section -->
+
+              <div class="tags-section interpreter-section">
+
+                <h6 class="meta-label">Interpreter:</h6>
+
+                <div class="tags-list">
+
+                  <span class="tag-item">English</span>
+
+                  <span class="tag-item">Spanish</span>
+
+                  <span class="tag-item">French</span>
+
+                </div>
+
+              </div>
+
+              
+
+              <!-- Rating Section -->
+
+              <div class="video-meta">
+
+                <div class="rating-section">
+
+                  <h6 class="meta-label">Rating:</h6>
+
+                  <span class="rating">
+
+                    <i class="fa fa-star text-primary"></i>
+
+                    <i class="fa fa-star text-primary"></i>
+
+                    <i class="fa fa-star text-primary"></i>
+
+                    <i class="fa fa-star text-primary"></i>
+
+                    <i class="fa fa-star-half text-primary"></i>
+
+                    <span class="ml-2">8.4/10</span>
+
+                  </span>
+
+                </div>
+
+                <div class="movie-details">
+
+                  <span class="badge badge-secondary">16+</span>
+
+                  <span class="duration">2h 21min</span>
+
+                  <span class="year">2019</span>
+
+                </div>
+
+              </div>
+
+              
+
+              <!-- Genres Section -->
+
+              <div class="genres-section">
+
+                <h6 class="meta-label">Genres:</h6>
+
+                <div class="genres-list">
+
+                  <span class="genre-tag">Action</span>
+
+                  <span class="genre-tag">Adventure</span>
+
+                  <span class="genre-tag">Drama</span>
+
+                </div>
+
+              </div>
+
+              
+
+              <!-- Tags Section -->
+
+              <div class="tags-section">
+
+                <h6 class="meta-label">Tags:</h6>
+
+                <div class="tags-list">
+
+                  <span class="tag-item">Action</span>
+
+                  <span class="tag-item">Comedy</span>
+
+                  <span class="tag-item">Adventure</span>
+
+                </div>
+
+              </div>
+
+              
+
+              <p class="video-description">
+
+                After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.
+
+              </p>
+
+              <!-- 
+
+                VIDEO SIDEBAR ACTION BUTTONS
+
+                These buttons automatically update with movie-specific links based on data attributes
+
+                in the movie buttons. To customize links for each movie, add these attributes to the 
+
+                movie's iq-button element:
+
+                
+
+                - data-watch-full-link="https://your-link-here.com/watch/movie-name"
+
+                - data-download-link="https://your-link-here.com/download/movie-name"
+
+                
+
+                See examples in the movie items below for reference.
+
+              -->
+
+              <div class="video-actions">
+
+
+                <button class="btn btn-outline btn-download">
+
+                  <i class="fa fa-download mr-2"></i>Download
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        
+
+        <!-- Default Section: Top Picks For You (shown by default) -->
+
+        <div id="video-gallery-default-section" class="video-gallery-default-section mt-4">
+
+          <h3 class="text-white mb-3">You May Also Like </h3>
+
+          <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+
+            <!-- item 1 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/favorite/f1.jpg" class="img-fluid" alt="Insidious: The Last Key movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <!-- 
+
+                      Add data-watch-full-link and data-download-link attributes to each movie button
+
+                      to customize the "Watch Full Movie" and "Download" links for each movie.
+
+                      Example below:
+
+                    -->
+
+                    <a href="#" class="iq-button" data-video-id="02-XkOLVnIU" data-title="Afterburn" data-watch-full-link="https://example.com/watch/insidious" data-download-link="https://example.com/download/insidious" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Afterburn</a>
+
+                  <span class="text-primary">1h 43min</span>
+
+                </div>
+
+                <p class="mb-0">A horror thriller about a family confronting their dark past.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 2 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/favorite/f2.jpg" class="img-fluid" alt="War (2019) movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <!-- Example: Add data-watch-full-link and data-download-link to customize links for each movie -->
+
+                    <a href="#" class="iq-button" data-video-id="8jLOx1hD3_o" data-title="Death Race" data-watch-full-link="https://example.com/watch/war" data-download-link="https://example.com/download/war" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Death Race</a>
+
+                  <span class="text-primary">2h 34min</span>
+
+                </div>
+
+                <p class="mb-0">An action-packed thriller about two agents on a mission.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 3 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/favorite/f3.jpg" class="img-fluid" alt="Five Feet Apart movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <!-- Example: Each movie can have its own unique watch and download links -->
+
+                    <a href="#" class="iq-button" data-video-id="W4DlMggBPvc" data-title="Homefront" data-watch-full-link="https://example.com/watch/five-feet-apart" data-download-link="https://example.com/download/five-feet-apart" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Homefront</a>
+
+                  <span class="text-primary">2h 57min</span>
+
+                </div>
+
+                <p class="mb-0">A romantic drama about two teens with cystic fibrosis.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 4 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/favorite/f4.jpg" class="img-fluid" alt="Chhichhore movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="sDYVdxFZq8Y" data-title="Mayhem" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Mayhem</a>
+
+                  <span class="text-primary">2h 23min</span>
+
+                </div>
+
+                <p class="mb-0">A heartwarming story about friendship and life lessons.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 5 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/favorite/f5.jpg" class="img-fluid" alt="Doctor Strange movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="q78_0TElYME" data-title="Shadow Force" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Shadow Force</a>
+
+                  <span class="text-primary">1h 55min</span>
+
+                </div>
+
+                <p class="mb-0">A Marvel superhero origin story about a brilliant neurosurgeon.</p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        
+
+        <!-- Default Section 2: Recommended For You -->
+
+        <div class="video-gallery-default-section mt-4">
+
+          <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+
+            <!-- item 1 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/tvthrillers/01.jpg" class="img-fluid" alt="The Martian movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="acEoQpJq0qg" data-title="Hunting jessica" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">War 2</a>
+
+                  <span class="text-primary">2h 45min</span>
+
+                </div>
+
+                <p class="mb-0">An astronaut must survive on Mars after being left behind by his crew.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 2 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/tvthrillers/02.jpg" class="img-fluid" alt="TV thriller show poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="yQ5U8suTUw0" data-title="Frankenstein" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Don't Hang Up</a>
+
+                  <span class="text-primary">2h 12min</span>
+
+                </div>
+
+                <p class="mb-0">A psychological thriller about road rage that escalates into a dangerous game.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 3 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/tvthrillers/03.jpg" class="img-fluid" alt="TV thriller show poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="4qf9Uyn2acE" data-title="Texas Chain" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Doctor Strange</a>
+
+                  <span class="text-primary">3h</span>
+
+                </div>
+
+                <p class="mb-0">A spy action comedy about a secret organization of gentleman spies.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 4 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/tvthrillers/04.jpg" class="img-fluid" alt="TV thriller show poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="tsxemFXSQXQ" data-title="Woman in the yard" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Jurassic World: Rebirth</a>
+
+                  <span class="text-primary">1h 55min</span>
+
+                </div>
+
+                <p class="mb-0">James Bond's first mission as 007 takes him to a high-stakes poker game.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 5 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/tvthrillers/05.jpg" class="img-fluid" alt="TV thriller show poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="Lt-U_t2pUHI" data-title="Hunting jessica brok" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Black Widow</a>
+
+                  <span class="text-primary">1h 35min</span>
+
+                </div>
+
+                <p class="mb-0">An American agent, under false suspicion of disloyalty, must discover and expose the real spy.</p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        
+
+        
+
+        <!-- Default Section 3: Suggested Sports -->
+
+        <div class="video-gallery-default-section mt-4">
+
+          <div class="owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0">
+
+            <!-- item 1 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/suggested/01.jpg" class="img-fluid" alt="Suggested movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="NBA Basketball Highlights" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Monkey King</a>
+
+                  <span class="text-primary">Cartoon</span>
+
+                </div>
+
+                <p class="mb-0">Watch the best NBA highlights and game recaps.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 2 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/suggested/02.jpg" class="img-fluid" alt="Suggested movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="Volleyball Championship" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Ne-Zha</a>
+
+                  <span class="text-primary">Cartoon</span>
+
+                </div>
+
+                <p class="mb-0">Professional volleyball matches and championship highlights.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 3 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/suggested/03.jpg" class="img-fluid" alt="Suggested movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="College Basketball Highlights" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Bigfoot Family</a>
+
+                  <span class="text-primary">Cartoon</span>
+
+                </div>
+
+                <p class="mb-0">College basketball highlights and exciting matchups.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 4 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/suggested/04.jpg" class="img-fluid" alt="Suggested movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="dQw4w9WgXcQ" data-title="T20 Cricket Highlights" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Peter Rabbit</a>
+
+                  <span class="text-primary">Cartoon</span>
+
+                </div>
+
+                <p class="mb-0">T20 cricket matches and thrilling moments from the pitch.</p>
+
+              </div>
+
+            </div>
+
+            <!-- item 5 -->
+
+            <div class="e-item">
+
+              <div class="block-image position-relative">
+
+                <a href="#">
+
+                  <img loading="lazy" src="/images/suggested/05.jpg" class="img-fluid" alt="Suggested movie poster">
+
+                </a>
+
+                <div class="episode-play-info">
+
+                  <div class="episode-play">
+
+                    <a href="#" class="iq-button" data-video-id="5PSNL1qE6VY" data-title="PGA Golf Championship" tabindex="0">
+
+                      <i class="fa fa-play"></i>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="episodes-description text-body">
+
+                <div class="d-flex align-items-center justify-content-between">
+
+                  <a href="#">Peter Rabbit 2</a>
+
+                  <span class="text-primary">Cartoon</span>
+
+                </div>
+
+                <p class="mb-0">PGA championship highlights and golf tournament coverage.</p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        
+
+        <!-- Episodes Section (hidden by default, shown when episodes are selected) -->
+
+        <div id="video-episodes-gallery" class="video-episodes-gallery mt-4" style="display: none;"></div>
+
+        
+
+        <!-- Recommended Sections -->
+
+       
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="iq-bg-dark">
+    <div class="footer-top">
+      <div class="container-fluid">
+        <div class="row footer-standard">
+          <div class="col-lg-5">
+            <div class="widget text-left">
+              <div>
+                <ul class="menu p-0">
+                  <li><a href="/termsofuse/">Terms of Use</a></li>
+                  <li><a href="/privacypolicy/">Privacy-Policy</a></li>
+                  <li><a href="/watchlist/">Watch List</a></li>
+                  <li><a href="/favorites/">Favorities</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="widget text-left">
+              <div class="textwidget">
+                <p><small>MIYAGI Films - Your premier destination for streaming movies and TV shows. Watch HD content, discover trending entertainment, and enjoy personalized recommendations.</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+            <h6 class="footer-link-title">Contact Us:</h6>
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+              <small><i class="fa fa-phone"></i> <a href="tel:+250781371985" style="color: #d1d0cf;">+250 781 371 985</a></small>
+              <small><i class="fa fa-envelope"></i> <a href="mailto:miyagifilms@gmail.com" style="color: #d1d0cf;">miyagifilms@gmail.com</a></small>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+            <h6 class="footer-link-title">Follow Us:</h6>
+            <ul class="info-share">
+              <li>
+                <a href="#">
+                  <i>
+                    <fa class="fa fa-facebook"></fa>
+                  </i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i>
+                    <fa class="fa fa-youtube"></fa>
+                  </i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i>
+                    <fa class="fa fa-instagram"></fa>
+                  </i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Libraries -->
+  <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/slick.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/select2.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/slick-animation.min.js"></script>
+  
+  <!-- Load main.js (includes watch page functionality) -->
+  <script src="/main.js"></script>
+  <script>
+    // Ensure page loader is hidden on watch page
+    document.addEventListener('DOMContentLoaded', function () {
+      document.body.classList.remove('loading');
+      const loader = document.getElementById('page-loader');
+      if (loader) {
+        loader.style.display = 'none';
+      }
+      
+      // Force equal heights for video player and sidebar - COMPREHENSIVE FIX
+      function equalizeHeights() {
+        const videoPlayerCol = document.querySelector('.video-gallery-content .col-lg-9');
+        const videoInfoCol = document.querySelector('.video-gallery-content .col-lg-3');
+        const videoPlayer = document.querySelector('.video-gallery-overlay .video-player-container');
+        const videoInfo = document.querySelector('.video-gallery-overlay .video-info');
+        
+        if (videoPlayer && videoInfo && videoPlayerCol && videoInfoCol) {
+          // Step 1: Reset all heights
+          videoPlayerCol.style.height = 'auto';
+          videoInfoCol.style.height = 'auto';
+          videoPlayer.style.height = 'auto';
+          videoInfo.style.height = 'auto';
+          
+          // Step 2: Get natural heights
+          const playerColHeight = videoPlayerCol.offsetHeight;
+          const infoColHeight = videoInfoCol.offsetHeight;
+          const playerHeight = videoPlayer.offsetHeight;
+          const infoHeight = videoInfo.offsetHeight;
+          
+          // Step 3: Calculate maximum height (use the tallest)
+          const maxHeight = Math.max(playerColHeight, infoColHeight, playerHeight, infoHeight, 500);
+          
+          // Step 4: Set columns to same height first
+          videoPlayerCol.style.height = maxHeight + 'px';
+          videoInfoCol.style.height = maxHeight + 'px';
+          
+          // Step 5: Set containers to fill their columns
+          videoPlayer.style.height = '100%';
+          videoInfo.style.height = '100%';
+          
+          // Step 6: Verify and force if needed
+          setTimeout(function() {
+            const finalPlayerHeight = videoPlayer.offsetHeight;
+            const finalInfoHeight = videoInfo.offsetHeight;
+            const finalMax = Math.max(finalPlayerHeight, finalInfoHeight, maxHeight);
+            videoPlayer.style.height = finalMax + 'px';
+            videoInfo.style.height = finalMax + 'px';
+          }, 50);
+        }
+      }
+      
+      // Run multiple times to ensure it works
+      equalizeHeights();
+      setTimeout(equalizeHeights, 100);
+      setTimeout(equalizeHeights, 300);
+      setTimeout(equalizeHeights, 500);
+      setTimeout(equalizeHeights, 1000);
+      setTimeout(equalizeHeights, 2000);
+      
+      // Run on resize
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(equalizeHeights, 100);
+      });
+      
+      // Watch for content changes
+      if (window.MutationObserver) {
+        const observer = new MutationObserver(function() {
+          setTimeout(equalizeHeights, 100);
+        });
+        const target = document.querySelector('.video-gallery-content');
+        if (target) {
+          observer.observe(target, { 
+            childList: true, 
+            subtree: true, 
+            attributes: true,
+            attributeFilter: ['style', 'class']
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
