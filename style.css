@@ -2376,7 +2376,8 @@ li.slide-item:hover .block-images{
 }
 .music-play-lists .count-box{
     height: 15px !important;
-    width: 15px !important;
+    width: auto !important;
+    min-width: 15px !important;
     line-height: 15px !important;
     font-size: 8px !important;
     background: #e50914 !important;
@@ -2384,8 +2385,35 @@ li.slide-item:hover .block-images{
     position: absolute;
     right: 0;
     top: 0;
-    padding: 0;
+    padding: 0 4px !important;
     text-align: center !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Ensure count boxes are always visible to all users */
+.count-box {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    margin-left: 5px;
+}
+
+/* Animation for count box updates */
+.count-box.updated {
+    animation: countPulse 0.5s ease-in-out;
+}
+
+@keyframes countPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
 .music-play-lists li:hover span{

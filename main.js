@@ -521,10 +521,13 @@ document.addEventListener("click", function (e) {
         }
         
         // Get like count for a specific item (total likes from all users)
+        // This count is visible to ALL users and shows the total number of users who liked this item
         getLikeCount(itemId) {
             if (!this.likesData[itemId]) {
                 return 0;
             }
+            // Return the total number of unique users who liked this item
+            // This count is shared and visible to all users
             return Object.keys(this.likesData[itemId]).length;
         }
         
@@ -537,6 +540,8 @@ document.addEventListener("click", function (e) {
         }
         
         // Toggle like for an item
+        // When a user likes/unlikes, the count box updates to show the total number of users who liked
+        // This count is visible to ALL users viewing the page
         toggleLike(itemId) {
             if (!this.likesData[itemId]) {
                 this.likesData[itemId] = {};
@@ -554,11 +559,15 @@ document.addEventListener("click", function (e) {
                 this.showNotification('Removed from favorites', 'info');
             } else {
                 // Like - add user's like
+                // This increases the total count visible to all users
                 this.likesData[itemId][this.currentUserId] = true;
                 this.showNotification('Added to favorites!', 'success');
             }
             
+            // Save the updated likes data (persists across page loads)
             this.saveLikesData();
+            
+            // Update UI to show the new total count (visible to all users)
             this.updateItemUI(itemId);
             // Update all instances of this item on the page
             this.updateAllItemInstances(itemId);
@@ -637,7 +646,7 @@ document.addEventListener("click", function (e) {
                     if (!countBox) {
                         countBox = document.createElement('span');
                         countBox.className = 'count-box';
-                        countBox.style.cssText = 'margin-left: 5px; color: #fff; font-size: 12px; display: inline-block;';
+                        countBox.style.cssText = 'margin-left: 5px; color: #fff; font-size: 12px; display: inline-block; font-weight: 500;';
                         
                         // Insert after the heart icon span
                         if (heartSpan && heartSpan.parentNode) {
@@ -647,11 +656,16 @@ document.addEventListener("click", function (e) {
                         }
                     }
                     
-                    // Update count box with current like count (always visible to all users)
+                    // Always update count box with current like count (visible to all users)
+                    // This shows the total number of users who liked this item
                     const newText = likeCount > 0 ? likeCount + '+' : '0+';
-                    if (countBox.textContent !== newText) {
-                        countBox.textContent = newText;
-                        countBox.style.display = 'inline-block';
+                    countBox.textContent = newText;
+                    countBox.style.display = 'inline-block';
+                    countBox.style.visibility = 'visible';
+                    countBox.style.opacity = '1';
+                    
+                    // Add visual feedback when count changes
+                    if (countBox.textContent !== newText || countBox.classList.contains('updated')) {
                         countBox.classList.add('updated');
                         setTimeout(() => {
                             countBox.classList.remove('updated');
@@ -690,17 +704,20 @@ document.addEventListener("click", function (e) {
             });
             
             // Also update any standalone count boxes (for backward compatibility)
+            // Ensure ALL count boxes show the total like count (visible to all users)
             const standaloneCountBoxes = item.querySelectorAll('.count-box');
             standaloneCountBoxes.forEach(box => {
                 const newText = likeCount > 0 ? likeCount + '+' : '0+';
-                if (box.textContent !== newText) {
-                    box.textContent = newText;
-                    box.style.display = 'inline-block';
-                    box.classList.add('updated');
-                    setTimeout(() => {
-                        box.classList.remove('updated');
-                    }, 500);
-                }
+                box.textContent = newText;
+                box.style.display = 'inline-block';
+                box.style.visibility = 'visible';
+                box.style.opacity = '1';
+                
+                // Add visual feedback
+                box.classList.add('updated');
+                setTimeout(() => {
+                    box.classList.remove('updated');
+                }, 500);
             });
             
             // Store liked state in data attribute
@@ -717,6 +734,29 @@ document.addEventListener("click", function (e) {
             allItems.forEach(item => {
                 const itemId = item.getAttribute('data-item-id');
                 this.updateItemUI(itemId);
+            });
+            
+            // Also update items that have heart icons but might not have data-item-id yet
+            // This ensures count boxes are visible for all items
+            const allHeartIcons = document.querySelectorAll('.fa-heart');
+            allHeartIcons.forEach(heartIcon => {
+                const itemContainer = heartIcon.closest('[data-item-id]') || heartIcon.closest('.slide-item');
+                if (itemContainer) {
+                    let itemId = itemContainer.getAttribute('data-item-id');
+                    if (!itemId) {
+                        // Try to generate item ID if not present
+                        const titleElement = itemContainer.querySelector('.iq-title a');
+                        if (titleElement) {
+                            let title = titleElement.textContent.trim();
+                            title = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                            itemId = title;
+                            itemContainer.setAttribute('data-item-id', itemId);
+                        }
+                    }
+                    if (itemId) {
+                        this.updateItemUI(itemId, itemContainer);
+                    }
+                }
             });
         }
         
@@ -759,11 +799,57 @@ document.addEventListener("click", function (e) {
         
         // Apply persistent likes visual state on page load
         applyPersistentLikes() {
+            // Update ALL items to show their like counts (visible to all users)
             const allItems = document.querySelectorAll('[data-item-id]');
             allItems.forEach(item => {
                 const itemId = item.getAttribute('data-item-id');
-                if (itemId && this.hasUserLiked(itemId)) {
+                if (itemId) {
+                    // Always update UI to show count box with total likes
                     this.updateItemUI(itemId);
+                }
+            });
+            
+            // Also ensure all heart icons have count boxes, even if item doesn't have data-item-id
+            const allHeartIcons = document.querySelectorAll('.fa-heart');
+            allHeartIcons.forEach(heartIcon => {
+                const itemContainer = heartIcon.closest('[data-item-id]') || heartIcon.closest('.slide-item');
+                if (itemContainer) {
+                    let itemId = itemContainer.getAttribute('data-item-id');
+                    if (!itemId) {
+                        // Generate item ID from title if not present
+                        const titleElement = itemContainer.querySelector('.iq-title a');
+                        if (titleElement) {
+                            let title = titleElement.textContent.trim();
+                            title = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                            itemId = title;
+                            itemContainer.setAttribute('data-item-id', itemId);
+                        }
+                    }
+                    if (itemId) {
+                        // Update UI to ensure count box is visible with total likes
+                        this.updateItemUI(itemId, itemContainer);
+                    } else {
+                        // Even without item ID, ensure count box exists and is visible
+                        const heartListItem = heartIcon.closest('li');
+                        if (heartListItem) {
+                            let countBox = heartListItem.querySelector('.count-box');
+                            if (!countBox) {
+                                countBox = document.createElement('span');
+                                countBox.className = 'count-box';
+                                countBox.style.cssText = 'margin-left: 5px; color: #fff; font-size: 12px; display: inline-block; font-weight: 500;';
+                                const heartSpan = heartIcon.closest('span');
+                                if (heartSpan && heartSpan.parentNode) {
+                                    heartSpan.parentNode.insertBefore(countBox, heartSpan.nextSibling);
+                                } else {
+                                    heartListItem.appendChild(countBox);
+                                }
+                            }
+                            countBox.textContent = '0+';
+                            countBox.style.display = 'inline-block';
+                            countBox.style.visibility = 'visible';
+                            countBox.style.opacity = '1';
+                        }
+                    }
                 }
             });
         }
@@ -840,6 +926,8 @@ document.addEventListener("click", function (e) {
         refreshAllItems() {
             this.setupAllItems();
             this.updateAllItemsUI();
+            // Ensure count boxes are visible for all items
+            this.applyPersistentLikes();
         }
         
         // Export likes data
@@ -2112,7 +2200,7 @@ document.addEventListener("click", function (e) {
                 {
                     breakpoint:480,
                     settings : {
-                        slidesToShow : 1,
+                        slidesToShow : 2,
                         slidesToScroll : 1
                     }
                 },
@@ -2368,6 +2456,12 @@ document.addEventListener("click", function (e) {
         //   downloadLink: 'https://your-link.com/download/movie-name'
         //   videoLink: 'https://videopress.com/embed/GUID' (REQUIRED for video playback - Jetpack VideoPress embed URL)
         //
+        // To mark a video as an EPISODE (part of a series), add these properties:
+        //   seriesId: 'unique-series-id',  // Same for all episodes in the series
+        //   season: 1,                      // Season number (1, 2, 3, etc.)
+        //   episodeNumber: 1,              // Episode number within the season (optional, for sorting)
+        // When an episode is played, the watch page will show "Next Episodes" section instead of default sections
+        //
         'kUJmAcSf': {
             image: '/images/trending/02.jpg',
             title: 'Pick Up',
@@ -2428,9 +2522,9 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/02-XkOLVnIU',
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
-        '8jLOx1hD3_o': {
+        'bad': {
             image: '/images/popular/u3.jpg',
-            title: 'Death Race',
+            title: 'The bad influencer',
             rating: 6.5,
             stars: 4.5,
             genres: ['Action', 'Thriller', 'Sci-fi'],
@@ -3261,6 +3355,10 @@ document.addEventListener("click", function (e) {
                 console.warn('No video ID found for play button');
                 return;
             }
+
+            // If this click is for a series episode (from an episodes carousel),
+            // persist the current season's episode list so the watch page can render "Next Episodes".
+            try { persistEpisodeContextFromButton(this, videoId); } catch (_) {}
             
             // Remember the series scope where this click happened
             const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
@@ -3319,6 +3417,9 @@ document.addEventListener("click", function (e) {
             if (!videoId) {
                 return;
             }
+
+            // Persist episode context when clicking an episode item (so watch page can show next episodes)
+            try { persistEpisodeContextFromButton(this, videoId); } catch (_) {}
             
             // Remember the series scope where this click happened
             const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
@@ -3334,6 +3435,90 @@ document.addEventListener("click", function (e) {
                 window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
             }
         });
+
+        /**
+         * Persist episode context (series title, season, episodes list) into sessionStorage.
+         * The watch page reads this to show/hide default sections vs "Next Episodes".
+         */
+        function persistEpisodeContextFromButton(buttonEl, currentVideoId) {
+            const $btn = jQuery(buttonEl);
+            const $episodesContens = $btn.closest('.episodes-contens');
+
+            // Not an episode click → clear previous episode context to avoid stale UI
+            if (!$episodesContens.length) {
+                try { sessionStorage.removeItem('watch_episode_context'); } catch (_) {}
+                return;
+            }
+
+            const $seriesScope = $btn.closest('.trending-info, .overlay-tab, .tab-pane');
+
+            // Series title (best-effort)
+            let seriesTitle = '';
+            const $bigTitle = $seriesScope.find('.trending-text.big-title').first();
+            if ($bigTitle.length) seriesTitle = ($bigTitle.text() || '').trim();
+
+            // Selected season number ("Season1" -> "1")
+            let seasonNumber = '';
+            const $select = $seriesScope.find('select.season-select').first();
+            if ($select.length) {
+                seasonNumber = String($select.val() || '').replace('Season', '').trim();
+            }
+
+            const $seasonCarousels = $episodesContens.find('.episodes-slider1');
+            let $activeCarousel = $seasonCarousels;
+
+            if ($seasonCarousels.length > 1 && seasonNumber) {
+                const $match = $seasonCarousels.filter(function() {
+                    return String(this.getAttribute('data-season') || '').trim() === String(seasonNumber);
+                }).first();
+                if ($match.length) $activeCarousel = $match;
+            }
+
+            // Collect episodes for the selected season
+            const episodes = [];
+            $activeCarousel.find('.e-item').each(function() {
+                const $item = jQuery(this);
+
+                // If single container has all seasons, filter by data-season
+                if ($seasonCarousels.length <= 1 && seasonNumber) {
+                    const itemSeason = String($item.attr('data-season') || '').trim();
+                    if (itemSeason && itemSeason !== String(seasonNumber)) return;
+                }
+
+                const $play = $item.find('.iq-button[data-video-id]').first();
+                const epId = $play.attr('data-video-id');
+                if (!epId) return;
+
+                const epTitle = ($play.attr('data-title') || $item.find('.episodes-description a').first().text() || '').trim();
+                const epDuration = ($item.find('.episodes-description .text-primary').first().text() || '').trim();
+                const epDesc = ($item.find('.episodes-description p').first().text() || '').trim();
+                const epImg = ($item.find('img').first().attr('src') || $item.find('img').first().attr('data-src') || '').trim();
+
+                episodes.push({
+                    id: epId,
+                    title: epTitle,
+                    duration: epDuration,
+                    description: epDesc,
+                    image: epImg
+                });
+            });
+
+            if (!seasonNumber && $activeCarousel && $activeCarousel.length) {
+                seasonNumber = String($activeCarousel.attr('data-season') || '').trim();
+            }
+
+            const payload = {
+                seriesTitle: seriesTitle || 'Series',
+                season: seasonNumber || '',
+                currentVideoId: String(currentVideoId || ''),
+                episodes,
+                savedAt: Date.now()
+            };
+
+            try {
+                sessionStorage.setItem('watch_episode_context', JSON.stringify(payload));
+            } catch (_) {}
+        }
         
         let activeShareCopyPopup = null;
 
@@ -3371,12 +3556,23 @@ document.addEventListener("click", function (e) {
                 }
             }
 
-            // Use video link if available, otherwise use video ID
-            const finalVideoLink = videoLink || (videoId ? getVideoLink(videoId) : null) || window.currentVideoId || null;
+            // Extract video ID from videoLink if it's a VideoPress URL
+            let actualVideoId = videoId;
+            if (!actualVideoId && videoLink) {
+                if (videoLink.includes('videopress.com')) {
+                    const match = videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+                    if (match) {
+                        actualVideoId = match[1];
+                    }
+                } else if (!videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
+                    // Assume it's already a video ID
+                    actualVideoId = videoLink;
+                }
+            }
 
             return {
-                videoId: finalVideoLink, // Store as videoLink for consistency
-                videoLink: finalVideoLink,
+                videoId: actualVideoId || videoId || null,
+                videoLink: videoLink || (videoId ? getVideoLink(videoId) : null) || null,
                 title: title || 'Movie'
             };
         }
@@ -3538,7 +3734,7 @@ document.addEventListener("click", function (e) {
             e.stopPropagation();
 
             const videoData = getVideoDataForShare(jQuery(this));
-            if (!videoData.videoLink && !videoData.videoId) {
+            if (!videoData.videoId) {
                 showShareCopyPopup({
                     title: videoData.title,
                     link: 'Link unavailable',
@@ -3547,13 +3743,9 @@ document.addEventListener("click", function (e) {
                 return;
             }
 
-            // Use video link if available, otherwise use current page URL
-            let shareLink = videoData.videoLink || videoData.videoId || window.location.href;
-            
-            // For Facebook, use current page URL for better sharing
-            if (isFacebook) {
-                shareLink = window.location.href;
-            }
+            // Generate share link in format: miyagifilms.com/watch/?id=video-id
+            const baseUrl = window.location.origin || 'https://miyagifilms.com';
+            const shareLink = `${baseUrl}/watch/?id=${encodeURIComponent(videoData.videoId)}`;
 
             showShareCopyPopup({
                 title: videoData.title,
@@ -6188,6 +6380,35 @@ function switchSeasonEpisodes(selectElement) {
         // Find video data by ID or link
         let videoInfo = findWatchPageVideoData(videoId, videoData);
         
+        // Fallback: if not in videoData, try sessionStorage episode context (for series defined only in HTML)
+        if (!videoInfo) {
+            const ctx = readEpisodeContextFromSession();
+            if (ctx && Array.isArray(ctx.episodes)) {
+                const match = ctx.episodes.find(ep => String(ep.id) === String(videoId));
+                if (match) {
+                    const derivedData = {
+                        title: match.title || 'Episode',
+                        description: match.description || '',
+                        duration: match.duration || '',
+                        age: '16+',
+                        year: '',
+                        stars: 4,
+                        rating: 7.0,
+                        genres: ['Drama'],
+                        interpreter: ['English'],
+                        tags: ['Episode'],
+                        image: match.image || '/images/placeholder.jpg',
+                        videoLink: `https://videopress.com/embed/${videoId}`,
+                        downloadLink: null,
+                        seriesId: ctx.seriesTitle || 'series',
+                        season: ctx.season || '',
+                        episodeNumber: match.episodeNumber || ''
+                    };
+                    videoInfo = { id: videoId, data: derivedData };
+                }
+            }
+        }
+        
         if (!videoInfo) {
             console.error('Video not found for ID:', videoId);
             showWatchPageError('Video not found. Please select a valid video.');
@@ -6312,8 +6533,27 @@ function switchSeasonEpisodes(selectElement) {
         // Update download button
         updateWatchPageDownloadButton(data.downloadLink);
         
-        // Load recommended videos
-        loadWatchPageRecommendedVideos(videoData, videoId);
+        // Decide whether this is an EPISODE:
+        // - Prefer sessionStorage context captured from `.episodes-contens` (works for all series/seasons)
+        // - Fallback to explicit episode metadata in videoData (seriesId/season)
+        const episodeCtx = readEpisodeContextFromSession();
+        const ctxHasCurrent = episodeCtx && Array.isArray(episodeCtx.episodes) &&
+            episodeCtx.episodes.some(ep => String(ep.id) === String(videoId));
+        const isEpisode = !!ctxHasCurrent || !!(data.seriesId && data.season);
+        
+        if (isEpisode) {
+            hideDefaultSections();
+            if (ctxHasCurrent) {
+                showEpisodesSectionFromContext(episodeCtx, videoId);
+            } else {
+                // Fallback: old 방식 (requires seriesId/season in videoData)
+                showEpisodesSection(data, videoData, videoId);
+            }
+        } else {
+            hideEpisodesSection();
+            showDefaultSections();
+            loadWatchPageRecommendedVideos(videoData, videoId);
+        }
         
         // Update page title with SEO format
         const movieTitle = data.title || 'Video';
@@ -6327,6 +6567,266 @@ function switchSeasonEpisodes(selectElement) {
         
         // Update Open Graph tags for better social sharing
         updateOGTags(movieTitle, data.description || 'Watch HD movies and TV shows on Miyagifilms');
+    }
+    
+    /**
+     * Hide default sections (for movies)
+     */
+    function hideDefaultSections() {
+        const defaultSections = document.querySelectorAll('.video-gallery-default-section');
+        defaultSections.forEach(section => {
+            section.style.display = 'none';
+        });
+    }
+    
+    /**
+     * Show default sections (for movies)
+     */
+    function showDefaultSections() {
+        const defaultSections = document.querySelectorAll('.video-gallery-default-section');
+        defaultSections.forEach(section => {
+            section.style.display = 'block';
+        });
+    }
+
+    /**
+     * Read episode context stored before navigation (from index.html series episodes carousels)
+     */
+    function readEpisodeContextFromSession() {
+        try {
+            const raw = sessionStorage.getItem('watch_episode_context');
+            if (!raw) return null;
+            const parsed = JSON.parse(raw);
+            if (!parsed || typeof parsed !== 'object') return null;
+            if (!Array.isArray(parsed.episodes)) parsed.episodes = [];
+            return parsed;
+        } catch (_) {
+            return null;
+        }
+    }
+    
+    /**
+     * Hide episodes section
+     */
+    function hideEpisodesSection() {
+        const episodesSection = document.getElementById('video-episodes-gallery');
+        if (episodesSection) {
+            episodesSection.style.display = 'none';
+        }
+    }
+
+    /**
+     * Show episodes section using sessionStorage context (seriesTitle/season + list of episodes)
+     * @param {object} ctx - stored episode context
+     * @param {string} currentVideoId - current episode id
+     */
+    function showEpisodesSectionFromContext(ctx, currentVideoId) {
+        const episodesSection = document.getElementById('video-episodes-gallery');
+        if (!episodesSection || !ctx) return;
+
+        episodesSection.style.display = 'block';
+
+        const season = ctx.season || '';
+        const seriesTitle = ctx.seriesTitle || 'Series';
+        const episodes = (ctx.episodes || []).filter(ep => String(ep.id) !== String(currentVideoId));
+
+        // Render a carousel using the same markup style as recommendations
+        episodesSection.innerHTML = '';
+
+        const heading = document.createElement('h3');
+        heading.className = 'text-white mb-3';
+        heading.textContent = `${seriesTitle} - Season ${season} Episodes`;
+        episodesSection.appendChild(heading);
+
+        if (!episodes.length) {
+            const empty = document.createElement('p');
+            empty.className = 'text-white-50';
+            empty.textContent = 'No other episodes available for this season.';
+            episodesSection.appendChild(empty);
+            return;
+        }
+
+        const carousel = document.createElement('div');
+        carousel.className = 'owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0';
+        if (season) carousel.setAttribute('data-season', season);
+
+        episodes.forEach(ep => {
+            const item = document.createElement('div');
+            item.className = 'e-item';
+            if (season) item.setAttribute('data-season', season);
+            item.innerHTML = `
+                <div class="block-image position-relative">
+                    <a href="/watch/?id=${encodeURIComponent(ep.id)}">
+                        <img loading="lazy" src="${ep.image || '/images/placeholder.jpg'}" class="img-fluid" alt="${(ep.title || 'Episode').replace(/"/g, '&quot;')}">
+                    </a>
+                    <div class="episode-play-info">
+                        <div class="episode-play">
+                            <a href="/watch/?id=${encodeURIComponent(ep.id)}" class="iq-button" data-video-id="${String(ep.id).replace(/"/g, '&quot;')}" data-title="${(ep.title || 'Episode').replace(/"/g, '&quot;')}" tabindex="0">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="episodes-description text-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="/watch/?id=${encodeURIComponent(ep.id)}">${ep.title || 'Episode'}</a>
+                        <span class="text-primary">${ep.duration || '-'}</span>
+                    </div>
+                    <p class="mb-0">${(ep.description || '').substring(0, 80)}${(ep.description || '').length > 80 ? '...' : ''}</p>
+                </div>
+            `;
+            carousel.appendChild(item);
+        });
+
+        episodesSection.appendChild(carousel);
+
+        // Initialize carousel if available
+        if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+            setTimeout(function() {
+                jQuery(carousel).owlCarousel({
+                    loop: episodes.length > 1,
+                    margin: 20,
+                    nav: true,
+                    dots: false,
+                    autoplay: false,
+                    responsive: {
+                        0: { items: 2 },
+                        576: { items: 3 },
+                        768: { items: 4 },
+                        992: { items: 5 },
+                        1200: { items: 6 }
+                    }
+                });
+            }, 50);
+        }
+    }
+    
+    /**
+     * Show episodes section and populate with episodes from the same season
+     * @param {object} currentEpisodeData - Current episode data
+     * @param {object} videoData - Full videoData object
+     * @param {string} currentVideoId - Current video ID
+     */
+    function showEpisodesSection(currentEpisodeData, videoData, currentVideoId) {
+        const episodesSection = document.getElementById('video-episodes-gallery');
+        if (!episodesSection) return;
+        
+        // Show the episodes section
+        episodesSection.style.display = 'block';
+        
+        // Find all episodes from the same series and season
+        const seriesId = currentEpisodeData.seriesId;
+        const season = currentEpisodeData.season;
+        const sameSeasonEpisodes = [];
+        
+        for (const [id, data] of Object.entries(videoData)) {
+            if (data && 
+                data.seriesId === seriesId && 
+                data.season === season && 
+                id !== currentVideoId) {
+                sameSeasonEpisodes.push({ id: id, data: data });
+            }
+        }
+        
+        // Sort episodes by episode number if available
+        sameSeasonEpisodes.sort((a, b) => {
+            const epA = a.data.episodeNumber || 0;
+            const epB = b.data.episodeNumber || 0;
+            return epA - epB;
+        });
+        
+        // Render episodes carousel
+        renderWatchPageEpisodesCarousel(episodesSection, sameSeasonEpisodes, seriesId, season);
+    }
+    
+    /**
+     * Render episodes carousel for a specific season
+     * @param {HTMLElement} container - Container element
+     * @param {array} episodes - Array of episode objects
+     * @param {string} seriesId - Series ID
+     * @param {string|number} season - Season number
+     */
+    function renderWatchPageEpisodesCarousel(container, episodes, seriesId, season) {
+        if (!container) return;
+        
+        // Clear container
+        container.innerHTML = '';
+        
+        if (episodes.length === 0) {
+            container.innerHTML = '<p class="text-white-50">No other episodes available for this season.</p>';
+            return;
+        }
+        
+        // Create heading
+        const heading = document.createElement('h3');
+        heading.className = 'text-white mb-3';
+        heading.textContent = `Season ${season} - Next Episodes`;
+        container.appendChild(heading);
+        
+        // Create carousel container
+        const carousel = document.createElement('div');
+        carousel.className = 'owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0';
+        carousel.setAttribute('data-season', season);
+        
+        // Render episode items
+        episodes.forEach(episode => {
+            const item = document.createElement('div');
+            item.className = 'e-item';
+            item.setAttribute('data-season', season);
+            item.setAttribute('data-episode', episode.data.episodeNumber || '');
+            
+            const videoLink = episode.data.videoLink || `https://videopress.com/embed/${episode.id}`;
+            const videoId = episode.id;
+            const episodeTitle = episode.data.title || 'Episode';
+            const episodeNumber = episode.data.episodeNumber ? `Episode ${episode.data.episodeNumber}` : '';
+            
+            item.innerHTML = `
+                <div class="block-image position-relative">
+                    <a href="/watch/?id=${videoId}">
+                        <img loading="lazy" src="${episode.data.image || '/images/placeholder.jpg'}" class="img-fluid" alt="${episodeTitle}">
+                    </a>
+                    <div class="episode-play-info">
+                        <div class="episode-play">
+                            <a href="/watch/?id=${videoId}" class="iq-button" data-video-id="${videoId}" data-title="${episodeTitle}" tabindex="0">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="episodes-description text-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="/watch/?id=${videoId}">${episodeTitle}</a>
+                        <span class="text-primary">${episode.data.duration || '-'}</span>
+                    </div>
+                    <p class="mb-0">${episodeNumber}${episodeNumber ? ' - ' : ''}${(episode.data.description || '').substring(0, 60)}${(episode.data.description || '').length > 60 ? '...' : ''}</p>
+                </div>
+            `;
+            
+            carousel.appendChild(item);
+        });
+        
+        container.appendChild(carousel);
+        
+        // Initialize carousel if jQuery and Owl Carousel are available
+        if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+            setTimeout(function() {
+                jQuery(carousel).owlCarousel({
+                    loop: episodes.length > 1,
+                    margin: 20,
+                    nav: true,
+                    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+                    dots: false,
+                    autoplay: false,
+                    responsive: {
+                        0: { items: 2 },
+                        576: { items: 3 },
+                        768: { items: 4 },
+                        992: { items: 5 },
+                        1200: { items: 6 }
+                    }
+                });
+            }, 100);
+        }
     }
     
     /**
@@ -6576,6 +7076,23 @@ function switchSeasonEpisodes(selectElement) {
             }, 100);
         }
     }
+
+    // If the user clicks an episode inside the watch page "Next Episodes" section,
+    // keep the same sessionStorage context so the next page load still knows it's a series.
+    if (isWatchPage()) {
+        document.addEventListener('click', function(e) {
+            try {
+                const btn = e.target.closest('#video-episodes-gallery .iq-button[data-video-id]');
+                if (!btn) return;
+                const nextId = btn.getAttribute('data-video-id');
+                if (!nextId) return;
+                const ctx = readEpisodeContextFromSession();
+                if (!ctx) return;
+                ctx.currentVideoId = String(nextId);
+                sessionStorage.setItem('watch_episode_context', JSON.stringify(ctx));
+            } catch (_) {}
+        });
+    }
     
     /**
      * Render video carousel items
@@ -6636,6 +7153,10 @@ function switchSeasonEpisodes(selectElement) {
             descElement.textContent = message;
             descElement.style.color = '#e50914';
         }
+        
+        // Show default sections and hide episodes section on error
+        hideEpisodesSection();
+        showDefaultSections();
     }
     
     /**
