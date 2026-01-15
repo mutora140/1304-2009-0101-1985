@@ -3489,7 +3489,9 @@ document.addEventListener("click", function (e) {
                 const epId = $play.attr('data-video-id');
                 if (!epId) return;
 
-                const epTitle = ($play.attr('data-title') || $item.find('.episodes-description a').first().text() || '').trim();
+                // CRITICAL: Use the EXACT title from the episodes-description link (what user sees on home page)
+                // This is the actual displayed title, not the data-title attribute which may be different
+                const epTitle = ($item.find('.episodes-description a').first().text() || $play.attr('data-title') || '').trim();
                 const epDuration = ($item.find('.episodes-description .text-primary').first().text() || '').trim();
                 const epDesc = ($item.find('.episodes-description p').first().text() || '').trim();
                 const epImg = ($item.find('img').first().attr('src') || $item.find('img').first().attr('data-src') || '').trim();
@@ -6345,7 +6347,17 @@ function switchSeasonEpisodes(selectElement) {
     
     // Wait for DOM and videoData to be available
     if (isWatchPage()) {
+        // Initially hide default sections until we know what type of content it is
         document.addEventListener('DOMContentLoaded', function() {
+            // Hide default sections initially
+            const defaultSections = document.querySelectorAll('.video-gallery-default-section');
+            defaultSections.forEach(section => {
+                if (section) {
+                    section.style.display = 'none';
+                    section.style.visibility = 'hidden';
+                }
+            });
+            
             // Wait a bit for main.js to load videoData
             setTimeout(initializeWatchPage, 100);
         });
@@ -6542,17 +6554,37 @@ function switchSeasonEpisodes(selectElement) {
         const isEpisode = !!ctxHasCurrent || !!(data.seriesId && data.season);
         
         if (isEpisode) {
+            // CRITICAL: For episodes, hide default sections FIRST and ensure they stay hidden
             hideDefaultSections();
+            hideEpisodesSection(); // Clear any previous episode content
+            
             if (ctxHasCurrent) {
                 showEpisodesSectionFromContext(episodeCtx, videoId);
             } else {
                 // Fallback: old 방식 (requires seriesId/season in videoData)
                 showEpisodesSection(data, videoData, videoId);
             }
+            
+            // Double-check default sections are hidden after showing episodes
+            setTimeout(function() {
+                hideDefaultSections();
+            }, 100);
         } else {
+            // CRITICAL: For movies (non-episodes), clear episode context and show defaults
+            // Clear episode context from sessionStorage since this is not an episode
+            try {
+                sessionStorage.removeItem('watch_episode_context');
+            } catch (_) {}
+            
+            // Hide episodes section FIRST and ensure it stays hidden
             hideEpisodesSection();
             showDefaultSections();
             loadWatchPageRecommendedVideos(videoData, videoId);
+            
+            // Double-check episodes section is hidden after showing default sections
+            setTimeout(function() {
+                hideEpisodesSection();
+            }, 100);
         }
         
         // Update page title with SEO format
@@ -6573,9 +6605,37 @@ function switchSeasonEpisodes(selectElement) {
      * Hide default sections (for movies)
      */
     function hideDefaultSections() {
+        // Hide ALL default sections (You May Also Like, Recommended, etc.)
         const defaultSections = document.querySelectorAll('.video-gallery-default-section');
         defaultSections.forEach(section => {
-            section.style.display = 'none';
+            if (section) {
+                // Use !important via setProperty to override any CSS
+                section.style.setProperty('display', 'none', 'important');
+                section.style.setProperty('visibility', 'hidden', 'important');
+                section.style.setProperty('opacity', '0', 'important');
+                section.style.setProperty('height', '0', 'important');
+                section.style.setProperty('overflow', 'hidden', 'important');
+                section.style.setProperty('margin', '0', 'important');
+                section.style.setProperty('padding', '0', 'important');
+                // Add a class to mark as hidden
+                section.classList.add('episode-mode-hidden');
+            }
+        });
+        
+        // Also hide any carousels inside default sections
+        const defaultCarousels = document.querySelectorAll('.video-gallery-default-section .episodes-slider1');
+        defaultCarousels.forEach(carousel => {
+            if (carousel) {
+                carousel.style.setProperty('display', 'none', 'important');
+            }
+        });
+        
+        // Hide any items inside default sections
+        const defaultItems = document.querySelectorAll('.video-gallery-default-section .e-item');
+        defaultItems.forEach(item => {
+            if (item) {
+                item.style.setProperty('display', 'none', 'important');
+            }
         });
     }
     
@@ -6583,10 +6643,54 @@ function switchSeasonEpisodes(selectElement) {
      * Show default sections (for movies)
      */
     function showDefaultSections() {
+        // Stop the episode mode observer if it's running
+        if (window.episodeModeObserver) {
+            window.episodeModeObserver.disconnect();
+            window.episodeModeObserver = null;
+        }
+        
+        // CRITICAL: First, ensure episodes section is completely hidden
+        hideEpisodesSection();
+        
+        // Then show ONLY default sections
         const defaultSections = document.querySelectorAll('.video-gallery-default-section');
         defaultSections.forEach(section => {
-            section.style.display = 'block';
+            if (section) {
+                // Remove hidden class
+                section.classList.remove('episode-mode-hidden');
+                // Use !important via setProperty to override any CSS
+                section.style.setProperty('display', 'block', 'important');
+                section.style.setProperty('visibility', 'visible', 'important');
+                section.style.setProperty('opacity', '1', 'important');
+                section.style.setProperty('height', 'auto', 'important');
+                section.style.setProperty('overflow', 'visible', 'important');
+                section.style.removeProperty('margin');
+                section.style.removeProperty('padding');
+            }
         });
+        
+        // Show carousels inside default sections
+        const defaultCarousels = document.querySelectorAll('.video-gallery-default-section .episodes-slider1');
+        defaultCarousels.forEach(carousel => {
+            if (carousel) {
+                carousel.style.setProperty('display', 'block', 'important');
+            }
+        });
+        
+        // Show items inside default sections
+        const defaultItems = document.querySelectorAll('.video-gallery-default-section .e-item');
+        defaultItems.forEach(item => {
+            if (item) {
+                item.style.removeProperty('display');
+            }
+        });
+        
+        // Initialize like system for all items in default sections (so count boxes are visible globally)
+        if (typeof window.likeSystem !== 'undefined' && window.likeSystem.updateAllItemsUI) {
+            setTimeout(function() {
+                window.likeSystem.updateAllItemsUI();
+            }, 100);
+        }
     }
 
     /**
@@ -6612,6 +6716,9 @@ function switchSeasonEpisodes(selectElement) {
         const episodesSection = document.getElementById('video-episodes-gallery');
         if (episodesSection) {
             episodesSection.style.display = 'none';
+            episodesSection.style.visibility = 'hidden';
+            // Clear content to prevent stale data
+            episodesSection.innerHTML = '';
         }
     }
 
@@ -6624,18 +6731,64 @@ function switchSeasonEpisodes(selectElement) {
         const episodesSection = document.getElementById('video-episodes-gallery');
         if (!episodesSection || !ctx) return;
 
-        episodesSection.style.display = 'block';
+        // CRITICAL: Hide ALL default sections first (multiple times to ensure)
+        hideDefaultSections();
+        
+        // Then show ONLY episodes section
+        episodesSection.style.setProperty('display', 'block', 'important');
+        episodesSection.style.setProperty('visibility', 'visible', 'important');
+        episodesSection.style.setProperty('opacity', '1', 'important');
+        episodesSection.style.setProperty('height', 'auto', 'important');
+        
+        // Force hide default sections again after short delays to ensure they stay hidden
+        setTimeout(function() {
+            hideDefaultSections();
+        }, 50);
+        setTimeout(function() {
+            hideDefaultSections();
+        }, 200);
+        setTimeout(function() {
+            hideDefaultSections();
+        }, 500);
+        
+        // Set up a MutationObserver to keep default sections hidden
+        if (!window.episodeModeObserver) {
+            window.episodeModeObserver = new MutationObserver(function(mutations) {
+                const defaultSections = document.querySelectorAll('.video-gallery-default-section');
+                defaultSections.forEach(section => {
+                    if (section && !section.classList.contains('episode-mode-hidden')) {
+                        hideDefaultSections();
+                    }
+                });
+            });
+        }
+        
+        // Start observing if episodes section is visible
+        if (episodesSection.style.display !== 'none') {
+            const targetNode = document.querySelector('.video-gallery-content');
+            if (targetNode && window.episodeModeObserver) {
+                window.episodeModeObserver.observe(targetNode, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['style', 'class']
+                });
+            }
+        }
 
-        const season = ctx.season || '';
+        const season = ctx.season || '1';
         const seriesTitle = ctx.seriesTitle || 'Series';
-        const episodes = (ctx.episodes || []).filter(ep => String(ep.id) !== String(currentVideoId));
+        const allEpisodes = ctx.episodes || [];
+        
+        // Include current episode in the list for display
+        const episodes = allEpisodes.length > 0 ? allEpisodes : [];
 
         // Render a carousel using the same markup style as recommendations
         episodesSection.innerHTML = '';
 
         const heading = document.createElement('h3');
         heading.className = 'text-white mb-3';
-        heading.textContent = `${seriesTitle} - Season ${season} Episodes`;
+        heading.textContent = 'Next Episodes';
         episodesSection.appendChild(heading);
 
         if (!episodes.length) {
@@ -6650,18 +6803,22 @@ function switchSeasonEpisodes(selectElement) {
         carousel.className = 'owl-carousel owl-theme episodes-slider1 list-inline p-0 m-0';
         if (season) carousel.setAttribute('data-season', season);
 
-        episodes.forEach(ep => {
+        episodes.forEach((ep, index) => {
+            // Use the exact title from home page (no reformatting)
+            const episodeTitle = ep.title || '';
+            
             const item = document.createElement('div');
             item.className = 'e-item';
             if (season) item.setAttribute('data-season', season);
+            
             item.innerHTML = `
                 <div class="block-image position-relative">
                     <a href="/watch/?id=${encodeURIComponent(ep.id)}">
-                        <img loading="lazy" src="${ep.image || '/images/placeholder.jpg'}" class="img-fluid" alt="${(ep.title || 'Episode').replace(/"/g, '&quot;')}">
+                        <img loading="lazy" src="${ep.image || '/images/placeholder.jpg'}" class="img-fluid" alt="${episodeTitle.replace(/"/g, '&quot;')}">
                     </a>
                     <div class="episode-play-info">
                         <div class="episode-play">
-                            <a href="/watch/?id=${encodeURIComponent(ep.id)}" class="iq-button" data-video-id="${String(ep.id).replace(/"/g, '&quot;')}" data-title="${(ep.title || 'Episode').replace(/"/g, '&quot;')}" tabindex="0">
+                            <a href="/watch/?id=${encodeURIComponent(ep.id)}" class="iq-button" data-video-id="${String(ep.id).replace(/"/g, '&quot;')}" data-title="${episodeTitle.replace(/"/g, '&quot;')}" tabindex="0">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
@@ -6669,10 +6826,10 @@ function switchSeasonEpisodes(selectElement) {
                 </div>
                 <div class="episodes-description text-body">
                     <div class="d-flex align-items-center justify-content-between">
-                        <a href="/watch/?id=${encodeURIComponent(ep.id)}">${ep.title || 'Episode'}</a>
+                        <a href="/watch/?id=${encodeURIComponent(ep.id)}">${episodeTitle}</a>
                         <span class="text-primary">${ep.duration || '-'}</span>
                     </div>
-                    <p class="mb-0">${(ep.description || '').substring(0, 80)}${(ep.description || '').length > 80 ? '...' : ''}</p>
+                    <p class="mb-0">${(ep.description || '').substring(0, 60)}${(ep.description || '').length > 60 ? '...' : ''}</p>
                 </div>
             `;
             carousel.appendChild(item);
@@ -6684,17 +6841,18 @@ function switchSeasonEpisodes(selectElement) {
         if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
             setTimeout(function() {
                 jQuery(carousel).owlCarousel({
-                    loop: episodes.length > 1,
+                    loop: episodes.length > 4,
                     margin: 20,
                     nav: true,
+                    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
                     dots: false,
                     autoplay: false,
                     responsive: {
                         0: { items: 2 },
                         576: { items: 3 },
                         768: { items: 4 },
-                        992: { items: 5 },
-                        1200: { items: 6 }
+                        992: { items: 4 },
+                        1200: { items: 4 }
                     }
                 });
             }, 50);
@@ -6711,12 +6869,54 @@ function switchSeasonEpisodes(selectElement) {
         const episodesSection = document.getElementById('video-episodes-gallery');
         if (!episodesSection) return;
         
-        // Show the episodes section
-        episodesSection.style.display = 'block';
+        // CRITICAL: Hide ALL default sections first (multiple times to ensure)
+        hideDefaultSections();
+        
+        // Then show ONLY episodes section
+        episodesSection.style.setProperty('display', 'block', 'important');
+        episodesSection.style.setProperty('visibility', 'visible', 'important');
+        episodesSection.style.setProperty('opacity', '1', 'important');
+        episodesSection.style.setProperty('height', 'auto', 'important');
+        
+        // Force hide default sections again after short delays to ensure they stay hidden
+        setTimeout(function() {
+            hideDefaultSections();
+        }, 50);
+        setTimeout(function() {
+            hideDefaultSections();
+        }, 200);
+        setTimeout(function() {
+            hideDefaultSections();
+        }, 500);
+        
+        // Set up a MutationObserver to keep default sections hidden
+        if (!window.episodeModeObserver) {
+            window.episodeModeObserver = new MutationObserver(function(mutations) {
+                const defaultSections = document.querySelectorAll('.video-gallery-default-section');
+                defaultSections.forEach(section => {
+                    if (section && !section.classList.contains('episode-mode-hidden')) {
+                        hideDefaultSections();
+                    }
+                });
+            });
+        }
+        
+        // Start observing if episodes section is visible
+        if (episodesSection.style.display !== 'none') {
+            const targetNode = document.querySelector('.video-gallery-content');
+            if (targetNode && window.episodeModeObserver) {
+                window.episodeModeObserver.observe(targetNode, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['style', 'class']
+                });
+            }
+        }
         
         // Find all episodes from the same series and season
         const seriesId = currentEpisodeData.seriesId;
-        const season = currentEpisodeData.season;
+        const season = currentEpisodeData.season || '1';
         const sameSeasonEpisodes = [];
         
         for (const [id, data] of Object.entries(videoData)) {
@@ -6760,7 +6960,7 @@ function switchSeasonEpisodes(selectElement) {
         // Create heading
         const heading = document.createElement('h3');
         heading.className = 'text-white mb-3';
-        heading.textContent = `Season ${season} - Next Episodes`;
+        heading.textContent = 'Next Episodes';
         container.appendChild(heading);
         
         // Create carousel container
@@ -6769,7 +6969,7 @@ function switchSeasonEpisodes(selectElement) {
         carousel.setAttribute('data-season', season);
         
         // Render episode items
-        episodes.forEach(episode => {
+        episodes.forEach((episode, index) => {
             const item = document.createElement('div');
             item.className = 'e-item';
             item.setAttribute('data-season', season);
@@ -6777,17 +6977,17 @@ function switchSeasonEpisodes(selectElement) {
             
             const videoLink = episode.data.videoLink || `https://videopress.com/embed/${episode.id}`;
             const videoId = episode.id;
+            // Use the exact title from videoData (should match home page)
             const episodeTitle = episode.data.title || 'Episode';
-            const episodeNumber = episode.data.episodeNumber ? `Episode ${episode.data.episodeNumber}` : '';
             
             item.innerHTML = `
                 <div class="block-image position-relative">
                     <a href="/watch/?id=${videoId}">
-                        <img loading="lazy" src="${episode.data.image || '/images/placeholder.jpg'}" class="img-fluid" alt="${episodeTitle}">
+                        <img loading="lazy" src="${episode.data.image || '/images/placeholder.jpg'}" class="img-fluid" alt="${episodeTitle.replace(/"/g, '&quot;')}">
                     </a>
                     <div class="episode-play-info">
                         <div class="episode-play">
-                            <a href="/watch/?id=${videoId}" class="iq-button" data-video-id="${videoId}" data-title="${episodeTitle}" tabindex="0">
+                            <a href="/watch/?id=${videoId}" class="iq-button" data-video-id="${videoId}" data-title="${episodeTitle.replace(/"/g, '&quot;')}" tabindex="0">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
@@ -6798,7 +6998,7 @@ function switchSeasonEpisodes(selectElement) {
                         <a href="/watch/?id=${videoId}">${episodeTitle}</a>
                         <span class="text-primary">${episode.data.duration || '-'}</span>
                     </div>
-                    <p class="mb-0">${episodeNumber}${episodeNumber ? ' - ' : ''}${(episode.data.description || '').substring(0, 60)}${(episode.data.description || '').length > 60 ? '...' : ''}</p>
+                    <p class="mb-0">${(episode.data.description || '').substring(0, 60)}${(episode.data.description || '').length > 60 ? '...' : ''}</p>
                 </div>
             `;
             
@@ -6811,7 +7011,7 @@ function switchSeasonEpisodes(selectElement) {
         if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
             setTimeout(function() {
                 jQuery(carousel).owlCarousel({
-                    loop: episodes.length > 1,
+                    loop: episodes.length > 4,
                     margin: 20,
                     nav: true,
                     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
@@ -6821,8 +7021,8 @@ function switchSeasonEpisodes(selectElement) {
                         0: { items: 2 },
                         576: { items: 3 },
                         768: { items: 4 },
-                        992: { items: 5 },
-                        1200: { items: 6 }
+                        992: { items: 4 },
+                        1200: { items: 4 }
                     }
                 });
             }, 100);
@@ -7086,10 +7286,54 @@ function switchSeasonEpisodes(selectElement) {
                 if (!btn) return;
                 const nextId = btn.getAttribute('data-video-id');
                 if (!nextId) return;
-                const ctx = readEpisodeContextFromSession();
-                if (!ctx) return;
-                ctx.currentVideoId = String(nextId);
-                sessionStorage.setItem('watch_episode_context', JSON.stringify(ctx));
+                
+                // Get current episode context
+                let ctx = readEpisodeContextFromSession();
+                
+                // If no context exists, try to create one from the current episodes section
+                if (!ctx) {
+                    const episodesSection = document.getElementById('video-episodes-gallery');
+                    if (episodesSection && episodesSection.style.display !== 'none') {
+                        // We're in episode mode, create context from visible episodes
+                        const episodes = [];
+                        episodesSection.querySelectorAll('.e-item').forEach(function(item) {
+                            const playBtn = item.querySelector('.iq-button[data-video-id]');
+                            if (playBtn) {
+                                const epId = playBtn.getAttribute('data-video-id');
+                                const epTitle = item.querySelector('.episodes-description a')?.textContent?.trim() || '';
+                                const epDuration = item.querySelector('.episodes-description .text-primary')?.textContent?.trim() || '';
+                                const epDesc = item.querySelector('.episodes-description p')?.textContent?.trim() || '';
+                                const epImg = item.querySelector('img')?.src || '';
+                                
+                                if (epId) {
+                                    episodes.push({
+                                        id: epId,
+                                        title: epTitle,
+                                        duration: epDuration,
+                                        description: epDesc,
+                                        image: epImg
+                                    });
+                                }
+                            }
+                        });
+                        
+                        if (episodes.length > 0) {
+                            ctx = {
+                                seriesTitle: 'Series',
+                                season: episodesSection.querySelector('.episodes-slider1')?.getAttribute('data-season') || '1',
+                                currentVideoId: String(nextId),
+                                episodes: episodes,
+                                savedAt: Date.now()
+                            };
+                        }
+                    }
+                }
+                
+                if (ctx) {
+                    // Update current video ID and maintain episode context
+                    ctx.currentVideoId = String(nextId);
+                    sessionStorage.setItem('watch_episode_context', JSON.stringify(ctx));
+                }
             } catch (_) {}
         });
     }

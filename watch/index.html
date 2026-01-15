@@ -274,6 +274,22 @@
         margin-left: 0 !important; /* Remove left margin on mobile */
       }
     }
+    /* CRITICAL: Ensure default sections are hidden when in episode mode */
+    .video-gallery-default-section.episode-mode-hidden {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    /* Ensure episodes section is visible when shown */
+    #video-episodes-gallery[style*="display: block"] {
+      display: block !important;
+      visibility: visible !important;
+    }
   </style>
 </head>
 
