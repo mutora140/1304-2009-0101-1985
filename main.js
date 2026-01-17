@@ -2522,9 +2522,9 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/02-XkOLVnIU',
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
-        'bad': {
+        '8jLOx1hD3_o': {
             image: '/images/popular/u3.jpg',
-            title: 'The bad influencer',
+            title: 'Death Race',
             rating: 6.5,
             stars: 4.5,
             genres: ['Action', 'Thriller', 'Sci-fi'],
@@ -2849,6 +2849,1373 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: '1h 50min',
             year: '2021',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep1': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 1',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep2': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 2',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep3': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 3',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep4': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 4',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep5': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 5',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep6': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 6',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep7': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 7',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep8': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 8',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep9': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 9',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep10': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 10',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bon appetit ep11': {
+            image: '/images/episode/bbt1.jpg',
+            title: 'Bon Appetit Your Majesty Ep 11',
+            rating: 7.1,
+            stars: 4.5,
+            genres: ['Drama', 'Sci-fi', 'Fantasy',],
+            interpreter: ['Rocky'],
+            tags: ['korea', 'Joseon', 'Drama'],
+            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep1': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 1',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep2': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 2',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep3': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 3',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep4': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 4',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep5': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 5',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep6': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 6',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep7': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 7',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'messiah ep8': {
+            image: '/images/episode/pb1.jpg',
+            title: 'Messiah Ep 8',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+
+        'shooter s1 ep1': {
+            image: '/images/episode/fe2.jpg',
+            title: 'Shooter S1 Ep 1',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s1 ep2': {
+            image: '/images/episode/fe2.jpg',
+            title: 'Shooter S1 Ep 2',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s1 ep3': {
+            image: '/images/episode/fe2.jpg',
+            title: 'Shooter S1 Ep 3',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s1 ep4': {
+            image: '/images/episode/fe2.jpg',
+            title: 'Shooter S1 Ep 4',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s1 ep5': {
+            image: '/images/episode/fe2.jpg',
+            title: 'Shooter S1 Ep 5',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s1 ep6': {
+            image: '/images/episode/fe2.jpg',
+            title: 'Shooter S1 Ep 6',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s2 ep1': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S2 Ep 1',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s2 ep2': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S2 Ep 2',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s2 ep3': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S2 Ep 3',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s2 ep4': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S2 Ep 4',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s2 ep5': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S2 Ep 5',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s2 ep6': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S2 Ep 6',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s3 ep1': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S3 Ep 1',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s3 ep2': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S3 Ep 2',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s3 ep3': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S3 Ep 3',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s3 ep4': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S3 Ep 4',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s3 ep5': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S3 Ep 5',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'shooter s3 ep6': {
+            image: '/images/episode/fe3.jpg',
+            title: 'Shooter S3 Ep 6',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action', 'War & Politics', 'Adventure'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'War','Drama'],
+            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2016',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the long road home s1 ep 1': {
+            image: '/images/episode/tlr.jpg',
+            title: 'The Long Road Home S1 Ep 1',
+            rating: 7.2,
+            stars: 4.5,
+            genres: ['War', 'Politics', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['War','Drama'],
+            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the long road home s1 ep 2': {
+            image: '/images/episode/tlr.jpg',
+            title: 'The Long Road Home S1 Ep 2',
+            rating: 7.2,
+            stars: 4.5,
+            genres: ['War', 'Politics', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['War','Drama'],
+            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the long road home s1 ep 3': {
+            image: '/images/episode/tlr.jpg',
+            title: 'The Long Road Home S1 Ep 3',
+            rating: 7.2,
+            stars: 4.5,
+            genres: ['War', 'Politics', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['War','Drama'],
+            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the long road home s1 ep 4': {
+            image: '/images/episode/tlr.jpg',
+            title: 'The Long Road Home S1 Ep 4',
+            rating: 7.2,
+            stars: 4.5,
+            genres: ['War', 'Politics', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['War','Drama'],
+            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the long road home s1 ep 5': {
+            image: '/images/episode/tlr.jpg',
+            title: 'The Long Road Home S1 Ep 5',
+            rating: 7.2,
+            stars: 4.5,
+            genres: ['War', 'Politics', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['War','Drama'],
+            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the long road home s1 ep 6': {
+            image: '/images/episode/tlr.jpg',
+            title: 'The Long Road Home S1 Ep 6',
+            rating: 7.2,
+            stars: 4.5,
+            genres: ['War', 'Politics', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['War','Drama'],
+            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the manipulation s1 ep 1': {
+            image: '/images/episode/m1.jpg',
+            title: 'The Manipulation S1 Ep 1',
+            rating: 7.4,
+            stars: 4.5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korea','Drama'],
+            description: 'Mild-mannered Tae-jung is wrongfully imprisoned for a heinous crime. He soon discovers that a mysterious figure named Yo-han orchestrated his downfall. Fueled by vengeance, Tae-jung sets out to make Yo-han pay.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the manipulation s1 ep 2': {
+            image: '/images/episode/m1.jpg',
+            title: 'The Manipulation S1 Ep 2',
+            rating: 7.4,
+            stars: 4.5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korea','Drama'],
+            description: 'Mild-mannered Tae-jung is wrongfully imprisoned for a heinous crime. He soon discovers that a mysterious figure named Yo-han orchestrated his downfall. Fueled by vengeance, Tae-jung sets out to make Yo-han pay.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the manipulation s1 ep 3': {
+            image: '/images/episode/m1.jpg',
+            title: 'The Manipulation S1 Ep 3',
+            rating: 7.4,
+            stars: 4.5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korea','Drama'],
+            description: 'Mild-mannered Tae-jung is wrongfully imprisoned for a heinous crime. He soon discovers that a mysterious figure named Yo-han orchestrated his downfall. Fueled by vengeance, Tae-jung sets out to make Yo-han pay.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the manipulation s1 ep 4': {
+            image: '/images/episode/m1.jpg',
+            title: 'The Manipulation S1 Ep 4',
+            rating: 7.4,
+            stars: 4.5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korea','Drama'],
+            description: 'Mild-mannered Tae-jung is wrongfully imprisoned for a heinous crime. He soon discovers that a mysterious figure named Yo-han orchestrated his downfall. Fueled by vengeance, Tae-jung sets out to make Yo-han pay.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the manipulation s1 ep 5': {
+            image: '/images/episode/m1.jpg',
+            title: 'The Manipulation S1 Ep 5',
+            rating: 7.4,
+            stars: 4.5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korea','Drama'],
+            description: 'Mild-mannered Tae-jung is wrongfully imprisoned for a heinous crime. He soon discovers that a mysterious figure named Yo-han orchestrated his downfall. Fueled by vengeance, Tae-jung sets out to make Yo-han pay.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bad influencer s1 ep1': {
+            image: '/images/episode/bad.jpg',
+            title: 'Bad Influencer S1 Ep 1',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['South africa','Drama', 'Social media'],
+            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bad influencer s1 ep2': {
+            image: '/images/episode/bad.jpg',
+            title: 'Bad Influencer S1 Ep 2',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['South africa','Drama', 'Social media'],
+            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bad influencer s1 ep3': {
+            image: '/images/episode/bad.jpg',
+            title: 'Bad Influencer S1 Ep 3',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['South africa','Drama', 'Social media'],
+            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bad influencer s1 ep4': {
+            image: '/images/episode/bad.jpg',
+            title: 'Bad Influencer S1 Ep 4',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['South africa','Drama', 'Social media'],
+            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bad influencer s1 ep5': {
+            image: '/images/episode/bad.jpg',
+            title: 'Bad Influencer S1 Ep 5',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['South africa','Drama', 'Social media'],
+            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bad influencer s1 ep6': {
+            image: '/images/episode/bad.jpg',
+            title: 'Bad Influencer S1 Ep 6',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['South africa','Drama', 'Social media'],
+            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'bad influencer s1 ep7': {
+            image: '/images/episode/bad.jpg',
+            title: 'Bad Influencer S1 Ep 7',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Crime', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['South africa','Drama', 'Social media'],
+            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep1': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 1',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep2': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 2',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep3': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 3',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep4': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 4',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep5': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 5',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep6': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 6',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep7': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 7',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep8': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 8',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'tempest s1 ep9': {
+            image: '/images/episode/bad.jpg',
+            title: 'Tempest S1 Ep 9',
+            rating: 7.6,
+            stars: 4.5,
+            genres: ['Mystery', 'Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Korean','Drama', 'Mystery'],
+            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+
+        'the copenhagen test s1 ep1': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 1',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the copenhagen test s1 ep2': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 2',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the copenhagen test s1 ep3': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 3',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the copenhagen test s1 ep4': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 4',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the copenhagen test s1 ep5': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 5',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the copenhagen test s1 ep6': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 6',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the copenhagen test s1 ep7': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 7',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'the copenhagen test s1 ep8': {
+            image: '/images/episode/copen.jpg',
+            title: 'The Copenhagen Test S1 Ep 8',
+            rating: 8.1,
+            stars: 5,
+            genres: ['Action', 'Adventure', 'Sci-fi'],
+            interpreter: ['Didier'],
+            tags: ['Fantasy','Action', 'Mystery'],
+            description:' When an analyst discovers his eyes and ears have been hacked, he drawn into a controlled world designed by his agency to draw out their enemies.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep1': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 1',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep2': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 2',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep3': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 3',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep4': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 4',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep5': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 5',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep6': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 6',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep7': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 7',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'six s1 ep8': {
+            image: '/images/episode/six.jpg',
+            title: 'Six S1 Ep 8',
+            rating: 8.0,
+            stars: 4.5,
+            genres: ['Action', 'War', 'Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Adventure','Politics', 'Mystery'],
+            description:' Action drama series inspired by the real missions of Navy SEAL Team Six.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep1': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 1',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep2': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 2',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep3': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 3',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep4': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 4',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep5': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 5',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep6': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 6',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep7': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 7',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep8': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 8',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep9': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 9',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep10': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 10',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+        },
+        'twelve s1 ep11': {
+            image: '/images/episode/twelve.jpg',
+            title: 'Twelve S1 Ep 11',
+            rating: 7.0,
+            stars: 4,
+            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+            interpreter: ['Perfect'],
+            tags: ['Adventure','Action', 'Drama'],
+            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
             videoLink: 'https://videopress.com/embed/Ohws8y572KE',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
@@ -5704,7 +7071,12 @@ function switchSeasonEpisodes(selectElement) {
               description: data.description || '',
               tags: Array.isArray(data.tags) ? data.tags : [],
               age: data.age || '',
-              duration: data.duration || ''
+              duration: data.duration || '',
+              // Include episode information for search results
+              seriesId: data.seriesId || null,
+              season: data.season || null,
+              episodeNumber: data.episodeNumber || null,
+              videoLink: data.videoLink || null
             });
           });
         }
@@ -5815,7 +7187,7 @@ function switchSeasonEpisodes(selectElement) {
         clearTimeout(this.currentSearchTimeout);
       }
 
-      // Debounce search
+      // Debounce search (reduced from 300ms to 150ms for faster results)
       this.currentSearchTimeout = setTimeout(() => {
         if (query.length >= 2) {
           const results = this.searchMovies(query);
@@ -5824,7 +7196,7 @@ function switchSeasonEpisodes(selectElement) {
         } else {
           this.hideSearchResults(event);
         }
-      }, 300);
+      }, 150);
     }
 
     searchMovies(query) {
@@ -5956,14 +7328,65 @@ function switchSeasonEpisodes(selectElement) {
                 input.blur();
               });
               
-              // Navigate to watch page
-              setTimeout(() => {
-                if (typeof window.navigateToWatchPage === 'function') {
-                  window.navigateToWatchPage(videoId, title);
-                } else {
-                  window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+              // Check if this is an episode from videoData
+              try {
+                const videoData = (typeof window !== 'undefined' && window.videoData) ? window.videoData : null;
+                if (videoData && videoData[videoId]) {
+                  const data = videoData[videoId];
+                  if (data.seriesId && data.season) {
+                    // This is an episode - create episode context
+                    const episodes = [];
+                    const seriesId = data.seriesId;
+                    const season = String(data.season);
+                    
+                    // Find all episodes from the same series and season
+                    for (const [id, epData] of Object.entries(videoData)) {
+                      if (epData && 
+                          epData.seriesId === seriesId && 
+                          String(epData.season) === season) {
+                        episodes.push({
+                          id: id,
+                          title: epData.title || 'Episode',
+                          duration: epData.duration || '',
+                          description: epData.description || '',
+                          image: epData.image || '/images/placeholder.jpg',
+                          episodeNumber: epData.episodeNumber || null
+                        });
+                      }
+                    }
+                    
+                    // Sort episodes by episode number if available
+                    episodes.sort((a, b) => {
+                      const epA = a.episodeNumber || 0;
+                      const epB = b.episodeNumber || 0;
+                      return epA - epB;
+                    });
+                    
+                    // Store episode context in sessionStorage
+                    if (episodes.length > 0) {
+                      const episodeContext = {
+                        seriesTitle: seriesId,
+                        season: season,
+                        currentVideoId: String(videoId),
+                        episodes: episodes,
+                        savedAt: Date.now(),
+                        fromSearch: true // Mark as coming from search
+                      };
+                      sessionStorage.setItem('watch_episode_context', JSON.stringify(episodeContext));
+                      console.log('Stored episode context from search (direct navigation):', episodeContext);
+                    }
+                  }
                 }
-              }, 100);
+              } catch (error) {
+                console.error('Error creating episode context from search (direct navigation):', error);
+              }
+              
+              // Navigate to watch page (reduced delay from 100ms to 0ms for faster navigation)
+              if (typeof window.navigateToWatchPage === 'function') {
+                window.navigateToWatchPage(videoId, title);
+              } else {
+                window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+              }
             }
           }
         });
@@ -6022,17 +7445,84 @@ function switchSeasonEpisodes(selectElement) {
       const title = movie.title || 'Movie';
 
       console.log('Navigating to watch page with video ID:', videoId, 'title:', title);
+      console.log('Movie data for episode check:', {
+        hasSeriesId: !!movie.seriesId,
+        seriesId: movie.seriesId,
+        hasSeason: !!movie.season,
+        season: movie.season,
+        movie: movie
+      });
 
-      // Navigate to watch page with video ID
-      // The watch page will handle loading the video and sidebar data based on the videoId
-      setTimeout(() => {
-        if (typeof window.navigateToWatchPage === 'function') {
-          window.navigateToWatchPage(videoId, title);
-        } else {
-          // Fallback: construct URL directly
-          window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+      // Check if this is an episode (has seriesId and season)
+      // If so, create episode context so watch page shows next episodes
+      if (movie.seriesId && movie.season) {
+        console.log('Detected episode from search, creating episode context...');
+        try {
+          // Get full videoData to find all episodes in the same series/season
+          // Use window.videoData which is set globally in main.js
+          const videoData = (typeof window !== 'undefined' && window.videoData) ? window.videoData : null;
+          console.log('Checking for episodes in videoData:', {
+            hasVideoData: !!videoData,
+            seriesId: movie.seriesId,
+            season: movie.season,
+            videoId: videoId
+          });
+          if (videoData) {
+            const episodes = [];
+            const seriesId = movie.seriesId;
+            const season = String(movie.season);
+            
+            // Find all episodes from the same series and season
+            for (const [id, data] of Object.entries(videoData)) {
+              if (data && 
+                  data.seriesId === seriesId && 
+                  String(data.season) === season) {
+                episodes.push({
+                  id: id,
+                  title: data.title || 'Episode',
+                  duration: data.duration || '',
+                  description: data.description || '',
+                  image: data.image || '/images/placeholder.jpg',
+                  episodeNumber: data.episodeNumber || null
+                });
+              }
+            }
+            
+            // Sort episodes by episode number if available
+            episodes.sort((a, b) => {
+              const epA = a.episodeNumber || 0;
+              const epB = b.episodeNumber || 0;
+              return epA - epB;
+            });
+            
+            // Store episode context in sessionStorage
+            if (episodes.length > 0) {
+              const episodeContext = {
+                seriesTitle: seriesId,
+                season: season,
+                currentVideoId: String(videoId),
+                episodes: episodes,
+                savedAt: Date.now(),
+                fromSearch: true // Mark as coming from search
+              };
+              sessionStorage.setItem('watch_episode_context', JSON.stringify(episodeContext));
+              console.log('Stored episode context from search:', episodeContext);
+            } else {
+              console.warn('No episodes found for series/season:', { seriesId, season, videoId });
+            }
+          }
+        } catch (error) {
+          console.error('Error creating episode context from search:', error);
         }
-      }, 100);
+      }
+
+      // Navigate to watch page with video ID (reduced delay from 100ms to 0ms for faster navigation)
+      if (typeof window.navigateToWatchPage === 'function') {
+        window.navigateToWatchPage(videoId, title);
+      } else {
+        // Fallback: construct URL directly
+        window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+      }
     }
 
     triggerVideoGallery(movie) {
@@ -6358,8 +7848,8 @@ function switchSeasonEpisodes(selectElement) {
                 }
             });
             
-            // Wait a bit for main.js to load videoData
-            setTimeout(initializeWatchPage, 100);
+            // Wait a bit for main.js to load videoData (reduced from 100ms to 50ms for faster initialization)
+            setTimeout(initializeWatchPage, 50);
         });
     }
     
@@ -6565,10 +8055,10 @@ function switchSeasonEpisodes(selectElement) {
                 showEpisodesSection(data, videoData, videoId);
             }
             
-            // Double-check default sections are hidden after showing episodes
+            // Double-check default sections are hidden after showing episodes (reduced from 100ms to 50ms)
             setTimeout(function() {
                 hideDefaultSections();
-            }, 100);
+            }, 50);
         } else {
             // CRITICAL: For movies (non-episodes), clear episode context and show defaults
             // Clear episode context from sessionStorage since this is not an episode
@@ -6581,10 +8071,10 @@ function switchSeasonEpisodes(selectElement) {
             showDefaultSections();
             loadWatchPageRecommendedVideos(videoData, videoId);
             
-            // Double-check episodes section is hidden after showing default sections
+            // Double-check episodes section is hidden after showing default sections (reduced from 100ms to 50ms)
             setTimeout(function() {
                 hideEpisodesSection();
-            }, 100);
+            }, 50);
         }
         
         // Update page title with SEO format
@@ -6694,17 +8184,31 @@ function switchSeasonEpisodes(selectElement) {
     }
 
     /**
-     * Read episode context stored before navigation (from index.html series episodes carousels)
+     * Read episode context stored before navigation (from index.html series episodes carousels or search)
      */
     function readEpisodeContextFromSession() {
         try {
             const raw = sessionStorage.getItem('watch_episode_context');
-            if (!raw) return null;
+            if (!raw) {
+                console.log('No episode context found in sessionStorage');
+                return null;
+            }
             const parsed = JSON.parse(raw);
-            if (!parsed || typeof parsed !== 'object') return null;
+            if (!parsed || typeof parsed !== 'object') {
+                console.log('Invalid episode context format');
+                return null;
+            }
             if (!Array.isArray(parsed.episodes)) parsed.episodes = [];
+            console.log('Read episode context from sessionStorage:', {
+                seriesTitle: parsed.seriesTitle,
+                season: parsed.season,
+                currentVideoId: parsed.currentVideoId,
+                fromSearch: parsed.fromSearch,
+                episodesCount: parsed.episodes.length
+            });
             return parsed;
-        } catch (_) {
+        } catch (error) {
+            console.error('Error reading episode context from sessionStorage:', error);
             return null;
         }
     }
@@ -6780,8 +8284,8 @@ function switchSeasonEpisodes(selectElement) {
         const seriesTitle = ctx.seriesTitle || 'Series';
         const allEpisodes = ctx.episodes || [];
         
-        // Include current episode in the list for display
-        const episodes = allEpisodes.length > 0 ? allEpisodes : [];
+        // Filter out the current episode from the list (show only next episodes)
+        const episodes = allEpisodes.filter(ep => String(ep.id) !== String(currentVideoId));
 
         // Render a carousel using the same markup style as recommendations
         episodesSection.innerHTML = '';

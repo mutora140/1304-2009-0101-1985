@@ -382,198 +382,398 @@
 
   <!-- Header -->
   <header id="main-header">
+
     <div class="main-header">
+
       <div class="container-fluid">
+
         <div class="row">
+
           <div class="col-sm-12">
+
             <nav class="navbar navbar-expand-lg navbar-light p-0">
+
               <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
                 <div class="navbar-toggler-icon" data-toggle="collapse">
+
                   <span class="navbar-menu-icon navbar-menu-icon--top"></span>
+
                   <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
+
                   <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
+
                 </div>
+
               </a>
 
-              <div class="navbar-brand" onclick="window.location.href='/'; return false;">
+              <div class="navbar-brand" onclick="if(typeof closeVideoGallery === 'function') { closeVideoGallery(); return false; }">
+
                 <img loading="lazy" src="/images/logo.png" class="img-fluid logo" alt="MIYAGI streaming platform logo" />
+
               </div>
 
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                 <div class="menu-main-menu-container">
+
                   <ul id="top-menu" class="navbar-nav ml-auto">
+
                     <li class="menu-item"><a href="/">home</a></li>
+
                     <li class="menu-item"><a href="/show/">show</a></li>
+
                     <li class="menu-item"><a href="/trending/">trending</a></li>
+
+
                     <li class="menu-item">
+
                       <a href="#">interpreters</a>
+
                       <ul class="sub-menu">
+
                         <li class="menu-item"><a href="/rocky/">Rocky</a></li>
+
                         <li class="menu-item"><a href="/gaheza/">Gaheza</a></li>
+
                         <li class="menu-item"><a href="/sankara/">Sankara</a></li>
+
                         <li class="menu-item">
+
                           <a href="/juniorgiti/">Junior Giti</a>
+
                         </li>
+
                         <li class="menu-item">
+
                           <a href="#">Others</a>
+
                           <ul class="sub-menu">
+
                             <li class="menu-item">
+
                               <a href="/dylan/">Dylan</a>
+
                             </li>
+
                             <li class="menu-item">
+
                               <a href="/pk/">P.K</a>
+
                             </li>
+
                             <li class="menu-item">
+
                               <a href="/savimbi/">Savimbi</a>
+
                             </li>
+
                           </ul>
+
                         </li>
+
                       </ul>
+
                     </li>                   
+
                   </ul>
+
                 </div>
+
               </div>
 
               <div class="mobile-more-menu">
+
                 <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle"
+
                   aria-haspopup="true" aria-expanded="false">
+
                   <i class="fa fa-ellipsis-h"></i>
+
                 </a>
+
                 <div class="more-menu" aria-labelledby="dropdownMenuButton">
+
                   <div class="navbar-right position-relative">
+
                     <ul class="d-flex align-items-center justify-content-end list-inline m-0">
+
                       <li>
+
                         <a href="#" class="search-toggle">
+
                           <i class="fa fa-search"></i>
+
                         </a>
+
                         <div class="search-box iq-search-bar">
+
                           <form action="#" class="searchbox">
+
                             <div class="form-group position-relative">
+
                               <input type="text" class="text search-input font-size-12"
+
                                 placeholder="type here to search..." />
+
                               <i class="search-link fa fa-search"></i>
+
                             </div>
+
                           </form>
+
                         </div>
+
                       </li>
+
                       <li class="nav-item nav-icon">
+
                         <a href="#" class="search-toggle position-relative">
+
                           <i class="fa fa-bell"></i>
+
                           <span class="bg-danger dots"></span>
+
                         </a>
+
                         <div class="iq-sub-dropdown">
+
                           <div class="iq-card shadow-none m-0">
+
                             <div class="iq-card-body">
+
                               <a href="#" class="iq-sub-card notification-item" data-video-id="tmeOjFno6Do" data-title="Captain Marvel">
+
                                 <div class="media align-items-center">
+
                                   <img loading="lazy" src="/images/notify/thumb-1.jpg" alt="Captain Marvel movie thumbnail" class="img-fluid mr-3" />
+
                                   <div class="media-body">
+
                                     <h6 class="mb-0">Captain Marvel</h6>
+
                                     <small class="font-size-12">just now</small>
+
                                   </div>
+
                                 </div>
+
                               </a>
+
                               <a href="#" class="iq-sub-card notification-item" data-video-id="dQw4w9WgXcQ" data-title="Dora and The Lost City of Gold">
+
                                 <div class="media align-items-center">
+
                                   <img loading="lazy" src="/images/notify/thumb-2.jpg" alt="Dora and The Lost City of Gold movie thumbnail" class="img-fluid mr-3" />
+
                                   <div class="media-body">
-                                    <h6 class="mb-0">Dora and The Lost City of Gold</h6>
+
+                                    <h6 class="mb-0">
+
+                                      Dora and The Lost City of Gold
+
+                                    </h6>
+
                                     <small class="font-size-12">25 mins ago</small>
+
                                   </div>
+
                                 </div>
+
                               </a>
+
                               <a href="#" class="iq-sub-card notification-item" data-video-id="02-XkOLVnIU" data-title="Mulan (2020)">
+
                                 <div class="media align-items-center">
+
                                   <img loading="lazy" src="/images/notify/thumb-3.jpg" alt="Mulan movie thumbnail" class="img-fluid mr-3" />
+
                                   <div class="media-body">
+
                                     <h6 class="mb-0">Mulan</h6>
+
                                     <small class="font-size-12">1h 30 mins ago</small>
+
                                   </div>
+
                                 </div>
+
                               </a>
+
                             </div>
+
                           </div>
+
                         </div>
+
                       </li>
+
                       <li>
+
                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
+
                           <img loading="lazy" src="/images/user/user.png" class="img-fluid user-m rounded-circle" alt="User profile avatar" />
+
                         </a>
+
+                        
+
                       </li>
+
                     </ul>
+
                   </div>
+
                 </div>
+
               </div>
 
+
+
               <div class="navbar-right menu-right">
+
                 <ul class="d-flex align-items-center list-inline m-0">
+
                   <li class="nav-item nav-icon">
+
                     <a href="#" class="search-toggle device-search">
+
                       <i class="fa fa-search"></i>
+
                     </a>
+
                     <div class="search-box iq-search-bar d-search">
+
                       <form action="#" class="searchbox">
+
                         <div class="form-group position-relative">
+
                           <input type="text" class="text search-input font-size-12"
+
                             placeholder="type here to search..." />
+
                           <i class="search-link fa fa-search"></i>
+
                         </div>
+
                       </form>
+
                     </div>
+
                   </li>
+
                   <li class="nav-item nav-icon">
+
                     <a href="#" class="search-toggle" data-toggle="search-toggle">
+
                       <i class="fa fa-bell"></i>
+
                       <span class="bg-danger dots"></span>
+
                     </a>
+
                     <div class="iq-sub-dropdown">
+
                       <div class="iq-card shadow-none m-0">
+
                         <div class="iq-card-body">
+
                           <a href="#" class="iq-sub-card notification-item" data-video-id="tmeOjFno6Do" data-title="Captain Marvel">
+
                             <div class="media align-items-center">
+
                               <img loading="lazy" src="/images/notify/thumb-1.jpg" alt="Captain Marvel movie thumbnail" class="img-fluid mr-3" />
+
                               <div class="media-body">
+
                                 <h6 class="mb-0">Captain Marvel</h6>
+
                                 <small class="font-size-12">just now</small>
+
                               </div>
+
                             </div>
+
                           </a>
+
                           <a href="#" class="iq-sub-card notification-item" data-video-id="dQw4w9WgXcQ" data-title="Dora and The Lost City of Gold">
+
                             <div class="media align-items-center">
+
                               <img loading="lazy" src="/images/notify/thumb-2.jpg" alt="Dora and The Lost City of Gold movie thumbnail" class="img-fluid mr-3" />
+
                               <div class="media-body">
-                                <h6 class="mb-0">Dora and The Lost City of Gold</h6>
+
+                                <h6 class="mb-0">
+
+                                  Dora and The Lost City of Gold
+
+                                </h6>
+
                                 <small class="font-size-12">25 mins ago</small>
+
                               </div>
+
                             </div>
+
                           </a>
+
                           <a href="#" class="iq-sub-card notification-item" data-video-id="02-XkOLVnIU" data-title="Mulan (2020)">
+
                             <div class="media align-items-center">
+
                               <img loading="lazy" src="/images/notify/thumb-3.jpg" alt="Mulan movie thumbnail" class="img-fluid mr-3" />
+
                               <div class="media-body">
+
                                 <h6 class="mb-0">Mulan</h6>
+
                                 <small class="font-size-12">1h 30 mins ago</small>
+
                               </div>
+
                             </div>
+
                           </a>
+
                         </div>
+
                       </div>
+
                     </div>
+
                   </li>
+
                   <li class="nav-item nav-icon">
+
                     <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+
                       <img loading="lazy" src="/images/user/user.png" class="img-fluid user-m rounded-circle" alt="User profile avatar" />
+
                     </a>
+
+                    
+
                   </li>
+
                 </ul>
+
               </div>
+
             </nav>
+
             <div class="nav-overlay"></div>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </header>
 
   <div id="video-gallery-overlay" class="video-gallery-overlay">
