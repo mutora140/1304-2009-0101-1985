@@ -2463,7 +2463,7 @@ document.addEventListener("click", function (e) {
         // When an episode is played, the watch page will show "Next Episodes" section instead of default sections
         //
         'kUJmAcSf': {
-            image: '/images/trending/02.jpg',
+            image: '/images/slider/slider1.jpg',
             title: 'Pick Up',
             rating: 7.3,
             stars: 4,
@@ -2478,7 +2478,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'FLzfXQSPBOg': {
-            image: '/images/trending/03.jpg',
+            image: '/images/slider/slider2.jpg',
             title: '1917',
             rating: 7.4,
             stars: 4,
@@ -2493,7 +2493,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
         'k10ETZ41q5o': {
-            image: '/images/trending/04.jpg',
+            image: '/images/slider/slider3.jpg',
             title: 'Work It',
             rating: 7.5,
             stars: 4.5,
@@ -2508,7 +2508,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
         },
         '02-XkOLVnIU': {
-            image: '/images/popular/u2.jpg',
+            image: '/images/favorite/f1.jpg',
             title: 'afterburn',
             rating: 7.0,
             stars: 4.5,
@@ -2523,7 +2523,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         '8jLOx1hD3_o': {
-            image: '/images/popular/u3.jpg',
+            image: '/images/favorite/f2.jpg',
             title: 'Death Race',
             rating: 6.5,
             stars: 4.5,
@@ -2538,7 +2538,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'W4DlMggBPvc': {
-            image: '/images/popular/u4.jpg',
+            image: '/images/favorite/f3.jpg',
             title: 'Homefront',
             rating: 6.9,
             stars: 4,
@@ -2553,7 +2553,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'sDYVdxFZq8Y': {
-            image: '/images/popular/u5.jpg',
+            image: '/images/favorite/f4.jpg',
             title: 'Mayhem',
             rating: 7.9,
             stars: 4,
@@ -2568,7 +2568,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'q78_0TElYME': {
-            image: '/images/trending/01.jpg',
+            image: '/images/favorite/f5.jpg',
             title: 'Shadow Force',
             rating: 6.8,
             stars: 3,
@@ -2582,8 +2582,113 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/q78_0TElYME',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
+        'thieves highway': {
+            image: '/images/favorite/f6.jpg',
+            title: 'Thieves Highway',
+            rating: 7.8,
+            stars: 4,
+            genres: ['Action', 'Thriller'],
+            interpreter: ['Didier'],
+            tags: ['Action', 'Thriller','Drama'],
+            description: 'Kyrah and Isaac were once the leaders of a multinational special forces group called Shadow Force. They broke the rules by falling in love, and in order to protect their son, they go underground. With a large bounty on their heads, and the vengeful Shadow Force hot on their trail, one family fight becomes all-out war.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+        },
+        'the amazing spiderman': {
+            image: '/images/favorite/f7.jpg',
+            title: 'The Amazing Spiderman',
+            rating: 8,
+            stars: 4.,
+            genres: ['Action', 'Sci-fi','Adventure'],
+            interpreter: ['Siniya'],
+            tags: ['Action', 'Spiderman','Fantasy'],
+            description: 'Kyrah and Isaac were once the leaders of a multinational special forces group called Shadow Force. They broke the rules by falling in love, and in order to protect their son, they go underground. With a large bounty on their heads, and the vengeful Shadow Force hot on their trail, one family fight becomes all-out war.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+        },
+        'teen wolf': {
+            image: '/images/favorite/f8.jpg',
+            title: 'Teen Wolf: The Movie',
+            rating: 7.8,
+            stars: 4.5,
+            genres: ['Fantasy', 'Sci-fi','Adventure'],
+            interpreter: ['Dylan'],
+            tags: ['Adventure', 'Teen Wolf','Fantasy'],
+            description: 'Kyrah and Isaac were once the leaders of a multinational special forces group called Shadow Force. They broke the rules by falling in love, and in order to protect their son, they go underground. With a large bounty on their heads, and the vengeful Shadow Force hot on their trail, one family fight becomes all-out war.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+        },
+        'tarot': {
+            image: '/images/favorite/f9.jpg',
+            title: 'Tarot',
+            rating: 8.7,
+            stars: 5,
+            genres: ['Horror', 'Magic','Adventure'],
+            interpreter: ['Didier'],
+            tags: ['Adventure', 'Horror','Fantasy'],
+            description: 'Kyrah and Isaac were once the leaders of a multinational special forces group called Shadow Force. They broke the rules by falling in love, and in order to protect their son, they go underground. With a large bounty on their heads, and the vengeful Shadow Force hot on their trail, one family fight becomes all-out war.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+        },
+        'spiderman 3': {
+            image: '/images/favorite/f10.jpg',
+            title: 'Spiderman 3',
+            rating: 8,
+            stars: 5,
+            genres: ['Sci-fi','Adventure'],
+            interpreter: ['Siniya'],
+            tags: ['Adventure', 'Superpower','Spiderman'],
+            description: 'Kyrah and Isaac were once the leaders of a multinational special forces group called Shadow Force. They broke the rules by falling in love, and in order to protect their son, they go underground. With a large bounty on their heads, and the vengeful Shadow Force hot on their trail, one family fight becomes all-out war.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+        },
+        'light out': {
+            image: '/images/favorite/f11.jpg',
+            title: 'Light Out',
+            rating: 7.4,
+            stars: 4,
+            genres: ['War','Crime'],
+            interpreter: ['Siniya'],
+            tags: ['War', 'Crime',],
+            description: 'Kyrah and Isaac were once the leaders of a multinational special forces group called Shadow Force. They broke the rules by falling in love, and in order to protect their son, they go underground. With a large bounty on their heads, and the vengeful Shadow Force hot on their trail, one family fight becomes all-out war.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+        },
+        'ruthless': {
+            image: '/images/favorite/f12.jpg',
+            title: 'Ruthless',
+            rating: 8.4,
+            stars: 4.5,
+            genres: ['Action','Crime'],
+            interpreter: ['Didier'],
+            tags: ['Drama', 'Crime',],
+            description: 'Kyrah and Isaac were once the leaders of a multinational special forces group called Shadow Force. They broke the rules by falling in love, and in order to protect their son, they go underground. With a large bounty on their heads, and the vengeful Shadow Force hot on their trail, one family fight becomes all-out war.',
+            age: '12+',
+            duration: '2h 10min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+        },
         'acEoQpJq0qg': {
-            image: '/images/trending/05.jpg',
+            image: '/images/popular/u1.jpg',
             title: 'Possession of Hannah',
             rating: 6.2,
             stars: 3,
@@ -2598,7 +2703,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
         },
         'yQ5U8suTUw0': {
-            image: '/images/trending/06.jpg',
+            image: '/images/popular/u2.jpg',
             title: 'Frankenstein',
             rating: 7.1,
             stars: 4,
@@ -2613,7 +2718,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
         },
         '4qf9Uyn2acE': {
-            image: '/images/slider/slider1.jpg',
+            image: '/images/popular/u3.jpg',
             title: 'Texas Chain',
             rating: 7.2,
             stars: 4,
@@ -2628,7 +2733,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
         'tsxemFXSQXQ': {
-            image: '/images/slider/slider2.jpg',
+            image: '/images/popular/u4.jpg',
             title: 'Woman in the yard',
             rating: 8.0,
             stars: 4,
@@ -2643,7 +2748,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
         },
         'Lt-U_t2pUHI': {
-            image: '/images/slider/slider3.jpg',
+            image: '/images/popular/u5.jpg',
             title: 'Hunting jessica brok',
             rating: 7.5,
             stars: 4,
@@ -2748,12 +2853,72 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
         'dQw4w9WgXcQ': {
-            image: '/images/footer/01.jpg',
+            image: '/images/suggested/01.jpg',
             title: 'Monkey King',
             rating: 8.2,
             stars: 4,
             genres: ['Fantasy', 'Family'],
             interpreter: ['Ryan'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'nezha': {
+            image: '/images/suggested/02.jpg',
+            title: 'Nezha 1',
+            rating: 8.2,
+            stars: 4.5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['Master p'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'bigfoot family': {
+            image: '/images/suggested/03.jpg',
+            title: 'BigFoot Family',
+            rating: 8.7,
+            stars: 5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['Master p'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'peter rabbit 1': {
+            image: '/images/suggested/04.jpg',
+            title: 'Peter Rabbit 1',
+            rating: 9,
+            stars: 5.0,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['Gaheza'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'peter rabbit 2': {
+            image: '/images/suggested/05.jpg',
+            title: 'Peter Rabbit 2',
+            rating: 9.2,
+            stars: 4.5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['Gaheza'],
             tags: ['Cartoon', 'Family',],
             description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
             age: 'All Ages',
@@ -2779,7 +2944,7 @@ document.addEventListener("click", function (e) {
         },
         
         'ej3ioOneQ48': {
-            image: '/images/episodes/m1.jpg',
+            image: '/images/tvthrillers/01.jpg',
             title: 'War 2',
             rating: 8.0,
             stars: 4,
@@ -2794,7 +2959,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'n9tzhmJ5hFE': {
-            image: '/images/trending/02.jpg',
+            image: '/images/tvthrillers/02.jpg',
             title: "Don't hang up",
             rating: 6.1,
             stars: 3,
@@ -2809,7 +2974,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'm4NC26Dk4dE': {
-            image: '/images/trending/03.jpg',
+            image: '/images/tvthrillers/03.jpg',
             title: 'Doctor Strange',
             rating: 7.7,
             stars: 4,
@@ -2823,7 +2988,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://example.com/download/kingsman'
         },
         '36mnx8hNvEE': {
-            image: '/images/trending/04.jpg',
+            image: '/images/tvthrillers/04.jpg',
             title: 'Jurassic world: Rebirth',
             rating: 8.0,
             stars: 4.5,
@@ -2838,7 +3003,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'Ohws8y572KE': {
-            image: '/images/popular/u1.jpg',
+            image: '/images/tvthrillers/05.jpg',
             title: 'Black Widow',
             rating: 7.1,
             stars: 4,
@@ -2853,7 +3018,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep1': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 1',
             rating: 7.1,
             stars: 4.5,
@@ -2868,7 +3033,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep2': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 2',
             rating: 7.1,
             stars: 4.5,
@@ -2883,7 +3048,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep3': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 3',
             rating: 7.1,
             stars: 4.5,
@@ -2898,7 +3063,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep4': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 4',
             rating: 7.1,
             stars: 4.5,
@@ -2913,7 +3078,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep5': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 5',
             rating: 7.1,
             stars: 4.5,
@@ -2928,7 +3093,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep6': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 6',
             rating: 7.1,
             stars: 4.5,
@@ -2943,7 +3108,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep7': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 7',
             rating: 7.1,
             stars: 4.5,
@@ -2958,7 +3123,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep8': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 8',
             rating: 7.1,
             stars: 4.5,
@@ -2973,7 +3138,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep9': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 9',
             rating: 7.1,
             stars: 4.5,
@@ -2988,7 +3153,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep10': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 10',
             rating: 7.1,
             stars: 4.5,
@@ -3003,7 +3168,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bon appetit ep11': {
-            image: '/images/episode/bbt1.jpg',
+            image: '/images/episodes/bbt1.jpg',
             title: 'Bon Appetit Your Majesty Ep 11',
             rating: 7.1,
             stars: 4.5,
@@ -3018,7 +3183,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep1': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 1',
             rating: 7.6,
             stars: 4.5,
@@ -3033,7 +3198,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep2': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 2',
             rating: 7.6,
             stars: 4.5,
@@ -3048,7 +3213,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep3': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 3',
             rating: 7.6,
             stars: 4.5,
@@ -3063,7 +3228,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep4': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 4',
             rating: 7.6,
             stars: 4.5,
@@ -3078,7 +3243,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep5': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 5',
             rating: 7.6,
             stars: 4.5,
@@ -3093,7 +3258,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep6': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 6',
             rating: 7.6,
             stars: 4.5,
@@ -3108,7 +3273,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep7': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 7',
             rating: 7.6,
             stars: 4.5,
@@ -3123,7 +3288,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'messiah ep8': {
-            image: '/images/episode/pb1.jpg',
+            image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 8',
             rating: 7.6,
             stars: 4.5,
@@ -3139,7 +3304,7 @@ document.addEventListener("click", function (e) {
         },
 
         'shooter s1 ep1': {
-            image: '/images/episode/fe2.jpg',
+            image: '/images/episodes/fe2.jpg',
             title: 'Shooter S1 Ep 1',
             rating: 7.9,
             stars: 5,
@@ -3154,7 +3319,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s1 ep2': {
-            image: '/images/episode/fe2.jpg',
+            image: '/images/episodes/fe2.jpg',
             title: 'Shooter S1 Ep 2',
             rating: 7.9,
             stars: 5,
@@ -3169,7 +3334,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s1 ep3': {
-            image: '/images/episode/fe2.jpg',
+            image: '/images/episodes/fe2.jpg',
             title: 'Shooter S1 Ep 3',
             rating: 7.9,
             stars: 5,
@@ -3184,7 +3349,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s1 ep4': {
-            image: '/images/episode/fe2.jpg',
+            image: '/images/episodes/fe2.jpg',
             title: 'Shooter S1 Ep 4',
             rating: 7.9,
             stars: 5,
@@ -3199,7 +3364,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s1 ep5': {
-            image: '/images/episode/fe2.jpg',
+            image: '/images/episodes/fe2.jpg',
             title: 'Shooter S1 Ep 5',
             rating: 7.9,
             stars: 5,
@@ -3214,7 +3379,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s1 ep6': {
-            image: '/images/episode/fe2.jpg',
+            image: '/images/episodes/fe2.jpg',
             title: 'Shooter S1 Ep 6',
             rating: 7.9,
             stars: 5,
@@ -3229,7 +3394,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s2 ep1': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S2 Ep 1',
             rating: 7.9,
             stars: 5,
@@ -3244,7 +3409,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s2 ep2': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S2 Ep 2',
             rating: 7.9,
             stars: 5,
@@ -3259,7 +3424,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s2 ep3': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S2 Ep 3',
             rating: 7.9,
             stars: 5,
@@ -3274,7 +3439,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s2 ep4': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S2 Ep 4',
             rating: 7.9,
             stars: 5,
@@ -3289,7 +3454,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s2 ep5': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S2 Ep 5',
             rating: 7.9,
             stars: 5,
@@ -3304,7 +3469,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s2 ep6': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S2 Ep 6',
             rating: 7.9,
             stars: 5,
@@ -3319,7 +3484,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s3 ep1': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S3 Ep 1',
             rating: 7.9,
             stars: 5,
@@ -3334,7 +3499,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s3 ep2': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S3 Ep 2',
             rating: 7.9,
             stars: 5,
@@ -3349,7 +3514,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s3 ep3': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S3 Ep 3',
             rating: 7.9,
             stars: 5,
@@ -3364,7 +3529,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s3 ep4': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S3 Ep 4',
             rating: 7.9,
             stars: 5,
@@ -3379,7 +3544,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s3 ep5': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S3 Ep 5',
             rating: 7.9,
             stars: 5,
@@ -3394,7 +3559,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'shooter s3 ep6': {
-            image: '/images/episode/fe3.jpg',
+            image: '/images/episodes/fe3.jpg',
             title: 'Shooter S3 Ep 6',
             rating: 7.9,
             stars: 5,
@@ -3409,7 +3574,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the long road home s1 ep 1': {
-            image: '/images/episode/tlr.jpg',
+            image: '/images/episodes/tlr.jpg',
             title: 'The Long Road Home S1 Ep 1',
             rating: 7.2,
             stars: 4.5,
@@ -3424,7 +3589,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the long road home s1 ep 2': {
-            image: '/images/episode/tlr.jpg',
+            image: '/images/episodes/tlr.jpg',
             title: 'The Long Road Home S1 Ep 2',
             rating: 7.2,
             stars: 4.5,
@@ -3439,7 +3604,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the long road home s1 ep 3': {
-            image: '/images/episode/tlr.jpg',
+            image: '/images/episodes/tlr.jpg',
             title: 'The Long Road Home S1 Ep 3',
             rating: 7.2,
             stars: 4.5,
@@ -3454,7 +3619,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the long road home s1 ep 4': {
-            image: '/images/episode/tlr.jpg',
+            image: '/images/episodes/tlr.jpg',
             title: 'The Long Road Home S1 Ep 4',
             rating: 7.2,
             stars: 4.5,
@@ -3469,7 +3634,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the long road home s1 ep 5': {
-            image: '/images/episode/tlr.jpg',
+            image: '/images/episodes/tlr.jpg',
             title: 'The Long Road Home S1 Ep 5',
             rating: 7.2,
             stars: 4.5,
@@ -3484,7 +3649,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the long road home s1 ep 6': {
-            image: '/images/episode/tlr.jpg',
+            image: '/images/episodes/tlr.jpg',
             title: 'The Long Road Home S1 Ep 6',
             rating: 7.2,
             stars: 4.5,
@@ -3499,7 +3664,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the manipulation s1 ep 1': {
-            image: '/images/episode/m1.jpg',
+            image: '/images/episodes/m1.jpg',
             title: 'The Manipulation S1 Ep 1',
             rating: 7.4,
             stars: 4.5,
@@ -3514,7 +3679,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the manipulation s1 ep 2': {
-            image: '/images/episode/m1.jpg',
+            image: '/images/episodes/m1.jpg',
             title: 'The Manipulation S1 Ep 2',
             rating: 7.4,
             stars: 4.5,
@@ -3529,7 +3694,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the manipulation s1 ep 3': {
-            image: '/images/episode/m1.jpg',
+            image: '/images/episodes/m1.jpg',
             title: 'The Manipulation S1 Ep 3',
             rating: 7.4,
             stars: 4.5,
@@ -3544,7 +3709,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the manipulation s1 ep 4': {
-            image: '/images/episode/m1.jpg',
+            image: '/images/episodes/m1.jpg',
             title: 'The Manipulation S1 Ep 4',
             rating: 7.4,
             stars: 4.5,
@@ -3559,7 +3724,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the manipulation s1 ep 5': {
-            image: '/images/episode/m1.jpg',
+            image: '/images/episodes/m1.jpg',
             title: 'The Manipulation S1 Ep 5',
             rating: 7.4,
             stars: 4.5,
@@ -3574,7 +3739,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bad influencer s1 ep1': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 1',
             rating: 7.9,
             stars: 5,
@@ -3589,7 +3754,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bad influencer s1 ep2': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 2',
             rating: 7.9,
             stars: 5,
@@ -3604,7 +3769,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bad influencer s1 ep3': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 3',
             rating: 7.9,
             stars: 5,
@@ -3619,7 +3784,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bad influencer s1 ep4': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 4',
             rating: 7.9,
             stars: 5,
@@ -3634,7 +3799,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bad influencer s1 ep5': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 5',
             rating: 7.9,
             stars: 5,
@@ -3649,7 +3814,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bad influencer s1 ep6': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 6',
             rating: 7.9,
             stars: 5,
@@ -3664,7 +3829,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'bad influencer s1 ep7': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 7',
             rating: 7.9,
             stars: 5,
@@ -3679,7 +3844,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep1': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/temp.jpg',
             title: 'Tempest S1 Ep 1',
             rating: 7.6,
             stars: 4.5,
@@ -3694,7 +3859,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep2': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/temp.jpg',
             title: 'Tempest S1 Ep 2',
             rating: 7.6,
             stars: 4.5,
@@ -3709,7 +3874,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep3': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/temp.jpg',
             title: 'Tempest S1 Ep 3',
             rating: 7.6,
             stars: 4.5,
@@ -3724,7 +3889,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep4': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/temp.jpg',
             title: 'Tempest S1 Ep 4',
             rating: 7.6,
             stars: 4.5,
@@ -3739,7 +3904,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep5': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/temp.jpg',
             title: 'Tempest S1 Ep 5',
             rating: 7.6,
             stars: 4.5,
@@ -3754,7 +3919,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep6': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episodes/temp.jpg',
             title: 'Tempest S1 Ep 6',
             rating: 7.6,
             stars: 4.5,
@@ -3769,7 +3934,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep7': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episode/temp.jpg',
             title: 'Tempest S1 Ep 7',
             rating: 7.6,
             stars: 4.5,
@@ -3784,7 +3949,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep8': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episode/temp.jpg',
             title: 'Tempest S1 Ep 8',
             rating: 7.6,
             stars: 4.5,
@@ -3799,7 +3964,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'tempest s1 ep9': {
-            image: '/images/episode/bad.jpg',
+            image: '/images/episode/temp.jpg',
             title: 'Tempest S1 Ep 9',
             rating: 7.6,
             stars: 4.5,
@@ -3815,7 +3980,7 @@ document.addEventListener("click", function (e) {
         },
 
         'the copenhagen test s1 ep1': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 1',
             rating: 8.1,
             stars: 5,
@@ -3830,7 +3995,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the copenhagen test s1 ep2': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 2',
             rating: 8.1,
             stars: 5,
@@ -3845,7 +4010,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the copenhagen test s1 ep3': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 3',
             rating: 8.1,
             stars: 5,
@@ -3860,7 +4025,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the copenhagen test s1 ep4': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 4',
             rating: 8.1,
             stars: 5,
@@ -3875,7 +4040,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the copenhagen test s1 ep5': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 5',
             rating: 8.1,
             stars: 5,
@@ -3890,7 +4055,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the copenhagen test s1 ep6': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 6',
             rating: 8.1,
             stars: 5,
@@ -3905,7 +4070,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the copenhagen test s1 ep7': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 7',
             rating: 8.1,
             stars: 5,
@@ -3920,7 +4085,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the copenhagen test s1 ep8': {
-            image: '/images/episode/copen.jpg',
+            image: '/images/episodes/copen.jpg',
             title: 'The Copenhagen Test S1 Ep 8',
             rating: 8.1,
             stars: 5,
@@ -3935,7 +4100,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep1': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 1',
             rating: 8.0,
             stars: 4.5,
@@ -3950,7 +4115,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep2': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 2',
             rating: 8.0,
             stars: 4.5,
@@ -3965,7 +4130,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep3': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 3',
             rating: 8.0,
             stars: 4.5,
@@ -3980,7 +4145,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep4': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 4',
             rating: 8.0,
             stars: 4.5,
@@ -3995,7 +4160,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep5': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 5',
             rating: 8.0,
             stars: 4.5,
@@ -4010,7 +4175,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep6': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 6',
             rating: 8.0,
             stars: 4.5,
@@ -4025,7 +4190,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep7': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 7',
             rating: 8.0,
             stars: 4.5,
@@ -4040,7 +4205,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'six s1 ep8': {
-            image: '/images/episode/six.jpg',
+            image: '/images/episodes/six.jpg',
             title: 'Six S1 Ep 8',
             rating: 8.0,
             stars: 4.5,
@@ -4055,7 +4220,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep1': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 1',
             rating: 7.0,
             stars: 4,
@@ -4070,7 +4235,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep2': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 2',
             rating: 7.0,
             stars: 4,
@@ -4085,7 +4250,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep3': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 3',
             rating: 7.0,
             stars: 4,
@@ -4100,7 +4265,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep4': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 4',
             rating: 7.0,
             stars: 4,
@@ -4115,7 +4280,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep5': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 5',
             rating: 7.0,
             stars: 4,
@@ -4130,7 +4295,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep6': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 6',
             rating: 7.0,
             stars: 4,
@@ -4145,7 +4310,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep7': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 7',
             rating: 7.0,
             stars: 4,
@@ -4160,7 +4325,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep8': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 8',
             rating: 7.0,
             stars: 4,
@@ -4175,7 +4340,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep9': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 9',
             rating: 7.0,
             stars: 4,
@@ -4190,7 +4355,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep10': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 10',
             rating: 7.0,
             stars: 4,
@@ -4205,7 +4370,7 @@ document.addEventListener("click", function (e) {
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'twelve s1 ep11': {
-            image: '/images/episode/twelve.jpg',
+            image: '/images/episodes/twelve.jpg',
             title: 'Twelve S1 Ep 11',
             rating: 7.0,
             stars: 4,
@@ -8037,20 +8202,56 @@ function switchSeasonEpisodes(selectElement) {
         
         // Decide whether this is an EPISODE:
         // - Prefer sessionStorage context captured from `.episodes-contens` (works for all series/seasons)
+        // - Also check for context from search results (fromSearch: true) - ALWAYS use if present
         // - Fallback to explicit episode metadata in videoData (seriesId/season)
         const episodeCtx = readEpisodeContextFromSession();
+        console.log('Episode context check:', {
+            hasContext: !!episodeCtx,
+            fromSearch: episodeCtx?.fromSearch,
+            episodesCount: episodeCtx?.episodes?.length,
+            currentVideoId: episodeCtx?.currentVideoId,
+            videoId: videoId,
+            dataSeriesId: data.seriesId,
+            dataSeason: data.season
+        });
+        
         const ctxHasCurrent = episodeCtx && Array.isArray(episodeCtx.episodes) &&
             episodeCtx.episodes.some(ep => String(ep.id) === String(videoId));
-        const isEpisode = !!ctxHasCurrent || !!(data.seriesId && data.season);
+        
+        // CRITICAL: If we have context from search with episodes, ALWAYS treat as episode and use it
+        // This ensures search results always show episodes section, not default section
+        const hasSearchContext = episodeCtx && episodeCtx.fromSearch && 
+            Array.isArray(episodeCtx.episodes) && episodeCtx.episodes.length > 0;
+        
+        // If context is from search, use it if it has episodes (lenient matching)
+        const ctxFromSearch = hasSearchContext && 
+            (String(episodeCtx.currentVideoId) === String(videoId) || 
+             ctxHasCurrent || 
+             episodeCtx.episodes.some(ep => String(ep.id) === String(videoId)));
+        
+        const isEpisode = !!ctxHasCurrent || !!ctxFromSearch || hasSearchContext || !!(data.seriesId && data.season);
+        
+        console.log('Episode detection result:', {
+            isEpisode: isEpisode,
+            ctxHasCurrent: ctxHasCurrent,
+            ctxFromSearch: ctxFromSearch,
+            hasSearchContext: hasSearchContext,
+            willUseContext: !!(ctxHasCurrent || ctxFromSearch || hasSearchContext)
+        });
         
         if (isEpisode) {
             // CRITICAL: For episodes, hide default sections FIRST and ensure they stay hidden
             hideDefaultSections();
             hideEpisodesSection(); // Clear any previous episode content
             
-            if (ctxHasCurrent) {
+            // Priority: Use context if available (from button click or search result)
+            // If we have search context, ALWAYS use it (even if videoId doesn't match exactly)
+            if (ctxHasCurrent || ctxFromSearch || hasSearchContext) {
+                console.log('Using episode context to show episodes section');
+                // Use context from button click or search result
                 showEpisodesSectionFromContext(episodeCtx, videoId);
             } else {
+                console.log('Using fallback method to show episodes section');
                 // Fallback: old 방식 (requires seriesId/season in videoData)
                 showEpisodesSection(data, videoData, videoId);
             }
@@ -8059,6 +8260,12 @@ function switchSeasonEpisodes(selectElement) {
             setTimeout(function() {
                 hideDefaultSections();
             }, 50);
+            setTimeout(function() {
+                hideDefaultSections();
+            }, 200);
+            setTimeout(function() {
+                hideDefaultSections();
+            }, 500);
         } else {
             // CRITICAL: For movies (non-episodes), clear episode context and show defaults
             // Clear episode context from sessionStorage since this is not an episode
@@ -8284,8 +8491,28 @@ function switchSeasonEpisodes(selectElement) {
         const seriesTitle = ctx.seriesTitle || 'Series';
         const allEpisodes = ctx.episodes || [];
         
+        console.log('showEpisodesSectionFromContext called:', {
+            season: season,
+            seriesTitle: seriesTitle,
+            allEpisodesCount: allEpisodes.length,
+            currentVideoId: currentVideoId,
+            fromSearch: ctx.fromSearch
+        });
+        
         // Filter out the current episode from the list (show only next episodes)
-        const episodes = allEpisodes.filter(ep => String(ep.id) !== String(currentVideoId));
+        // Use lenient matching - compare both as strings and handle URL encoding
+        const normalizedCurrentId = String(currentVideoId).trim();
+        const episodes = allEpisodes.filter(ep => {
+            const normalizedEpId = String(ep.id).trim();
+            // Include episode only if IDs don't match (checking both encoded and decoded versions)
+            const idsMatch = normalizedEpId === normalizedCurrentId || 
+                            decodeURIComponent(normalizedEpId) === decodeURIComponent(normalizedCurrentId) ||
+                            normalizedEpId === decodeURIComponent(normalizedCurrentId) ||
+                            decodeURIComponent(normalizedEpId) === normalizedCurrentId;
+            return !idsMatch;
+        });
+        
+        console.log('Filtered episodes (excluding current):', episodes.length);
 
         // Render a carousel using the same markup style as recommendations
         episodesSection.innerHTML = '';
