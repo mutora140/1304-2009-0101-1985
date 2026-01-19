@@ -7361,19 +7361,27 @@ function switchSeasonEpisodes(selectElement) {
       const containerTemplate = document.createElement('div');
       containerTemplate.className = 'search-results-container';
 
-      // Add to all search input containers
+      // Add to all search input containers (including hidden ones)
       this.searchInputs.forEach(input => {
         const container = input.closest('.form-group');
         if (container) {
           container.style.position = 'relative';
-          const resultsContainer = containerTemplate.cloneNode(true);
-          container.appendChild(resultsContainer);
+          
+          // Check if container already exists to avoid duplicates
+          let resultsContainer = container.querySelector('.search-results-container');
+          if (!resultsContainer) {
+            resultsContainer = containerTemplate.cloneNode(true);
+            container.appendChild(resultsContainer);
+          }
         }
       });
     }
 
     bindEvents() {
       this.searchInputs.forEach(input => {
+        // Mark as bound to avoid duplicate bindings
+        input.setAttribute('data-search-bound', 'true');
+        
         input.addEventListener('input', (e) => this.handleSearch(e));
         input.addEventListener('focus', (e) => this.showSearchResults(e));
         input.addEventListener('blur', (e) => this.hideSearchResults(e));
@@ -7403,14 +7411,42 @@ function switchSeasonEpisodes(selectElement) {
       });
 
       // Listen for search toggle clicks to reinitialize when search boxes become visible
+      // Use faster reinitialization for better responsiveness
       document.addEventListener('click', (e) => {
         if (e.target.closest('.search-toggle')) {
-          // Wait for the search box to become visible
+          // Wait for the search box to become visible (reduced from 200ms to 50ms for faster response)
           setTimeout(() => {
             this.reinitializeSearch();
-          }, 200);
+          }, 50);
         }
       });
+      
+      // Also use MutationObserver to detect when search boxes become visible (faster than setTimeout)
+      if (typeof MutationObserver !== 'undefined') {
+        const searchObserver = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+              const target = mutation.target;
+              if (target.classList.contains('search-box') || target.classList.contains('iq-show')) {
+                // Search box visibility changed, reinitialize
+                setTimeout(() => {
+                  this.reinitializeSearch();
+                }, 10);
+              }
+            }
+          });
+        });
+        
+        // Observe all search boxes for visibility changes
+        document.querySelectorAll('.search-box').forEach(box => {
+          searchObserver.observe(box, { attributes: true, attributeFilter: ['class'] });
+        });
+        
+        // Also observe parent elements that control visibility
+        document.querySelectorAll('li.nav-item, .navbar-right li').forEach(item => {
+          searchObserver.observe(item, { attributes: true, attributeFilter: ['class'] });
+        });
+      }
     }
 
     reinitializeSearch() {
@@ -7418,20 +7454,25 @@ function switchSeasonEpisodes(selectElement) {
       const newSearchInputs = document.querySelectorAll('.search-input');
       console.log('Reinitializing search with inputs:', newSearchInputs.length);
 
-      // Remove old event listeners and add new ones
-      newSearchInputs.forEach(input => {
-        // Remove any existing listeners by cloning the element
-        const newInput = input.cloneNode(true);
-        input.parentNode.replaceChild(newInput, input);
+      // Check if we have new inputs that aren't already bound
+      const unboundInputs = Array.from(newSearchInputs).filter(input => {
+        // Check if input already has our event listener (check for a data attribute)
+        return !input.hasAttribute('data-search-bound');
+      });
 
-        // Add event listeners to the new input
-        newInput.addEventListener('input', (e) => this.handleSearch(e));
-        newInput.addEventListener('focus', (e) => this.showSearchResults(e));
-        newInput.addEventListener('blur', (e) => this.hideSearchResults(e));
-        newInput.addEventListener('keydown', (e) => this.handleKeydown(e));
+      // Bind events to unbound inputs only (better performance than cloning)
+      unboundInputs.forEach(input => {
+        // Mark as bound
+        input.setAttribute('data-search-bound', 'true');
+        
+        // Add event listeners
+        input.addEventListener('input', (e) => this.handleSearch(e));
+        input.addEventListener('focus', (e) => this.showSearchResults(e));
+        input.addEventListener('blur', (e) => this.hideSearchResults(e));
+        input.addEventListener('keydown', (e) => this.handleKeydown(e));
 
         // Prevent form submission on enter
-        const form = newInput.closest('form');
+        const form = input.closest('form');
         if (form) {
           form.addEventListener('submit', (e) => e.preventDefault());
         }
@@ -7440,8 +7481,11 @@ function switchSeasonEpisodes(selectElement) {
       // Update the search inputs reference
       this.searchInputs = newSearchInputs;
 
-      // Recreate search results containers
+      // Recreate search results containers (only if missing)
       this.createSearchResultsContainer();
+      
+      // Refresh movie data in case videoData was loaded after initial init
+      this.movieData = this.getMovieData();
     }
 
     handleSearch(event) {
@@ -7457,7 +7501,7 @@ function switchSeasonEpisodes(selectElement) {
         clearTimeout(this.currentSearchTimeout);
       }
 
-      // Debounce search (reduced from 300ms to 150ms for faster results)
+      // Debounce search (reduced to 15ms for 90% faster results - 90% reduction from 150ms)
       this.currentSearchTimeout = setTimeout(() => {
         if (query.length >= 2) {
           const results = this.searchMovies(query);
@@ -7466,7 +7510,7 @@ function switchSeasonEpisodes(selectElement) {
         } else {
           this.hideSearchResults(event);
         }
-      }, 150);
+      }, 15);
     }
 
     searchMovies(query) {
@@ -7475,7 +7519,7 @@ function switchSeasonEpisodes(selectElement) {
         movie.title.toLowerCase().includes(searchTerm) ||
         movie.genres.some(genre => genre.toLowerCase().includes(searchTerm)) ||
         (movie.year && movie.year.toString().includes(searchTerm))
-      ).slice(0, 8); // Limit to 8 results
+      ); // Show all possible results - no limit
     }
 
     displaySearchResults(results, container) {
@@ -7921,23 +7965,80 @@ function switchSeasonEpisodes(selectElement) {
     }
   }
 
-  // Initialize search when DOM is loaded and jQuery is ready
+  // Initialize search when DOM is loaded and videoData is ready
+  // Use a more robust initialization that works on both home and watch pages
   if (typeof document !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', function () {
+    let searchInstance = null;
+    
+    function initializeSearch() {
+      // Check if videoData is available (required for search to work)
+      const videoData = (typeof window !== 'undefined' && window.videoData) || (typeof videoData !== 'undefined' ? videoData : null);
+      
+      if (!videoData) {
+        // If videoData not ready yet, wait a bit and try again (especially important for watch page)
+        setTimeout(initializeSearch, 50);
+        return;
+      }
+      
+      // Only create one instance
+      if (!searchInstance) {
+        searchInstance = new NerflixSearch();
+        
+        // Also reinitialize after a short delay to catch any dynamically added search inputs
+        setTimeout(() => {
+          if (searchInstance && typeof searchInstance.reinitializeSearch === 'function') {
+            searchInstance.reinitializeSearch();
+          }
+        }, 100);
+      } else {
+        // If instance exists, just reinitialize to catch new inputs
+        if (typeof searchInstance.reinitializeSearch === 'function') {
+          searchInstance.reinitializeSearch();
+        }
+      }
+    }
+    
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof jQuery !== 'undefined') {
+          jQuery(document).ready(function () {
+            // Reduced delay for faster initialization
+            setTimeout(initializeSearch, 50);
+          });
+        } else {
+          setTimeout(initializeSearch, 50);
+        }
+      });
+    } else {
+      // DOM already loaded, initialize immediately
       if (typeof jQuery !== 'undefined') {
         jQuery(document).ready(function () {
-          // Wait a bit for any existing search toggle functionality to initialize
-          setTimeout(function () {
-            new NerflixSearch();
-          }, 100);
+          setTimeout(initializeSearch, 50);
         });
       } else {
-        // Fallback if jQuery is not available
-        setTimeout(function () {
-          new NerflixSearch();
-        }, 100);
+        setTimeout(initializeSearch, 50);
       }
-    });
+    }
+    
+    // Also reinitialize periodically to catch videoData when it becomes available (for watch page)
+    // This ensures search works even if videoData loads after page initialization
+    let retryCount = 0;
+    const maxRetries = 20; // Try for up to 1 second (20 * 50ms)
+    const retryInterval = setInterval(() => {
+      const videoData = (typeof window !== 'undefined' && window.videoData) || (typeof videoData !== 'undefined' ? videoData : null);
+      if (videoData && searchInstance) {
+        // videoData is now available, ensure search is properly initialized
+        if (typeof searchInstance.reinitializeSearch === 'function') {
+          searchInstance.reinitializeSearch();
+        }
+        clearInterval(retryInterval);
+      }
+      retryCount++;
+      if (retryCount >= maxRetries) {
+        clearInterval(retryInterval);
+      }
+    }, 50);
   }
 
   function addFallbackAltText() {
