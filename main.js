@@ -7551,6 +7551,129 @@ function switchSeasonEpisodes(selectElement) {
       return starsHTML;
     }
 
+    // Normalize a series identifier so we can match episodes together
+    normalizeSeriesKey(value) {
+      return (value || '')
+        .toLowerCase()
+        .replace(/episode/gi, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    /**
+     * Extract best-effort series/season/episode metadata from a video entry.
+     * Works even if videoData entries do not have explicit seriesId/season set.
+     */
+    extractEpisodeMeta(videoId, data) {
+      if (!videoId && !data) return null;
+
+      const rawTitle = (data?.title || videoId || '').trim();
+      const combined = `${videoId || ''} ${rawTitle}`;
+
+      let seriesTitle = (data && data.seriesId) ? data.seriesId : rawTitle;
+      let seriesKey = (data && data.seriesId) ? this.normalizeSeriesKey(data.seriesId) : null;
+      let season = (data && data.season) ? data.season : null;
+      let episodeNumber = (data && data.episodeNumber) ? data.episodeNumber : null;
+
+      // Pattern: "<series> S1 Ep2" or similar
+      const seasonEpMatch = combined.match(/(.+?)\s+s(\d+)\s*ep(?:isode)?\s*(\d+)/i);
+      if (seasonEpMatch) {
+        const base = seasonEpMatch[1].trim();
+        seriesTitle = seriesTitle || base;
+        seriesKey = seriesKey || this.normalizeSeriesKey(base);
+        season = season || seasonEpMatch[2];
+        episodeNumber = episodeNumber || parseInt(seasonEpMatch[3], 10) || null;
+      }
+
+      // Pattern: "<series> Ep2" fallback when no explicit season
+      if (!seriesKey) {
+        const epMatch = combined.match(/(.+?)\s+ep(?:isode)?\s*(\d+)/i);
+        if (epMatch) {
+          const base = epMatch[1].trim();
+          seriesTitle = seriesTitle || base;
+          seriesKey = seriesKey || this.normalizeSeriesKey(base);
+          season = season || 1;
+          episodeNumber = episodeNumber || parseInt(epMatch[2], 10) || null;
+        }
+      }
+
+      if (!seriesKey) return null;
+
+      return {
+        seriesKey,
+        seriesTitle: seriesTitle || seriesKey || 'Series',
+        season: season || 1,
+        episodeNumber: episodeNumber != null ? Number(episodeNumber) : null
+      };
+    }
+
+    /**
+     * Store episode context for watch page using either explicit metadata
+     * or inferred series naming (so search results for episodes still work).
+     */
+    storeEpisodeContextFromVideoId(videoId) {
+      try {
+        const videoData = (typeof window !== 'undefined' && window.videoData) ? window.videoData : null;
+        if (!videoData || !videoData[videoId]) {
+          return false;
+        }
+
+        const currentMeta = this.extractEpisodeMeta(videoId, videoData[videoId]);
+        if (!currentMeta) {
+          return false;
+        }
+
+        const episodes = [];
+        for (const [id, data] of Object.entries(videoData)) {
+          const meta = this.extractEpisodeMeta(id, data);
+          if (!meta) continue;
+
+          if (meta.seriesKey === currentMeta.seriesKey &&
+              String(meta.season || '1') === String(currentMeta.season || '1')) {
+            episodes.push({
+              id: id,
+              title: data.title || id,
+              duration: data.duration || '',
+              description: data.description || '',
+              image: data.image || '/images/placeholder.jpg',
+              episodeNumber: meta.episodeNumber
+            });
+          }
+        }
+
+        if (!episodes.length) {
+          return false;
+        }
+
+        episodes.sort((a, b) => {
+          if (a.episodeNumber != null && b.episodeNumber != null) {
+            return a.episodeNumber - b.episodeNumber;
+          }
+          if (a.episodeNumber != null) return -1;
+          if (b.episodeNumber != null) return 1;
+          return (a.title || '').localeCompare(b.title || '');
+        });
+
+        const ctx = {
+          seriesTitle: currentMeta.seriesTitle,
+          season: String(currentMeta.season || ''),
+          currentVideoId: String(videoId),
+          episodes: episodes,
+          savedAt: Date.now(),
+          fromSearch: true
+        };
+
+        sessionStorage.setItem('watch_episode_context', JSON.stringify(ctx));
+        console.log('Stored episode context from search:', ctx);
+        return true;
+      } catch (error) {
+        console.error('Error creating episode context from search:', error);
+        return false;
+      }
+    }
+
     bindResultEvents(container) {
       const resultItems = container.querySelectorAll('.search-result-item');
       resultItems.forEach(item => {
@@ -7598,58 +7721,8 @@ function switchSeasonEpisodes(selectElement) {
                 input.blur();
               });
               
-              // Check if this is an episode from videoData
-              try {
-                const videoData = (typeof window !== 'undefined' && window.videoData) ? window.videoData : null;
-                if (videoData && videoData[videoId]) {
-                  const data = videoData[videoId];
-                  if (data.seriesId && data.season) {
-                    // This is an episode - create episode context
-                    const episodes = [];
-                    const seriesId = data.seriesId;
-                    const season = String(data.season);
-                    
-                    // Find all episodes from the same series and season
-                    for (const [id, epData] of Object.entries(videoData)) {
-                      if (epData && 
-                          epData.seriesId === seriesId && 
-                          String(epData.season) === season) {
-                        episodes.push({
-                          id: id,
-                          title: epData.title || 'Episode',
-                          duration: epData.duration || '',
-                          description: epData.description || '',
-                          image: epData.image || '/images/placeholder.jpg',
-                          episodeNumber: epData.episodeNumber || null
-                        });
-                      }
-                    }
-                    
-                    // Sort episodes by episode number if available
-                    episodes.sort((a, b) => {
-                      const epA = a.episodeNumber || 0;
-                      const epB = b.episodeNumber || 0;
-                      return epA - epB;
-                    });
-                    
-                    // Store episode context in sessionStorage
-                    if (episodes.length > 0) {
-                      const episodeContext = {
-                        seriesTitle: seriesId,
-                        season: season,
-                        currentVideoId: String(videoId),
-                        episodes: episodes,
-                        savedAt: Date.now(),
-                        fromSearch: true // Mark as coming from search
-                      };
-                      sessionStorage.setItem('watch_episode_context', JSON.stringify(episodeContext));
-                      console.log('Stored episode context from search (direct navigation):', episodeContext);
-                    }
-                  }
-                }
-              } catch (error) {
-                console.error('Error creating episode context from search (direct navigation):', error);
-              }
+              // Try to store episode context even when explicit series metadata is missing
+              this.storeEpisodeContextFromVideoId(videoId);
               
               // Navigate to watch page (reduced delay from 100ms to 0ms for faster navigation)
               if (typeof window.navigateToWatchPage === 'function') {
@@ -7723,68 +7796,8 @@ function switchSeasonEpisodes(selectElement) {
         movie: movie
       });
 
-      // Check if this is an episode (has seriesId and season)
-      // If so, create episode context so watch page shows next episodes
-      if (movie.seriesId && movie.season) {
-        console.log('Detected episode from search, creating episode context...');
-        try {
-          // Get full videoData to find all episodes in the same series/season
-          // Use window.videoData which is set globally in main.js
-          const videoData = (typeof window !== 'undefined' && window.videoData) ? window.videoData : null;
-          console.log('Checking for episodes in videoData:', {
-            hasVideoData: !!videoData,
-            seriesId: movie.seriesId,
-            season: movie.season,
-            videoId: videoId
-          });
-          if (videoData) {
-            const episodes = [];
-            const seriesId = movie.seriesId;
-            const season = String(movie.season);
-            
-            // Find all episodes from the same series and season
-            for (const [id, data] of Object.entries(videoData)) {
-              if (data && 
-                  data.seriesId === seriesId && 
-                  String(data.season) === season) {
-                episodes.push({
-                  id: id,
-                  title: data.title || 'Episode',
-                  duration: data.duration || '',
-                  description: data.description || '',
-                  image: data.image || '/images/placeholder.jpg',
-                  episodeNumber: data.episodeNumber || null
-                });
-              }
-            }
-            
-            // Sort episodes by episode number if available
-            episodes.sort((a, b) => {
-              const epA = a.episodeNumber || 0;
-              const epB = b.episodeNumber || 0;
-              return epA - epB;
-            });
-            
-            // Store episode context in sessionStorage
-            if (episodes.length > 0) {
-              const episodeContext = {
-                seriesTitle: seriesId,
-                season: season,
-                currentVideoId: String(videoId),
-                episodes: episodes,
-                savedAt: Date.now(),
-                fromSearch: true // Mark as coming from search
-              };
-              sessionStorage.setItem('watch_episode_context', JSON.stringify(episodeContext));
-              console.log('Stored episode context from search:', episodeContext);
-            } else {
-              console.warn('No episodes found for series/season:', { seriesId, season, videoId });
-            }
-          }
-        } catch (error) {
-          console.error('Error creating episode context from search:', error);
-        }
-      }
+      // Build and persist episode context (works even if explicit series metadata is missing)
+      this.storeEpisodeContextFromVideoId(videoId);
 
       // Navigate to watch page with video ID (reduced delay from 100ms to 0ms for faster navigation)
       if (typeof window.navigateToWatchPage === 'function') {
