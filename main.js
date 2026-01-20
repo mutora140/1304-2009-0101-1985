@@ -2522,7 +2522,7 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/02-XkOLVnIU',
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
-        '8jLOx1hD3_o': {
+        'death race': {
             image: '/images/favorite/f2.jpg',
             title: 'Death Race',
             rating: 6.5,
@@ -2537,7 +2537,7 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/8jLOx1hD3_o',
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
-        'W4DlMggBPvc': {
+        'homefront': {
             image: '/images/favorite/f3.jpg',
             title: 'Homefront',
             rating: 6.9,
@@ -2552,7 +2552,7 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/W4DlMggBPvc',
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
-        'sDYVdxFZq8Y': {
+        'mayhem': {
             image: '/images/favorite/f4.jpg',
             title: 'Mayhem',
             rating: 7.9,
@@ -2567,7 +2567,7 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/sDYVdxFZq8Y',
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
-        'q78_0TElYME': {
+        'shadow force': {
             image: '/images/favorite/f5.jpg',
             title: 'Shadow Force',
             rating: 6.8,
@@ -2732,7 +2732,7 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://videopress.com/embed/4qf9Uyn2acE',
             downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
-        'tsxemFXSQXQ': {
+        'woman in the yard': {
             image: '/images/popular/u4.jpg',
             title: 'Woman in the yard',
             rating: 8.0,
@@ -2755,6 +2755,186 @@ document.addEventListener("click", function (e) {
             genres: ['Action', 'Thriller',],
             interpreter: ['gaheza'],
             tags: ['Thriller', 'Action',],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'boyka undisputed 4': {
+            image: '/images/junior/01.jpg',
+            title: 'Boyka Undisputed IV',
+            rating: 8.5,
+            stars: 5,
+            genres: ['Action', 'Kick-Boxing','Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Kick-Boxing', 'Action','Boyka'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'europe raiders': {
+            image: '/images/junior/02.jpg',
+            title: 'Europe Raiders',
+            rating: 7.5,
+            stars: 4,
+            genres: ['Action','Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Robbery', 'Action','Spy'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'mercy': {
+            image: '/images/junior/03.jpg',
+            title: 'Mercy',
+            rating: 8,
+            stars: 4.5,
+            genres: ['Action','Crime','Drama'],
+            interpreter: ['Junior Giti'],
+            tags: ['Revenge', 'Action','Crime'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        '2:22': {
+            image: '/images/junior/04.jpg',
+            title: '2:22',
+            rating: 8.7,
+            stars: 5,
+            genres: ['Action','Crime'],
+            interpreter: ['Junior Giti'],
+            tags: [, 'Action','Crime'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'ziam': {
+            image: '/images/junior/05.jpg',
+            title: 'Ziam',
+            rating: 8,
+            stars: 5,
+            genres: ['Action','Crime','Adventure'],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Zombie','Fantasy'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        '6 underground': {
+            image: '/images/junior/06.jpg',
+            title: '6 Underground',
+            rating: 8.8,
+            stars: 5,
+            genres: ['Action','Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Crime','Spy'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        '7 days in entebbe': {
+            image: '/images/junior/07.jpg',
+            title: '7 Days in Entebbe',
+            rating: 7.8,
+            stars: 4,
+            genres: ['Action','Crime'],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Crime',],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'paskal': {
+            image: '/images/junior/08.jpg',
+            title: 'Paskal',
+            rating: 8,
+            stars: 4.5,
+            genres: ['Action','Crime','War'],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Crime','Afganistan'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'plane': {
+            image: '/images/junior/09.jpg',
+            title: 'Plane',
+            rating: 8,
+            stars: 5,
+            genres: ['Action','Crime',],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Crime','Plane Crush'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'the witch': {
+            image: '/images/junior/10.jpg',
+            title: 'The Witch',
+            rating: 8,
+            stars: 5,
+            genres: ['Action','Crime','Sci-fi'],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Sci-fi','Korea'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'iceman: traveller': {
+            image: '/images/junior/11.jpg',
+            title: 'Iceman: Traveller',
+            rating: 8,
+            stars: 5,
+            genres: ['Action','Adventure','Sci-fi'],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Sci-fi','Fantasy'],
+            description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
+            age: '12+',
+            duration: '1h 55min',
+            year: '2025',
+            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+        },
+        'kandahar': {
+            image: '/images/junior/12.jpg',
+            title: 'Kandahar',
+            rating: 8,
+            stars: 5,
+            genres: ['Action','Adventure','Sci-fi'],
+            interpreter: ['Junior Giti'],
+            tags: ['Action', 'Sci-fi','Fantasy'],
             description: 'Long before she was a single mother in a sleepy South African town, Jessica Brok was a highly skilled, coldblooded, special ops assassin. She thought she’d left that life behind. She thought her last ill-fated mission was her last. She thought wrong.',
             age: '12+',
             duration: '1h 55min',
@@ -3028,6 +3208,261 @@ document.addEventListener("click", function (e) {
             description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
             age: 'All Ages',
             duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'sing': {
+            image: '/images/suggested/07.jpg',
+            title: 'Sing',
+            rating: 7.0,
+            stars: 4.5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['P.K'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'hotel translyvania 3': {
+            image: '/images/suggested/08.jpg',
+            title: 'Hotel Translyvania 3',
+            rating: 7.8,
+            stars: 5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['P.K'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'hotel translyvania 2': {
+            image: '/images/suggested/09.jpg',
+            title: 'Hotel Translyvania 2',
+            rating: 8,
+            stars: 4.5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['P.K'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'ladybug catnoir: the movie ': {
+            image: '/images/suggested/10.jpg',
+            title: 'Ladybug Catnoir: The Movie ',
+            rating: 8.8,
+            stars: 4,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['Smith'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'pussy in boots: the last wish ': {
+            image: '/images/suggested/11.jpg',
+            title: 'Pussy in Boots: The Last Wish ',
+            rating: 8.0,
+            stars: 5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['P.K'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'kpop demob hunters': {
+            image: '/images/suggested/12.jpg',
+            title: 'Kpop Demon Hunters',
+            rating: 8.9,
+            stars: 4.5,
+            genres: ['Animation', 'Cartoon'],
+            interpreter: ['Perfect'],
+            tags: ['Cartoon', 'Family',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: 'All Ages',
+            duration: 'Various',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'tyler perry duplicity':{
+            image: '/images/dylan/01.jpg',
+            title: 'Tyler Duplicity',
+            rating: 9,
+            stars: 4,
+            genres: ['Drama', 'Thriller','Crime'],
+            interpreter: ['Dylan'],
+            tags: ['Drama', 'Crime',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'the swordsman':{
+            image: '/images/dylan/02.jpg',
+            title: 'The Swordsman',
+            rating: 9.6,
+            stars: 4.5,
+            genres: ['War', 'History','Action'],
+            interpreter: ['Dylan'],
+            tags: ['War', 'Crime',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'sonic the hedgehog':{
+            image: '/images/dylan/04.jpg',
+            title: 'Sonic The Hedgehog',
+            rating: 7.6,
+            stars: 4,
+            genres: ['Drama', 'Adventure','Action'],
+            interpreter: ['Dylan'],
+            tags: ['Action', 'Adventure',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'king serpent island':{
+            image: '/images/dylan/05.jpg',
+            title: 'King Serpent Island',
+            rating: 7.8,
+            stars: 3.5,
+            genres: ['Action', 'Adventure','Sci-fi'],
+            interpreter: ['Dylan'],
+            tags: ['Snakes', 'Adventure','Sci-fi'],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'i am vengeance retaliation':{
+            image: '/images/dylan/06.jpg',
+            title: 'I Am Vengeance Retaliation',
+            rating: 8,
+            stars: 4.5,
+            genres: ['Action', 'War','Crime'],
+            interpreter: ['Dylan'],
+            tags: ['Thriller', 'Action',],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'the covenant':{
+            image: '/images/dylan/07.jpg',
+            title: 'The Covenant',
+            rating: 8.8,
+            stars: 4,
+            genres: ['Action', 'War','Crime'],
+            interpreter: ['Dylan'],
+            tags: ['Crime', 'Afganistan','History'],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'game of deceit':{
+            image: '/images/dylan/08.jpg',
+            title: 'Game of Deciet',
+            rating: 8.2,
+            stars: 4.5,
+            genres: ['Drama', 'Thriller','Crime'],
+            interpreter: ['Dylan'],
+            tags: ['Crime', 'Thriller','Drama'],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'death at funeral':{
+            image: '/images/dylan/09.jpg',
+            title: 'Death at Funeral',
+            rating: 8.0,
+            stars: 4,
+            genres: ['Drama','Crime'],
+            interpreter: ['Dylan'],
+            tags: ['Thriller','Drama'],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'case depart':{
+            image: '/images/dylan/10.jpg',
+            title: 'Case Depart',
+            rating: 7.0,
+            stars: 3.5,
+            genres: ['Drama','Crime','Adventure'],
+            interpreter: ['Dylan'],
+            tags: ['Time Travel','Drama'],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'blackout':{
+            image: '/images/dylan/11.jpg',
+            title: 'Blackout',
+            rating: 7.9,
+            stars: 5,
+            genres: ['Action','Crime',],
+            interpreter: ['Dylan'],
+            tags: ['Crime','Action'],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
+            year: '2023',
+            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+        },
+        'altitude':{
+            image: '/images/dylan/12.jpg',
+            title: 'Altitude',
+            rating: 9,
+            stars: 5,
+            genres: ['Action','Crime','War'],
+            interpreter: ['Dylan'],
+            tags: ['Hijack','Action'],
+            description: 'Charismatic Monkey and his magical fighting stick team up on an epic quest during which they must go head-to-head against gods, demons, dragons and the greatest enemy of all, Monkey own ego.',
+            age: '19+',
+            duration: 'Movie',
             year: '2023',
             videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
@@ -4809,10 +5244,15 @@ document.addEventListener("click", function (e) {
             }
         }
         
-        // Update title
+        // Update titles
         const titleElement = document.getElementById('video-title');
         if (titleElement) {
             titleElement.textContent = data.title;
+        }
+        // Also update main page heading on the watch page, if present
+        const pageTitleElement = document.getElementById('movie-title');
+        if (pageTitleElement) {
+            pageTitleElement.textContent = data.title;
         }
         
         // Update rating section
@@ -8389,10 +8829,15 @@ function switchSeasonEpisodes(selectElement) {
             setTimeout(loadVideo, 0);
         }
         
-        // Update title
+        // Update titles
         const titleElement = document.getElementById('video-title');
         if (titleElement) {
             titleElement.textContent = data.title || 'Untitled';
+        }
+        // Also update the main watch page heading, if present
+        const pageTitleElement = document.getElementById('movie-title');
+        if (pageTitleElement) {
+            pageTitleElement.textContent = data.title || 'Untitled';
         }
         
         // Update description
