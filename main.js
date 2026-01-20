@@ -2462,6 +2462,9 @@ document.addEventListener("click", function (e) {
         //   episodeNumber: 1,              // Episode number within the season (optional, for sorting)
         // When an episode is played, the watch page will show "Next Episodes" section instead of default sections
         //
+        // Optional SEO-friendly slug (clean URL support for watch page):
+        //   slug: 'pick-up-2025'
+        //
         'kUJmAcSf': {
             image: '/images/slider/slider1.jpg',
             title: 'Pick Up',
@@ -4927,9 +4930,34 @@ document.addEventListener("click", function (e) {
 
     };
 
-    // Also expose videoData on the window so other modules (like search) can always see it
+    // Helper to generate a default slug from title + year (used if explicit slug is not provided)
+    function generateSlugFromTitleAndYear(key, data) {
+        const baseTitle = (data && data.title) ? data.title : key;
+        const year = (data && data.year) ? String(data.year) : '';
+        const slugBase = baseTitle
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')   // non-alphanumeric -> -
+            .replace(/^-+|-+$/g, '');      // trim leading/trailing -
+        return year ? `${slugBase}-${year}` : slugBase;
+    }
+
+    // Build a lookup map from slug -> videoId, extending existing movie data without replacing it
+    const slugToVideoIdMap = {};
+    Object.entries(videoData).forEach(([id, data]) => {
+        if (!data || typeof data !== 'object') return;
+        // If slug not explicitly set on data, generate one for internal use
+        if (!data.slug) {
+            data.slug = generateSlugFromTitleAndYear(id, data);
+        }
+        if (data.slug && !slugToVideoIdMap[data.slug]) {
+            slugToVideoIdMap[data.slug] = id;
+        }
+    });
+
+    // Also expose videoData and slug map on the window so other modules (like search) can always see it
     if (typeof window !== 'undefined') {
         window.videoData = videoData;
+        window.slugToVideoIdMap = slugToVideoIdMap;
     }
 
     // Helper function to find video data by video link
@@ -4973,7 +5001,7 @@ document.addEventListener("click", function (e) {
     }
     
     // Helper function to extract video ID from link or ID for navigation
-    // This replaces overlay logic with page navigation to /watch/?id=VIDEO_ID
+    // This replaces overlay logic with page navigation to /watch/?slug=VIDEO_SLUG (or ?id=VIDEO_ID as fallback)
     function getVideoIdForNavigation(identifier) {
         if (!identifier) return null;
         
@@ -5012,15 +5040,36 @@ document.addEventListener("click", function (e) {
         if (videoId) {
             // Show loading overlay before navigation
             showPageLoadOverlay();
-            // Navigate immediately
-            window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+            // Prefer slug-based clean URL if available
+            try {
+                const data = (typeof window !== 'undefined' && window.videoData && window.videoData[videoId]) ? window.videoData[videoId] : null;
+                const slug = data && data.slug ? data.slug : null;
+                if (slug) {
+                    window.location.href = `/watch/?slug=${encodeURIComponent(slug)}`;
+                } else {
+                    window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+                }
+            } catch (e) {
+                window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+            }
         } else {
             console.error('Could not extract video ID for navigation:', videoLinkOrId);
             // Fallback: try to use the identifier as-is
             const fallbackId = videoLinkOrId ? String(videoLinkOrId).replace(/https?:\/\/[^\/]+\/embed\//, '').replace(/[^a-zA-Z0-9_-]/g, '') : '';
             if (fallbackId && fallbackId.length > 0) {
                 showPageLoadOverlay();
-                window.location.href = `/watch/?id=${encodeURIComponent(fallbackId)}`;
+                // Prefer slug-based URL if possible
+                try {
+                    const data = (typeof window !== 'undefined' && window.videoData && window.videoData[fallbackId]) ? window.videoData[fallbackId] : null;
+                    const slug = data && data.slug ? data.slug : null;
+                    if (slug) {
+                        window.location.href = `/watch/?slug=${encodeURIComponent(slug)}`;
+                    } else {
+                        window.location.href = `/watch/?id=${encodeURIComponent(fallbackId)}`;
+                    }
+                } catch (e) {
+                    window.location.href = `/watch/?id=${encodeURIComponent(fallbackId)}`;
+                }
             } else {
                 // Hide overlay if navigation fails (no valid ID)
                 console.error('No valid video ID found, not navigating');
@@ -5822,9 +5871,15 @@ document.addEventListener("click", function (e) {
                 return;
             }
 
-            // Generate share link in format: miyagifilms.com/watch/?id=video-id
+        // Generate share link in format: miyagifilms.com/watch/?slug=video-slug (fallback to ?id=video-id)
             const baseUrl = window.location.origin || 'https://miyagifilms.com';
-            const shareLink = `${baseUrl}/watch/?id=${encodeURIComponent(videoData.videoId)}`;
+            const fullVideoData = (typeof window !== 'undefined' && window.videoData && window.videoData[videoData.videoId])
+                ? window.videoData[videoData.videoId]
+                : null;
+            const slug = fullVideoData && fullVideoData.slug ? fullVideoData.slug : null;
+            const shareLink = slug
+                ? `${baseUrl}/watch/?slug=${encodeURIComponent(slug)}`
+                : `${baseUrl}/watch/?id=${encodeURIComponent(videoData.videoId)}`;
 
             showShareCopyPopup({
                 title: videoData.title,
@@ -8682,26 +8737,45 @@ function switchSeasonEpisodes(selectElement) {
      * Reads video ID from URL and loads the video
      */
     function initializeWatchPage() {
-        // Get video ID from URL parameter
+        // Get slug or video ID from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const videoId = urlParams.get('id');
+        const slugParam = urlParams.get('slug');
+        const idParam = urlParams.get('id');
         
-        if (!videoId) {
-            console.error('No video ID provided in URL');
-            showWatchPageError('No video ID provided. Please select a video to watch.');
-            return;
-        }
-        
-        console.log('Loading video with ID:', videoId);
-        
-        // Access videoData from the global scope (loaded from main.js)
+        // Access videoData and slug map from the global scope (loaded from main.js)
         const videoData = window.videoData;
+        const slugMap = window.slugToVideoIdMap || {};
         
         if (!videoData) {
             console.error('videoData not available. Make sure main.js is loaded.');
             showWatchPageError('Video data not available. Please refresh the page.');
             return;
         }
+        
+        let videoId = null;
+        let usedSlug = null;
+        
+        // Prefer slug if present
+        if (slugParam) {
+            if (slugMap[slugParam] && videoData[slugMap[slugParam]]) {
+                videoId = slugMap[slugParam];
+                usedSlug = slugParam;
+            } else {
+                console.error('No movie found for slug:', slugParam);
+                showWatchPageError('Movie not found. Please select a valid movie.');
+                return;
+            }
+        } else if (idParam) {
+            videoId = idParam;
+        }
+        
+        if (!videoId) {
+            console.error('No slug or video ID provided in URL');
+            showWatchPageError('Movie not found. Please select a valid movie.');
+            return;
+        }
+        
+        console.log('Loading video with ID:', videoId, 'slug:', usedSlug);
         
         // Find video data by ID or link
         let videoInfo = findWatchPageVideoData(videoId, videoData);
@@ -8742,7 +8816,7 @@ function switchSeasonEpisodes(selectElement) {
         }
         
         // Load the video
-        loadWatchPageVideo(videoInfo.data, videoInfo.id, videoData);
+        loadWatchPageVideo(videoInfo.data, videoInfo.id, videoData, usedSlug || (videoInfo.data && videoInfo.data.slug));
     }
     
     /**
@@ -8783,8 +8857,9 @@ function switchSeasonEpisodes(selectElement) {
      * @param {object} data - Video data object
      * @param {string} videoId - Video ID
      * @param {object} videoData - Full videoData object for recommendations
+     * @param {string} [slug] - Optional slug used for this video (for canonical URL)
      */
-    function loadWatchPageVideo(data, videoId, videoData) {
+    function loadWatchPageVideo(data, videoId, videoData, slug) {
         console.log('Loading video:', data.title);
         
         // Update video iframe using the same function as gallery overlay for consistency
@@ -8839,6 +8914,34 @@ function switchSeasonEpisodes(selectElement) {
         if (pageTitleElement) {
             pageTitleElement.textContent = data.title || 'Untitled';
         }
+        
+        // Update document title to include movie title in a consistent format
+        if (data.title) {
+            document.title = `${data.title} - MiyagiFilms | Watch HD Online`;
+        }
+
+        // Update canonical URL to use slug when available (slug URLs are canonical)
+        (function updateCanonicalLink() {
+            const head = document.head || document.getElementsByTagName('head')[0];
+            if (!head) return;
+
+            let canonical = head.querySelector('link[rel="canonical"]');
+            if (!canonical) {
+                canonical = document.createElement('link');
+                canonical.setAttribute('rel', 'canonical');
+                head.appendChild(canonical);
+            }
+
+            const origin = window.location.origin || 'https://miyagifilms.com';
+            const finalSlug = slug || data.slug || null;
+
+            if (finalSlug) {
+                canonical.href = `${origin}/watch/?slug=${encodeURIComponent(finalSlug)}`;
+            } else {
+                // Fallback: keep id-based canonical if no slug is available
+                canonical.href = `${origin}/watch/?id=${encodeURIComponent(videoId)}`;
+            }
+        })();
         
         // Update description
         const descElement = document.getElementById('video-description');
