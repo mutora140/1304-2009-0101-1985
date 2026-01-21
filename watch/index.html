@@ -1775,71 +1775,7 @@
   <!-- Load main.js (includes watch page functionality) -->
   <script src="/main.js"></script>
   <script>
-    // Ensure page loader is hidden on watch page
-    document.addEventListener('DOMContentLoaded', function () {
-      document.body.classList.remove('loading');
-      const loader = document.getElementById('page-loader');
-      if (loader) {
-        loader.style.display = 'none';
-      }
-      
-      // Force equal heights for video player and sidebar - COMPREHENSIVE FIX
-      function equalizeHeights() {
-        const videoPlayerCol = document.querySelector('.video-gallery-content .col-lg-9');
-        const videoInfoCol = document.querySelector('.video-gallery-content .col-lg-3');
-        const videoPlayer = document.querySelector('.video-gallery-overlay .video-player-container');
-        const videoInfo = document.querySelector('.video-gallery-overlay .video-info');
-        
-        if (videoPlayer && videoInfo && videoPlayerCol && videoInfoCol) {
-          // Step 1: Reset all heights
-          videoPlayerCol.style.height = 'auto';
-          videoInfoCol.style.height = 'auto';
-          videoPlayer.style.height = 'auto';
-          videoInfo.style.height = 'auto';
-          
-          // Step 2: Get natural heights
-          const playerColHeight = videoPlayerCol.offsetHeight;
-          const infoColHeight = videoInfoCol.offsetHeight;
-          const playerHeight = videoPlayer.offsetHeight;
-          const infoHeight = videoInfo.offsetHeight;
-          
-          // Step 3: Calculate maximum height (use the tallest)
-          const maxHeight = Math.max(playerColHeight, infoColHeight, playerHeight, infoHeight, 500);
-          
-          // Step 4: Set columns to same height first
-          videoPlayerCol.style.height = maxHeight + 'px';
-          videoInfoCol.style.height = maxHeight + 'px';
-          
-          // Step 5: Set containers to fill their columns
-          videoPlayer.style.height = '100%';
-          videoInfo.style.height = '100%';
-          
-          // Step 6: Verify and force if needed
-          setTimeout(function() {
-            const finalPlayerHeight = videoPlayer.offsetHeight;
-            const finalInfoHeight = videoInfo.offsetHeight;
-            const finalMax = Math.max(finalPlayerHeight, finalInfoHeight, maxHeight);
-            videoPlayer.style.height = finalMax + 'px';
-            videoInfo.style.height = finalMax + 'px';
-          }, 50);
-        }
-      }
-      
-      // Run multiple times to ensure it works
-      equalizeHeights();
-      setTimeout(equalizeHeights, 100);
-      setTimeout(equalizeHeights, 300);
-      setTimeout(equalizeHeights, 500);
-      setTimeout(equalizeHeights, 1000);
-      setTimeout(equalizeHeights, 2000);
-      
-      // Run on resize
-      let resizeTimeout;
-      window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(equalizeHeights, 100);
-      });
-      
+
       // Watch for content changes
       if (window.MutationObserver) {
         const observer = new MutationObserver(function() {
@@ -1855,7 +1791,7 @@
           });
         }
       }
-    });
+    
   </script>
 </body>
 </html>
