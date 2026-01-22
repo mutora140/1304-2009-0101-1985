@@ -2491,7 +2491,7 @@ document.addEventListener("click", function (e) {
             description: 'At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.',
             age: '13+',
             duration: '1h 42min',
-            year: 'gaheza',
+            year: 'Gaheza',
             videoLink: 'https://videopress.com/embed/FLzfXQSPBOg',
             downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
@@ -3717,12 +3717,12 @@ document.addEventListener("click", function (e) {
             rating: 7.7,
             stars: 4,
             genres: ['Fantasy', 'Adventure', 'Action'],
-            interpreter: ['Sankara'],
+            interpreter: ['B The Great'],
             tags: ['Sci-fi', 'Sorcery', 'Magic'],
             description: 'After his career is destroyed, a brilliant but arrogant surgeon gets a new lease on life when a sorcerer takes him under her wing and trains him to defend the world against evil.',
             age: '16+',
             duration: '2h 9min',
-            year: 'Sankara',
+            year: 'B The Great',
             videoLink: 'https://videopress.com/embed/m4NC26Dk4dE',
             downloadLink: 'https://example.com/download/kingsman'
         },
