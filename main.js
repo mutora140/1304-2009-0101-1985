@@ -9282,7 +9282,15 @@ function switchSeasonEpisodes(selectElement) {
               });
               
               // Try to store episode context even when explicit series metadata is missing
-              this.storeEpisodeContextFromVideoId(videoId);
+              // If this is NOT an episode (returns false), clear any existing episode context
+              const isEpisode = this.storeEpisodeContextFromVideoId(videoId);
+              if (!isEpisode) {
+                // This is a movie, not an episode - clear episode context to ensure default sections show
+                try {
+                  sessionStorage.removeItem('watch_episode_context');
+                  console.log('Cleared episode context - this is a movie, not an episode');
+                } catch (_) {}
+              }
               
               // Navigate to watch page (reduced delay from 100ms to 0ms for faster navigation)
               if (typeof window.navigateToWatchPage === 'function') {
@@ -9357,7 +9365,15 @@ function switchSeasonEpisodes(selectElement) {
       });
 
       // Build and persist episode context (works even if explicit series metadata is missing)
-      this.storeEpisodeContextFromVideoId(videoId);
+      // If this is NOT an episode (returns false), clear any existing episode context
+      const isEpisode = this.storeEpisodeContextFromVideoId(videoId);
+      if (!isEpisode) {
+        // This is a movie, not an episode - clear episode context to ensure default sections show
+        try {
+          sessionStorage.removeItem('watch_episode_context');
+          console.log('Cleared episode context - this is a movie, not an episode');
+        } catch (_) {}
+      }
 
       // Navigate to watch page with video ID (reduced delay from 100ms to 0ms for faster navigation)
       if (typeof window.navigateToWatchPage === 'function') {
@@ -10006,18 +10022,24 @@ function switchSeasonEpisodes(selectElement) {
         const ctxHasCurrent = episodeCtx && Array.isArray(episodeCtx.episodes) &&
             episodeCtx.episodes.some(ep => String(ep.id) === String(videoId));
         
-        // CRITICAL: If we have context from search with episodes, ALWAYS treat as episode and use it
-        // This ensures search results always show episodes section, not default section
+        // CRITICAL: If we have context from search with episodes, check if current video is actually in the episodes list
+        // This ensures search results for movies don't show episodes section
         const hasSearchContext = episodeCtx && episodeCtx.fromSearch && 
             Array.isArray(episodeCtx.episodes) && episodeCtx.episodes.length > 0;
         
-        // If context is from search, use it if it has episodes (lenient matching)
+        // If context is from search, only use it if the current videoId is actually in the episodes list
+        // This prevents movies from search results from showing episodes section
         const ctxFromSearch = hasSearchContext && 
             (String(episodeCtx.currentVideoId) === String(videoId) || 
              ctxHasCurrent || 
              episodeCtx.episodes.some(ep => String(ep.id) === String(videoId)));
         
-        const isEpisode = !!ctxHasCurrent || !!ctxFromSearch || hasSearchContext || !!(data.seriesId && data.season);
+        // Only treat as episode if:
+        // 1. Current video is in the episode context list (ctxHasCurrent), OR
+        // 2. Context is from search AND current video matches (ctxFromSearch), OR
+        // 3. Video data has explicit seriesId and season (data.seriesId && data.season)
+        // Note: hasSearchContext alone is not enough - the video must actually be in the episodes list
+        const isEpisode = !!ctxHasCurrent || !!ctxFromSearch || !!(data.seriesId && data.season);
         
         console.log('Episode detection result:', {
             isEpisode: isEpisode,
@@ -10033,8 +10055,8 @@ function switchSeasonEpisodes(selectElement) {
             hideEpisodesSection(); // Clear any previous episode content
             
             // Priority: Use context if available (from button click or search result)
-            // If we have search context, ALWAYS use it (even if videoId doesn't match exactly)
-            if (ctxHasCurrent || ctxFromSearch || hasSearchContext) {
+            // Only use search context if the current video is actually in the episodes list
+            if (ctxHasCurrent || ctxFromSearch) {
                 console.log('Using episode context to show episodes section');
                 // Use context from button click or search result
                 showEpisodesSectionFromContext(episodeCtx, videoId);
