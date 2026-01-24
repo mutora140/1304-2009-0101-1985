@@ -2468,6 +2468,7 @@ document.addEventListener("click", function (e) {
         'pickup': {
             image: '/images/slider/slider1.jpg',
             title: 'Pick Up',
+            slug: 'Pick-Up_Gaheza',
             rating: 7.3,
             stars: 4,
             genres: ['Action', 'Comedy', 'Crime'],
@@ -2476,13 +2477,14 @@ document.addEventListener("click", function (e) {
             description: 'A routine cash pickup takes a wild turn when mismatched armored truck drivers Russell and Travis are ambushed by ruthless criminals led by savvy mastermind Zoe.',
             age: '12+',
             duration: '2h 21min',
-            year: 'Gaheza',
+            year: '2025',
             videoLink: 'https://videopress.com/embed/kUJmAcSf',
             downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         '1917': {
             image: '/images/slider/slider2.jpg',
             title: '1917',
+            slug: '1917_Gaheza',
             rating: 7.4,
             stars: 4,
             genres: ['War', 'History', 'Action'],
@@ -2498,6 +2500,7 @@ document.addEventListener("click", function (e) {
         'work it': {
             image: '/images/slider/slider3.jpg',
             title: 'Work It',
+            slug: 'Work-It_Dylan',
             rating: 7.5,
             stars: 4.5,
             genres: ['Comedy', 'Music',],
@@ -2513,6 +2516,7 @@ document.addEventListener("click", function (e) {
         'afterburn': {
             image: '/images/favorite/f1.jpg',
             title: 'afterburn',
+            slug: 'Afterburn_Rocky',
             rating: 7.0,
             stars: 4.5,
             genres: ['Sci-fi', 'Action', 'Comedy'],
@@ -2521,13 +2525,14 @@ document.addEventListener("click", function (e) {
             description: 'Set against the backdrop of a postapocalyptic Earth whose Eastern Hemisphere was destroyed by a massive solar flare, leaving what life remains mutated from radiation and fallout. The story revolves around a group of treasure hunters who extract such objects as the Mona Lisa, the Rosetta Stone and the Crown Jewels while facing rival hunters, mutants and pirates.',
             age: '10+',
             duration: '2h 0min',
-            year: 'Rocky',
+            year: '2025',
             videoLink: 'https://videopress.com/embed/02-XkOLVnIU',
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         'death race': {
             image: '/images/favorite/f2.jpg',
             title: 'Death Race',
+            slug: 'Death-Race_Gaheza',
             rating: 6.5,
             stars: 4.5,
             genres: ['Action', 'Thriller', 'Sci-fi'],
@@ -2536,13 +2541,14 @@ document.addEventListener("click", function (e) {
             description: 'Terminal Island, New York: 2020. Overcrowding in the US penal system has reached a breaking point. Prisons have been turned over to a monolithic Weyland Corporation, which sees jails full of thugs as an opportunity for televised sport. Adrenalized inmates, a global audience hungry for violence and a spectacular, enclosed arena come together to form the "Death Race", the biggest, most brutal event.',
             age: '18+',
             duration: '2h 21min',
-            year: 'Gaheza',
+            year: '2014',
             videoLink: 'https://videopress.com/embed/8jLOx1hD3_o',
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'homefront': {
             image: '/images/favorite/f3.jpg',
             title: 'Homefront',
+            slug: 'Homefront_Gaheza',
             rating: 6.9,
             stars: 4,
             genres: ['Action', 'Thriller'],
@@ -2551,13 +2557,14 @@ document.addEventListener("click", function (e) {
             description: 'Phil Broker is a former DEA agent who has gone through a crisis after his action against a biker gang went horribly wrong and it cost the life of his boss son. He is recently widowed and is left with a 9-years-old daughter, Maddy. He decides to quit the turbulent and demanding life of thrill for Maddys sake and retires to a small town. His daughter fights off a boy who was bullying her at school and this sets in motion a round of events that end in his direct confrontation with the local Meth drug lord. His past history with the biker gang also enters the arena, making matters more complex. But he has a mission in his mind to protect his daughter and he is ready to pay any cost that it demands.',
             age: '12+',
             duration: '2h 4min',
-            year: 'Gaheza',
+            year: '2025',
             videoLink: 'https://videopress.com/embed/W4DlMggBPvc',
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'mayhem': {
             image: '/images/favorite/f4.jpg',
             title: 'Mayhem',
+            slug: 'Mayhem_Gaheza',
             rating: 7.9,
             stars: 4,
             genres: ['Action', 'Crime', 'Thriller'],
@@ -2573,6 +2580,7 @@ document.addEventListener("click", function (e) {
         'shadow force': {
             image: '/images/favorite/f5.jpg',
             title: 'Shadow Force',
+            slug: 'shadow-force_Gaheza',
             rating: 6.8,
             stars: 3,
             genres: ['Action', 'Thriller'],
@@ -2588,6 +2596,7 @@ document.addEventListener("click", function (e) {
         'thieves highway': {
             image: '/images/favorite/f6.jpg',
             title: 'Thieves Highway',
+            slug: 'Thieves-Highway_Didier',
             rating: 7.8,
             stars: 4,
             genres: ['Action', 'Thriller','Crime'],
@@ -2603,6 +2612,7 @@ document.addEventListener("click", function (e) {
         'the amazing spiderman': {
             image: '/images/favorite/f7.jpg',
             title: 'The Amazing Spiderman',
+            slug: 'The-Amazing-spiderman_Siniya',
             rating: 8,
             stars: 4.,
             genres: ['Action', 'Sci-fi','Adventure'],
@@ -2618,6 +2628,7 @@ document.addEventListener("click", function (e) {
         'teen wolf': {
             image: '/images/favorite/f8.jpg',
             title: 'Teen Wolf: The Movie',
+            slug: 'Teen-Wolf:The-Movie_Dylan',
             rating: 7.8,
             stars: 4.5,
             genres: ['Fantasy', 'Sci-fi','Adventure'],
@@ -2633,6 +2644,7 @@ document.addEventListener("click", function (e) {
         'tarot': {
             image: '/images/favorite/f9.jpg',
             title: 'Tarot',
+            slug: 'Tarot_Didier',
             rating: 8.7,
             stars: 5,
             genres: ['Horror', 'Magic','Adventure'],
@@ -2648,6 +2660,7 @@ document.addEventListener("click", function (e) {
         'spiderman 3': {
             image: '/images/favorite/f10.jpg',
             title: 'Spiderman 3',
+            slug: 'Spiderman-3_Siniya',
             rating: 8,
             stars: 5,
             genres: ['Sci-fi','Adventure'],
@@ -2663,6 +2676,7 @@ document.addEventListener("click", function (e) {
         'light out': {
             image: '/images/favorite/f11.jpg',
             title: 'Light Out',
+            slug: 'Lights-out_Siniya',
             rating: 7.4,
             stars: 4,
             genres: ['War','Crime'],
@@ -2678,6 +2692,7 @@ document.addEventListener("click", function (e) {
         'ruthless': {
             image: '/images/favorite/f12.jpg',
             title: 'Ruthless',
+            slug: 'Ruthless_Didier',
             rating: 8.4,
             stars: 4.5,
             genres: ['Action','Crime'],
@@ -2693,6 +2708,7 @@ document.addEventListener("click", function (e) {
         'possession of honnor': {
             image: '/images/popular/u1.jpg',
             title: 'Possession of Hannah',
+            slug: 'Possession-of-Hannah_Gaheza',
             rating: 6.2,
             stars: 3,
             genres: ['Action', 'Thriller'],
@@ -2708,6 +2724,7 @@ document.addEventListener("click", function (e) {
         'frankenstein': {
             image: '/images/popular/u2.jpg',
             title: 'Frankenstein',
+            slug: 'Frankenstein_Sankara',
             rating: 7.1,
             stars: 4,
             genres: ['Drama', 'fantasy', 'Horror'],
@@ -2723,6 +2740,7 @@ document.addEventListener("click", function (e) {
         'texas chain': {
             image: '/images/popular/u3.jpg',
             title: 'Texas Chain',
+            slug: 'Texas-Chain_Sankara',
             rating: 7.2,
             stars: 4,
             genres: ['Horror',],
@@ -2738,6 +2756,7 @@ document.addEventListener("click", function (e) {
         'woman in the yard': {
             image: '/images/popular/u4.jpg',
             title: 'Woman in the yard',
+            slug: 'Woman-in-the-Yard_Gaheza',
             rating: 8.0,
             stars: 4,
             genres: ['Horror', 'Thriller'],
@@ -2753,6 +2772,7 @@ document.addEventListener("click", function (e) {
         'hunting jessica': {
             image: '/images/popular/u5.jpg',
             title: 'Hunting jessica brok',
+            slug: 'Hunting-Jessica-Brok_Gaheza',
             rating: 7.5,
             stars: 4,
             genres: ['Action', 'Thriller',],
@@ -2768,6 +2788,7 @@ document.addEventListener("click", function (e) {
         'boyka undisputed 4': {
             image: '/images/junior/01.jpg',
             title: 'Boyka Undisputed IV',
+            slug: 'Boyka-Undisputed-IV_Junior-Git',
             rating: 8.5,
             stars: 5,
             genres: ['Action', 'Kick-Boxing','Crime'],
@@ -2783,6 +2804,7 @@ document.addEventListener("click", function (e) {
         'europe raiders': {
             image: '/images/junior/02.jpg',
             title: 'Europe Raiders',
+            slug: 'Europe-Raiders_Junior-Git',
             rating: 7.5,
             stars: 4,
             genres: ['Action','Crime'],
@@ -2798,6 +2820,7 @@ document.addEventListener("click", function (e) {
         'mercy': {
             image: '/images/junior/03.jpg',
             title: 'Mercy',
+            slug: 'Mercy_Junior-Git',
             rating: 8,
             stars: 4.5,
             genres: ['Action','Crime','Drama'],
@@ -2813,6 +2836,7 @@ document.addEventListener("click", function (e) {
         '2:22': {
             image: '/images/junior/04.jpg',
             title: '2:22',
+            slug: '2:22_Junior-Git',
             rating: 8.7,
             stars: 5,
             genres: ['Action','Crime'],
@@ -2828,6 +2852,7 @@ document.addEventListener("click", function (e) {
         'ziam': {
             image: '/images/junior/05.jpg',
             title: 'Ziam',
+            slug: 'Ziam_Junior-Git',
             rating: 8,
             stars: 5,
             genres: ['Action','Crime','Adventure'],
@@ -2843,6 +2868,7 @@ document.addEventListener("click", function (e) {
         '6 underground': {
             image: '/images/junior/06.jpg',
             title: '6 Underground',
+            slug: '6-Uderground_Junior-Git',
             rating: 8.8,
             stars: 5,
             genres: ['Action','Crime'],
@@ -2858,6 +2884,7 @@ document.addEventListener("click", function (e) {
         '7 days in entebbe': {
             image: '/images/junior/07.jpg',
             title: '7 Days in Entebbe',
+            slug: '7-Days-in-Entebbe_Junior-Git',
             rating: 7.8,
             stars: 4,
             genres: ['Action','Crime'],
@@ -2873,6 +2900,7 @@ document.addEventListener("click", function (e) {
         'paskal': {
             image: '/images/junior/08.jpg',
             title: 'Paskal',
+            slug: 'Paskal_Junior-Git',
             rating: 8,
             stars: 4.5,
             genres: ['Action','Crime','War'],
@@ -2888,6 +2916,7 @@ document.addEventListener("click", function (e) {
         'plane': {
             image: '/images/junior/09.jpg',
             title: 'Plane',
+            slug: 'Plane_Junior-Git',
             rating: 8,
             stars: 5,
             genres: ['Action','Crime',],
@@ -2903,6 +2932,7 @@ document.addEventListener("click", function (e) {
         'the witch': {
             image: '/images/junior/10.jpg',
             title: 'The Witch',
+            slug: 'The-Witch_Junior-Git',
             rating: 8,
             stars: 5,
             genres: ['Action','Crime','Sci-fi'],
@@ -2918,6 +2948,7 @@ document.addEventListener("click", function (e) {
         'iceman: traveller': {
             image: '/images/junior/11.jpg',
             title: 'Iceman: Traveller',
+            slug: 'Iceman:Treveler_Junior-Git',
             rating: 8,
             stars: 5,
             genres: ['Action','Adventure','Sci-fi'],
@@ -2933,6 +2964,7 @@ document.addEventListener("click", function (e) {
         'kandahar': {
             image: '/images/junior/12.jpg',
             title: 'Kandahar',
+            slug: 'Kandahar_Junior-Git',
             rating: 8,
             stars: 5,
             genres: ['Action','Adventure','Sci-fi'],
@@ -2948,6 +2980,7 @@ document.addEventListener("click", function (e) {
         'night of hunted': {
             image: '/images/popular/u6.jpg',
             title: 'Night of Hunted',
+            slug: 'Night-of-Hunted_Gaheza',
             rating: 8.5,
             stars: 4.5,
             genres: ['Action', 'Thriller','War'],
@@ -2963,6 +2996,7 @@ document.addEventListener("click", function (e) {
         'hunting season': {
             image: '/images/popular/u7.jpg',
             title: 'Hunting Season',
+            slug: 'Hunting-Season_Didier',
             rating: 8.0,
             stars: 5,
             genres: ['Action', 'Drama','War'],
@@ -2978,6 +3012,7 @@ document.addEventListener("click", function (e) {
         'hostile takeover': {
             image: '/images/popular/u8.jpg',
             title: 'Hostile Takeover',
+            slug: 'Hostile-Takeover_Didier',
             rating: 8.0,
             stars: 5,
             genres: ['Action', 'Drama','War'],
@@ -2993,6 +3028,7 @@ document.addEventListener("click", function (e) {
         'guns up': {
             image: '/images/popular/u9.jpg',
             title: 'Guns Up',
+            slug: 'Guns-Up_Didiers',
             rating: 7.6,
             stars: 4.5,
             genres: ['Action', 'Crime'],
@@ -3008,6 +3044,7 @@ document.addEventListener("click", function (e) {
         'dunki': {
             image: '/images/popular/u10.jpg',
             title: 'Dunki',
+            slug: 'Dunki_Siniya',
             rating: 7.2,
             stars: 4,
             genres: ['Drama', 'Thriller'],
@@ -3023,6 +3060,7 @@ document.addEventListener("click", function (e) {
         'alita: the battle angel': {
             image: '/images/popular/u11.jpg',
             title: 'Alita: The Battle Angel',
+            slug: 'Alita:The-Battle-Angel_Sankara',
             rating: 8.7,
             stars: 5,
             genres: ['Sci-fi', 'Adventure','Action'],
@@ -3038,6 +3076,7 @@ document.addEventListener("click", function (e) {
         'aftermath': {
             image: '/images/popular/u12.jpg',
             title: 'Aftermath',
+            slug: 'Aftermath_Junior-Git',
             rating: 8.0,
             stars: 4.5,
             genres: ['War', 'Thriller','Action'],
@@ -3053,6 +3092,7 @@ document.addEventListener("click", function (e) {
         'next': {
             image: '/images/top-10/01.jpg',
             title: 'Next',
+            slug: 'Next_Gaheza',
             rating: 7.6,
             stars: 4,
             genres: ['Action', 'Sci-fi', 'Thriller'],
@@ -3068,6 +3108,7 @@ document.addEventListener("click", function (e) {
         'lou': {
             image: '/images/top-10/02.jpg',
             title: 'Lou',
+            slug: 'Lou_Gaheza',
             rating: 8.6,
             stars: 5,
             genres: ['Action', 'Thriller'],
@@ -3083,6 +3124,7 @@ document.addEventListener("click", function (e) {
         'f1: the movie': {
             image: '/images/top-10/03.jpg',
             title: 'F1: The movie',
+            slug: 'F1:The-Movie_Gaheza',
             rating: 8.7,
             stars: 4.5,
             genres: ['Action', 'Drama',],
@@ -3098,6 +3140,7 @@ document.addEventListener("click", function (e) {
         'play dirty': {
             image: '/images/top-10/04.jpg',
             title: 'Play dirty',
+            slug: 'Play-Dirty_Gaheza',
             rating: 8.8,
             stars: 5,
             genres: ['Crime'],
@@ -3113,6 +3156,7 @@ document.addEventListener("click", function (e) {
         'ice road': {
             image: '/images/top-10/05.jpg',
             title: 'Ice road: Vegeance',
+            slug: 'Iceroad:Vengeance_Gaheza',
             rating: 8.8,
             stars: 5,
             genres: ['Action', 'Thriller'],
@@ -3128,6 +3172,7 @@ document.addEventListener("click", function (e) {
         'the carpenter son': {
             image: '/images/top-10/06.jpg',
             title: 'Carpenter son',
+            slug: "Carpenter's-Son_Gaheza",
             rating: 8.5,
             stars: 4,
             genres: ['Horror', 'History'],
@@ -3143,6 +3188,7 @@ document.addEventListener("click", function (e) {
         'monkey king': {
             image: '/images/suggested/01.jpg',
             title: 'Monkey King',
+            slug: 'Monkey-King_Ryan',
             rating: 8.2,
             stars: 4,
             genres: ['Fantasy', 'Family'],
@@ -3158,6 +3204,7 @@ document.addEventListener("click", function (e) {
         'nezha': {
             image: '/images/suggested/02.jpg',
             title: 'Nezha 1',
+            slug: 'Nezha_Master-P',
             rating: 8.2,
             stars: 4.5,
             genres: ['Animation', 'Cartoon'],
@@ -3173,6 +3220,7 @@ document.addEventListener("click", function (e) {
         'bigfoot family': {
             image: '/images/suggested/03.jpg',
             title: 'BigFoot Family',
+            slug: 'Bigfoot-Family_Master-P',
             rating: 8.7,
             stars: 5,
             genres: ['Animation', 'Cartoon'],
@@ -3188,6 +3236,7 @@ document.addEventListener("click", function (e) {
         'peter rabbit 1': {
             image: '/images/suggested/04.jpg',
             title: 'Peter Rabbit 1',
+            slug: 'Peter-Rabbit_Gaheza',
             rating: 9,
             stars: 5.0,
             genres: ['Animation', 'Cartoon'],
@@ -3203,6 +3252,7 @@ document.addEventListener("click", function (e) {
         'peter rabbit 2': {
             image: '/images/suggested/05.jpg',
             title: 'Peter Rabbit 2',
+            slug: 'Peter-Rabbit-2_Gaheza',
             rating: 9.2,
             stars: 4.5,
             genres: ['Animation', 'Cartoon'],
@@ -3218,6 +3268,7 @@ document.addEventListener("click", function (e) {
         'sing': {
             image: '/images/suggested/07.jpg',
             title: 'Sing',
+            slug: 'Sing_P.K',
             rating: 7.0,
             stars: 4.5,
             genres: ['Animation', 'Cartoon'],
@@ -3233,6 +3284,7 @@ document.addEventListener("click", function (e) {
         'hotel translyvania 3': {
             image: '/images/suggested/08.jpg',
             title: 'Hotel Translyvania 3',
+            slug: 'Hotel-Translyvania-3_P.K',
             rating: 7.8,
             stars: 5,
             genres: ['Animation', 'Cartoon'],
@@ -3248,6 +3300,7 @@ document.addEventListener("click", function (e) {
         'hotel translyvania 2': {
             image: '/images/suggested/09.jpg',
             title: 'Hotel Translyvania 2',
+            slug: 'Hotel-Translyvania-2_P.K',
             rating: 8,
             stars: 4.5,
             genres: ['Animation', 'Cartoon'],
@@ -3263,6 +3316,7 @@ document.addEventListener("click", function (e) {
         'ladybug catnoir: the movie ': {
             image: '/images/suggested/10.jpg',
             title: 'Ladybug Catnoir: The Movie ',
+            slug: 'Ladybug-Catnoir:The-Movie_Smith',
             rating: 8.8,
             stars: 4,
             genres: ['Animation', 'Cartoon'],
@@ -3278,6 +3332,7 @@ document.addEventListener("click", function (e) {
         'pussy in boots: the last wish ': {
             image: '/images/suggested/11.jpg',
             title: 'Pussy in Boots: The Last Wish ',
+            slug: 'Pussy-in-Boots:The-Last-Wish_P.K',
             rating: 8.0,
             stars: 5,
             genres: ['Animation', 'Cartoon'],
@@ -3293,6 +3348,7 @@ document.addEventListener("click", function (e) {
         'kpop demon hunters': {
             image: '/images/suggested/12.jpg',
             title: 'Kpop Demon Hunters',
+            slug: 'Kpop-Demon-Hunters_Perfect',
             rating: 8.9,
             stars: 4.5,
             genres: ['Animation', 'Cartoon'],
@@ -3308,7 +3364,9 @@ document.addEventListener("click", function (e) {
         'tyler perry duplicity':{
             image: '/images/dylan/01.jpg',
             title: 'Tyler Duplicity',
+            slug: 'Tyler-Duplicity_Dylan',
             rating: 9,
+            slug:'Tyler Perry Duplicity-Dylan',
             stars: 4,
             genres: ['Drama', 'Thriller','Crime'],
             interpreter: ['Dylan'],
@@ -3316,13 +3374,14 @@ document.addEventListener("click", function (e) {
             description: 'High-powered attorney Marley faces her most personal case yet when she is tasked with uncovering the truth behind the murder of her best friend Fela’s husband. With the help of her boyfriend – a former cop turned private investigator – Marley’s search for what really happened leads her down a treacherous maze of deception and betrayal.',
             age: '19+',
             duration: 'Movie',
-            year: 'Dylan',
+            year: '2018',
             videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'the swordsman':{
             image: '/images/dylan/02.jpg',
             title: 'The Swordsman',
+            slug: 'The-Swordsman_Dylan',
             rating: 9.6,
             stars: 4.5,
             genres: ['War', 'History','Action'],
@@ -3338,6 +3397,7 @@ document.addEventListener("click", function (e) {
         'sonic the hedgehog':{
             image: '/images/dylan/04.jpg',
             title: 'Sonic The Hedgehog',
+            slug: 'Sonic-The-Hedgehog_Dylan',
             rating: 7.6,
             stars: 4,
             genres: ['Drama', 'Adventure','Action'],
@@ -3353,6 +3413,7 @@ document.addEventListener("click", function (e) {
         'king serpent island':{
             image: '/images/dylan/05.jpg',
             title: 'King Serpent Island',
+            slug: 'King-Serpent-Island_Dylan',
             rating: 7.8,
             stars: 3.5,
             genres: ['Action', 'Adventure','Sci-fi'],
@@ -3368,6 +3429,7 @@ document.addEventListener("click", function (e) {
         'i am vengeance retaliation':{
             image: '/images/dylan/06.jpg',
             title: 'I Am Vengeance Retaliation',
+            slug: 'I-Am-Vengeance-Retaliation_Dylan',
             rating: 8,
             stars: 4.5,
             genres: ['Action', 'War','Crime'],
@@ -3383,6 +3445,7 @@ document.addEventListener("click", function (e) {
         'the covenant':{
             image: '/images/dylan/07.jpg',
             title: 'The Covenant',
+            slug: 'The-Covenant_Dylan',
             rating: 8.8,
             stars: 4,
             genres: ['Action', 'War','Crime'],
@@ -3398,6 +3461,7 @@ document.addEventListener("click", function (e) {
         'game of deceit':{
             image: '/images/dylan/08.jpg',
             title: 'Game of Deciet',
+            slug: 'Game-of-Deceit_Dylan',
             rating: 8.2,
             stars: 4.5,
             genres: ['Drama', 'Thriller','Crime'],
@@ -3413,6 +3477,7 @@ document.addEventListener("click", function (e) {
         'death at funeral':{
             image: '/images/dylan/09.jpg',
             title: 'Death at Funeral',
+            slug: 'Death-at-Funeral_Dylan',
             rating: 8.0,
             stars: 4,
             genres: ['Drama','Crime'],
@@ -3428,6 +3493,7 @@ document.addEventListener("click", function (e) {
         'case depart':{
             image: '/images/dylan/10.jpg',
             title: 'Case Depart',
+            slug: 'Case-Depart_Dylan',
             rating: 7.0,
             stars: 3.5,
             genres: ['Drama','Crime','Adventure'],
@@ -3443,6 +3509,7 @@ document.addEventListener("click", function (e) {
         'blackout':{
             image: '/images/dylan/11.jpg',
             title: 'Blackout',
+            slug: 'Blackout_Dylan',
             rating: 7.9,
             stars: 5,
             genres: ['Action','Crime',],
@@ -3458,6 +3525,7 @@ document.addEventListener("click", function (e) {
         'altitude':{
             image: '/images/dylan/12.jpg',
             title: 'Altitude',
+            slug: 'Altitude_Dylan',
             rating: 9,
             stars: 5,
             genres: ['Action','Crime','War'],
@@ -3473,6 +3541,7 @@ document.addEventListener("click", function (e) {
         'sisu 2': {
             image: '/images/parallax/avatar.jpg',
             title: 'Sisu: Road To Revenge',
+            slug: 'Sisu:Road-to-Revenge_Rocky',
             rating: 7.8,
             stars: 4,
             genres: ['Action', 'War',],
@@ -3489,6 +3558,7 @@ document.addEventListener("click", function (e) {
         'war 2': {
             image: '/images/tvthrillers/01.jpg',
             title: 'War 2',
+            slug: 'War-2_Rocky',
             rating: 8.0,
             stars: 4,
             genres: ['Adventure', 'Action', 'Thriller'],
@@ -3504,6 +3574,7 @@ document.addEventListener("click", function (e) {
         'maharshi': {
             image: '/images/parallax/q6.jpg',
             title: 'Maharshi',
+            slug: 'Maharshi_Rocky',
             rating: 8.2,
             stars: 4,
             genres: ['Crime', 'Action', 'Drama'],
@@ -3519,6 +3590,7 @@ document.addEventListener("click", function (e) {
         'baaghi 4': {
             image: '/images/parallax/q7.jpg',
             title: 'Baaghi 4',
+            slug: 'Baaghi-4_Rocky',
             rating: 8.7,
             stars: 4.5,
             genres: ['Crime', 'Action', 'Drama'],
@@ -3534,6 +3606,7 @@ document.addEventListener("click", function (e) {
         'jawan': {
             image: '/images/parallax/q9.jpg',
             title: 'Jawan',
+            slug: 'Jawan_Rocky',
             rating: 8.8,
             stars: 5,
             genres: ['Crime', 'Action', 'Drama'],
@@ -3549,6 +3622,7 @@ document.addEventListener("click", function (e) {
         'coming 2 america': {
             image: '/images/top-10/07.jpg',
             title: 'Coming 2 America',
+            slug: 'Coming-2-America_Rocky',
             rating: 8.7,
             stars: 4.5,
             genres: ['Crime', 'Comedy', 'Drama'],
@@ -3564,6 +3638,7 @@ document.addEventListener("click", function (e) {
         'heads of state': {
             image: '/images/top-10/08.jpg',
             title: 'Heads of State',
+            slug: 'Heads-of-State_Rocky',
             rating: 8.0,
             stars: 5,
             genres: ['Crime', 'Action', 'Comedy'],
@@ -3579,6 +3654,7 @@ document.addEventListener("click", function (e) {
         'karate kid legends': {
             image: '/images/top-10/09.jpg',
             title: 'Karate Kid Legends',
+            slug: 'Karate-Kid:Legends_Rocky',
             rating: 8.9,
             stars: 5,
             genres: ['Karate', 'Action', 'Drama'],
@@ -3594,6 +3670,7 @@ document.addEventListener("click", function (e) {
         'most dengerous game': {
             image: '/images/top-10/10.jpg',
             title: 'Most Dengerous Game',
+            slug: 'Most-Dengerous-Game_Rocky',
             rating: 9,
             stars: 5,
             genres: ['Games', 'Action', 'Drama'],
@@ -3609,6 +3686,7 @@ document.addEventListener("click", function (e) {
         'dont hangup': {
             image: '/images/tvthrillers/02.jpg',
             title: "Don't hang up",
+            slug: "Don't-Hang-Up_Sankara",
             rating: 6.1,
             stars: 3,
             genres: ['Horror', 'Thriller'],
@@ -3624,6 +3702,7 @@ document.addEventListener("click", function (e) {
         'evil dead': {
             image: '/images/sankara/01.jpg',
             title: "Evil Dead",
+            slug: 'Evil-Dead-Rise_Sankara',
             rating: 9.1,
             stars: 4.5,
             genres: ['Horror', 'Thriller'],
@@ -3639,6 +3718,7 @@ document.addEventListener("click", function (e) {
         'the brink': {
             image: '/images/sankara/02.jpg',
             title: "The Brink",
+            slug: 'The-Brink_Sankara',
             rating: 8.1,
             stars: 4,
             genres: ['Action', 'Crime'],
@@ -3654,6 +3734,7 @@ document.addEventListener("click", function (e) {
         'avengers infinity war': {
             image: '/images/sankara/3.jpg',
             title: "Avengers Infinity War",
+            slug: 'Avenger-Infinity-War_Sankara',
             rating: 8.9,
             stars: 5,
             genres: ['Action', 'Adventure','Sci-fi'],
@@ -3669,6 +3750,7 @@ document.addEventListener("click", function (e) {
         'lethal seduction': {
             image: '/images/sankara/04.jpg',
             title: ":Lethal Seduction",
+            slug: 'Lethal-Seduction_Sankara',
             rating: 7.9,
             stars: 4.5,
             genres: ['Drama', 'Sexy',],
@@ -3684,6 +3766,7 @@ document.addEventListener("click", function (e) {
         'talk to me': {
             image: '/images/sankara/05.jpg',
             title: "Talk To Me",
+            slug: 'Talk-to-Me_Sankara',
             rating: 9,
             stars: 5,
             genres: ['Drama', 'Horror',],
@@ -3699,6 +3782,7 @@ document.addEventListener("click", function (e) {
         'flash point': {
             image: '/images/sankara/06.jpg',
             title: "Flash Point",
+            slug: 'Flash-Point_Sankara',
             rating: 9.2,
             stars: 4,
             genres: ['Action', 'Crime',],
@@ -3714,6 +3798,7 @@ document.addEventListener("click", function (e) {
         'doctor strange': {
             image: '/images/tvthrillers/03.jpg',
             title: 'Doctor Strange',
+            slug: 'Doctor-Stranger_B-The-Great',
             rating: 7.7,
             stars: 4,
             genres: ['Fantasy', 'Adventure', 'Action'],
@@ -3729,6 +3814,7 @@ document.addEventListener("click", function (e) {
         'hidden faces': {
             image: '/images/sankara/07.jpg',
             title: 'Hidden Faces',
+            slug: 'Hidden-Faces_Sankara',
             rating: 8.7,
             stars: 4,
             genres: [ 'Crime', 'Action'],
@@ -3744,6 +3830,7 @@ document.addEventListener("click", function (e) {
         'safe house': {
             image: '/images/sankara/08.jpg',
             title: 'Safe House',
+            slug: 'Safe-House_Sankara',
             rating: 8.0,
             stars: 4,
             genres: [ 'Crime', 'Action'],
@@ -3759,6 +3846,7 @@ document.addEventListener("click", function (e) {
         'jurassic world': {
             image: '/images/tvthrillers/04.jpg',
             title: 'Jurassic world: Rebirth',
+            slug: 'Jurassic-World:Rebirth_Gaheza',
             rating: 8.0,
             stars: 4.5,
             genres: ['Action', 'Adventure', 'Sci-fi'],
@@ -3774,6 +3862,7 @@ document.addEventListener("click", function (e) {
         'coma': {
             image: '/images/favorite/g5.jpg',
             title: 'Coma',
+            slug: 'Coma_Sankara',
             rating: 8.6,
             stars: 4.5,
             genres: ['Action', 'Adventure', 'Sci-fi'],
@@ -3789,6 +3878,7 @@ document.addEventListener("click", function (e) {
         'wira': {
             image: '/images/favorite/g1.jpg',
             title: 'Wira',
+            slug: 'Wira_Sankara',
             rating: 8.9,
             stars: 5,
             genres: ['Action', 'Crime'],
@@ -3804,6 +3894,7 @@ document.addEventListener("click", function (e) {
         'black widow': {
             image: '/images/tvthrillers/05.jpg',
             title: 'Black Widow',
+            slug: 'Black-Widow_Sankara',
             rating: 7.1,
             stars: 4,
             genres: ['Action', 'Adventure', 'Sci-fi',],
@@ -3819,6 +3910,7 @@ document.addEventListener("click", function (e) {
         'gifted': {
             image: '/images/savimbi/01.jpg',
             title: 'Gifted',
+            slug: 'Gifted_Savimbi',
             rating: 7.8,
             stars: 4,
             genres: ['Drama', 'Thriller'],
@@ -3834,6 +3926,7 @@ document.addEventListener("click", function (e) {
         'damsel': {
             image: '/images/savimbi/02.jpg',
             title: 'Damsel',
+            slug: 'Damsel_Savimbi',
             rating: 8,
             stars: 4,
             genres: ['Adventure', 'Action'],
@@ -3849,6 +3942,7 @@ document.addEventListener("click", function (e) {
         'the boy who harnessed the wind': {
             image: '/images/savimbi/03.jpg',
             title: 'The boy who harnessed the wind',
+            slug: 'The-Boy-Who-Harnesses-The-Wind_Savimbi',
             rating: 8.9,
             stars: 4.5,
             genres: ['Drama', 'Fantasy','Thriller'],
@@ -3864,6 +3958,7 @@ document.addEventListener("click", function (e) {
         'ashfall': {
             image: '/images/savimbi/04.jpg',
             title: 'Ashfall',
+            slug: 'Ashfall_Savimbi',
             rating: 9,
             stars: 5,
             genres: ['Action', 'Fantasy','Crime'],
@@ -3879,6 +3974,7 @@ document.addEventListener("click", function (e) {
         'kingdom of the planet of apes': {
             image: '/images/savimbi/05.jpg',
             title: 'Kingdom of The Planet of Apes',
+            slug: 'Kingdom-of-The-Planet-of-Apes_Savimbi',
             rating: 8.7,
             stars: 4.5,
             genres: ['Action', 'Fantasy','Adventure'],
@@ -3894,6 +3990,7 @@ document.addEventListener("click", function (e) {
         'ghost': {
             image: '/images/savimbi/06.jpg',
             title: 'Ghost',
+            slug: 'Ghost_Savimbi',
             rating: 8.9,
             stars: 5,
             genres: ['Drama','Thriller'],
@@ -3909,6 +4006,7 @@ document.addEventListener("click", function (e) {
         '24 hours to live': {
             image: '/images/savimbi/07.jpg',
             title: '24 Hours to Live',
+            slug: '24-Hours-to-Live_Savimbi',
             rating: 9,
             stars: 5,
             genres: ['Action','Crime'],
@@ -3924,6 +4022,7 @@ document.addEventListener("click", function (e) {
         'trash': {
             image: '/images/savimbi/08.jpg',
             title: 'Trash',
+            slug: 'Trash_Savimbi',
             rating: 9.8,
             stars: 4.5,
             genres: ['Drama','Thriller','Crime'],
@@ -3939,6 +4038,7 @@ document.addEventListener("click", function (e) {
         'dracula untold': {
             image: '/images/savimbi/09.jpg',
             title: 'Dracula Untold',
+            slug: 'Dracula-Untold_Savimbi',
             rating: 9.2,
             stars: 4.5,
             genres: ['Adventure','Action','Drama'],
@@ -3954,6 +4054,7 @@ document.addEventListener("click", function (e) {
         'emperor': {
             image: '/images/savimbi/10.jpg',
             title: 'Emperor',
+            slug: 'Emperor_Savimbi',
             rating: 8.2,
             stars: 4,
             genres: ['Fantasy','Drama'],
@@ -3969,6 +4070,7 @@ document.addEventListener("click", function (e) {
         'kings daughter': {
             image: '/images/savimbi/11.jpg',
             title: 'Kings Daughter',
+            slug: "King's-Daughter",
             rating: 9.2,
             stars: 4,
             genres: ['Fantasy','Drama','Adventure'],
@@ -3984,6 +4086,7 @@ document.addEventListener("click", function (e) {
         'limitless': {
             image: '/images/savimbi/12.jpg',
             title: 'Limitless',
+            slug: 'Limitless_Savimbi',
             rating: 9.7,
             stars: 5,
             genres: ['Action','Drama','Adventure'],
@@ -3999,6 +4102,7 @@ document.addEventListener("click", function (e) {
         'no one lives': {
             image: '/images/tvthrillers/06.jpg',
             title: 'No One Lives ',
+            slug: 'No-One-Live_Sankara',
             rating: 7.8,
             stars: 4.5,
             genres: ['Action', 'Horror', 'Mystery',],
@@ -4014,6 +4118,7 @@ document.addEventListener("click", function (e) {
         'thor 1': {
             image: '/images/tvthrillers/07.jpg',
             title: 'Thor 1 ',
+            slug: 'Thor-1_Sankara',
             rating: 8,
             stars: 5,
             genres: ['Action', 'Sci-fi', 'Adventure',],
@@ -4029,6 +4134,7 @@ document.addEventListener("click", function (e) {
         'last man down': {
             image: '/images/tvthrillers/08.jpg',
             title: 'Last Man Down ',
+            slug: 'Last-Man-Down_Gaheza',
             rating: 8.5,
             stars: 5,
             genres: ['Action', 'Sci-fi',],
@@ -4044,6 +4150,7 @@ document.addEventListener("click", function (e) {
         'the diplomat': {
             image: '/images/tvthrillers/09.jpg',
             title: 'The Diplamat',
+            slug: 'The-Diplomat_Siniya',
             rating: 8.8,
             stars: 3.5,
             genres: ['Politics','Drama'],
@@ -4059,6 +4166,7 @@ document.addEventListener("click", function (e) {
         'sister death': {
             image: '/images/tvthrillers/10.jpg',
             title: 'Sister Death',
+            slug: 'Sister-Death_Sankara',
             rating: 7.8,
             stars: 4.5,
             genres: ['Horror','Mystery'],
@@ -4074,6 +4182,7 @@ document.addEventListener("click", function (e) {
         'shangi-chi: legend of ten rings': {
             image: '/images/tvthrillers/11.jpg',
             title: 'Shang-chi: Legend of Ten Rings',
+            slug: 'Shang-Chi_Rocky',
             rating: 8,
             stars: 5,
             genres: ['Sci-fi','Action', 'Adventure'],
@@ -4089,6 +4198,7 @@ document.addEventListener("click", function (e) {
         'secret superstar': {
             image: '/images/tvthrillers/12.jpg',
             title: 'Secret Superstar',
+            slug: 'Secret-Superstar_Rocky',
             rating: 9,
             stars: 5,
             genres: ['Drama','Thriller',],
@@ -4104,6 +4214,7 @@ document.addEventListener("click", function (e) {
         'men of honor': {
             image: '/images/top-10/11.jpg',
             title: 'Men of Honor',
+            slug: 'Men-of-Honor_Rocky',
             rating: 7.9,
             stars: 4.5,
             genres: ['True Story', 'Drama', 'War',],
@@ -4119,6 +4230,7 @@ document.addEventListener("click", function (e) {
         'nobody': {
             image: '/images/top-10/12.jpg',
             title: 'Nobody',
+            slug: 'Nobody_Rocky',
             rating: 9,
             stars: 5,
             genres: ['War', 'Crime', 'Action',],
@@ -4134,6 +4246,7 @@ document.addEventListener("click", function (e) {
         'nobody 2': {
             image: '/images/top-10/13.jpg',
             title: 'Nobody 2',
+            slug: 'Nobody-2_Rocky',
             rating: 9.2,
             stars: 5,
             genres: ['War', 'Crime', 'Action',],
@@ -4149,6 +4262,7 @@ document.addEventListener("click", function (e) {
         'anna': {
             image: '/images/tvthrillers/13.jpg',
             title: 'Anna',
+            slug: 'Anna_Sankara',
             rating: 8.2,
             stars: 4.5,
             genres: ['Crime', 'Spy', 'Action',],
@@ -4164,6 +4278,7 @@ document.addEventListener("click", function (e) {
         'lucy': {
             image: '/images/tvthrillers/14.jpg',
             title: 'Lucy',
+            slug: 'Lucy_Sankara',
             rating: 8.8,
             stars: 5,
             genres: ['Adventure', 'Sci-fi', 'Action',],
@@ -4179,6 +4294,7 @@ document.addEventListener("click", function (e) {
         'brick': {
             image: '/images/tvthrillers/15.jpg',
             title: 'Brick',
+            slug: 'Brick_Sankara',
             rating: 8.9,
             stars: 4.5,
             genres: ['Adventure', 'Sci-fi', 'Horror',],
@@ -4194,6 +4310,7 @@ document.addEventListener("click", function (e) {
         'a-x-l': {
             image: '/images/tvthrillers/16.jpg',
             title: 'A-X-L',
+            slug: 'A-X-L_Sankara',
             rating: 9,
             stars: 4.5,
             genres: ['Sci-fi', 'Action',],
@@ -4208,7 +4325,8 @@ document.addEventListener("click", function (e) {
         },
         'our last mens in phillipines': {
             image: '/images/top-10/14.jpg',
-            title: 'Nobody 2',
+            title: 'Our Last Mens in Phillipines',
+            slug: 'Our-Last-Man-in-Phillipines_Rocky',
             rating: 9.2,
             stars: 5,
             genres: ['War', 'Crime', 'Action',],
@@ -4224,6 +4342,7 @@ document.addEventListener("click", function (e) {
         'the equalizer': {
             image: '/images/latest/01.jpg',
             title: 'The Equalizer',
+            slug: 'The-Equalizer_Rocky',
             rating: 9.0,
             stars: 5,
             genres: ['Crime', 'Action',],
@@ -4239,6 +4358,7 @@ document.addEventListener("click", function (e) {
         'the equalizer 3': {
             image: '/images/latest/03.jpg',
             title: 'The Equalizer 3',
+            slug: 'The-Equalizer-3_Rocky',
             rating: 9.0,
             stars: 5,
             genres: ['Crime', 'Action',],
@@ -4254,6 +4374,7 @@ document.addEventListener("click", function (e) {
         'road house': {
             image: '/images/latest/05.jpg',
             title: 'Road House',
+            slug: 'Road-House_Rocky',
             rating: 8.0,
             stars: 4.5,
             genres: ['Crime','Boxing', 'Action',],
@@ -4269,6 +4390,7 @@ document.addEventListener("click", function (e) {
         'little man': {
             image: '/images/latest/04.jpg',
             title: 'Little Man',
+            slug: 'Little-Man_Yanga',
             rating: 8.9,
             stars: 5,
             genres: ['Drama', 'Crime',],
@@ -4284,6 +4406,7 @@ document.addEventListener("click", function (e) {
         'baby day out': {
             image: '/images/latest/04.jpg',
             title: 'Baby Day Out',
+            slug: 'Baby-Day-Out_Yanga',
             rating: 6.9,
             stars: 3,
             genres: ['Drama', 'Crime',],
@@ -4299,6 +4422,7 @@ document.addEventListener("click", function (e) {
         'gods must be crazy': {
             image: '/images/latest/06.jpg',
             title: 'Gods Must Be Crazy',
+            slug: 'Gods-Must-Be-Crazy_Yanga',
             rating: 6.9,
             stars: 3.5,
             genres: ['Drama', 'Thriller',],
@@ -4314,6 +4438,7 @@ document.addEventListener("click", function (e) {
         'bigfoot family': {
             image: '/images/latest/07.jpg',
             title: 'Bigfoot Family',
+            slug: 'Bigfoot-Family_Steppin',
             rating: 7.9,
             stars: 4.5,
             genres: ['Animation','Cartoon', 'Adventure'],
@@ -4329,6 +4454,7 @@ document.addEventListener("click", function (e) {
         'godzilla x kong': {
             image: '/images/latest/08.jpg',
             title: 'Godzilla x Kong',
+            slug: 'Godzilla-x-Kong_Siniya',
             rating: 8.9,
             stars: 5,
             genres: ['Adventure','Sci-fi', 'Fantasy'],
@@ -4344,6 +4470,7 @@ document.addEventListener("click", function (e) {
         'godzilla: king of monsters': {
             image: '/images/pk/01.jpg',
             title: 'Godzilla: King of Monsters',
+            slug: 'Godzilla:King-of-Monsters_Siniya',
             rating: 9.8,
             stars: 5,
             genres: ['Adventure','Sci-fi', 'Fantasy'],
@@ -4359,6 +4486,7 @@ document.addEventListener("click", function (e) {
         '97 minutes': {
             image: '/images/dylan/13.jpg',
             title: '97 Minutes',
+            slug: '97-Minutes_Dylan',
             rating: 8,
             stars: 5,
             genres: ['Action','Thriller', 'Fantasy'],
@@ -4374,6 +4502,7 @@ document.addEventListener("click", function (e) {
         'falcon rising': {
             image: '/images/pk/02.jpg',
             title: 'Falcon Rising',
+            slug: 'Falcon-Rising_P.K',
             rating: 8,
             stars: 4.5,
             genres: ['Action','War', 'Thriller'],
@@ -4389,6 +4518,7 @@ document.addEventListener("click", function (e) {
         'batman vs superman: dawn of justice': {
             image: '/images/pk/03.jpg',
             title: 'Batman vs Superman: Dawn of Justice',
+            slug: 'Batman-vs-Superman_P.K',
             rating: 9,
             stars: 5,
             genres: ['Action','Adventure', 'Sci-fi'],
@@ -4404,6 +4534,7 @@ document.addEventListener("click", function (e) {
         'the dark tower': {
             image: '/images/pk/04.jpg',
             title: 'The Dark Tower',
+            slug: 'The-Dark-Tower_P.K',
             rating: 8,
             stars: 5,
             genres: ['Action','Adventure', 'Fantasy'],
@@ -4419,6 +4550,7 @@ document.addEventListener("click", function (e) {
         'act of vengeance': {
             image: '/images/pk/05.jpg',
             title: 'Act of Vengeance',
+            slug: 'Act-of-Vengeance_P.K',
             rating: 8.7,
             stars: 5,
             genres: ['Action','Crime', 'War'],
@@ -4434,6 +4566,7 @@ document.addEventListener("click", function (e) {
         'fifty shades of grey': {
             image: '/images/pk/06.jpg',
             title: 'Fifty Shades of Grey',
+            slug: 'Fifty-Shades-of-Grey_P.K',
             rating: 8.1,
             stars: 4,
             genres: ['Drama','Sex', 'Romantic'],
@@ -4449,6 +4582,7 @@ document.addEventListener("click", function (e) {
         'the last airbender': {
             image: '/images/pk/07.jpg',
             title: 'The Last Airbender',
+            slug: 'The-Last-Airbender_P.K',
             rating: 7.1,
             stars: 4.5,
             genres: ['Adventure','Action', 'Fantasy'],
@@ -4464,6 +4598,7 @@ document.addEventListener("click", function (e) {
         'the maze runner': {
             image: '/images/pk/09.jpg',
             title: 'The Maze Runner',
+            slug: 'The-Maze-Runner_P.K',
             rating: 7.9,
             stars: 5,
             genres: ['Adventure','Action', 'Fantasy'],
@@ -4479,6 +4614,7 @@ document.addEventListener("click", function (e) {
         'aquaman': {
             image: '/images/pk/10.jpg',
             title: 'Aquaman',
+            slug: 'Aquaman_P.K',
             rating: 9,
             stars: 4.5,
             genres: ['Adventure','Action', 'Sci-fi'],
@@ -4494,6 +4630,7 @@ document.addEventListener("click", function (e) {
         'the old guard 2': {
             image: '/images/favorite/g2.jpg',
             title: 'The Old Guard 2',
+            slug: 'The-Old-Guard-2_Rocky',
             rating: 9.2,
             stars: 4.5,
             genres: ['Adventure','Action', 'Sci-fi'],
@@ -4509,6 +4646,7 @@ document.addEventListener("click", function (e) {
         'wonder woman': {
             image: '/images/pk/11.jpg',
             title: 'Wonder Woman',
+            slug: 'Wonder-Man_P.K',
             rating: 9.4,
             stars: 4.5,
             genres: ['Adventure','Action', 'Sci-fi'],
@@ -4524,6 +4662,7 @@ document.addEventListener("click", function (e) {
         'the bfg': {
             image: '/images/pk/12.jpg',
             title: 'The BFG',
+            slug: 'The-BFG_P.K',
             rating: 9.2,
             stars: 4,
             genres: ['Adventure','Fantasy', 'Sci-fi'],
@@ -4539,6 +4678,7 @@ document.addEventListener("click", function (e) {
         'operation dumbo drop': {
             image: '/images/favorite/g3.jpg',
             title: 'Operation Dumbo Drop',
+            slug: 'Operation-Dumbo-Drop_Rocky',
             rating: 7.2,
             stars: 4,
             genres: ['Fantasy', 'Action','War'],
@@ -4554,6 +4694,7 @@ document.addEventListener("click", function (e) {
         'chips': {
             image: '/images/favorite/g4.jpg',
             title: 'Chips',
+            slug: 'Chips_Rocky',
             rating: 8.2,
             stars: 4,
             genres: ['Fantasy', 'Action','Drama'],
@@ -4569,6 +4710,7 @@ document.addEventListener("click", function (e) {
         'Pirates of the caribbean': {
             image: '/images/pk/08.jpg',
             title: 'Pirates of The Carrribean',
+            slug: 'Pirates-of-the-Caribean_P.K',
             rating: 9.0,
             stars: 4.5,
             genres: ['Adventure','Fantasy', 'Sci-fi'],
