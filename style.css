@@ -357,12 +357,12 @@ body{
     margin-bottom: 12px;
     font-size: 13px;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 4.5em; /* Approximately 3 lines */
+    max-height: 7.5em; /* Approximately 5 lines */
 }
 
 /* When height is corrupted, ensure description is truncated */
