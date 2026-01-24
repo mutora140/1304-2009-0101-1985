@@ -6612,7 +6612,7 @@ document.addEventListener("click", function (e) {
          window.closeVideoGallery = closeVideoGallery;
         
         // Event listeners for Play Now buttons and play icon buttons
-        // These should always navigate to watch page with the selected video
+        // These should always navigate to watch page using slug (including buttons in overview of seasons)
         playNowButtons.on('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -6655,7 +6655,7 @@ document.addEventListener("click", function (e) {
                 window.__lastSeriesScope = scope;
             }
             
-            // Navigate to watch page with video ID
+            // Navigate to watch page using slug (navigateToWatchPage will look up slug from videoId)
             // The watch page will handle loading the video and sidebar data
             if (typeof window.navigateToWatchPage === 'function') {
                 window.navigateToWatchPage(videoId, title);
@@ -6665,7 +6665,7 @@ document.addEventListener("click", function (e) {
         });
         
         // Additional catch-all handler for any .iq-button clicks (play icon buttons)
-        // These should always navigate to watch page with the selected video
+        // These should always navigate to watch page using slug (including buttons in overview of seasons)
         jQuery(document).on('click', '.iq-button[data-video-link], .iq-button[data-video-id]', function(e) {
             // Skip if already handled by playNowButtons handler
             if (jQuery(this).hasClass('btn-hover') || jQuery(this).hasClass('play-now-btn')) {
@@ -6716,7 +6716,7 @@ document.addEventListener("click", function (e) {
                 window.__lastSeriesScope = scope;
             }
             
-            // Navigate to watch page with video ID
+            // Navigate to watch page using slug (navigateToWatchPage will look up slug from videoId)
             // The watch page will handle loading the video and sidebar data
             if (typeof window.navigateToWatchPage === 'function') {
                 window.navigateToWatchPage(videoId, title);
@@ -6961,7 +6961,7 @@ document.addEventListener("click", function (e) {
         });
 
         // Event listeners for notification bell items
-        // These should always navigate to watch page with correct movie and sidebar data
+        // These should always navigate to watch page using slug
         jQuery(document).on('click', '.notification-item', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -6971,7 +6971,7 @@ document.addEventListener("click", function (e) {
             const videoLink = jQuery(this).attr('data-video-link');
             const title = jQuery(this).attr('data-title') || 'Movie Title';
             
-            // If we have videoId, use it directly for navigation (preferred)
+            // If we have videoId, use it directly for navigation (preferred for slug lookup)
             // If we only have videoLink, extract ID from it or use it as-is
             if (!videoId && videoLink) {
                 // Extract video ID from VideoPress URL if it's a full URL
@@ -6980,7 +6980,7 @@ document.addEventListener("click", function (e) {
                     if (match) {
                         videoId = match[1];
                     }
-                } else {
+                } else if (!videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
                     // Assume it's already a video ID
                     videoId = videoLink;
                 }
@@ -6998,8 +6998,7 @@ document.addEventListener("click", function (e) {
                 listItem.find('.search-toggle').removeClass('active');
             }
             
-            // Navigate to watch page with video ID (not full URL)
-            // The watch page will handle loading the video and sidebar data
+            // Navigate to watch page using slug (navigateToWatchPage will look up slug from videoId)
             if (typeof window.navigateToWatchPage === 'function') {
                 window.navigateToWatchPage(videoId, title);
             } else {
@@ -7056,28 +7055,44 @@ document.addEventListener("click", function (e) {
             e.stopPropagation();
 
             const trigger = jQuery(this);
-            // Try data-video-link first, then fallback to data-video-id
-            let videoLink = trigger.attr('data-video-link') || trigger.attr('data-video-id');
+            // Prefer data-video-id (actual video ID) over data-video-link for slug lookup
+            let videoId = trigger.attr('data-video-id');
+            let videoLink = trigger.attr('data-video-link');
             let title = trigger.attr('data-title');
 
-            if (!videoLink) {
+            if (!videoId && !videoLink) {
                 const slideScope = trigger.closest('.slide');
                 const fallbackButton = slideScope.find('.iq-button[data-video-link], .iq-button[data-video-id]').first();
                 if (fallbackButton.length) {
-                    videoLink = fallbackButton.attr('data-video-link') || fallbackButton.attr('data-video-id');
+                    videoId = fallbackButton.attr('data-video-id');
+                    videoLink = fallbackButton.attr('data-video-link');
                     title = title || fallbackButton.attr('data-title');
                 }
             }
 
-            if (videoLink) {
-                // Get video link if we have an ID
-                let finalVideoLink = videoLink;
-                if (!finalVideoLink.startsWith('http://') && !finalVideoLink.startsWith('https://')) {
-                    finalVideoLink = getVideoLink(videoLink);
+            // Extract videoId from videoLink if needed
+            if (!videoId && videoLink) {
+                if (videoLink.includes('videopress.com')) {
+                    const match = videoLink.match(/(?:embed|v)\/([a-zA-Z0-9_-]+)/);
+                    if (match) {
+                        videoId = match[1];
+                    }
+                } else if (!videoLink.startsWith('http://') && !videoLink.startsWith('https://')) {
+                    // Assume it's already a video ID
+                    videoId = videoLink;
                 }
-                
-                // Navigate to watch page instead of opening overlay
-                navigateToWatchPage(finalVideoLink || videoLink, title || 'Trailer');
+            }
+
+            if (videoId) {
+                // Navigate to watch page using slug (navigateToWatchPage will look up slug from videoId)
+                if (typeof window.navigateToWatchPage === 'function') {
+                    window.navigateToWatchPage(videoId, title || 'Trailer');
+                } else {
+                    window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
+                }
+            } else if (videoLink) {
+                // Fallback: use videoLink if we couldn't extract videoId
+                navigateToWatchPage(videoLink, title || 'Trailer');
             }
         });
         
@@ -8993,6 +9008,7 @@ function switchSeasonEpisodes(selectElement) {
               rating: rating,
               stars: stars,
               genres: Array.isArray(data.genres) ? data.genres : [],
+              interpreter: Array.isArray(data.interpreter) ? data.interpreter : [],
               year: data.year ? String(data.year) : '',
               // If no explicit image is defined, fall back to a generic placeholder
               image: data.image || 'images/placeholder.jpg',
@@ -9176,7 +9192,7 @@ function switchSeasonEpisodes(selectElement) {
       return this.movieData.filter(movie =>
         movie.title.toLowerCase().includes(searchTerm) ||
         movie.genres.some(genre => genre.toLowerCase().includes(searchTerm)) ||
-        (movie.year && movie.year.toString().includes(searchTerm))
+        (movie.interpreter && movie.interpreter.some(interp => interp.toLowerCase().includes(searchTerm)))
       ); // Show all possible results - no limit
     }
 
@@ -9213,7 +9229,7 @@ function switchSeasonEpisodes(selectElement) {
                     <div class="search-result-info">
                         <h6 class="search-result-title">${this.escapeHTML(movie.title)}</h6>
                         <div class="search-result-meta">
-                            <span class="search-result-year">${movie.year || ''}</span>
+                            <span class="search-result-year">${this.escapeHTML((movie.interpreter || []).join(', '))}</span>
                             <span class="search-result-genre">${this.escapeHTML((movie.genres || []).join(', '))}</span>
                         </div>
                         <div class="search-result-rating">
