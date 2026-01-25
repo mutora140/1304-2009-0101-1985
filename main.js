@@ -5943,7 +5943,7 @@ document.addEventListener("click", function (e) {
         'bad influencer s1 ep1': {
             image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 1',
-            slug:"The Bad-Influencer-S1-Ep-1_Junior-Git",
+            slug:"Bad-Influencer-S1-Ep-1_Rocky",
             rating: 7.9,
             stars: 5,
             genres: ['Crime', 'Drama'],
@@ -5959,7 +5959,7 @@ document.addEventListener("click", function (e) {
         'bad influencer s1 ep2': {
             image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 2',
-            slug:"The Manipulated-S1-Ep-2_Junior-Git",
+            slug:"Bad-Influencer-S1-Ep-2_Rocky",
             rating: 7.9,
             stars: 5,
             genres: ['Crime', 'Drama'],
@@ -5975,7 +5975,7 @@ document.addEventListener("click", function (e) {
         'bad influencer s1 ep3': {
             image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 3',
-            slug:"The Manipulated-S1-Ep-3_Junior-Git",
+            slug:"Bad-Influencer-S1-Ep-3_Rocky",
             rating: 7.9,
             stars: 5,
             genres: ['Crime', 'Drama'],
@@ -5991,7 +5991,7 @@ document.addEventListener("click", function (e) {
         'bad influencer s1 ep4': {
             image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 4',
-            slug:"The Manipulated-S1-Ep-4_Junior-Git",
+            slug:"Bad-Influencer-S1-Ep-4_Rocky",
             rating: 7.9,
             stars: 5,
             genres: ['Crime', 'Drama'],
@@ -6007,7 +6007,7 @@ document.addEventListener("click", function (e) {
         'bad influencer s1 ep5': {
             image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 5',
-            slug:"The Manipulated-S1-Ep-5_Junior-Git",
+            slug:"Bad-Influencer-S1-Ep-5_Rocky",
             rating: 7.9,
             stars: 5,
             genres: ['Crime', 'Drama'],
@@ -6039,7 +6039,7 @@ document.addEventListener("click", function (e) {
         'bad influencer s1 ep7': {
             image: '/images/episodes/bad.jpg',
             title: 'Bad Influencer S1 Ep 7',
-            slug:"The Manipulated-S1-Ep-7_Junior-Git",
+            slug:"Bad-Influencer-S1-Ep-7_Rocky",
             rating: 7.9,
             stars: 5,
             genres: ['Crime', 'Drama'],
