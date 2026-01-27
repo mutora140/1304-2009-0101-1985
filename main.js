@@ -11766,6 +11766,19 @@ function switchSeasonEpisodes(selectElement) {
                     pointer-events: none !important;
                 }
                 #end-of-content { display: none; text-align: center; color: #9a9a9a; padding: 12px 0; font-size: 14px; }
+                #batch-reveal-loader { display: none; text-align: center; color: #9a9a9a; padding: 12px 0; font-size: 14px; }
+                #batch-reveal-loader .batch-spinner {
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    border: 2px solid rgba(154, 154, 154, 0.35);
+                    border-top-color: #9a9a9a;
+                    border-radius: 50%;
+                    animation: batchSpin 0.9s linear infinite;
+                    vertical-align: middle;
+                    margin-bottom: 6px;
+                }
+                @keyframes batchSpin { to { transform: rotate(360deg); } }
             `;
             document.head.appendChild(style);
         }
@@ -11808,37 +11821,59 @@ function switchSeasonEpisodes(selectElement) {
             endMessage.parentNode.insertBefore(sentinel, endMessage);
         }
 
+        // Small loader shown before revealing each batch.
+        let batchLoader = document.getElementById('batch-reveal-loader');
+        if (!batchLoader) {
+            batchLoader = document.createElement('div');
+            batchLoader.id = 'batch-reveal-loader';
+            batchLoader.innerHTML = `<div class="batch-spinner" aria-hidden="true"></div><div>Loading more movies...</div>`;
+        }
+        if (endMessage.parentNode && batchLoader.parentNode !== endMessage.parentNode) {
+            endMessage.parentNode.insertBefore(batchLoader, endMessage);
+        }
+
         let isRevealing = false;
+        let isBatchLoading = false;
         const revealBatch = () => {
-            if (isRevealing) return;
+            if (isRevealing || isBatchLoading) return;
             const hidden = sections.filter(sec => sec.classList.contains('batch-hidden'));
             if (!hidden.length) {
                 endMessage.style.display = 'block';
                 return;
             }
-            isRevealing = true;
-            const toShow = hidden.slice(0, 6);
-            toShow.forEach(sec => sec.classList.remove('batch-hidden'));
-            // Nudge carousels/layout to recalc sizes after being revealed.
+            // Show loader for 5 seconds, then reveal the next batch.
+            isBatchLoading = true;
+            if (batchLoader) batchLoader.style.display = 'block';
             setTimeout(() => {
-                try {
-                    if (window.jQuery && window.jQuery.fn && window.jQuery.fn.owlCarousel) {
-                        toShow.forEach(sec => {
-                            window.jQuery(sec).find('.owl-carousel').trigger('refresh.owl.carousel');
-                        });
-                    }
-                    window.dispatchEvent(new Event('resize'));
-                } catch (e) {
-                    // keep silent; this is a best-effort refresh
-                }
-            }, 50);
-            isRevealing = false;
+                isRevealing = true;
+                const hiddenNow = sections.filter(sec => sec.classList.contains('batch-hidden'));
+                const toShow = hiddenNow.slice(0, 6);
+                toShow.forEach(sec => sec.classList.remove('batch-hidden'));
 
-            if (!sections.some(sec => sec.classList.contains('batch-hidden'))) {
-                endMessage.style.display = 'block';
-                window.removeEventListener('scroll', onScrollThrottled);
-                window.removeEventListener('resize', onScrollThrottled);
-            }
+                // Nudge carousels/layout to recalc sizes after being revealed.
+                setTimeout(() => {
+                    try {
+                        if (window.jQuery && window.jQuery.fn && window.jQuery.fn.owlCarousel) {
+                            toShow.forEach(sec => {
+                                window.jQuery(sec).find('.owl-carousel').trigger('refresh.owl.carousel');
+                            });
+                        }
+                        window.dispatchEvent(new Event('resize'));
+                    } catch (e) {
+                        // keep silent; this is a best-effort refresh
+                    }
+                }, 50);
+
+                if (batchLoader) batchLoader.style.display = 'none';
+                isRevealing = false;
+                isBatchLoading = false;
+
+                if (!sections.some(sec => sec.classList.contains('batch-hidden'))) {
+                    endMessage.style.display = 'block';
+                    window.removeEventListener('scroll', onScrollThrottled);
+                    window.removeEventListener('resize', onScrollThrottled);
+                }
+            }, 5000);
         };
 
         // Use the real scrolling element (some pages scroll the documentElement/body differently).
