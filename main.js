@@ -2501,6 +2501,7 @@ document.addEventListener("click", function (e) {
             image: '/images/slider/slider3.jpg',
             title: 'Work It',
             slug: 'Work-It_Dylan',
+            actors:['kevin','mutora'],
             rating: 7.5,
             stars: 4.5,
             genres: ['Comedy', 'Music',],
@@ -6839,6 +6840,14 @@ document.addEventListener("click", function (e) {
             if (!movie.videoLink) {
                 movie.videoLink = 'https://videopress.com/embed/kUJmAcSf';
             }
+
+            // Ensure actors data exists for watch page "Actors" section.
+            // Prefer explicit movie.actors, otherwise accept common aliases.
+            // If nothing is provided, keep it as an empty array.
+            if (!Array.isArray(movie.actors)) {
+                const alias = movie.actor || movie.cast;
+                movie.actors = Array.isArray(alias) ? alias : [];
+            }
         });
     })();
 
@@ -6849,6 +6858,7 @@ document.addEventListener("click", function (e) {
         stars: 3,
         genres: ['Action', 'Adventure'],
         interpreter: ['English', 'Spanish'],
+        actors: [],
         tags: ['Action', 'Adventure'],
         description: 'Movie description goes here.',
         age: '12+',
@@ -7058,6 +7068,27 @@ document.addEventListener("click", function (e) {
                 genreTag.textContent = genre;
                 genresList.appendChild(genreTag);
             });
+        }
+
+        // Update actors (watch page sidebar section)
+        const actorsList = document.getElementById('actors-list') || document.querySelector('.actor-list');
+        if (actorsList) {
+            const actors = Array.isArray(data.actors) ? data.actors : (Array.isArray(data.actor) ? data.actor : (Array.isArray(data.cast) ? data.cast : []));
+            actorsList.innerHTML = '';
+            if (actors.length > 0) {
+                actors.forEach(name => {
+                    const actorTag = document.createElement('span');
+                    // Same class as genres so they look identical
+                    actorTag.className = 'genre-tag';
+                    actorTag.textContent = name;
+                    actorsList.appendChild(actorTag);
+                });
+            } else {
+                const actorTag = document.createElement('span');
+                actorTag.className = 'genre-tag';
+                actorTag.textContent = 'Not specified';
+                actorsList.appendChild(actorTag);
+            }
         }
         
         // Update interpreter (using tags structure, positioned below title)
@@ -10697,6 +10728,14 @@ function switchSeasonEpisodes(selectElement) {
         
         // Update interpreter
         updateWatchPageInterpreter(data.interpreter);
+
+        // Update actors
+        // Prefer explicit `actors`, but also accept `actor` / `cast` for backward compatibility.
+        updateWatchPageActors(
+            Array.isArray(data.actors) ? data.actors :
+            (Array.isArray(data.actor) ? data.actor :
+             (Array.isArray(data.cast) ? data.cast : []))
+        );
         
         // Update download button
         updateWatchPageDownloadButton(data.downloadLink);
@@ -11443,6 +11482,32 @@ function switchSeasonEpisodes(selectElement) {
             interpreterElement.appendChild(tag);
         }
     }
+
+    /**
+     * Update actors list
+     * @param {array} actors - Array of actor strings
+     */
+    function updateWatchPageActors(actors) {
+        const actorsElement = document.getElementById('actors-list');
+        if (!actorsElement) return;
+
+        actorsElement.innerHTML = '';
+
+        if (Array.isArray(actors) && actors.length > 0) {
+            actors.forEach(name => {
+                const tag = document.createElement('span');
+                // Use same visual style as genres
+                tag.className = 'genre-tag';
+                tag.textContent = name;
+                actorsElement.appendChild(tag);
+            });
+        } else {
+            const tag = document.createElement('span');
+            tag.className = 'genre-tag';
+            tag.textContent = 'Not specified';
+            actorsElement.appendChild(tag);
+        }
+    }
     
     /**
      * Update download button with link
@@ -11666,5 +11731,147 @@ function switchSeasonEpisodes(selectElement) {
             }
         });
     }
+
+    /**
+     * Batch-based progressive section reveal (6 at a time) for subfolder pages,
+     * excluding favorites, privacy policy, terms of use, watch, and watchlist.
+     * This is additive-only: hides sections after the first six and reveals
+     * them in batches on scroll. Existing content and layout remain unchanged.
+     */
+    (function initBatchSectionReveal() {
+        if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
+        const path = (window.location.pathname || '').toLowerCase();
+        const segments = path.split('/').filter(Boolean);
+
+        const excluded = ['/favorites', '/favorites/', '/privacypolicy', '/privacypolicy/', '/termsofuse', '/termsofuse/', '/watch', '/watch/', '/watchlist', '/watchlist/'];
+        const isExcluded = excluded.some(p => path === p || path.startsWith(p));
+        const isSubfolder = segments.length >= 1 && path !== '/';
+
+        if (!isSubfolder || isExcluded) return;
+
+        const styleId = 'batch-reveal-style';
+        if (!document.getElementById(styleId)) {
+            const style = document.createElement('style');
+            style.id = styleId;
+            style.textContent = `
+                /* Keep elements measurable for sliders, but remove visual space */
+                .batch-hidden {
+                    visibility: hidden !important;
+                    height: 0 !important;
+                    max-height: 0 !important;
+                    overflow: hidden !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    pointer-events: none !important;
+                }
+                #end-of-content { display: none; text-align: center; color: #9a9a9a; padding: 12px 0; font-size: 14px; }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Prefer top-level content sections so we don't accidentally include nested layout sections.
+        let sections = Array.from(document.querySelectorAll('main > section'));
+        if (!sections.length) sections = Array.from(document.querySelectorAll('body > section'));
+        if (!sections.length) sections = Array.from(document.querySelectorAll('section.s-margin, section.content-section, main section'));
+        if (!sections.length) return;
+
+        sections.forEach((section, idx) => {
+            if (idx >= 6) section.classList.add('batch-hidden');
+            else section.classList.remove('batch-hidden');
+        });
+
+        // Place end message BEFORE the footer (never inside footer).
+        let endMessage = document.getElementById('end-of-content');
+        if (!endMessage) {
+            endMessage = document.createElement('p');
+            endMessage.id = 'end-of-content';
+            endMessage.textContent = "You’ve reached the end of this movie";
+        }
+        const footer = document.querySelector('footer');
+        const endParent = footer?.parentNode || document.body;
+        if (footer && endMessage.parentNode !== endParent) {
+            endParent.insertBefore(endMessage, footer);
+        } else if (!footer && !endMessage.parentNode) {
+            endParent.appendChild(endMessage);
+        }
+
+        // Sentinel sits right above the end message to reliably trigger loading.
+        let sentinel = document.getElementById('batch-reveal-sentinel');
+        if (!sentinel) {
+            sentinel = document.createElement('div');
+            sentinel.id = 'batch-reveal-sentinel';
+            sentinel.style.height = '1px';
+            sentinel.style.width = '100%';
+        }
+        if (endMessage.parentNode && sentinel.parentNode !== endMessage.parentNode) {
+            endMessage.parentNode.insertBefore(sentinel, endMessage);
+        }
+
+        let isRevealing = false;
+        const revealBatch = () => {
+            if (isRevealing) return;
+            const hidden = sections.filter(sec => sec.classList.contains('batch-hidden'));
+            if (!hidden.length) {
+                endMessage.style.display = 'block';
+                return;
+            }
+            isRevealing = true;
+            const toShow = hidden.slice(0, 6);
+            toShow.forEach(sec => sec.classList.remove('batch-hidden'));
+            // Nudge carousels/layout to recalc sizes after being revealed.
+            setTimeout(() => {
+                try {
+                    if (window.jQuery && window.jQuery.fn && window.jQuery.fn.owlCarousel) {
+                        toShow.forEach(sec => {
+                            window.jQuery(sec).find('.owl-carousel').trigger('refresh.owl.carousel');
+                        });
+                    }
+                    window.dispatchEvent(new Event('resize'));
+                } catch (e) {
+                    // keep silent; this is a best-effort refresh
+                }
+            }, 50);
+            isRevealing = false;
+
+            if (!sections.some(sec => sec.classList.contains('batch-hidden'))) {
+                endMessage.style.display = 'block';
+                window.removeEventListener('scroll', onScrollThrottled);
+                window.removeEventListener('resize', onScrollThrottled);
+            }
+        };
+
+        // Use the real scrolling element (some pages scroll the documentElement/body differently).
+        const scrollEl = document.scrollingElement || document.documentElement;
+
+        let scrollTimer = null;
+        const onScrollThrottled = () => {
+            if (scrollTimer) return;
+            scrollTimer = setTimeout(() => {
+                scrollTimer = null;
+                const scrollBottom = scrollEl.scrollTop + scrollEl.clientHeight;
+                const docHeight = scrollEl.scrollHeight;
+                if (scrollBottom >= docHeight - 200) {
+                    revealBatch();
+                }
+            }, 150);
+        };
+
+        // Prefer IntersectionObserver for reliable triggering (fallback to scroll listener).
+        let observer = null;
+        if ('IntersectionObserver' in window && sentinel) {
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) revealBatch();
+                });
+            }, { root: null, rootMargin: '200px 0px', threshold: 0 });
+            observer.observe(sentinel);
+        }
+
+        window.addEventListener('scroll', onScrollThrottled, { passive: true });
+        window.addEventListener('resize', onScrollThrottled);
+        // If the page is short, trigger once so the user can reach more content immediately.
+        setTimeout(onScrollThrottled, 0);
+    })();
 })();
 
