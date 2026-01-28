@@ -2501,7 +2501,6 @@ document.addEventListener("click", function (e) {
             image: '/images/slider/slider3.jpg',
             title: 'Work It',
             slug: 'Work-It_Dylan',
-            actors:['kevin','mutora'],
             rating: 7.5,
             stars: 4.5,
             genres: ['Comedy', 'Music',],
