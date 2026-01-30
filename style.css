@@ -2655,6 +2655,24 @@ li.slide-item{
     }
 }
 
+/* Watchlist & Favorites: show 2 movies on mobile, allow slide/swipe */
+@media (max-width: 767px) {
+    .favorites-slider .slick-list,
+    .watchlist-slider .slick-list,
+    #watchlist-latest-list.slick-initialized .slick-list,
+    #watchlist-all-list.slick-initialized .slick-list,
+    #favorites-latest-list.slick-initialized .slick-list,
+    #favorites-all-list.slick-initialized .slick-list {
+        touch-action: pan-y pinch-zoom;
+        overflow: visible;
+    }
+    .favorites-slider.slick-initialized,
+    .watchlist-slider.slick-initialized,
+    .favorite-contens .favorites-slider.slick-initialized {
+        touch-action: pan-y;
+    }
+}
+
 /* ************************** */
 .topten-contents{
     position: relative;
@@ -3843,6 +3861,21 @@ background: rgba(0, 0, 0, 0.8);
 }
 .episodes-slider1 .owl-nav button.owl-next{
     float: right !important;
+}
+
+/* Mobile: always show play icon on episode items (home page episode section) – no hover needed */
+@media (max-width: 991.98px) {
+    .episodes-slider1 .e-item .episode-play-info,
+    .episodes-slider1 .block-image .episode-play-info {
+        opacity: 1 !important;
+        visibility: visible !important;
+        filter: none !important;
+    }
+    .episodes-slider1 .e-item .episode-play,
+    .episodes-slider1 .episode-play {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
 }
 
 /* ****************** responsiveness************ */
@@ -5560,9 +5593,19 @@ img.loader-avatar {
     }
 }
 
-/* Mobile and tablets: Always show play buttons */
+/* Mobile and tablets: Always show play buttons (next episodes on watch page) */
 @media (max-width: 991.98px) {
     .video-gallery-overlay .video-gallery-default-section .episode-play-info {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .video-gallery-overlay .video-gallery-default-section .episode-play,
+    .video-gallery-overlay .video-gallery-default-section .episode-play a {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         opacity: 1 !important;
         visibility: visible !important;
     }
@@ -5786,6 +5829,26 @@ img[src*="trending-label.png"],
     object-fit: contain !important;
 }
 
+/* Notification item - default size for ANY image placed in it (matches search result: 50×75 / 40×60 mobile) */
+.notification-item img {
+    width: 50px !important;
+    height: 75px !important;
+    min-width: 50px !important;
+    min-height: 75px !important;
+    object-fit: cover !important;
+    flex-shrink: 0;
+    border-radius: 0;
+}
+
+@media (max-width: 768px) {
+    .notification-item img {
+        width: 40px !important;
+        height: 60px !important;
+        min-width: 40px !important;
+        min-height: 60px !important;
+    }
+}
+
 /* Small tablets (768px - 991px): top-ten like mobile (350px) */
 @media (max-width: 991px) and (min-width: 768px) {
     .block-image img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m),
@@ -5999,5 +6062,39 @@ img.img-fluid:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m
         opacity: 1 !important;
         transform: none !important;
         pointer-events: auto !important;
+    }
+}
+
+/* Force notification-item image size - must override img-fluid and all other rules */
+.iq-sub-card.notification-item img,
+.iq-sub-dropdown .notification-item img,
+.notification-item img,
+.notification-item .media img,
+.notification-item img.img-fluid,
+.notification-item img[class*="img-"] {
+    width: 50px !important;
+    height: 75px !important;
+    min-width: 50px !important;
+    max-width: 50px !important;
+    min-height: 75px !important;
+    max-height: 75px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+    border-radius: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .iq-sub-card.notification-item img,
+    .iq-sub-dropdown .notification-item img,
+    .notification-item img,
+    .notification-item .media img,
+    .notification-item img.img-fluid,
+    .notification-item img[class*="img-"] {
+        width: 40px !important;
+        height: 60px !important;
+        min-width: 40px !important;
+        max-width: 40px !important;
+        min-height: 60px !important;
+        max-height: 60px !important;
     }
 }
