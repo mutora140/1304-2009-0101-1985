@@ -2438,7 +2438,30 @@ document.addEventListener("click", function (e) {
                 }
             }
         });
-        
+
+        // Mobile: tap on movie card shows overlay (share, like, watchlist, play) like desktop hover
+        function isMobileOrTouch() {
+            return window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(hover: none)').matches;
+        }
+        jQuery(document).on('click', 'li.slide-item', function(e) {
+            if (!isMobileOrTouch()) return;
+            var $slide = jQuery(this);
+            var alreadyOpen = $slide.hasClass('slide-item-tapped');
+            if (!alreadyOpen) {
+                e.preventDefault();
+                e.stopPropagation();
+                jQuery('li.slide-item').removeClass('slide-item-tapped');
+                $slide.addClass('slide-item-tapped');
+            }
+        });
+        // Close overlay when tapping outside any movie card (mobile)
+        jQuery(document).on('click', function(e) {
+            if (!isMobileOrTouch()) return;
+            if (!jQuery(e.target).closest('li.slide-item').length) {
+                jQuery('li.slide-item').removeClass('slide-item-tapped');
+            }
+        });
+
     });
 
     // Video Gallery Functionality
@@ -10030,13 +10053,128 @@ function switchSeasonEpisodes(selectElement) {
       }, 15);
     }
 
+    /**
+     * Check if query chars appear in text in order (allows missing letters / typos).
+     * e.g. "avngrs" matches "Avengers", "incrdble" matches "Incredibles"
+     */
+    fuzzyMatchInOrder(query, text) {
+      if (!query || !text) return false;
+      const q = query.toLowerCase();
+      const t = text.toLowerCase();
+      let qi = 0;
+      for (let ti = 0; ti < t.length && qi < q.length; ti++) {
+        if (t[ti] === q[qi]) qi++;
+      }
+      return qi === q.length;
+    }
+
+    /**
+     * Levenshtein-based similarity: 1 = identical, 0 = no match.
+     * Used to rank fuzzy matches and allow 1–2 character typos.
+     */
+    similarity(a, b) {
+      if (!a || !b) return 0;
+      const s = a.toLowerCase();
+      const t = b.toLowerCase();
+      const n = s.length;
+      const m = t.length;
+      if (n === 0) return m === 0 ? 1 : 0;
+      if (m === 0) return 0;
+      let prev = Array(m + 1).fill(0);
+      let curr = Array(m + 1).fill(0);
+      for (let j = 0; j <= m; j++) prev[j] = j;
+      for (let i = 1; i <= n; i++) {
+        curr[0] = i;
+        for (let j = 1; j <= m; j++) {
+          const cost = s[i - 1] === t[j - 1] ? 0 : 1;
+          curr[j] = Math.min(curr[j - 1] + 1, prev[j] + 1, prev[j - 1] + cost);
+        }
+        [prev, curr] = [curr, prev];
+      }
+      const distance = prev[m];
+      const maxLen = Math.max(n, m);
+      return 1 - distance / maxLen;
+    }
+
+    /**
+     * Score a movie for the search term: higher = better match.
+     * More lenient scoring to show top possibilities even with typos/missing letters.
+     */
+    searchScore(movie, searchTerm) {
+      const term = searchTerm.toLowerCase();
+      const title = movie.title.toLowerCase();
+      
+      // Exact substring match (best)
+      if (title.includes(term)) {
+        return 1000 + (title.length - term.length);
+      }
+      
+      // Title starts with term
+      if (title.startsWith(term)) {
+        return 900;
+      }
+      
+      // Check fuzzy in-order match (e.g., "avngrs" → "Avengers")
+      const fuzzyInOrder = this.fuzzyMatchInOrder(term, title);
+      if (fuzzyInOrder) {
+        const sim = this.similarity(term, title);
+        return 700 + (sim * 200);
+      }
+      
+      // Check genre match with fuzzy
+      const genreMatch = movie.genres && movie.genres.some(g => {
+        const genre = g.toLowerCase();
+        return genre.includes(term) || this.fuzzyMatchInOrder(term, genre);
+      });
+      if (genreMatch) {
+        return 500;
+      }
+      
+      // Check interpreter match with fuzzy
+      const interpMatch = movie.interpreter && movie.interpreter.some(i => {
+        const interp = i.toLowerCase();
+        return interp.includes(term) || this.fuzzyMatchInOrder(term, interp);
+      });
+      if (interpMatch) {
+        return 400;
+      }
+      
+      // Calculate similarity score for any movie (more lenient threshold)
+      const sim = this.similarity(term, title);
+      
+      // Show results with similarity >= 0.3 (was 0.5, now more forgiving)
+      if (sim >= 0.3) {
+        return 100 + (sim * 300);
+      }
+      
+      // Also check if title words start with search term
+      const titleWords = title.split(/\s+/);
+      for (const word of titleWords) {
+        if (word.startsWith(term)) {
+          return 200 + (term.length / word.length) * 100;
+        }
+        // Check fuzzy match on individual words
+        if (this.fuzzyMatchInOrder(term, word)) {
+          return 150 + this.similarity(term, word) * 100;
+        }
+      }
+      
+      return 0;
+    }
+
     searchMovies(query) {
-      const searchTerm = query.toLowerCase();
-      return this.movieData.filter(movie =>
-        movie.title.toLowerCase().includes(searchTerm) ||
-        movie.genres.some(genre => genre.toLowerCase().includes(searchTerm)) ||
-        (movie.interpreter && movie.interpreter.some(interp => interp.toLowerCase().includes(searchTerm)))
-      ); // Show all possible results - no limit
+      const searchTerm = query.toLowerCase().trim();
+      if (!searchTerm) return [];
+
+      // Score all movies and filter those with score > 0
+      const scored = this.movieData
+        .map(movie => ({ movie, score: this.searchScore(movie, searchTerm) }))
+        .filter(pair => pair.score > 0)
+        .sort((a, b) => b.score - a.score);
+
+      // Return top 10 results (or all if less than 10)
+      const topResults = scored.slice(0, 10);
+      return topResults.map(pair => pair.movie);
     }
 
     displaySearchResults(results, container) {
