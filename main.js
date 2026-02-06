@@ -7828,6 +7828,7 @@ document.addEventListener("click", function (e) {
 
         // Event listeners for notification bell items
         // These should always navigate to watch page using slug
+        // If the item is an episode, persist episode context so watch page hides default sections and shows next episodes
         jQuery(document).on('click', '.notification-item', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -7862,6 +7863,71 @@ document.addEventListener("click", function (e) {
             if (listItem.length) {
                 listItem.removeClass('iq-show');
                 listItem.find('.search-toggle').removeClass('active');
+            }
+            
+            // If this is an episode, persist episode context so watch page hides default sections and shows next episodes for the season
+            const vd = (typeof window !== 'undefined' && window.videoData) ? window.videoData : {};
+            const currentData = vd[videoId];
+            const isEpisodeFromData = currentData && currentData.seriesId && currentData.season;
+            const isEpisodeFromAttrs = jQuery(this).attr('data-is-episode') === 'true' && 
+                jQuery(this).attr('data-series-id') && jQuery(this).attr('data-season');
+            const isEpisode = isEpisodeFromData || isEpisodeFromAttrs;
+            
+            if (isEpisode) {
+                const seriesId = (currentData && currentData.seriesId) || jQuery(this).attr('data-series-id') || '';
+                const season = String((currentData && currentData.season) || jQuery(this).attr('data-season') || '1');
+                const seriesTitle = (currentData && currentData.seriesTitle) || jQuery(this).attr('data-series-title') || 'Series';
+                
+                // Build episodes list from videoData (same series and season)
+                const episodes = [];
+                let currentIncluded = false;
+                for (const [id, data] of Object.entries(vd)) {
+                    if (!data) continue;
+                    const matchSeries = (data.seriesId || '') === seriesId || 
+                        (isEpisodeFromAttrs && String(data.seriesId || '') === String(seriesId));
+                    const matchSeason = String(data.season || '1') === season;
+                    if (matchSeries && matchSeason) {
+                        if (String(id) === String(videoId)) currentIncluded = true;
+                        episodes.push({
+                            id: id,
+                            title: data.title || 'Episode',
+                            duration: data.duration || '',
+                            description: data.description || '',
+                            image: data.image || ''
+                        });
+                    }
+                }
+                // Ensure current episode is in the list (for ctxHasCurrent on watch page)
+                if (!currentIncluded && (currentData || isEpisodeFromAttrs)) {
+                    episodes.push({
+                        id: videoId,
+                        title: (currentData && currentData.title) || title || 'Episode',
+                        duration: (currentData && currentData.duration) || '',
+                        description: (currentData && currentData.description) || '',
+                        image: (currentData && currentData.image) || ''
+                    });
+                }
+                
+                // Sort by episode number if available
+                episodes.sort(function(a, b) {
+                    const dataA = vd[a.id];
+                    const dataB = vd[b.id];
+                    const epA = (dataA && dataA.episodeNumber != null) ? dataA.episodeNumber : 999;
+                    const epB = (dataB && dataB.episodeNumber != null) ? dataB.episodeNumber : 999;
+                    return epA - epB;
+                });
+                
+                try {
+                    sessionStorage.setItem('watch_episode_context', JSON.stringify({
+                        seriesTitle: seriesTitle,
+                        season: season,
+                        currentVideoId: String(videoId),
+                        episodes: episodes,
+                        savedAt: Date.now()
+                    }));
+                } catch (_) {}
+            } else {
+                try { sessionStorage.removeItem('watch_episode_context'); } catch (_) {}
             }
             
             // Navigate to watch page using slug (navigateToWatchPage will look up slug from videoId)

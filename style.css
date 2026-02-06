@@ -4002,13 +4002,26 @@ background: rgba(0, 0, 0, 0.8);
     padding: 60px 0;
 }
 
-footer .footer-standard .widget ul li{
-    display: inline-block;
+footer .footer-standard .widget ul.menu{
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    min-width: max-content;
+    list-style: none;
+    margin: 0;
+}
+footer .footer-standard .widget ul.menu li{
+    display: flex;
+    flex-shrink: 0;
     padding-right: 30px;
+    white-space: nowrap;
 }
 footer .footer-standard .widget ul>li>a{
     padding: 0;
     font-weight: 400;
+    white-space: nowrap;
 }
 footer .footer-standard .widget ul>li>a::before{
     display: none;
