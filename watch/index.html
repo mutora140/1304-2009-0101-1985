@@ -50,6 +50,8 @@
   <link rel="stylesheet" href="/css/select2-bootstrap4.min.css" />
   <link rel="stylesheet" href="/css/slick-animation.css" />
   <link rel="stylesheet" href="/style.css" />
+  <!-- Video.js styles -->
+  <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 
   <style>
     /* Ensure page uses the same dark canvas as the overlay */
@@ -778,15 +780,20 @@
               
               <!-- VideoPress iframe container -->
               <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                <!-- Jetpack VideoPress iframe used by the gallery JS -->
-                <!-- Lazy loading: iframe will load when video is selected -->
-                <iframe
+                <!-- Replaced Jetpack VideoPress iframe with HTML5 video element -->
+                <!-- Maintain the same id and inline styles as the original iframe for compatibility -->
+                <video
                   id="video-iframe"
-                  src=""
+                  class="video-js"
+                  controls
+                  preload="auto"
                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; display: block; z-index: 1;"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
-                ></iframe>
+                  data-setup='{}'
+                >
+                  <source src="" type="video/mp4" />
+                </video>
               </div>
 
             </div>
@@ -884,23 +891,6 @@
 
               
 
-              <!-- Tags Section -->
-
-              <div class="tags-section">
-
-                <h6 class="meta-label">Tags:</h6>
-
-                <div class="tags-list" id="tags-list">
-
-                  <span class="tag-item">Action</span>
-
-                  <span class="tag-item">Comedy</span>
-
-                  <span class="tag-item">Adventure</span>
-
-                </div>
-
-              </div>
 
               
                 <!--Actors-->
@@ -948,6 +938,17 @@
                 See examples in the movie items below for reference.
 
               -->
+
+              <div class="video-actions">
+
+
+                <button class="btn btn-outline btn-download">
+
+                  <i class="fa fa-download mr-2"></i>Download
+
+                </button>
+
+              </div>
 
             </div>
 
@@ -1918,7 +1919,9 @@
   <script src="/js/select2.min.js"></script>
   <script src="/js/jquery.magnific-popup.min.js"></script>
   <script src="/js/slick-animation.min.js"></script>
-  
+  <!-- Video.js player -->
+  <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+
   <!-- Load main.js (includes watch page functionality) -->
   <script src="/main.js"></script>
   <script>

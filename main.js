@@ -66,14 +66,15 @@ function safeInitSlick(selector, options) {
                 loader.style.display = 'none';
             }
         }, 400);
+
     }
-    
+
     function playLoaderCycle() {
         const loader = showLoaderOverlay();
         if (!loader) {
             return Promise.resolve();
         }
-        
+
         return new Promise(function(resolve) {
             setTimeout(function() {
                 hideLoaderOverlay(loader);
@@ -81,7 +82,7 @@ function safeInitSlick(selector, options) {
             }, LOADER_COLOR_CYCLE_MS);
         });
     }
-    
+
     function runAfterLoaderCycle(callback) {
         return playLoaderCycle().then(function() {
             if (typeof callback === 'function') {
@@ -89,7 +90,7 @@ function safeInitSlick(selector, options) {
             }
         });
     }
-    
+
     window.runLoaderSequence = runAfterLoaderCycle;
     
     // ============================================
@@ -2502,8 +2503,10 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: '2h 21min',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/kUJmAcSf',
-            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            r2Video: 'https://r2.example.com/movies/dora-and-the-lost-city.mp4',
+            r2Download: 'https://r2.example.com/downloads/dora-and-the-lost-city.mp4',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
+            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'pickup': {
             image: '/images/slider/slider1.jpg',
@@ -2519,7 +2522,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/kUJmAcSf',
+            videoLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
             downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         '1917': {
@@ -2536,7 +2539,7 @@ document.addEventListener("click", function (e) {
             age: '13+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/FLzfXQSPBOg',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie2.mp4',
             downloadLink: 'https://cdn.example.com/download/frozen.mp4'
         },
         'work it': {
@@ -2553,7 +2556,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/k10ETZ41q5o',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie3.mp4',
             downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
         },
         'afterburn': {
@@ -2570,7 +2573,7 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/02-XkOLVnIU',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie4.mp4',
             downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
         },
         'death race': {
@@ -2587,7 +2590,7 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2008',
-            videoLink: 'https://videopress.com/embed/8jLOx1hD3_o',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie5.mp4',
             downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
         },
         'homefront': {
@@ -2604,7 +2607,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://videopress.com/embed/W4DlMggBPvc',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie6.mp4',
             downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
         },
         'mayhem': {
@@ -2621,7 +2624,7 @@ document.addEventListener("click", function (e) {
             age: '11+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/sDYVdxFZq8Y',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie7.mp4',
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'shadow force': {
@@ -2638,7 +2641,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie8.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'thieves highway': {
@@ -2655,7 +2658,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie9.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'the amazing spiderman': {
@@ -2672,7 +2675,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2012',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie10.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'teen wolf': {
@@ -2689,7 +2692,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie11.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'tarot': {
@@ -2706,7 +2709,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie12.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'spiderman 3': {
@@ -2740,7 +2743,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie14.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'ruthless': {
@@ -2757,7 +2760,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie15.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
         },
         'possession of honnor': {
@@ -2774,7 +2777,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/acEoQpJq0qg',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie16.mp4',
             downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
         },
         'frankenstein': {
@@ -2791,7 +2794,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/yQ5U8suTUw0',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie17.mp4',
             downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
         },
         'texas chain': {
@@ -2808,7 +2811,7 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/4qf9Uyn2acE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie18.mp4',
             downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
         },
         'woman in the yard': {
@@ -2825,7 +2828,7 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/tsxemFXSQXQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie19.mp4',
             downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
         },
         'hunting jessica': {
@@ -2842,7 +2845,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie20.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'boyka undisputed 4': {
@@ -2859,7 +2862,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie21.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'europe raiders': {
@@ -2876,7 +2879,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie22.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'mercy': {
@@ -2910,7 +2913,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie23.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'ziam': {
@@ -2927,7 +2930,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie24.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         '6 underground': {
@@ -2944,7 +2947,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie25.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         '7 days in entebbe': {
@@ -2961,7 +2964,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie26.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'paskal': {
@@ -2978,7 +2981,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie27.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'plane': {
@@ -2995,7 +2998,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie28.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'the witch': {
@@ -3012,7 +3015,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie29.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'iceman: traveller': {
@@ -3029,7 +3032,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie30.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'kandahar': {
@@ -3046,7 +3049,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie31.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'night of hunted': {
@@ -3063,7 +3066,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie32.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'hunting season': {
@@ -3080,7 +3083,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie33.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'hostile takeover': {
@@ -3097,7 +3100,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie34.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'guns up': {
@@ -3114,7 +3117,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie35.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'dunki': {
@@ -3131,7 +3134,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie36.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'alita: the battle angel': {
@@ -3148,7 +3151,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie37.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'aftermath': {
@@ -3165,7 +3168,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie38.mp4',
             downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
         },
         'next': {
@@ -3182,7 +3185,7 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://videopress.com/embed/VyHV0BtdCW4',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie39.mp4',
             downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
         },
         'lou': {
@@ -3199,7 +3202,7 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/CDrieqs-S54',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie40.mp4',
             downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
         },
         'f1: the movie': {
@@ -3216,7 +3219,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/b9EkMc79ZSU',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie41.mp4',
             downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
         },
         'play dirty': {
@@ -3233,7 +3236,7 @@ document.addEventListener("click", function (e) {
             age: '15+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/i1eJMig5Ik4',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie42.mp4',
             downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
         },
         'ice road': {
@@ -3250,7 +3253,7 @@ document.addEventListener("click", function (e) {
             age: '20+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/oVzVdvLeICg',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie43.mp4',
             downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
         },
         'the carpenter son': {
@@ -3267,7 +3270,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/L_jWHffIx5E',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie44.mp4',
             downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
         },
         'monkey king': {
@@ -3284,7 +3287,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie45.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'nezha': {
@@ -3301,7 +3304,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie46.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'bigfoot family': {
@@ -3318,7 +3321,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie47.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'peter rabbit 1': {
@@ -3335,7 +3338,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie48.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'peter rabbit 2': {
@@ -3352,7 +3355,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie49.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'sing': {
@@ -3369,7 +3372,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie50.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'hotel translyvania 3': {
@@ -3386,7 +3389,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie51.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'hotel translyvania 2': {
@@ -3403,7 +3406,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie52.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'ladybug catnoir: the movie ': {
@@ -3420,7 +3423,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie53.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'pussy in boots: the last wish ': {
@@ -3437,7 +3440,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie54.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'kpop demon hunters': {
@@ -3454,7 +3457,7 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie55.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'tyler perry duplicity':{
@@ -3471,7 +3474,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie56.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'the swordsman':{
@@ -3488,7 +3491,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie57.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'sonic the hedgehog':{
@@ -3505,7 +3508,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie58.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'king serpent island':{
@@ -3522,7 +3525,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie59.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'i am vengeance retaliation':{
@@ -3539,7 +3542,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie60.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'the covenant':{
@@ -3556,7 +3559,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie61.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'game of deceit':{
@@ -3573,7 +3576,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie62.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'death at funeral':{
@@ -3590,7 +3593,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie63.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'case depart':{
@@ -3607,7 +3610,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie64.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'blackout':{
@@ -3624,7 +3627,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie65.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'altitude':{
@@ -3641,7 +3644,7 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/dQw4w9WgXcQ',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie66.mp4',
             downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
         },
         'sisu 2': {
@@ -3658,7 +3661,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/5PSNL1qE6VY',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie67.mp4',
             downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
         },
         
@@ -3676,7 +3679,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie68.mp4',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'maharshi': {
@@ -3693,7 +3696,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie69.mp4',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'baaghi 4': {
@@ -3710,7 +3713,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie70.mp4',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'jawan': {
@@ -3727,7 +3730,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie71.mp4',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'coming 2 america': {
@@ -3744,8 +3747,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
+            downloadLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4'
         },
         'heads of state': {
             image: '/images/top-10/08.jpg',
@@ -3761,7 +3764,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie72.mp4',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'karate kid legends': {
@@ -3778,7 +3781,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie73.mp4',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'most dengerous game': {
@@ -3795,7 +3798,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/ej3ioOneQ48',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie74.mp4',
             downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
         },
         'dont hangup': {
@@ -3812,7 +3815,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie75.mp4',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'evil dead': {
@@ -3829,7 +3832,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie76.mp4',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'the brink': {
@@ -3846,11 +3849,11 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie77.mp4',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'avengers infinity war': {
-            image: '/images/sankara/3.jpg',
+            image: '/images/sankara/03.jpg',
             title: "Avengers Infinity War",
             slug: 'Avenger-Infinity-War_Sankara',
             rating: 8.9,
@@ -3863,7 +3866,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie78.mp4',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'lethal seduction': {
@@ -3880,7 +3883,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie79.mp4',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'talk to me': {
@@ -3896,7 +3899,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie80.mp4',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'flash point': {
@@ -3913,7 +3916,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://videopress.com/embed/n9tzhmJ5hFE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie81.mp4',
             downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
         },
         'doctor strange': {
@@ -3930,7 +3933,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://videopress.com/embed/m4NC26Dk4dE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie82.mp4',
             downloadLink: 'https://example.com/download/kingsman'
         },
         'hidden faces': {
@@ -3947,7 +3950,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/m4NC26Dk4dE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie83.mp4',
             downloadLink: 'https://example.com/download/kingsman'
         },
         'safe house': {
@@ -3964,7 +3967,7 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/m4NC26Dk4dE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie84.mp4',
             downloadLink: 'https://example.com/download/kingsman'
         },
         'jurassic world': {
@@ -3981,7 +3984,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/36mnx8hNvEE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie85.mp4',
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'coma': {
@@ -3998,7 +4001,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/36mnx8hNvEE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie86.mp4',
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'wira': {
@@ -4015,7 +4018,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/36mnx8hNvEE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie87.mp4',
             downloadLink: 'https://example.com/download/casino-royale'
         },
         'black widow': {
@@ -4032,7 +4035,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie88.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'gifted': {
@@ -4049,7 +4052,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie89.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'damsel': {
@@ -4066,7 +4069,7 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie90.mp4',
             downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
         },
         'the boy who harnessed the wind': {
@@ -5954,7 +5957,11 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2017',
             videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
+            seriesId: 'the long road home',
+            seriesTitle: 'The Long Road Home',
+            season: '1',
+            episodeNumber: 1
         },
         'the long road home s1 ep 2': {
             image: '/images/episodes/tlr.jpg',
@@ -5971,7 +5978,11 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2017',
             videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
+            seriesId: 'the long road home',
+            seriesTitle: 'The Long Road Home',
+            season: '1',
+            episodeNumber: 2
         },
         'the long road home s1 ep 3': {
             image: '/images/episodes/tlr.jpg',
@@ -5988,7 +5999,11 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2017',
             videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
+            seriesId: 'the long road home',
+            seriesTitle: 'The Long Road Home',
+            season: '1',
+            episodeNumber: 3
         },
         'the long road home s1 ep 4': {
             image: '/images/episodes/tlr.jpg',
@@ -6005,7 +6020,11 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2017',
             videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
+            seriesId: 'the long road home',
+            seriesTitle: 'The Long Road Home',
+            season: '1',
+            episodeNumber: 4
         },
         'the long road home s1 ep 5': {
             image: '/images/episodes/tlr.jpg',
@@ -6929,6 +6948,21 @@ document.addEventListener("click", function (e) {
 
     };
 
+    // Ensure Cloudflare R2 fields exist for all videos by defaulting from existing URLs
+    Object.entries(videoData).forEach(([id, data]) => {
+        if (!data || typeof data !== 'object') return;
+
+        // Keep R2 playable field only if explicitly provided; do NOT derive it from downloadLink
+        if (!data.r2Video) {
+            data.r2Video = data.r2 || null;
+        }
+
+        // Ensure r2Download follows the canonical downloadLink when available
+        if (!data.r2Download) {
+            data.r2Download = data.downloadLink || data.r2Download || null;
+        }
+    });
+
     // Helper to generate a default slug from title + year (used if explicit slug is not provided)
     function generateSlugFromTitleAndYear(key, data) {
         const baseTitle = (data && data.title) ? data.title : key;
@@ -7228,46 +7262,151 @@ document.addEventListener("click", function (e) {
         return document.querySelector('.video-player-container');
     }
 
-    // Helper to update the Jetpack VideoPress iframe in the video gallery
-    function setGalleryVideoByLink(videoLink) {
-        if (!videoLink) return;
-
-        const iframe = document.getElementById('video-iframe');
-        if (!iframe) {
-            console.error('Video iframe (#video-iframe) not found');
+    // Helper to update the video player in the watch page
+    // videoInput can be either a videoId (e.g., 'pickup') or a slug
+    function setGalleryVideoByLink(videoInput) {
+        if (!videoInput) {
+            console.warn('setGalleryVideoByLink called with empty input');
             return;
         }
 
-        // Use the video link directly for Jetpack VideoPress
-        // If the link is not already an embed URL, convert it to embed format
-        let embedUrl = videoLink;
-        if (videoLink.includes('videopress.com/v/')) {
-            // Convert videopress.com/v/guid to videopress.com/embed/guid
-            embedUrl = videoLink.replace('/v/', '/embed/');
-        } else if (!videoLink.includes('/embed/')) {
-            // If it's a regular VideoPress URL, try to extract and convert
-            const match = videoLink.match(/videopress\.com\/v\/([a-zA-Z0-9]+)/);
-            if (match) {
-                embedUrl = `https://videopress.com/embed/${match[1]}`;
-            }
+        const mediaEl = document.getElementById('video-iframe');
+        if (!mediaEl) {
+            console.error('Video element (#video-iframe) not found');
+            return;
         }
-        
-        // Add autoplay parameter if not present
-        if (!embedUrl.includes('autoplay')) {
-            embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1';
-        }
-        
-        iframe.src = embedUrl;
 
-        // Store current video link
-        currentVideoId = videoLink;
+        console.log('=== setGalleryVideoByLink ===');
+        console.log('Input:', videoInput);
+
+        // Step 1: Look up the movie data
+        let data = null;
         
-        // Update favorite and watchlist buttons
-        setTimeout(function() {
-            if (typeof updateFavoriteWatchlistButtons === 'function') {
-                updateFavoriteWatchlistButtons();
+        // Try direct lookup first (videoInput might be a videoId)
+        if (videoData[videoInput]) {
+            console.log('✓ Found data via direct lookup: videoData["' + videoInput + '"]');
+            data = videoData[videoInput];
+        } else {
+            console.warn('✗ No videoData found for:', videoInput);
+            return;
+        }
+
+        // Step 2: Extract the actual video URL and download URL from the data
+        const videoUrl = data.videoLink;
+        const downloadUrl = data.downloadLink || data.r2Download;
+
+        if (!videoUrl) {
+            console.error('✗ videoData has no videoLink property:', data);
+            return;
+        }
+
+        console.log('Video URL from data.videoLink:', videoUrl);
+        console.log('Download URL from data.downloadLink:', downloadUrl);
+
+        // Step 3: Set the video source
+        if (mediaEl.tagName && mediaEl.tagName.toLowerCase() === 'video') {
+            console.log('Setting up HTML5 video element...');
+
+            // Ensure video is visible
+            mediaEl.style.display = 'block';
+            mediaEl.style.visibility = 'visible';
+            
+            // Check if Video.js player exists, use its API
+            if (window.videojs && typeof window.videojs === 'function') {
+                try {
+                    const player = window.videojs.getPlayer(mediaEl.id) || window.videojs(mediaEl.id);
+                    if (player) {
+                        console.log('✓ Using Video.js player API to set source');
+                        player.src({
+                            src: videoUrl,
+                            type: 'video/mp4'
+                        });
+                        console.log('✓ Video.js player source updated:', videoUrl);
+                    } else {
+                        throw new Error('Could not get Video.js player instance');
+                    }
+                } catch (vjsError) {
+                    console.warn('⚠ Video.js API failed, falling back to native HTML5:', vjsError.message);
+                    // Fallback: set source element directly
+                    let srcEl = mediaEl.querySelector('source');
+                    if (!srcEl) {
+                        srcEl = document.createElement('source');
+                        mediaEl.appendChild(srcEl);
+                    }
+                    srcEl.src = videoUrl;
+                    srcEl.type = 'video/mp4';
+                    mediaEl.load();
+                }
+            } else {
+                console.log('✓ Setting source directly on video element');
+                // Direct HTML5 approach
+                let srcEl = mediaEl.querySelector('source');
+                if (!srcEl) {
+                    srcEl = document.createElement('source');
+                    mediaEl.appendChild(srcEl);
+                }
+                srcEl.src = videoUrl;
+                srcEl.type = 'video/mp4';
+                mediaEl.load();
             }
-        }, 100);
+
+            // Try to play (may be blocked by browser autoplay policy)
+            const playPromise = mediaEl.play && mediaEl.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+                playPromise
+                    .then(() => {
+                        console.log('✓ Video autoplaying successfully');
+                    })
+                    .catch(err => {
+                        console.warn('⚠ Autoplay blocked:', err.message, '(user may need to click play button)');
+                    });
+            } else {
+                console.log('⚠ play() did not return a promise (likely older browser)');
+            }
+
+            // Add event listeners for debugging
+            mediaEl.addEventListener('error', (e) => {
+                console.error('✗ Video error:', mediaEl.error?.code, mediaEl.error?.message);
+            }, { once: true });
+
+            mediaEl.addEventListener('canplay', () => {
+                console.log('✓ Video ready to play');
+            }, { once: true });
+
+            mediaEl.addEventListener('loadstart', () => {
+                console.log('✓ Video loadstart - fetching from server');
+            }, { once: true });
+        }
+
+        // Step 4: Update download button
+        try {
+            const downloadBtn = document.querySelector('.video-actions .btn-download');
+            if (downloadBtn && downloadUrl) {
+                downloadBtn.style.display = '';
+                downloadBtn.onclick = (e) => {
+                    e.preventDefault();
+                    window.location.href = downloadUrl;
+                };
+                console.log('✓ Download button enabled');
+            } else if (downloadBtn) {
+                downloadBtn.style.display = 'none';
+                console.log('⚠ No downloadLink in videoData');
+            }
+        } catch (e) {
+            console.warn('Could not update download button:', e);
+        }
+
+        // Store current video ID
+        currentVideoId = videoInput;
+
+        // Update sidebar buttons
+        if (typeof updateFavoriteWatchlistButtons === 'function') {
+            setTimeout(() => {
+                updateFavoriteWatchlistButtons();
+            }, 100);
+        }
+
+        console.log('=== End setGalleryVideoByLink ===\n');
     }
     
     // Keep old function name for backward compatibility, but it now expects video links
@@ -7280,10 +7419,24 @@ document.addEventListener("click", function (e) {
 
     // Function to stop video
     function stopVideo() {
-        const iframe = document.getElementById('video-iframe');
-        if (iframe) {
-            iframe.src = '';
-        }
+        const mediaEl = document.getElementById('video-iframe');
+        if (!mediaEl) return;
+
+        try {
+            if (mediaEl.tagName && mediaEl.tagName.toLowerCase() === 'video') {
+                // Pause and remove source
+                try { mediaEl.pause(); } catch (_) {}
+                const srcEl = mediaEl.querySelector('source');
+                if (srcEl) srcEl.src = '';
+                mediaEl.load && mediaEl.load();
+                // If Video.js, dispose player instance to reset
+                if (typeof window.videojs === 'function') {
+                    try { const p = window.videojs(mediaEl); p.pause(); } catch (_) {}
+                }
+            } else if (mediaEl.tagName && mediaEl.tagName.toLowerCase() === 'iframe') {
+                mediaEl.src = '';
+            }
+        } catch (e) {}
     }
 
     // Function to update sidebar content (accepts video ID or video link)
@@ -7435,6 +7588,23 @@ document.addEventListener("click", function (e) {
         if (description) {
             description.textContent = data.description;
         }
+
+        // Update the bottom sidebar download button instead of inserting a duplicate under the title
+        try {
+            const bottomBtn = document.querySelector('.video-actions .btn-download');
+            const downloadHref = (data && (data.downloadLink || data.r2Download)) || null;
+            if (bottomBtn) {
+                if (downloadHref) {
+                    bottomBtn.style.display = '';
+                    bottomBtn.onclick = function(e) { e.preventDefault(); window.location.href = downloadHref; };
+                    bottomBtn.setAttribute('data-download-href', downloadHref);
+                } else {
+                    bottomBtn.style.display = 'none';
+                    bottomBtn.onclick = null;
+                    bottomBtn.removeAttribute('data-download-href');
+                }
+            }
+        } catch (e) {}
         
         // Update favorite and watchlist buttons
         if (typeof updateFavoriteWatchlistButtons === 'function') {
@@ -7446,21 +7616,60 @@ document.addEventListener("click", function (e) {
     
     // Video Gallery Event Handlers
     jQuery(document).ready(function() {
+        console.log('=== Watch Page Document Ready ===');
+        console.log('videoData available?', typeof window.videoData !== 'undefined' ? 'YES' : 'NO');
+        console.log('videoData entries:', window.videoData ? Object.keys(window.videoData).length : 0);
+        console.log('slugToVideoIdMap available?', typeof window.slugToVideoIdMap !== 'undefined' ? 'YES' : 'NO');
+        
         const videoGallery = jQuery('#video-gallery-overlay');
         const closeBtn = jQuery('#close-video-gallery');
-        // Select all play buttons: play now buttons, play icon buttons, and any iq-button with video data
         const playNowButtons = jQuery('.btn-hover.iq-button, .play-now-btn, .iq-button[data-video-link], .iq-button[data-video-id]');
         
-        // Initialize video player with default video and update sidebar
-        setGalleryVideoByLink(currentVideoId);
-        updateSidebarContent(currentVideoId);
+        console.log('Video element exists?', document.getElementById('video-iframe') ? 'YES' : 'NO');
         
-        // Initialize favorite and watchlist buttons after a delay
+        // Read the video ID or slug from URL query parameters
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const idParam = urlParams.get('id');
+            const slugParam = urlParams.get('slug');
+            
+            console.log('URL params - id:', idParam, '| slug:', slugParam);
+            
+            if (slugParam && window.slugToVideoIdMap && window.slugToVideoIdMap[slugParam]) {
+                currentVideoId = window.slugToVideoIdMap[slugParam];
+                console.log('✓ Mapped slug to videoId:', currentVideoId);
+            } else if (idParam) {
+                currentVideoId = decodeURIComponent(idParam);
+                console.log('✓ Using id param as videoId:', currentVideoId);
+            } else {
+                console.log('⚠ No id or slug in URL, using default:', currentVideoId);
+            }
+        } catch (e) {
+            console.error('Error reading URL params:', e);
+        }
+        
+        console.log('Final videoId to use:', currentVideoId);
+        console.log('videoData["' + currentVideoId + '"] exists?', videoData[currentVideoId] ? 'YES' : 'NO');
+        if (videoData[currentVideoId]) {
+            console.log('Movie title:', videoData[currentVideoId].title);
+            console.log('Video link:', videoData[currentVideoId].videoLink);
+        }
+        
+        // Initialize video player after a short delay to ensure DOM is ready
+        setTimeout(function() {
+            console.log('→ Calling setGalleryVideoByLink...');
+            setGalleryVideoByLink(currentVideoId);
+            updateSidebarContent(currentVideoId);
+        }, 200);
+        
+        // Initialize favorite and watchlist buttons
         setTimeout(function() {
             if (typeof updateFavoriteWatchlistButtons === 'function') {
                 updateFavoriteWatchlistButtons();
             }
         }, 500);
+        
+        console.log('=== Watch Page Initialization Complete ===\n');
         
                  // Close video gallery
          function closeVideoGallery() {
@@ -7514,6 +7723,10 @@ document.addEventListener("click", function (e) {
             // If this click is for a series episode (from an episodes carousel),
             // persist the current season's episode list so the watch page can render "Next Episodes".
             try { persistEpisodeContextFromButton(this, videoId); } catch (_) {}
+            // If NOT from episodes carousel (e.g. main slider), detect episode vs movie from videoData
+            if (!jQuery(this).closest('.episodes-contens').length) {
+                try { persistEpisodeContextIfEpisode(videoId, title, this); } catch (_) {}
+            }
             
             // Remember the series scope where this click happened
             const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
@@ -7575,6 +7788,10 @@ document.addEventListener("click", function (e) {
 
             // Persist episode context when clicking an episode item (so watch page can show next episodes)
             try { persistEpisodeContextFromButton(this, videoId); } catch (_) {}
+            // If NOT from episodes carousel (e.g. main slider, slide-item), detect episode vs movie from videoData
+            if (!jQuery(this).closest('.episodes-contens').length) {
+                try { persistEpisodeContextIfEpisode(videoId, title, this); } catch (_) {}
+            }
             
             // Remember the series scope where this click happened
             const scope = jQuery(this).closest('.trending-info, .slide-item, .block-images, .e-item').get(0);
@@ -7674,6 +7891,170 @@ document.addEventListener("click", function (e) {
 
             try {
                 sessionStorage.setItem('watch_episode_context', JSON.stringify(payload));
+            } catch (_) {}
+        }
+
+        /**
+         * Extract series/season/episode info from title and videoId (for episodes without explicit metadata)
+         * e.g., "Shooter S1 Ep 7" or "the long road home s1 ep 7" -> { seriesTitle, season, episodeNumber }
+         */
+        function extractEpisodeInfoFromTitle(videoIdOrTitle) {
+            if (!videoIdOrTitle) return null;
+            const str = String(videoIdOrTitle).toLowerCase().trim();
+            // Match patterns like "s1 ep1", "s2 ep 7", etc.
+            const episodeMatch = str.match(/s(\d+)\s+ep\s*(\d+)/i);
+            if (!episodeMatch) return null;
+            const season = episodeMatch[1];
+            const episodeNumber = parseInt(episodeMatch[2], 10);
+            return { season, episodeNumber };
+        }
+        
+        /**
+         * Try to determine if a video is an episode by examining its videoId, title, or from videoData
+         * Returns { isEpisode, seriesId, season, seriesTitle, episodeNumber }
+         */
+        function detectIfEpisode(videoId, title, element) {
+            if (!videoId) return { isEpisode: false };
+            
+            const vd = (typeof window !== 'undefined' && window.videoData) ? window.videoData : {};
+            const currentData = vd[videoId];
+            const $el = element ? jQuery(element) : null;
+            const $scope = $el && $el.length ? ($el.closest('.slide-item, .notification-item').length ? $el.closest('.slide-item, .notification-item') : $el) : null;
+            
+            // Check if explicit metadata exists in videoData
+            if (currentData && currentData.seriesId && currentData.season) {
+                return {
+                    isEpisode: true,
+                    seriesId: currentData.seriesId,
+                    season: String(currentData.season),
+                    seriesTitle: currentData.seriesTitle || 'Series',
+                    episodeNumber: currentData.episodeNumber || null
+                };
+            }
+            
+            // Check if element has episode data attributes
+            const hasEpisodeAttrs = $scope && $scope.attr('data-is-episode') === 'true' &&
+                $scope.attr('data-series-id') && $scope.attr('data-season');
+            if (hasEpisodeAttrs) {
+                return {
+                    isEpisode: true,
+                    seriesId: $scope.attr('data-series-id'),
+                    season: String($scope.attr('data-season')),
+                    seriesTitle: $scope.attr('data-series-title') || 'Series',
+                    episodeNumber: null
+                };
+            }
+            
+            // Try to detect from title pattern (e.g., "Shooter S1 Ep 7", "The Long Road Home S1 Ep 7")
+            const titleEpisodeInfo = extractEpisodeInfoFromTitle(title);
+            const idEpisodeInfo = extractEpisodeInfoFromTitle(videoId);
+            const episodeInfo = titleEpisodeInfo || idEpisodeInfo;
+            
+            if (episodeInfo) {
+                // Extract series name from videoId or title
+                let seriesId = videoId;
+                let seriesTitle = title;
+                
+                // For videoId like "the long road home s1 ep 7" or "shooter s1 ep1"
+                const seriesMatch = videoId.match(/^(.+?)\s+s\d+\s+ep/i);
+                if (seriesMatch) {
+                    seriesId = seriesMatch[1].replace(/\s+/g, ' ').toLowerCase();
+                    // Format seriesTitle nicely: "the long road home" -> "The Long Road Home"
+                    seriesTitle = seriesMatch[1].replace(/\b\w/g, char => char.toUpperCase());
+                }
+                
+                return {
+                    isEpisode: true,
+                    seriesId: seriesId,
+                    season: episodeInfo.season,
+                    seriesTitle: seriesTitle,
+                    episodeNumber: episodeInfo.episodeNumber || null
+                };
+            }
+            
+            return { isEpisode: false };
+        }
+
+        /**
+         * Persist or clear episode context based on videoData / data attributes / title patterns
+         * Use when clicking items that may be episodes (notification bell, main slider, playbtn)
+         * but are NOT inside .episodes-contens. If episode: persist context. If movie: clear.
+         */
+        function persistEpisodeContextIfEpisode(videoId, title, element) {
+            if (!videoId) return;
+            
+            const vd = (typeof window !== 'undefined' && window.videoData) ? window.videoData : {};
+            const episodeInfo = detectIfEpisode(videoId, title, element);
+            
+            if (!episodeInfo.isEpisode) {
+                try { sessionStorage.removeItem('watch_episode_context'); } catch (_) {}
+                return;
+            }
+            
+            // Build episodes array: find all episodes from same series and season
+            const episodes = [];
+            let currentIncluded = false;
+            
+            for (const [id, data] of Object.entries(vd)) {
+                if (!data || !data.title) continue;
+                
+                // Check if this video is from the same series/season
+                const otherEpisodeInfo = detectIfEpisode(id, data.title);
+                
+                // Normalize series IDs for comparison (handle both exact matches and string similarity)
+                const otherSeriesId = (otherEpisodeInfo.seriesId || '').toLowerCase().trim();
+                const thisSeriesId = (episodeInfo.seriesId || '').toLowerCase().trim();
+                
+                const sameSeriesAndSeason = 
+                    otherEpisodeInfo.isEpisode &&
+                    otherSeriesId === thisSeriesId &&
+                    otherEpisodeInfo.season === episodeInfo.season;
+                
+                if (sameSeriesAndSeason) {
+                    if (String(id).toLowerCase() === String(videoId).toLowerCase()) {
+                        currentIncluded = true;
+                    }
+                    episodes.push({
+                        id: id,
+                        title: data.title || 'Episode',
+                        duration: data.duration || '',
+                        description: data.description || '',
+                        image: data.image || ''
+                    });
+                }
+            }
+            
+            // Ensure current episode is included
+            if (!currentIncluded) {
+                const currentData = vd[videoId];
+                episodes.push({
+                    id: videoId,
+                    title: (currentData && currentData.title) || title || 'Episode',
+                    duration: (currentData && currentData.duration) || '',
+                    description: (currentData && currentData.description) || '',
+                    image: (currentData && currentData.image) || ''
+                });
+            }
+            
+            // Sort episodes by episode number
+            episodes.sort(function(a, b) {
+                const dataA = vd[a.id], dataB = vd[b.id];
+                const infoA = extractEpisodeInfoFromTitle(a.id);
+                const infoB = extractEpisodeInfoFromTitle(b.id);
+                const epA = (infoA && infoA.episodeNumber) || (dataA && dataA.episodeNumber) || 999;
+                const epB = (infoB && infoB.episodeNumber) || (dataB && dataB.episodeNumber) || 999;
+                return epA - epB;
+            });
+            
+            // Persist context
+            try {
+                sessionStorage.setItem('watch_episode_context', JSON.stringify({
+                    seriesTitle: episodeInfo.seriesTitle,
+                    season: episodeInfo.season,
+                    currentVideoId: String(videoId),
+                    episodes: episodes,
+                    savedAt: Date.now()
+                }));
             } catch (_) {}
         }
         
@@ -7865,70 +8246,8 @@ document.addEventListener("click", function (e) {
                 listItem.find('.search-toggle').removeClass('active');
             }
             
-            // If this is an episode, persist episode context so watch page hides default sections and shows next episodes for the season
-            const vd = (typeof window !== 'undefined' && window.videoData) ? window.videoData : {};
-            const currentData = vd[videoId];
-            const isEpisodeFromData = currentData && currentData.seriesId && currentData.season;
-            const isEpisodeFromAttrs = jQuery(this).attr('data-is-episode') === 'true' && 
-                jQuery(this).attr('data-series-id') && jQuery(this).attr('data-season');
-            const isEpisode = isEpisodeFromData || isEpisodeFromAttrs;
-            
-            if (isEpisode) {
-                const seriesId = (currentData && currentData.seriesId) || jQuery(this).attr('data-series-id') || '';
-                const season = String((currentData && currentData.season) || jQuery(this).attr('data-season') || '1');
-                const seriesTitle = (currentData && currentData.seriesTitle) || jQuery(this).attr('data-series-title') || 'Series';
-                
-                // Build episodes list from videoData (same series and season)
-                const episodes = [];
-                let currentIncluded = false;
-                for (const [id, data] of Object.entries(vd)) {
-                    if (!data) continue;
-                    const matchSeries = (data.seriesId || '') === seriesId || 
-                        (isEpisodeFromAttrs && String(data.seriesId || '') === String(seriesId));
-                    const matchSeason = String(data.season || '1') === season;
-                    if (matchSeries && matchSeason) {
-                        if (String(id) === String(videoId)) currentIncluded = true;
-                        episodes.push({
-                            id: id,
-                            title: data.title || 'Episode',
-                            duration: data.duration || '',
-                            description: data.description || '',
-                            image: data.image || ''
-                        });
-                    }
-                }
-                // Ensure current episode is in the list (for ctxHasCurrent on watch page)
-                if (!currentIncluded && (currentData || isEpisodeFromAttrs)) {
-                    episodes.push({
-                        id: videoId,
-                        title: (currentData && currentData.title) || title || 'Episode',
-                        duration: (currentData && currentData.duration) || '',
-                        description: (currentData && currentData.description) || '',
-                        image: (currentData && currentData.image) || ''
-                    });
-                }
-                
-                // Sort by episode number if available
-                episodes.sort(function(a, b) {
-                    const dataA = vd[a.id];
-                    const dataB = vd[b.id];
-                    const epA = (dataA && dataA.episodeNumber != null) ? dataA.episodeNumber : 999;
-                    const epB = (dataB && dataB.episodeNumber != null) ? dataB.episodeNumber : 999;
-                    return epA - epB;
-                });
-                
-                try {
-                    sessionStorage.setItem('watch_episode_context', JSON.stringify({
-                        seriesTitle: seriesTitle,
-                        season: season,
-                        currentVideoId: String(videoId),
-                        episodes: episodes,
-                        savedAt: Date.now()
-                    }));
-                } catch (_) {}
-            } else {
-                try { sessionStorage.removeItem('watch_episode_context'); } catch (_) {}
-            }
+            // Detect and persist episode context (works with or without explicit metadata)
+            try { persistEpisodeContextIfEpisode(videoId, title, this); } catch (_) {}
             
             // Navigate to watch page using slug (navigateToWatchPage will look up slug from videoId)
             if (typeof window.navigateToWatchPage === 'function') {
@@ -8016,6 +8335,8 @@ document.addEventListener("click", function (e) {
             }
 
             if (videoId) {
+                // If this is an episode (main slider item), persist episode context so watch page hides default sections and shows next episodes
+                try { persistEpisodeContextIfEpisode(videoId, title || 'Trailer', this); } catch (_) {}
                 // Navigate to watch page using slug (navigateToWatchPage will look up slug from videoId)
                 if (typeof window.navigateToWatchPage === 'function') {
                     window.navigateToWatchPage(videoId, title || 'Trailer');
@@ -8023,6 +8344,7 @@ document.addEventListener("click", function (e) {
                     window.location.href = `/watch/?id=${encodeURIComponent(videoId)}`;
                 }
             } else if (videoLink) {
+                try { persistEpisodeContextIfEpisode(videoLink, title || 'Trailer', this); } catch (_) {}
                 // Fallback: use videoLink if we couldn't extract videoId
                 navigateToWatchPage(videoLink, title || 'Trailer');
             }
@@ -11109,10 +11431,11 @@ function switchSeasonEpisodes(selectElement) {
         const loadVideo = function() {
             if (data.videoLink) {
                 // Use the existing setGalleryVideoByLink function if available
+                // Pass videoId (the key) not videoLink (the URL)
                 if (typeof window.setGalleryVideoByLink === 'function') {
-                    window.setGalleryVideoByLink(data.videoLink);
+                    window.setGalleryVideoByLink(videoId);
                 } else if (typeof setGalleryVideoByLink === 'function') {
-                    setGalleryVideoByLink(data.videoLink);
+                    setGalleryVideoByLink(videoId);
                 } else {
                     // Fallback: direct iframe update with VideoPress handling
                     const iframe = document.getElementById('video-iframe');
