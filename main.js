@@ -2607,8 +2607,9 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie6.mp4',
-            downloadLink: 'https://cdn.example.com/download/captain-america-the-first-avenger.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
+            videoType: 'video/mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4'
         },
         'mayhem': {
             image: '/images/favorite/f4.jpg',
@@ -2624,7 +2625,7 @@ document.addEventListener("click", function (e) {
             age: '11+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie7.mp4',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
             downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
         },
         'shadow force': {
@@ -7262,6 +7263,24 @@ document.addEventListener("click", function (e) {
         return document.querySelector('.video-player-container');
     }
 
+    function inferVideoMimeType(url) {
+        const cleanUrl = (url || '').split('#')[0].split('?')[0].toLowerCase();
+        if (cleanUrl.endsWith('.m3u8')) return 'application/x-mpegURL';
+        if (cleanUrl.endsWith('.webm')) return 'video/webm';
+        if (cleanUrl.endsWith('.ogv') || cleanUrl.endsWith('.ogg')) return 'video/ogg';
+        if (cleanUrl.endsWith('.mp4') || cleanUrl.endsWith('.m4v')) return 'video/mp4';
+        return null;
+    }
+
+    function isDirectMediaUrl(url) {
+        if (!url) return false;
+        const lower = String(url).toLowerCase();
+        if (!/^https?:\/\//.test(lower)) return false;
+        if (lower.includes('videopress.com/embed/')) return false;
+        if (lower.includes('youtube.com') || lower.includes('youtu.be')) return false;
+        return true;
+    }
+
     // Helper to update the video player in the watch page
     // videoInput can be either a videoId (e.g., 'pickup') or a slug
     function setGalleryVideoByLink(videoInput) {
@@ -7292,36 +7311,57 @@ document.addEventListener("click", function (e) {
         }
 
         // Step 2: Extract the actual video URL and download URL from the data
-        const videoUrl = data.videoLink;
+        const videoUrl = data.videoLink || data.r2Video;
         const downloadUrl = data.downloadLink || data.r2Download;
+        let normalizedVideoUrl = videoUrl || '';
+        try {
+            normalizedVideoUrl = encodeURI(decodeURI(normalizedVideoUrl));
+        } catch (_) {
+            normalizedVideoUrl = encodeURI(normalizedVideoUrl);
+        }
+        const mediaType = data.videoType || inferVideoMimeType(normalizedVideoUrl);
 
         if (!videoUrl) {
             console.error('✗ videoData has no videoLink property:', data);
             return;
         }
 
-        console.log('Video URL from data.videoLink:', videoUrl);
+        console.log('Video URL from data.videoLink:', normalizedVideoUrl);
         console.log('Download URL from data.downloadLink:', downloadUrl);
 
         // Step 3: Set the video source
         if (mediaEl.tagName && mediaEl.tagName.toLowerCase() === 'video') {
+            if (!isDirectMediaUrl(normalizedVideoUrl)) {
+                console.error('Unsupported video source for HTML5 <video>:', normalizedVideoUrl);
+                console.error('Expected a direct media file URL such as .mp4, .m3u8, .webm');
+                return;
+            }
+
             console.log('Setting up HTML5 video element...');
 
             // Ensure video is visible
             mediaEl.style.display = 'block';
             mediaEl.style.visibility = 'visible';
             
+            const isSameSource = mediaEl.dataset.currentVideoUrl === normalizedVideoUrl;
+            if (isSameSource) {
+                console.log('Same video source already loaded; skipping source reset');
+            }
+            
+            const preferNativePlayback = normalizedVideoUrl.includes('.r2.dev/');
+            
             // Check if Video.js player exists, use its API
-            if (window.videojs && typeof window.videojs === 'function') {
+            if (!isSameSource && !preferNativePlayback && window.videojs && typeof window.videojs === 'function') {
                 try {
                     const player = window.videojs.getPlayer(mediaEl.id) || window.videojs(mediaEl.id);
                     if (player) {
                         console.log('✓ Using Video.js player API to set source');
-                        player.src({
-                            src: videoUrl,
-                            type: 'video/mp4'
-                        });
-                        console.log('✓ Video.js player source updated:', videoUrl);
+                        if (mediaType) {
+                            player.src({ src: normalizedVideoUrl, type: mediaType });
+                        } else {
+                            player.src(normalizedVideoUrl);
+                        }
+                        console.log('✓ Video.js player source updated:', normalizedVideoUrl);
                     } else {
                         throw new Error('Could not get Video.js player instance');
                     }
@@ -7333,11 +7373,15 @@ document.addEventListener("click", function (e) {
                         srcEl = document.createElement('source');
                         mediaEl.appendChild(srcEl);
                     }
-                    srcEl.src = videoUrl;
-                    srcEl.type = 'video/mp4';
+                    srcEl.src = normalizedVideoUrl;
+                    if (mediaType) {
+                        srcEl.type = mediaType;
+                    } else {
+                        srcEl.removeAttribute('type');
+                    }
                     mediaEl.load();
                 }
-            } else {
+            } else if (!isSameSource) {
                 console.log('✓ Setting source directly on video element');
                 // Direct HTML5 approach
                 let srcEl = mediaEl.querySelector('source');
@@ -7345,10 +7389,16 @@ document.addEventListener("click", function (e) {
                     srcEl = document.createElement('source');
                     mediaEl.appendChild(srcEl);
                 }
-                srcEl.src = videoUrl;
-                srcEl.type = 'video/mp4';
+                srcEl.src = normalizedVideoUrl;
+                if (mediaType) {
+                    srcEl.type = mediaType;
+                } else {
+                    srcEl.removeAttribute('type');
+                }
                 mediaEl.load();
             }
+
+            mediaEl.dataset.currentVideoUrl = normalizedVideoUrl;
 
             // Try to play (may be blocked by browser autoplay policy)
             const playPromise = mediaEl.play && mediaEl.play();
@@ -12736,4 +12786,3 @@ document.addEventListener("DOMContentLoaded", function() {
       setInterval(updateTimers, 60000);
     })();
   });
-  
