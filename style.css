@@ -1975,13 +1975,13 @@ header#main-header.menu-sticky{
     z-index: 1;
 }
 #home-slider .slick-bg.s-bg-1{
-    background-image: url(images/slider/slider1.jpg);
+    background-image: url(images/home/ben-hur.jpg);
 }
 #home-slider .slick-bg.s-bg-2{
-    background-image: url(images/slider/slider2.jpg);
+    background-image: url(images/home/army\ of\ the\ dead.jpg);
 }
 #home-slider .slick-bg.s-bg-3{
-    background-image: url(images/slider/slider3.jpg);
+    background-image: url(images/home/king\ of\ killers.jpg);
 }
 
 .slick-bg::before{
@@ -3283,7 +3283,7 @@ li.slide-item .block-description .parallax-ratting span{
     height: 100%;
     padding: 100px 0;
     position: relative;
-    background: url(images/parallax/avatar.jpg) center center;
+    background: url(images/home/expendables\ 2.jpg) center center;
     background-size: cover;
     background-attachment: fixed ;
 }

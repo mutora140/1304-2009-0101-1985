@@ -7210,6 +7210,56 @@ document.addEventListener("click", function (e) {
             .toLowerCase() || 'nerflix_video';
     }
 
+    function triggerImmediateDownload(downloadUrl, filename) {
+        if (!downloadUrl) return Promise.resolve(false);
+
+        const fileName = filename || 'video.mp4';
+        const clickDownloadLink = function(urlToDownload) {
+            const link = document.createElement('a');
+            link.href = urlToDownload;
+            link.style.display = 'none';
+            link.setAttribute('rel', 'noopener');
+            link.setAttribute('download', fileName);
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(() => {
+                if (link.parentNode) {
+                    link.parentNode.removeChild(link);
+                }
+            }, 200);
+        };
+
+        let parsedUrl = null;
+        try {
+            parsedUrl = new URL(downloadUrl, window.location.href);
+        } catch (_) {
+            return Promise.resolve(false);
+        }
+
+        if (parsedUrl.origin === window.location.origin) {
+            clickDownloadLink(parsedUrl.href);
+            return Promise.resolve(true);
+        }
+
+        return fetch(parsedUrl.href, { mode: 'cors', credentials: 'omit' })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.blob();
+            })
+            .then((blob) => {
+                const blobUrl = URL.createObjectURL(blob);
+                clickDownloadLink(blobUrl);
+                setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+                return true;
+            })
+            .catch((error) => {
+                console.warn('Direct download failed:', error);
+                return false;
+            });
+    }
+
     function displayNotification(message, type = 'info') {
         if (window.watchlistManager && typeof window.watchlistManager.showNotification === 'function') {
             window.watchlistManager.showNotification(message, type);
@@ -7435,11 +7485,16 @@ document.addEventListener("click", function (e) {
                 downloadBtn.style.display = '';
                 downloadBtn.onclick = (e) => {
                     e.preventDefault();
-                    window.location.href = downloadUrl;
+                    const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
+                    const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
+                    triggerImmediateDownload(downloadUrl, safeTitle);
                 };
+                downloadBtn.setAttribute('data-download-href', downloadUrl);
                 console.log('✓ Download button enabled');
             } else if (downloadBtn) {
                 downloadBtn.style.display = 'none';
+                downloadBtn.onclick = null;
+                downloadBtn.removeAttribute('data-download-href');
                 console.log('⚠ No downloadLink in videoData');
             }
         } catch (e) {
@@ -7646,7 +7701,12 @@ document.addEventListener("click", function (e) {
             if (bottomBtn) {
                 if (downloadHref) {
                     bottomBtn.style.display = '';
-                    bottomBtn.onclick = function(e) { e.preventDefault(); window.location.href = downloadHref; };
+                    bottomBtn.onclick = function(e) {
+                        e.preventDefault();
+                        const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
+                        const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
+                        triggerImmediateDownload(downloadHref, safeTitle);
+                    };
                     bottomBtn.setAttribute('data-download-href', downloadHref);
                 } else {
                     bottomBtn.style.display = 'none';
@@ -8613,6 +8673,19 @@ document.addEventListener("click", function (e) {
         // Download button - download from videopress
         jQuery(document).on('click', '.btn-download', function(e) {
             e.preventDefault();
+            const explicitDownloadUrl = this.getAttribute('data-download-href') || '';
+            if (explicitDownloadUrl) {
+                const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
+                const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
+                triggerImmediateDownload(explicitDownloadUrl, safeTitle).then((started) => {
+                    if (started) {
+                        displayNotification('Download started. Check your browser downloads.', 'success');
+                    } else {
+                        displayNotification('Download is not available for this title yet.', 'info');
+                    }
+                });
+                return;
+            }
             let videoId = currentVideoId || '';
             if (!videoId) {
                 displayNotification('Download is not available for this title yet.', 'info');
@@ -8635,36 +8708,18 @@ document.addEventListener("click", function (e) {
             // Format: https://videos.files.wordpress.com/{videoId}/{videoId}.mp4
             const downloadUrl = `https://videos.files.wordpress.com/${videoId}/${videoId}.mp4`;
             
-            // Alternative URL format (HD version)
-            const downloadUrlHD = `https://videos.files.wordpress.com/${videoId}/${videoId}-hd.mp4`;
-            
             displayNotification('Preparing download...', 'info');
-            
-            // Create download link with the standard format
-            const link = document.createElement('a');
-            link.href = downloadUrl;
-            link.download = `${safeTitle}.mp4`;
-            link.target = '_blank';
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            
-            // Attempt download
-            try {
-                link.click();
-                displayNotification('Download started. Check your browser downloads.', 'success');
-            } catch (error) {
-                console.error('Download error:', error);
-                // Fallback: open in new tab
-                window.open(downloadUrl, '_blank');
-                displayNotification('Opening download page in new tab...', 'info');
-            }
-            
-            // Clean up
-            setTimeout(() => {
-                if (link.parentNode) {
-                    document.body.removeChild(link);
+
+            triggerImmediateDownload(downloadUrl, `${safeTitle}.mp4`).then((started) => {
+                if (started) {
+                    displayNotification('Download started. Check your browser downloads.', 'success');
+                } else {
+                    displayNotification('Unable to start download for this file.', 'error');
                 }
-            }, 1000);
+            }).catch((error) => {
+                console.error('Download error:', error);
+                displayNotification('Unable to start download for this file.', 'error');
+            });
         });
         
         // Initialize sliders for video gallery sections
@@ -11587,8 +11642,8 @@ function switchSeasonEpisodes(selectElement) {
              (Array.isArray(data.cast) ? data.cast : []))
         );
         
-        // Update download button
-        updateWatchPageDownloadButton(data.downloadLink);
+        // Update download button (fallback to stream URL when no explicit download URL is set)
+        updateWatchPageDownloadButton(data.downloadLink || data.r2Download || data.videoLink || data.r2Video);
         
         // Decide whether this is an EPISODE:
         // - Prefer sessionStorage context captured from `.episodes-contens` (works for all series/seasons)
@@ -12364,20 +12419,25 @@ function switchSeasonEpisodes(selectElement) {
      * @param {string} downloadLink - Download URL
      */
     function updateWatchPageDownloadButton(downloadLink) {
-        const downloadBtn = document.getElementById('download-btn');
+        const downloadBtn = document.getElementById('download-btn') || document.querySelector('.video-actions .btn-download');
         if (!downloadBtn) return;
         
         if (downloadLink) {
             downloadBtn.onclick = function(e) {
                 e.preventDefault();
-                window.open(downloadLink, '_blank');
+                const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
+                const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
+                triggerImmediateDownload(downloadLink, safeTitle);
             };
+            downloadBtn.setAttribute('data-download-href', downloadLink);
+            downloadBtn.style.display = '';
             downloadBtn.style.cursor = 'pointer';
         } else {
             downloadBtn.onclick = function(e) {
                 e.preventDefault();
                 alert('Download link not available for this video.');
             };
+            downloadBtn.removeAttribute('data-download-href');
         }
     }
     
