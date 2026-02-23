@@ -3280,12 +3280,16 @@ li.slide-item .block-description .parallax-ratting span{
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 .parallax-window{
-    height: 100%;
+    /* Default height only controls the floating poster image, not the whole section */
+    --parallax-hero-image-height: 500px;
     padding: 100px 0;
     position: relative;
     background: url(images/home/expendables\ 2.jpg) center center;
     background-size: cover;
     background-attachment: fixed ;
+}
+.parallax-img{
+    height: var(--parallax-hero-image-height);
 }
 .parallax-window::after{
 position: absolute;
@@ -5839,9 +5843,12 @@ img.loader-avatar {
     display: block !important;
 }
 
-/* Parallax section front image - 450px height */
+/* Parallax section front image - 500px height */
+.parallax-img {
+    height: var(--parallax-hero-image-height);
+}
 .parallax-img img {
-    height: 450px !important;
+    height: 100% !important;
     width: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
@@ -5910,13 +5917,7 @@ img[src*="trending-label.png"],
         object-fit: cover !important;
         object-position: center !important;
     }
-    
-    .parallax-img img {
-        height: 450px !important;
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-    
+
     .image-box img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m) {
         height: 165px !important;
         object-fit: cover !important;
@@ -5963,13 +5964,7 @@ img[src*="trending-label.png"],
         object-fit: cover !important;
         object-position: center !important;
     }
-    
-    .parallax-img img {
-        height: 450px !important;
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-    
+
     .image-box img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m) {
         height: 120px !important;
         object-fit: cover !important;
@@ -6003,13 +5998,7 @@ img[src*="trending-label.png"],
         object-fit: cover !important;
         object-position: center !important;
     }
-    
-    .parallax-img img {
-        height: 450px !important;
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-    
+
     .image-box img:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m) {
         height: 120px !important;
         object-fit: cover !important;
@@ -6048,6 +6037,20 @@ img.img-fluid:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m
 .e-item .block-image img.img-fluid:not(.logo):not(.c-logo):not(.play):not(.loader-avatar):not(.user-m) {
     max-height: none !important;
     min-height: 165px !important;
+}
+
+/* Strong override: parallax floating poster uses img-fluid w-100 with fixed hero height,
+   and must not be shrunk by the generic img.img-fluid rules above */
+.parallax-window .parallax-img {
+    height: var(--parallax-hero-image-height);
+}
+.parallax-window .parallax-img img.img-fluid.w-100 {
+    height: var(--parallax-hero-image-height) !important;
+    width: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
 }
 
 /* Mobile device section visibility - Show Top Picks, Popular Movies, Cartoons, and Recommended sections */
