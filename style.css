@@ -832,10 +832,14 @@ body{
     }
     
     .video-description {
-        -webkit-line-clamp: unset;
-        line-clamp: unset;
-        overflow: visible;
-        display: block;
+        /* Clamp sidebar description to 4 lines on mobile as well */
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 6em;
     }
     
     /* Force video gallery elements to be visible on mobile */
@@ -1027,10 +1031,14 @@ body{
     }
     
     .video-description {
-        -webkit-line-clamp: unset;
-        line-clamp: unset;
-        overflow: visible;
-        display: block;
+        /* Clamp sidebar description to 4 lines on small mobile as well */
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 6em;
     }
     
     /* Force video gallery elements to be visible on small screens */
@@ -4616,10 +4624,14 @@ span.fa-heart-wrapper.liked {
     }
     
     .video-description {
-        -webkit-line-clamp: unset;
-        line-clamp: unset;
-        overflow: visible;
-        display: block;
+        /* Clamp sidebar description to 4 lines on tablet as well */
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 6em;
     }
 }
 
