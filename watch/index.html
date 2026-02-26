@@ -59,6 +59,11 @@
   <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 
   <style>
+    :root {
+      --watch-accent: #00a9ff;
+      --watch-accent-soft: rgba(0, 169, 255, 0.35);
+    }
+
     /* Ensure page uses the same dark canvas as the overlay */
     body {
       background: #000000 !important;
@@ -301,6 +306,251 @@
     #video-episodes-gallery[style*="display: block"] {
       display: block !important;
       visibility: visible !important;
+    }
+
+    /* ===== Custom Watch Page Video Player ===== */
+
+    .video-gallery-overlay .video-player-container.watch-player {
+      /* Cinematic dark background that fits the watch page */
+      background: radial-gradient(circle at top, #03111f 0%, #020813 45%, #000000 100%) !important;
+      box-shadow: 0 24px 45px rgba(0, 0, 0, 0.85);
+    }
+
+    .video-gallery-overlay .video-player-container.watch-player .watch-player-inner {
+      position: relative !important;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .video-gallery-overlay .video-player-container.watch-player video.watch-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 10px;
+      background: #000000;
+      object-fit: cover;
+    }
+
+    /* Top progress bar matching reference image */
+    .watch-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #050505;
+      z-index: 3;
+    }
+
+    .watch-progress-played {
+      height: 100%;
+      width: 0%;
+      background: var(--watch-accent);
+      transition: width 0.1s linear;
+    }
+
+    /* Controls overlay */
+    .watch-controls {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px 16px 14px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.45), transparent);
+      color: #ffffff;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 4;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .video-player-container.watch-player.watch-player-ready .watch-controls {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .video-player-container.watch-player.watch-player-loading .watch-controls {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .watch-controls-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      pointer-events: auto;
+    }
+
+    .watch-btn {
+      border: none;
+      background: transparent;
+      color: var(--watch-accent);
+      cursor: pointer;
+      padding: 4px 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+      opacity: 0.9;
+    }
+
+    .watch-btn i,
+    .watch-btn span {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .watch-btn span {
+      font-weight: 600;
+      color: var(--watch-accent);
+    }
+
+    .watch-btn:hover,
+    .watch-btn:focus {
+      color: var(--watch-accent);
+      outline: none;
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+
+    .watch-btn:active {
+      transform: translateY(0);
+      opacity: 0.8;
+    }
+
+    .watch-btn-play {
+      color: var(--watch-accent);
+    }
+
+    .watch-time {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: 15px;
+      color: var(--watch-accent);
+      white-space: nowrap;
+    }
+
+    .watch-time-current {
+      color: var(--watch-accent);
+    }
+
+    .watch-time-total {
+      color: var(--watch-accent);
+    }
+
+    .watch-spacer {
+      flex: 1 1 auto;
+    }
+
+    .watch-volume-slider {
+      width: 80px;
+      max-width: 25%;
+      accent-color: var(--watch-accent);
+    }
+
+    .watch-progress {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .watch-progress::-webkit-slider-runnable-track {
+      height: 6px;
+      border-radius: 3px;
+      background: transparent;
+    }
+
+    .watch-progress::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: -3px;
+      background: var(--watch-accent);
+      box-shadow: 0 0 0 4px rgba(0, 169, 255, 0.25);
+      border: none;
+    }
+
+    .watch-progress::-moz-range-track {
+      height: 6px;
+      border-radius: 3px;
+      background: transparent;
+    }
+
+    .watch-progress::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--watch-accent);
+      box-shadow: 0 0 0 4px rgba(0, 169, 255, 0.25);
+      border: none;
+    }
+
+    /* Loading overlay + spinner */
+    .watch-loading-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.86));
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .watch-loading-overlay.is-visible {
+      opacity: 1;
+    }
+
+    .watch-spinner {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 3px solid var(--watch-accent-soft);
+      border-top-color: var(--watch-accent);
+      border-right-color: var(--watch-accent);
+      animation: watch-spin 0.7s linear infinite;
+      box-shadow: 0 0 14px rgba(0, 169, 255, 0.75);
+    }
+
+    @keyframes watch-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 767.98px) {
+      .watch-controls {
+        padding: 8px 10px 12px;
+        font-size: 12px;
+      }
+
+      .watch-btn i,
+      .watch-btn span {
+        font-size: 15px;
+      }
+
+      .watch-volume-slider {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -780,24 +1030,83 @@
         <div class="row">
 
           <div class="col-lg-9">
-
-            <div class="video-player-container">
+          
+            <div class="video-player-container watch-player">
               
-              <!-- VideoPress iframe container -->
-              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <div class="watch-player-inner">
                 <!-- Replaced Jetpack VideoPress iframe with HTML5 video element -->
-                <!-- Maintain the same id and inline styles as the original iframe for compatibility -->
+                <!-- Maintain the same id for compatibility with existing JS -->
                 <video
                   id="video-iframe"
-                  class="video-js"
-                  controls
+                  class="watch-video"
                   preload="auto"
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; display: block; z-index: 1;"
+                  autoplay
+                  playsinline
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 >
                   <source src="" type="video/mp4" />
                 </video>
+
+                <div class="watch-loading-overlay" id="watch-loading-overlay" aria-hidden="true">
+                  <div class="watch-spinner"></div>
+                </div>
+
+                <div class="watch-progress-bar" aria-hidden="true">
+                  <div class="watch-progress-played"></div>
+                </div>
+
+                <div class="watch-controls" aria-label="Video player controls">
+                  <div class="watch-controls-inner">
+                    <button class="watch-btn watch-btn-play" type="button" aria-label="Play video">
+                      <i class="fa fa-play"></i>
+                    </button>
+
+                    <div class="watch-time" aria-label="Current and total time">
+                      <span class="watch-time-current">00:00</span>
+                      <span class="watch-time-separator">/</span>
+                      <span class="watch-time-total">00:00</span>
+                    </div>
+
+                    <div class="watch-spacer"></div>
+
+                    <button class="watch-btn watch-btn-volume" type="button" aria-label="Mute or unmute">
+                      <i class="fa fa-volume-up"></i>
+                    </button>
+
+                    <input
+                      type="range"
+                      class="watch-volume-slider"
+                      min="0"
+                      max="1"
+                      step="0.05"
+                      value="1"
+                      aria-label="Volume"
+                    />
+
+                    <button class="watch-btn watch-btn-settings" type="button" aria-label="Player settings">
+                      <i class="fa fa-cog"></i>
+                    </button>
+
+                    <button class="watch-btn watch-btn-pip" type="button" aria-label="Picture in Picture">
+                      <i class="fa fa-television"></i>
+                    </button>
+
+                    <button class="watch-btn watch-btn-fullscreen" type="button" aria-label="Toggle fullscreen">
+                      <i class="fa fa-expand"></i>
+                    </button>
+                  </div>
+
+                  <input
+                    type="range"
+                    class="watch-progress"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                    value="0"
+                    aria-label="Seek through video"
+                  />
+                </div>
               </div>
 
             </div>
@@ -1928,6 +2237,226 @@
 
   <!-- Load main.js (includes watch page functionality) -->
   <script src="/main.js"></script>
+  <script>
+    (function () {
+      const playerContainer = document.querySelector('.video-player-container.watch-player');
+      const video = document.getElementById('video-iframe');
+      if (!playerContainer || !video) return;
+
+      const playBtn = playerContainer.querySelector('.watch-btn-play');
+      const volumeBtn = playerContainer.querySelector('.watch-btn-volume');
+      const volumeSlider = playerContainer.querySelector('.watch-volume-slider');
+      const settingsBtn = playerContainer.querySelector('.watch-btn-settings');
+      const pipBtn = playerContainer.querySelector('.watch-btn-pip');
+      const fullscreenBtn = playerContainer.querySelector('.watch-btn-fullscreen');
+      const progressRange = playerContainer.querySelector('.watch-progress');
+      const progressPlayed = playerContainer.querySelector('.watch-progress-played');
+      const timeCurrentEl = playerContainer.querySelector('.watch-time-current');
+      const timeTotalEl = playerContainer.querySelector('.watch-time-total');
+      const loadingOverlay = document.getElementById('watch-loading-overlay');
+
+      let userVolumeBeforeMute = 1;
+
+      function formatTime(seconds) {
+        if (!isFinite(seconds) || seconds < 0) return '00:00';
+        const hrs = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        const secs = Math.floor(seconds % 60);
+        const two = (n) => (n < 10 ? '0' + n : '' + n);
+        return hrs > 0
+          ? `${two(hrs)}:${two(mins)}:${two(secs)}`
+          : `${two(mins)}:${two(secs)}`;
+      }
+
+      function updatePlayButton() {
+        if (!playBtn) return;
+        const icon = playBtn.querySelector('i');
+        if (!icon) return;
+        if (video.paused || video.ended) {
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-play');
+        } else {
+          icon.classList.remove('fa-play');
+          icon.classList.add('fa-pause');
+        }
+      }
+
+      function updateVolumeUI() {
+        if (!volumeBtn || !volumeSlider) return;
+        const icon = volumeBtn.querySelector('i');
+        if (!icon) return;
+        const muted = video.muted || video.volume === 0;
+        if (muted) {
+          icon.classList.remove('fa-volume-up');
+          icon.classList.add('fa-volume-off');
+        } else {
+          icon.classList.remove('fa-volume-off');
+          icon.classList.add('fa-volume-up');
+        }
+        volumeSlider.value = String(video.muted ? 0 : video.volume);
+      }
+
+      function updateTimeAndProgress() {
+        if (timeCurrentEl) timeCurrentEl.textContent = formatTime(video.currentTime || 0);
+        if (timeTotalEl) timeTotalEl.textContent = formatTime(video.duration || 0);
+
+        if (!progressRange || !progressPlayed) return;
+        const duration = video.duration || 0;
+        if (!duration || !isFinite(duration)) {
+          progressRange.value = '0';
+          progressPlayed.style.width = '0%';
+          return;
+        }
+        const percent = (video.currentTime / duration) * 100;
+        const clamped = Math.max(0, Math.min(100, percent || 0));
+        progressRange.value = String(clamped);
+        progressPlayed.style.width = clamped + '%';
+      }
+
+      function showSpinner() {
+        if (loadingOverlay) loadingOverlay.classList.add('is-visible');
+        if (playerContainer) {
+          playerContainer.classList.add('watch-player-loading');
+          playerContainer.classList.remove('watch-player-ready');
+        }
+      }
+
+      function hideSpinner() {
+        if (loadingOverlay) loadingOverlay.classList.remove('is-visible');
+        if (playerContainer) {
+          playerContainer.classList.remove('watch-player-loading');
+          playerContainer.classList.add('watch-player-ready');
+        }
+      }
+
+      // Event wiring
+      if (playBtn) {
+        playBtn.addEventListener('click', function () {
+          if (video.paused || video.ended) {
+            video.play().catch(function () {});
+          } else {
+            video.pause();
+          }
+        });
+      }
+
+      if (volumeSlider) {
+        volumeSlider.addEventListener('input', function () {
+          const value = parseFloat(volumeSlider.value);
+          if (!isNaN(value)) {
+            video.volume = Math.max(0, Math.min(1, value));
+            video.muted = value === 0;
+            if (!video.muted) userVolumeBeforeMute = value;
+            updateVolumeUI();
+          }
+        });
+      }
+
+      if (volumeBtn) {
+        volumeBtn.addEventListener('click', function () {
+          if (video.muted || video.volume === 0) {
+            video.muted = false;
+            if (!userVolumeBeforeMute || !isFinite(userVolumeBeforeMute)) {
+              userVolumeBeforeMute = 1;
+            }
+            video.volume = userVolumeBeforeMute;
+          } else {
+            userVolumeBeforeMute = video.volume;
+            video.muted = true;
+          }
+          updateVolumeUI();
+        });
+      }
+
+      if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', function () {
+          const doc = document;
+          const isFull =
+            doc.fullscreenElement ||
+            doc.webkitFullscreenElement ||
+            doc.mozFullScreenElement ||
+            doc.msFullscreenElement;
+          const target = playerContainer;
+          if (!isFull) {
+            (target.requestFullscreen ||
+              target.webkitRequestFullscreen ||
+              target.mozRequestFullScreen ||
+              target.msRequestFullscreen ||
+              function () {} ).call(target);
+          } else {
+            (doc.exitFullscreen ||
+              doc.webkitExitFullscreen ||
+              doc.mozCancelFullScreen ||
+              doc.msExitFullscreen ||
+              function () {} ).call(doc);
+          }
+        });
+      }
+
+      if (pipBtn && 'pictureInPictureEnabled' in document) {
+        pipBtn.addEventListener('click', function () {
+          if (document.pictureInPictureElement === video) {
+            document.exitPictureInPicture().catch(function () {});
+          } else if (video.requestPictureInPicture) {
+            video.requestPictureInPicture().catch(function () {});
+          }
+        });
+      } else if (pipBtn) {
+        pipBtn.style.display = 'none';
+      }
+
+      if (settingsBtn) {
+        settingsBtn.addEventListener('click', function () {
+          // Placeholder for future quality/speed settings
+        });
+      }
+
+      if (progressRange) {
+        progressRange.addEventListener('input', function () {
+          const value = parseFloat(progressRange.value);
+          const duration = video.duration || 0;
+          if (!isNaN(value) && duration && isFinite(duration)) {
+            const percent = Math.max(0, Math.min(100, value));
+            const newTime = (percent / 100) * duration;
+            video.currentTime = newTime;
+            if (progressPlayed) {
+              progressPlayed.style.width = percent + '%';
+            }
+          }
+        });
+      }
+
+      video.addEventListener('loadedmetadata', function () {
+        updateTimeAndProgress();
+        updateVolumeUI();
+        hideSpinner();
+      });
+
+      video.addEventListener('timeupdate', updateTimeAndProgress);
+      video.addEventListener('play', function () {
+        updatePlayButton();
+        hideSpinner();
+      });
+      video.addEventListener('pause', function () {
+        updatePlayButton();
+      });
+      video.addEventListener('waiting', showSpinner);
+      video.addEventListener('seeking', showSpinner);
+      video.addEventListener('loadstart', showSpinner);
+      video.addEventListener('canplay', hideSpinner);
+      video.addEventListener('playing', hideSpinner);
+      video.addEventListener('ended', function () {
+        updatePlayButton();
+        hideSpinner();
+      });
+
+      // Initialize UI to safe defaults
+      showSpinner();
+      updatePlayButton();
+      updateVolumeUI();
+      updateTimeAndProgress();
+    })();
+  </script>
   <script>
 
       // Watch for content changes
