@@ -308,250 +308,201 @@
       visibility: visible !important;
     }
 
-    /* ===== Custom Watch Page Video Player ===== */
+/* ================================= */
+/* WATCH PLAYER FULL SYSTEM FINAL    */
+/* ================================= */
 
-    .video-gallery-overlay .video-player-container.watch-player {
-      /* Cinematic dark background that fits the watch page */
-      background: radial-gradient(circle at top, #03111f 0%, #020813 45%, #000000 100%) !important;
-      box-shadow: 0 24px 45px rgba(0, 0, 0, 0.85);
-    }
+.video-player-container.watch-player {
+  position: relative;
+  width: 100%;
+  background: #020d1a;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
-    .video-gallery-overlay .video-player-container.watch-player .watch-player-inner {
-      position: relative !important;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 10px;
-    }
+/* Desktop fixed height */
+@media (min-width: 992px) {
+  .video-player-container.watch-player {
+    height: 430px;
+  }
+}
 
-    .video-gallery-overlay .video-player-container.watch-player video.watch-video {
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 10px;
-      background: #000000;
-      object-fit: cover;
-    }
+/* Mobile & Tablet */
+@media (max-width: 991.98px) {
+  .video-player-container.watch-player {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+  }
+}
 
-    /* Top progress bar matching reference image */
-    .watch-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: #050505;
-      z-index: 3;
-    }
+/* VIDEO */
+.video-player-container video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
 
-    .watch-progress-played {
-      height: 100%;
-      width: 0%;
-      background: var(--watch-accent);
-      transition: width 0.1s linear;
-    }
+/* ===================== */
+/* LOADING OVERLAY       */
+/* ===================== */
 
-    /* Controls overlay */
-    .watch-controls {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 10px 16px 14px;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.45), transparent);
-      color: #ffffff;
-      font-size: 13px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      z-index: 4;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
+.watch-loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+}
 
-    .video-player-container.watch-player.watch-player-ready .watch-controls {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Initial full cover */
+.watch-loading-overlay.initial-mode {
+  background: #020d1a;
+  z-index: 5;
+  pointer-events: auto;
+}
 
-    .video-player-container.watch-player.watch-player-loading .watch-controls {
-      opacity: 0;
-      transform: translateY(8px);
-    }
+/* Buffering mode (inside video) */
+.watch-loading-overlay.buffering-mode {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  pointer-events: none; /* CRITICAL */
+}
 
-    .watch-controls-inner {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      pointer-events: auto;
-    }
+/* Hidden */
+.watch-loading-overlay.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
-    .watch-btn {
-      border: none;
-      background: transparent;
-      color: var(--watch-accent);
-      cursor: pointer;
-      padding: 4px 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
-      opacity: 0.9;
-    }
+/* Spinner */
+.watch-spinner {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 169, 255, 0.35);
+  border-top-color: #00a9ff;
+  border-right-color: #00a9ff;
+  animation: spin 0.7s linear infinite;
+}
 
-    .watch-btn i,
-    .watch-btn span {
-      font-size: 16px;
-      line-height: 1;
-    }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
-    .watch-btn span {
-      font-weight: 600;
-      color: var(--watch-accent);
-    }
+.watch-loading-text {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #00a9ff;
+  text-transform: uppercase;
+  text-align: center;
+}
 
-    .watch-btn:hover,
-    .watch-btn:focus {
-      color: var(--watch-accent);
-      outline: none;
-      transform: translateY(-1px);
-      opacity: 1;
-    }
+/* ===================== */
+/* CONTROLS              */
+/* ===================== */
 
-    .watch-btn:active {
-      transform: translateY(0);
-      opacity: 0.8;
-    }
+.watch-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 16px 14px;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.4),
+    transparent
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10; /* ALWAYS ABOVE */
+}
 
-    .watch-btn-play {
-      color: var(--watch-accent);
-    }
+.watch-controls-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    .watch-time {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
-      font-size: 15px;
-      color: var(--watch-accent);
-      white-space: nowrap;
-    }
+.watch-btn {
+  border: none;
+  background: transparent;
+  color: #00a9ff;
+  cursor: pointer;
+  padding: 4px 6px;
+}
 
-    .watch-time-current {
-      color: var(--watch-accent);
-    }
+.watch-btn i {
+  font-size: 15px;
+}
 
-    .watch-time-total {
-      color: var(--watch-accent);
-    }
+.watch-time {
+  font-family: monospace;
+  font-size: 13px;
+  color: #00a9ff;
+}
 
-    .watch-spacer {
-      flex: 1 1 auto;
-    }
+.watch-spacer {
+  flex: 1;
+}
 
-    .watch-volume-slider {
-      width: 80px;
-      max-width: 25%;
-      accent-color: var(--watch-accent);
-    }
+/* Progress */
+.watch-progress {
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
 
-    .watch-progress {
-      width: 100%;
-      -webkit-appearance: none;
-      appearance: none;
-      height: 6px;
-      border-radius: 3px;
-      background: transparent;
-      cursor: pointer;
-      pointer-events: auto;
-    }
+/* Volume slider (compact) */
+.watch-volume-slider {
+  width: 55px;
+  height: 4px;
+  appearance: none;
+  background: rgba(255,255,255,0.25);
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    .watch-progress::-webkit-slider-runnable-track {
-      height: 6px;
-      border-radius: 3px;
-      background: transparent;
-    }
+@media (max-width: 768px) {
+  .watch-volume-slider {
+    width: 45px;
+  }
+}
 
-    .watch-progress::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-top: -3px;
-      background: var(--watch-accent);
-      box-shadow: 0 0 0 4px rgba(0, 169, 255, 0.25);
-      border: none;
-    }
+/* Animated dots */
+.watch-dots::after {
+  content: '';
+  display: inline-block;
+  width: 1.2em;
+  text-align: left;
+  animation: watch-dots-animation 1.5s steps(4, end) infinite;
+}
 
-    .watch-progress::-moz-range-track {
-      height: 6px;
-      border-radius: 3px;
-      background: transparent;
-    }
+@keyframes watch-dots-animation {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}
 
-    .watch-progress::-moz-range-thumb {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--watch-accent);
-      box-shadow: 0 0 0 4px rgba(0, 169, 255, 0.25);
-      border: none;
-    }
-
-    /* Loading overlay + spinner */
-    .watch-loading-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.86));
-      z-index: 5;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease-out;
-    }
-
-    .watch-loading-overlay.is-visible {
-      opacity: 1;
-    }
-
-    .watch-spinner {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 3px solid var(--watch-accent-soft);
-      border-top-color: var(--watch-accent);
-      border-right-color: var(--watch-accent);
-      animation: watch-spin 0.7s linear infinite;
-      box-shadow: 0 0 14px rgba(0, 169, 255, 0.75);
-    }
-
-    @keyframes watch-spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 767.98px) {
-      .watch-controls {
-        padding: 8px 10px 12px;
-        font-size: 12px;
-      }
-
-      .watch-btn i,
-      .watch-btn span {
-        font-size: 15px;
-      }
-
-      .watch-volume-slider {
-        display: none;
-      }
-    }
+.watch-loading-text{
+  margin-left: -30px;
+}
+.watch-loading-content{
+  margin-left: 11%;
+}
   </style>
 </head>
 
@@ -1029,89 +980,93 @@
 
         <div class="row">
 
-          <div class="col-lg-9">
-          
-            <div class="video-player-container watch-player">
-              
-              <div class="watch-player-inner">
-                <!-- Replaced Jetpack VideoPress iframe with HTML5 video element -->
-                <!-- Maintain the same id for compatibility with existing JS -->
-                <video
-                  id="video-iframe"
-                  class="watch-video"
-                  preload="auto"
-                  autoplay
-                  playsinline
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                >
-                  <source src="" type="video/mp4" />
-                </video>
+<div class="col-lg-9">
 
-                <div class="watch-loading-overlay" id="watch-loading-overlay" aria-hidden="true">
-                  <div class="watch-spinner"></div>
-                </div>
+  <div class="video-player-container watch-player">
 
-                <div class="watch-progress-bar" aria-hidden="true">
-                  <div class="watch-progress-played"></div>
-                </div>
+    <div class="watch-player-inner">
 
-                <div class="watch-controls" aria-label="Video player controls">
-                  <div class="watch-controls-inner">
-                    <button class="watch-btn watch-btn-play" type="button" aria-label="Play video">
-                      <i class="fa fa-play"></i>
-                    </button>
+      <video
+        id="video-iframe"
+        class="watch-video"
+        preload="auto"
+        autoplay
+        playsinline
+      >
+        <source src="" type="video/mp4" />
+      </video>
 
-                    <div class="watch-time" aria-label="Current and total time">
-                      <span class="watch-time-current">00:00</span>
-                      <span class="watch-time-separator">/</span>
-                      <span class="watch-time-total">00:00</span>
-                    </div>
+      <!-- Top Progress Bar -->
+      <div class="watch-progress-bar">
+        <div class="watch-progress-played"></div>
+      </div>
 
-                    <div class="watch-spacer"></div>
+      <!-- Controls -->
+      <div class="watch-controls">
 
-                    <button class="watch-btn watch-btn-volume" type="button" aria-label="Mute or unmute">
-                      <i class="fa fa-volume-up"></i>
-                    </button>
+        <div class="watch-controls-inner">
 
-                    <input
-                      type="range"
-                      class="watch-volume-slider"
-                      min="0"
-                      max="1"
-                      step="0.05"
-                      value="1"
-                      aria-label="Volume"
-                    />
+          <button class="watch-btn watch-btn-play" type="button">
+            <i class="fa fa-play"></i>
+          </button>
 
-                    <button class="watch-btn watch-btn-settings" type="button" aria-label="Player settings">
-                      <i class="fa fa-cog"></i>
-                    </button>
-
-                    <button class="watch-btn watch-btn-pip" type="button" aria-label="Picture in Picture">
-                      <i class="fa fa-television"></i>
-                    </button>
-
-                    <button class="watch-btn watch-btn-fullscreen" type="button" aria-label="Toggle fullscreen">
-                      <i class="fa fa-expand"></i>
-                    </button>
-                  </div>
-
-                  <input
-                    type="range"
-                    class="watch-progress"
-                    min="0"
-                    max="100"
-                    step="0.01"
-                    value="0"
-                    aria-label="Seek through video"
-                  />
-                </div>
-              </div>
-
-            </div>
-
+          <div class="watch-time">
+            <span class="watch-time-current">00:00</span>
+            <span>/</span>
+            <span class="watch-time-total">00:00</span>
           </div>
+
+          <div class="watch-spacer"></div>
+
+          <button class="watch-btn watch-btn-volume" type="button">
+            <i class="fa fa-volume-up"></i>
+          </button>
+
+          <input type="range"
+                 class="watch-volume-slider"
+                 min="0"
+                 max="1"
+                 step="0.05"
+                 value="1" />
+
+          <button class="watch-btn watch-btn-settings" type="button">
+            <i class="fa fa-cog"></i>
+          </button>
+
+          <button class="watch-btn watch-btn-pip" type="button">
+            <i class="fa fa-television"></i>
+          </button>
+
+          <button class="watch-btn watch-btn-fullscreen" type="button">
+            <i class="fa fa-expand"></i>
+          </button>
+
+        </div>
+
+        <input type="range"
+               class="watch-progress"
+               min="0"
+               max="100"
+               step="0.01"
+               value="0" />
+
+      </div>
+
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="watch-loading-overlay" id="watch-loading-overlay">
+      <div class="watch-loading-content">
+        <div class="watch-spinner"></div>
+        <div class="watch-loading-text">
+          Loading Movie<span class="watch-dots"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
           <div class="col-lg-3">
 
@@ -2237,226 +2192,130 @@
 
   <!-- Load main.js (includes watch page functionality) -->
   <script src="/main.js"></script>
-  <script>
-    (function () {
-      const playerContainer = document.querySelector('.video-player-container.watch-player');
-      const video = document.getElementById('video-iframe');
-      if (!playerContainer || !video) return;
+      <script>
+(function () {
 
-      const playBtn = playerContainer.querySelector('.watch-btn-play');
-      const volumeBtn = playerContainer.querySelector('.watch-btn-volume');
-      const volumeSlider = playerContainer.querySelector('.watch-volume-slider');
-      const settingsBtn = playerContainer.querySelector('.watch-btn-settings');
-      const pipBtn = playerContainer.querySelector('.watch-btn-pip');
-      const fullscreenBtn = playerContainer.querySelector('.watch-btn-fullscreen');
-      const progressRange = playerContainer.querySelector('.watch-progress');
-      const progressPlayed = playerContainer.querySelector('.watch-progress-played');
-      const timeCurrentEl = playerContainer.querySelector('.watch-time-current');
-      const timeTotalEl = playerContainer.querySelector('.watch-time-total');
-      const loadingOverlay = document.getElementById('watch-loading-overlay');
+  const container = document.querySelector('.video-player-container.watch-player');
+  const video = document.getElementById('video-iframe');
+  const overlay = document.getElementById('watch-loading-overlay');
 
-      let userVolumeBeforeMute = 1;
+  if (!container || !video || !overlay) return;
 
-      function formatTime(seconds) {
-        if (!isFinite(seconds) || seconds < 0) return '00:00';
-        const hrs = Math.floor(seconds / 3600);
-        const mins = Math.floor((seconds % 3600) / 60);
-        const secs = Math.floor(seconds % 60);
-        const two = (n) => (n < 10 ? '0' + n : '' + n);
-        return hrs > 0
-          ? `${two(hrs)}:${two(mins)}:${two(secs)}`
-          : `${two(mins)}:${two(secs)}`;
-      }
+  const playBtn = container.querySelector('.watch-btn-play');
+  const volumeBtn = container.querySelector('.watch-btn-volume');
+  const volumeSlider = container.querySelector('.watch-volume-slider');
+  const fullscreenBtn = container.querySelector('.watch-btn-fullscreen');
+  const progress = container.querySelector('.watch-progress');
+  const timeCurrent = container.querySelector('.watch-time-current');
+  const timeTotal = container.querySelector('.watch-time-total');
 
-      function updatePlayButton() {
-        if (!playBtn) return;
-        const icon = playBtn.querySelector('i');
-        if (!icon) return;
-        if (video.paused || video.ended) {
-          icon.classList.remove('fa-pause');
-          icon.classList.add('fa-play');
-        } else {
-          icon.classList.remove('fa-play');
-          icon.classList.add('fa-pause');
-        }
-      }
+  let initialLoad = true;
+  let userVolume = 1;
 
-      function updateVolumeUI() {
-        if (!volumeBtn || !volumeSlider) return;
-        const icon = volumeBtn.querySelector('i');
-        if (!icon) return;
-        const muted = video.muted || video.volume === 0;
-        if (muted) {
-          icon.classList.remove('fa-volume-up');
-          icon.classList.add('fa-volume-off');
-        } else {
-          icon.classList.remove('fa-volume-off');
-          icon.classList.add('fa-volume-up');
-        }
-        volumeSlider.value = String(video.muted ? 0 : video.volume);
-      }
+  function formatTime(sec) {
+    if (!isFinite(sec)) return "00:00";
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+  }
 
-      function updateTimeAndProgress() {
-        if (timeCurrentEl) timeCurrentEl.textContent = formatTime(video.currentTime || 0);
-        if (timeTotalEl) timeTotalEl.textContent = formatTime(video.duration || 0);
+  function showInitial() {
+    overlay.classList.add('initial-mode');
+    overlay.classList.remove('buffering-mode', 'is-hidden');
+  }
 
-        if (!progressRange || !progressPlayed) return;
-        const duration = video.duration || 0;
-        if (!duration || !isFinite(duration)) {
-          progressRange.value = '0';
-          progressPlayed.style.width = '0%';
-          return;
-        }
-        const percent = (video.currentTime / duration) * 100;
-        const clamped = Math.max(0, Math.min(100, percent || 0));
-        progressRange.value = String(clamped);
-        progressPlayed.style.width = clamped + '%';
-      }
+  function showBuffering() {
+    overlay.classList.remove('initial-mode');
+    overlay.classList.add('buffering-mode');
+    overlay.classList.remove('is-hidden');
+  }
 
-      function showSpinner() {
-        if (loadingOverlay) loadingOverlay.classList.add('is-visible');
-        if (playerContainer) {
-          playerContainer.classList.add('watch-player-loading');
-          playerContainer.classList.remove('watch-player-ready');
-        }
-      }
+  function hideOverlay() {
+    overlay.classList.add('is-hidden');
+    overlay.classList.remove('initial-mode', 'buffering-mode');
+    initialLoad = false;
+  }
 
-      function hideSpinner() {
-        if (loadingOverlay) loadingOverlay.classList.remove('is-visible');
-        if (playerContainer) {
-          playerContainer.classList.remove('watch-player-loading');
-          playerContainer.classList.add('watch-player-ready');
-        }
-      }
+  /* Loading Logic */
+  video.addEventListener('loadstart', () => {
+    if (initialLoad) showInitial();
+  });
 
-      // Event wiring
-      if (playBtn) {
-        playBtn.addEventListener('click', function () {
-          if (video.paused || video.ended) {
-            video.play().catch(function () {});
-          } else {
-            video.pause();
-          }
-        });
-      }
+  video.addEventListener('playing', hideOverlay);
+  video.addEventListener('canplay', hideOverlay);
+  video.addEventListener('loadeddata', hideOverlay);
 
-      if (volumeSlider) {
-        volumeSlider.addEventListener('input', function () {
-          const value = parseFloat(volumeSlider.value);
-          if (!isNaN(value)) {
-            video.volume = Math.max(0, Math.min(1, value));
-            video.muted = value === 0;
-            if (!video.muted) userVolumeBeforeMute = value;
-            updateVolumeUI();
-          }
-        });
-      }
+  video.addEventListener('waiting', () => {
+    if (!initialLoad) showBuffering();
+  });
 
-      if (volumeBtn) {
-        volumeBtn.addEventListener('click', function () {
-          if (video.muted || video.volume === 0) {
-            video.muted = false;
-            if (!userVolumeBeforeMute || !isFinite(userVolumeBeforeMute)) {
-              userVolumeBeforeMute = 1;
-            }
-            video.volume = userVolumeBeforeMute;
-          } else {
-            userVolumeBeforeMute = video.volume;
-            video.muted = true;
-          }
-          updateVolumeUI();
-        });
-      }
+  video.addEventListener('seeking', () => {
+    if (!initialLoad) showBuffering();
+  });
 
-      if (fullscreenBtn) {
-        fullscreenBtn.addEventListener('click', function () {
-          const doc = document;
-          const isFull =
-            doc.fullscreenElement ||
-            doc.webkitFullscreenElement ||
-            doc.mozFullScreenElement ||
-            doc.msFullscreenElement;
-          const target = playerContainer;
-          if (!isFull) {
-            (target.requestFullscreen ||
-              target.webkitRequestFullscreen ||
-              target.mozRequestFullScreen ||
-              target.msRequestFullscreen ||
-              function () {} ).call(target);
-          } else {
-            (doc.exitFullscreen ||
-              doc.webkitExitFullscreen ||
-              doc.mozCancelFullScreen ||
-              doc.msExitFullscreen ||
-              function () {} ).call(doc);
-          }
-        });
-      }
+  video.addEventListener('stalled', () => {
+    if (!initialLoad) showBuffering();
+  });
 
-      if (pipBtn && 'pictureInPictureEnabled' in document) {
-        pipBtn.addEventListener('click', function () {
-          if (document.pictureInPictureElement === video) {
-            document.exitPictureInPicture().catch(function () {});
-          } else if (video.requestPictureInPicture) {
-            video.requestPictureInPicture().catch(function () {});
-          }
-        });
-      } else if (pipBtn) {
-        pipBtn.style.display = 'none';
-      }
+  /* Play / Pause */
+  playBtn?.addEventListener('click', () => {
+    video.paused ? video.play() : video.pause();
+  });
 
-      if (settingsBtn) {
-        settingsBtn.addEventListener('click', function () {
-          // Placeholder for future quality/speed settings
-        });
-      }
+  video.addEventListener('play', () => {
+    playBtn.querySelector('i').className = "fa fa-pause";
+  });
 
-      if (progressRange) {
-        progressRange.addEventListener('input', function () {
-          const value = parseFloat(progressRange.value);
-          const duration = video.duration || 0;
-          if (!isNaN(value) && duration && isFinite(duration)) {
-            const percent = Math.max(0, Math.min(100, value));
-            const newTime = (percent / 100) * duration;
-            video.currentTime = newTime;
-            if (progressPlayed) {
-              progressPlayed.style.width = percent + '%';
-            }
-          }
-        });
-      }
+  video.addEventListener('pause', () => {
+    playBtn.querySelector('i').className = "fa fa-play";
+  });
 
-      video.addEventListener('loadedmetadata', function () {
-        updateTimeAndProgress();
-        updateVolumeUI();
-        hideSpinner();
-      });
+  /* Volume */
+  volumeSlider?.addEventListener('input', () => {
+    video.volume = volumeSlider.value;
+    video.muted = volumeSlider.value == 0;
+    userVolume = volumeSlider.value;
+  });
 
-      video.addEventListener('timeupdate', updateTimeAndProgress);
-      video.addEventListener('play', function () {
-        updatePlayButton();
-        hideSpinner();
-      });
-      video.addEventListener('pause', function () {
-        updatePlayButton();
-      });
-      video.addEventListener('waiting', showSpinner);
-      video.addEventListener('seeking', showSpinner);
-      video.addEventListener('loadstart', showSpinner);
-      video.addEventListener('canplay', hideSpinner);
-      video.addEventListener('playing', hideSpinner);
-      video.addEventListener('ended', function () {
-        updatePlayButton();
-        hideSpinner();
-      });
+  volumeBtn?.addEventListener('click', () => {
+    if (video.muted || video.volume == 0) {
+      video.muted = false;
+      video.volume = userVolume || 1;
+      volumeSlider.value = video.volume;
+    } else {
+      userVolume = video.volume;
+      video.muted = true;
+      volumeSlider.value = 0;
+    }
+  });
 
-      // Initialize UI to safe defaults
-      showSpinner();
-      updatePlayButton();
-      updateVolumeUI();
-      updateTimeAndProgress();
-    })();
-  </script>
+  /* Fullscreen */
+  fullscreenBtn?.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      container.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  });
+
+  /* Progress */
+  video.addEventListener('timeupdate', () => {
+    if (!video.duration) return;
+    const percent = (video.currentTime / video.duration) * 100;
+    progress.value = percent;
+    timeCurrent.textContent = formatTime(video.currentTime);
+    timeTotal.textContent = formatTime(video.duration);
+  });
+
+  progress?.addEventListener('input', () => {
+    if (!video.duration) return;
+    video.currentTime = (progress.value / 100) * video.duration;
+  });
+
+  showInitial();
+
+})();
+</script>
   <script>
 
       // Watch for content changes
@@ -2476,7 +2335,16 @@
           });
         }
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("mainVideo");
+    const wrapper = document.querySelector(".video-wrapper");
+
+    video.addEventListener("canplay", function () {
+        wrapper.classList.add("video-loaded");
+    });
+});
     
-  </script>
+  </script
 </body>
 </html>
