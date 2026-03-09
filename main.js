@@ -2503,8 +2503,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Ben-Hur.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Ben-Hur.mp4'
         },
         'king of killers': {
             image: '/images/home/king of killers.jpg',
@@ -2520,8 +2520,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_King%20of%20Killers.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_King%20of%20Killers.mp4'
         },
         'army of the dead': {
             image: '/images/home/army of the dead.jpg',
@@ -2537,8 +2537,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Army%20of%20the%20Dead.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Army%20of%20the%20Dead.mp4'
         },
         'babylon ad': {
             image: '/images/home/babylon ad.jpg',
@@ -2554,8 +2554,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2008',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Babylon%20A.D..mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Babylon%20A.D..mp4'
         },
         'fistful vengeance': {
             image: '/images/home/fistful of vengeance.jpg',
@@ -2571,8 +2571,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Fistful%20of%20Vengeance.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Fistful%20of%20Vengeance.mp4'
         },
         'bloodshot': {
             image: '/images/home/bloodshot.jpg',
@@ -2588,8 +2588,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Bloodshot.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Bloodshot.mp4'
         },
         'bachchn pandey': {
             image: '/images/home/bachn pandey.jpg',
@@ -2605,8 +2605,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Bachchan%20Pandey.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Bachchan%20Pandey.mp4'
         },
         'law abiding citzen': {
             image: '/images/home/law abiding citzen.jpg',
@@ -2622,8 +2622,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2009',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Law%20abiding%20citizen.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Law%20abiding%20citizen.mp4'
         },
         'adipurush': {
             image: '/images/home/adipurush.jpg',
@@ -2639,8 +2639,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Adipurush.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Adipurush.mp4'
         },
         'expendables 2': {
             image: '/images/home/expendables 2.jpg',
@@ -2656,8 +2656,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2012',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables%202.mp4'
         },
         'red': {
             image: '/images/home/red.jpg',
@@ -2673,8 +2673,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_RED.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_RED.mp4'
         },
         'mechanic resurrection': {
             image: '/images/home/mechanic 2.jpg',
@@ -2690,8 +2690,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4'
         },
         'rocky handsome': {
             image: '/images/home/rocky handsome.jpg',
@@ -2707,8 +2707,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Rocky%20Handsome.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Rocky%20Handsome.mp4'
         },
         'baaghi 1': {
             image: '/images/home/baagh 1.jpg',
@@ -2724,8 +2724,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Baaghi%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Baaghi%201.mp4'
         },
         'red 2': {
             image: '/images/home/red 2.jpg',
@@ -2742,7 +2742,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2013',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'xxx return': {
             image: '/images/home/xxx return.jpg',
@@ -2758,8 +2758,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4'
         },
         'expendables 1': {
             image: '/images/home/expendables 1.jpg',
@@ -2775,8 +2775,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables.mp4'
         },
         'weekend in taipei': {
             image: '/images/home/weekend in taipei.jpg',
@@ -2792,8 +2792,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/WEEKEND_IN_TAIPE.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/WEEKEND_IN_TAIPE.mp4'
         },
         'triple frontier': {
             image: '/images/home/triple frontier.jpg',
@@ -2809,8 +2809,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Triple%20Frontier.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Triple%20Frontier.mp4'
         },
         'villain return': {
             image: '/images/home/villain return.jpg',
@@ -2826,8 +2826,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Ek%20Villain%20Returns.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Ek%20Villain%20Returns.mp4'
         },
         'dora and the lost city': {
             image: '/images/notify/thumb-2.jpg',
@@ -2846,7 +2846,7 @@ document.addEventListener("click", function (e) {
             r2Video: 'https://r2.example.com/movies/dora-and-the-lost-city.mp4',
             r2Download: 'https://r2.example.com/downloads/dora-and-the-lost-city.mp4',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
         },
         'pickup': {
             image: '/images/slider/slider1.jpg',
@@ -2930,8 +2930,8 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2008',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie5.mp4',
-            downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Death%20Race%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Death%20Race%201.mp4'
         },
         'homefront': {
             image: '/images/favorite/f3.jpg',
@@ -2982,8 +2982,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie8.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shadow%20Force.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shadow%20Force.mp4'
         },
         'thieves highway': {
             image: '/images/favorite/f6.jpg',
@@ -2999,8 +2999,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie9.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thieves%20Highway.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thieves%20Highway.mp4'
         },
         'the amazing spiderman': {
             image: '/images/favorite/f7.jpg',
@@ -3016,8 +3016,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2012',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie10.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4'
         },
         'teen wolf': {
             image: '/images/favorite/f8.jpg',
@@ -3033,8 +3033,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie11.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4'
         },
         'tarot': {
             image: '/images/favorite/f9.jpg',
@@ -3050,8 +3050,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie12.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tarot.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tarot.mp4'
         },
         'spiderman 3': {
             image: '/images/favorite/f10.jpg',
@@ -3067,8 +3067,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Spider-Man%203.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Spider-Man%203.mp4'
         },
         'light out': {
             image: '/images/favorite/f11.jpg',
@@ -3084,8 +3084,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie14.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lights%20Out.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lights%20Out.mp4'
         },
         'ruthless': {
             image: '/images/favorite/f12.jpg',
@@ -3101,8 +3101,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie15.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ruthless.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ruthless.mp4'
         },
         'possession of honnor': {
             image: '/images/popular/u1.jpg',
@@ -3203,8 +3203,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie21.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4'
         },
         'europe raiders': {
             image: '/images/junior/02.jpg',
@@ -3220,8 +3220,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie22.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Europe%20Raiders.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Europe%20Raiders.mp4'
         },
         'mercy': {
             image: '/images/junior/03.jpg',
@@ -3237,8 +3237,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Mercy.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Mercy.mp4'
         },
         '2:22': {
             image: '/images/junior/04.jpg',
@@ -3254,8 +3254,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie23.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_2_22.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_2_22.mp4'
         },
         'ziam': {
             image: '/images/junior/05.jpg',
@@ -3271,8 +3271,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie24.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ziam.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ziam.mp4'
         },
         '6 underground': {
             image: '/images/junior/06.jpg',
@@ -3288,8 +3288,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie25.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_6%20Underground.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_6%20Underground.mp4'
         },
         '7 days in entebbe': {
             image: '/images/junior/07.jpg',
@@ -3322,8 +3322,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie27.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Paskal.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Paskal.mp4'
         },
         'plane': {
             image: '/images/junior/09.jpg',
@@ -3339,8 +3339,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie28.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Plane.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Plane.mp4'
         },
         'the witch': {
             image: '/images/junior/10.jpg',
@@ -3356,8 +3356,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie29.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20witch.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20witch.mp4'
         },
         'iceman: traveller': {
             image: '/images/junior/11.jpg',
@@ -3373,8 +3373,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie30.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4'
         },
         'kandahar': {
             image: '/images/junior/12.jpg',
@@ -3390,8 +3390,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie31.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Kandahar.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Kandahar.mp4'
         },
         'night of hunted': {
             image: '/images/popular/u6.jpg',
@@ -3407,8 +3407,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie32.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4'
         },
         'hunting season': {
             image: '/images/popular/u7.jpg',
@@ -3424,8 +3424,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie33.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hunting%20Season.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hunting%20Season.mp4'
         },
         'hostile takeover': {
             image: '/images/popular/u8.jpg',
@@ -3441,8 +3441,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie34.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hostile%20Takeover.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hostile%20Takeover.mp4'
         },
         'guns up': {
             image: '/images/popular/u9.jpg',
@@ -3458,8 +3458,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie35.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guns%20Up.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guns%20Up.mp4'
         },
         'dunki': {
             image: '/images/popular/u10.jpg',
@@ -3475,8 +3475,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie36.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dunki.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dunki.mp4'
         },
         'alita: the battle angel': {
             image: '/images/popular/u11.jpg',
@@ -3492,8 +3492,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie37.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4'
         },
         'aftermath': {
             image: '/images/popular/u12.jpg',
@@ -3509,8 +3509,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie38.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4'
         },
         'next': {
             image: '/images/top-10/01.jpg',
@@ -3526,8 +3526,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie39.mp4',
-            downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Next.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Next.mp4'
         },
         'lou': {
             image: '/images/top-10/02.jpg',
@@ -3543,8 +3543,8 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie40.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4'
         },
         'f1: the movie': {
             image: '/images/top-10/03.jpg',
@@ -3594,8 +3594,8 @@ document.addEventListener("click", function (e) {
             age: '20+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie43.mp4',
-            downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4'
         },
         'the carpenter son': {
             image: '/images/top-10/06.jpg',
@@ -3611,8 +3611,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie44.mp4',
-            downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4"
         },
         'monkey king': {
             image: '/images/suggested/01.jpg',
@@ -3633,7 +3633,7 @@ document.addEventListener("click", function (e) {
         },
         'nezha': {
             image: '/images/suggested/02.jpg',
-            title: 'Nezha 1',
+            title: 'Nezha 2',
             slug: 'Nezha_Master-P',
             rating: 8.2,
             actor:['Lu Yanting','Joseph'],
@@ -3645,8 +3645,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie46.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nezhal_2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nezhal_2.mp4'
         },
         'bigfoot family': {
             image: '/images/suggested/03.jpg',
@@ -3662,8 +3662,25 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie47.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family1.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family1.mp4'
+        },
+        'bigfoot family 2': {
+            image: '/images/suggested/03.jpg',
+            title: 'BigFoot Family 2',
+            slug: 'Bigfoot-Family_2_Master-P',
+            rating: 8.7,
+            actor:['Jules Medcraft','David Lodge'],
+            stars: 5,
+            genres: ['Animation', 'Adventure'],
+            interpreter: ['Master p'],
+            tags: ['Adventure', 'Family',],
+            description: 'Bigfoot, Adam father, wants to use his fame for a good cause. Protecting a large wildlife reserve in Alaska sounds like the perfect opportunity! When Bigfoot mysteriously disappears without a trace, Adam and his animal friends will brave anything to find him again and save the nature reserve.',
+            age: 'All Ages',
+            duration: 'Filme',
+            year: '2021',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family2.mp4'
         },
         'peter rabbit 1': {
             image: '/images/suggested/04.jpg',
@@ -3696,8 +3713,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie49.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_PETER%20RABBIT%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_PETER%20RABBIT%202.mp4'
         },
         'sing': {
             image: '/images/suggested/07.jpg',
@@ -3713,8 +3730,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie50.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sing.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sing.mp4'
         },
         'hotel translyvania 3': {
             image: '/images/suggested/08.jpg',
@@ -3730,8 +3747,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie51.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4'
         },
         'hotel translyvania 2': {
             image: '/images/suggested/09.jpg',
@@ -3747,8 +3764,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie52.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%202.mp4'
         },
         'ladybug catnoir: the movie ': {
             image: '/images/suggested/10.jpg',
@@ -3764,8 +3781,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie53.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4'
         },
         'pussy in boots: the last wish ': {
             image: '/images/suggested/11.jpg',
@@ -3781,8 +3798,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie54.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4'
         },
         'kpop demon hunters': {
             image: '/images/suggested/12.jpg',
@@ -3798,8 +3815,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie55.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4'
         },
         'tyler perry duplicity':{
             image: '/images/dylan/01.jpg',
@@ -3815,8 +3832,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie56.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
         },
         'the swordsman':{
             image: '/images/dylan/02.jpg',
@@ -3832,8 +3849,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie57.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Swordsman.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Swordsman.mp4'
         },
         'sonic the hedgehog':{
             image: '/images/dylan/04.jpg',
@@ -3849,8 +3866,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie58.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4'
         },
         'king serpent island':{
             image: '/images/dylan/05.jpg',
@@ -3866,8 +3883,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie59.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_King%20serpent%20island.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_King%20serpent%20island.mp4'
         },
         'i am vengeance retaliation':{
             image: '/images/dylan/06.jpg',
@@ -3883,8 +3900,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie60.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4'
         },
         'the covenant':{
             image: '/images/dylan/07.jpg',
@@ -3900,8 +3917,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie61.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4"
         },
         'game of deceit':{
             image: '/images/dylan/08.jpg',
@@ -3917,8 +3934,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie62.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Game%20of%20Deceit.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Game%20of%20Deceit.mp4'
         },
         'death at funeral':{
             image: '/images/dylan/09.jpg',
@@ -3934,8 +3951,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie63.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4'
         },
         'case depart':{
             image: '/images/dylan/10.jpg',
@@ -3951,8 +3968,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie64.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Case%20d%C3%A9part.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Case%20d%C3%A9part.mp4'
         },
         'blackout':{
             image: '/images/dylan/11.jpg',
@@ -3968,8 +3985,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie65.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Blackout.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Blackout.mp4'
         },
         'altitude':{
             image: '/images/dylan/12.jpg',
@@ -3985,8 +4002,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie66.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Altitude.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Altitude.mp4'
         },
         
         'war 2': {
@@ -4003,8 +4020,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie68.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_War%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_War%202.mp4'
         },
         'maharshi': {
             image: '/images/parallax/q6.jpg',
@@ -4020,13 +4037,13 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie69.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Maharshi.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Maharshi.mp4'
         },
-        'baaghi 4': {
+        'baaghi 2': {
             image: '/images/parallax/q7.jpg',
-            title: 'Baaghi 4',
-            slug: 'Baaghi-4_Rocky',
+            title: 'Baaghi 2',
+            slug: 'Baaghi-2_Rocky',
             rating: 8.7,
             actor:['Tiger Shroff','Sanjay Dutt'],
             stars: 4.5,
@@ -4037,8 +4054,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie70.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baaghi%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baaghi%202.mp4'
         },
         'jawan': {
             image: '/images/parallax/q9.jpg',
@@ -4054,8 +4071,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie71.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Jawan.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Jawan.mp4'
         },
         'coming 2 america': {
             image: '/images/top-10/07.jpg',
@@ -4071,8 +4088,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
-            downloadLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coming%202%20America.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coming%202%20America.mp4'
         },
         'heads of state': {
             image: '/images/top-10/08.jpg',
@@ -4088,8 +4105,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie72.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Heads%20of%20State.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Heads%20of%20State.mp4'
         },
         'karate kid legends': {
             image: '/images/top-10/09.jpg',
@@ -4105,8 +4122,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie73.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4'
         },
         'most dengerous game': {
             image: '/images/top-10/10.jpg',
@@ -4122,8 +4139,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie74.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Most%20Dangerous%20Game.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Most%20Dangerous%20Game.mp4'
         },
         'dont hangup': {
             image: '/images/tvthrillers/02.jpg',
@@ -4156,8 +4173,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie76.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Evil%20Dead%20Rise.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Evil%20Dead%20Rise.mp4'
         },
         'the brink': {
             image: '/images/sankara/02.jpg',
@@ -4173,8 +4190,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie77.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Brink.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Brink.mp4'
         },
         'avengers infinity war': {
             image: '/images/sankara/03.jpg',
@@ -4190,8 +4207,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie78.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Avengers_Infinity%20War.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Avengers_Infinity%20War.mp4'
         },
         'lethal seduction': {
             image: '/images/sankara/04.jpg',
@@ -4207,8 +4224,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie79.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lethal%20Seduction.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lethal%20Seduction.mp4'
         },
         'talk to me': {
             image: '/images/sankara/05.jpg',
@@ -4223,8 +4240,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie80.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Talk%20to%20Me.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Talk%20to%20Me.mp4'
         },
         'flash point': {
             image: '/images/sankara/06.jpg',
@@ -4240,8 +4257,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie81.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Flash%20Point.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Flash%20Point.mp4'
         },
         'doctor strange': {
             image: '/images/tvthrillers/03.jpg',
@@ -4257,8 +4274,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie82.mp4',
-            downloadLink: 'https://example.com/download/kingsman'
+            videoLink: 'hhttps://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Doctor%20Strange%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Doctor%20Strange%201.mp4'
         },
         'hidden faces': {
             image: '/images/sankara/07.jpg',
@@ -4274,8 +4291,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie83.mp4',
-            downloadLink: 'https://example.com/download/kingsman'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hidden%20Face.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hidden%20Face.mp4'
         },
         'safe house': {
             image: '/images/sankara/08.jpg',
@@ -4291,8 +4308,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie84.mp4',
-            downloadLink: 'https://example.com/download/kingsman'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Safe%20House.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Safe%20House.mp4'
         },
         'jurassic world': {
             image: '/images/tvthrillers/04.jpg',
@@ -4325,8 +4342,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie86.mp4',
-            downloadLink: 'https://example.com/download/casino-royale'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coma.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coma.mp4'
         },
         'wira': {
             image: '/images/favorite/g1.jpg',
@@ -4342,8 +4359,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie87.mp4',
-            downloadLink: 'https://example.com/download/casino-royale'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wira.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wira.mp4'
         },
         'black widow': {
             image: '/images/tvthrillers/05.jpg',
@@ -4359,8 +4376,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie88.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/black%20widow.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/black%20widow.mp4'
         },
         'gifted': {
             image: '/images/savimbi/01.jpg',
@@ -4376,8 +4393,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie89.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Gifted.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Gifted.mp4'
         },
         'damsel': {
             image: '/images/savimbi/02.jpg',
@@ -4427,8 +4444,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ashfall.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ashfall.mp4'
         },
         'kingdom of the planet of apes': {
             image: '/images/savimbi/05.jpg',
