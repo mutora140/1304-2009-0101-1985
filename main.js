@@ -2741,8 +2741,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'xxx return': {
             image: '/images/home/xxx return.jpg',
@@ -2843,10 +2843,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: '2h 21min',
             year: '2019',
-            r2Video: 'https://r2.example.com/movies/dora-and-the-lost-city.mp4',
-            r2Download: 'https://r2.example.com/downloads/dora-and-the-lost-city.mp4',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'pickup': {
             image: '/images/slider/slider1.jpg',
@@ -2862,8 +2860,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
-            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         '1917': {
             image: '/images/slider/slider2.jpg',
@@ -2879,8 +2877,8 @@ document.addEventListener("click", function (e) {
             age: '13+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie2.mp4',
-            downloadLink: 'https://cdn.example.com/download/frozen.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'work it': {
             image: '/images/slider/slider3.jpg',
@@ -2913,8 +2911,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie4.mp4',
-            downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'death race': {
             image: '/images/favorite/f2.jpg',
@@ -2947,9 +2945,9 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
+            videoLink: '',
             videoType: 'video/mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4'
+            downloadLink: ''
         },
         'mayhem': {
             image: '/images/favorite/f4.jpg',
@@ -2965,8 +2963,8 @@ document.addEventListener("click", function (e) {
             age: '11+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
-            downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'shadow force': {
             image: '/images/favorite/f5.jpg',
@@ -3118,8 +3116,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie16.mp4',
-            downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'frankenstein': {
             image: '/images/popular/u2.jpg',
@@ -3135,8 +3133,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie17.mp4',
-            downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'texas chain': {
             image: '/images/popular/u3.jpg',
@@ -3152,8 +3150,8 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie18.mp4',
-            downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'woman in the yard': {
             image: '/images/popular/u4.jpg',
@@ -3169,8 +3167,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie19.mp4',
-            downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'hunting jessica': {
             image: '/images/popular/u5.jpg',
@@ -3186,8 +3184,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie20.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'boyka undisputed 4': {
             image: '/images/junior/01.jpg',
@@ -3305,8 +3303,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie26.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'paskal': {
             image: '/images/junior/08.jpg',
@@ -3560,8 +3558,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie41.mp4',
-            downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'play dirty': {
             image: '/images/top-10/04.jpg',
@@ -3577,8 +3575,8 @@ document.addEventListener("click", function (e) {
             age: '15+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie42.mp4',
-            downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'ice road': {
             image: '/images/top-10/05.jpg',
@@ -3628,8 +3626,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie45.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'nezha': {
             image: '/images/suggested/02.jpg',
@@ -3696,8 +3694,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie48.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'peter rabbit 2': {
             image: '/images/suggested/05.jpg',
@@ -4156,8 +4154,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie75.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'evil dead': {
             image: '/images/sankara/01.jpg',
@@ -4325,8 +4323,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie85.mp4',
-            downloadLink: 'https://example.com/download/casino-royale'
+            videoLink: '',
+            downloadLink: ''
         },
         'coma': {
             image: '/images/favorite/g5.jpg',
@@ -4410,8 +4408,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie90.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the boy who harnessed the wind': {
             image: '/images/savimbi/03.jpg',
@@ -4427,8 +4425,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'ashfall': {
             image: '/images/savimbi/04.jpg',
@@ -4461,8 +4459,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4'
         },
         'ghost': {
             image: '/images/savimbi/06.jpg',
@@ -4478,8 +4476,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1990',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ghost.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ghost.mp4'
         },
         '24 hours to live': {
             image: '/images/savimbi/07.jpg',
@@ -4495,8 +4493,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'trash': {
             image: '/images/savimbi/08.jpg',
@@ -4512,8 +4510,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Trash_2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Trash_2.mp4'
         },
         'dracula untold': {
             image: '/images/savimbi/09.jpg',
@@ -4529,8 +4527,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dracula%20Untold.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dracula%20Untold.mp4'
         },
         'emperor': {
             image: '/images/savimbi/10.jpg',
@@ -4546,8 +4544,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Emperor.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Emperor.mp4'
         },
         'kings daughter': {
             image: '/images/savimbi/11.jpg',
@@ -4563,8 +4561,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20King's%20Daughter.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20King's%20Daughter.mp4"
         },
         'limitless': {
             image: '/images/savimbi/12.jpg',
@@ -4580,8 +4578,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Limitless_2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Limitless_2.mp4'
         },
         'no one lives': {
             image: '/images/tvthrillers/06.jpg',
@@ -4597,8 +4595,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_No%20One%20Lives.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_No%20One%20Lives.mp4'
         },
         'thor 1': {
             image: '/images/tvthrillers/07.jpg',
@@ -4614,8 +4612,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thor%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thor%201.mp4'
         },
         'last man down': {
             image: '/images/tvthrillers/08.jpg',
@@ -4631,12 +4629,12 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20last%20man%20down.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20last%20man%20down.mp4'
         },
         'the diplomat': {
             image: '/images/tvthrillers/09.jpg',
-            title: 'The Diplamat',
+            title: 'The Diplomat',
             slug: 'The-Diplomat_Siniya',
             rating: 8.8,
             actor:['John Abraham','Sadia Khateeb'],
@@ -4648,8 +4646,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Diplomat.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Diplomat.mp4'
         },
         'sister death': {
             image: '/images/tvthrillers/10.jpg',
@@ -4665,8 +4663,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sister%20Death.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sister%20Death.mp4'
         },
         'shangi-chi: legend of ten rings': {
             image: '/images/tvthrillers/11.jpg',
@@ -4682,8 +4680,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4'
         },
         'secret superstar': {
             image: '/images/tvthrillers/12.jpg',
@@ -4699,8 +4697,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Secret%20Superstar.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Secret%20Superstar.mp4'
         },
         'men of honor': {
             image: '/images/top-10/11.jpg',
@@ -4716,8 +4714,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2000',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Men%20of%20Honor.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Men%20of%20Honor.mp4'
         },
         'nobody': {
             image: '/images/top-10/12.jpg',
@@ -4733,8 +4731,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%201.mp4'
         },
         'nobody 2': {
             image: '/images/top-10/13.jpg',
@@ -4750,8 +4748,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%202.mp4'
         },
         'anna': {
             image: '/images/tvthrillers/13.jpg',
@@ -4767,8 +4765,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Anna.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Anna.mp4'
         },
         'lucy': {
             image: '/images/tvthrillers/14.jpg',
@@ -4784,8 +4782,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lucy%20.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lucy%20.mp4'
         },
         'brick': {
             image: '/images/tvthrillers/15.jpg',
@@ -4801,8 +4799,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Brick.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Brick.mp4'
         },
         'a-x-l': {
             image: '/images/tvthrillers/16.jpg',
@@ -4818,8 +4816,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_A-X-L.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_A-X-L.mp4'
         },
         'our last mens in phillipines': {
             image: '/images/top-10/14.jpg',
@@ -4835,8 +4833,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4'
         },
         'the equalizer': {
             image: '/images/latest/01.jpg',
@@ -4852,8 +4850,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_EQUALIZER.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_EQUALIZER.mp4'
         },
         'the equalizer 3': {
             image: '/images/latest/03.jpg',
@@ -4869,8 +4867,25 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4'
+        },
+        'the equalizer 3b': {
+            image: '/images/latest/03.jpg',
+            title: 'The Equalizer 3',
+            slug: 'The-Equalizer-3_Rocky',
+            rating: 9.0,
+            actor:['Denzel Washington','dakot Fanning'],
+            stars: 5,
+            genres: ['Crime', 'Action','Thriller'],
+            interpreter: ['Rocky'],
+            tags: ['Action','Crime'],
+            description: 'Since giving up his life as a government assassin, Robert McCall finds solace in serving justice on behalf of the oppressed. Now living in Southern Italy, he soon discovers his new friends are under the control of local crime bosses. As events turn deadly, McCall becomes their protector by taking on the mafia.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2023',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4'
         },
         'road house': {
             image: '/images/latest/05.jpg',
@@ -4886,8 +4901,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_ROADHOUSE.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_ROADHOUSE.mp4'
         },
         'little man': {
             image: '/images/latest/04.jpg',
@@ -4903,8 +4918,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2006',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_LITLE%20MAN.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_LITLE%20MAN.mp4'
         },
         'baby day out': {
             image: '/images/latest/04.jpg',
@@ -4920,15 +4935,16 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1994',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baby%20Day%20Out.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baby%20Day%20Out.mp4'
         },
         'gods must be crazy': {
             image: '/images/latest/06.jpg',
             title: 'Gods Must Be Crazy',
             slug: 'Gods-Must-Be-Crazy_Yanga',
             rating: 6.9,
-            actor:['Marius Weyers','Sandra Prinsloo'],            stars: 3.5,
+            stars: 3.5,
+            actor:['Marius Weyers','Sandra Prinsloo'],            
             genres: ['Action', 'Comedy',],
             interpreter: ['Yanga'],
             tags: ['Drama','Thriller'],
@@ -4936,8 +4952,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1980',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sagatwa_%20The%20Gods%20Must%20Be%20Crazy.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sagatwa_%20The%20Gods%20Must%20Be%20Crazy.mp4'
         },
         'godzilla x kong': {
             image: '/images/latest/08.jpg',
@@ -4953,8 +4969,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%20x%20Kong_%20The%20New%20Empire.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%20x%20Kong_%20The%20New%20Empire.mp4'
         },
         'godzilla: king of monsters': {
             image: '/images/pk/01.jpg',
@@ -4970,8 +4986,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%202_%20King%20of%20the%20Monsters.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%202_%20King%20of%20the%20Monsters.mp4'
         },
         '97 minutes': {
             image: '/images/dylan/13.jpg',
@@ -4987,8 +5003,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/97%20minutes.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/97%20minutes.mp4'
         },
         'falcon rising': {
             image: '/images/pk/02.jpg',
@@ -5004,8 +5020,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Falcon%20Rising.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Falcon%20Rising.mp4'
         },
         'batman vs superman: dawn of justice': {
             image: '/images/pk/03.jpg',
@@ -5021,8 +5037,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Batman%20v%20Superman_%20Dawn%20of%20Justice.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Batman%20v%20Superman_%20Dawn%20of%20Justice.mp4'
         },
         'the dark tower': {
             image: '/images/pk/04.jpg',
@@ -5038,8 +5054,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Dark%20Tower.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Dark%20Tower.mp4'
         },
         'act of vengeance': {
             image: '/images/pk/05.jpg',
@@ -5055,8 +5071,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Acts%20of%20Vengeance.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Acts%20of%20Vengeance.mp4'
         },
         'fifty shades of grey': {
             image: '/images/pk/06.jpg',
@@ -5072,8 +5088,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Fifty%20Shades%20of%20Grey.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Fifty%20Shades%20of%20Grey.mp4'
         },
         'the last airbender': {
             image: '/images/pk/07.jpg',
@@ -5089,8 +5105,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Last%20Airbender.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Last%20Airbender.mp4'
         },
         'the maze runner': {
             image: '/images/pk/09.jpg',
@@ -5106,8 +5122,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Maze%20Runner.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Maze%20Runner.mp4'
         },
         'aquaman': {
             image: '/images/pk/10.jpg',
@@ -5123,8 +5139,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Aquaman%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Aquaman%201.mp4'
         },
         'the old guard 2': {
             image: '/images/favorite/g2.jpg',
@@ -5140,8 +5156,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Old%20Guard%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Old%20Guard%202.mp4'
         },
         'wonder woman': {
             image: '/images/pk/11.jpg',
@@ -5157,8 +5173,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wonder%20Woman%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wonder%20Woman%201.mp4'
         },
         'the bfg': {
             image: '/images/pk/12.jpg',
@@ -5174,8 +5190,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20BFG.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20BFG.mp4'
         },
         'operation dumbo drop': {
             image: '/images/favorite/g3.jpg',
@@ -5191,8 +5207,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1995',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Operation%20Dumbo%20Drop.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Operation%20Dumbo%20Drop.mp4'
         },
         'chips': {
             image: '/images/favorite/g4.jpg',
@@ -5208,8 +5224,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_CHIPS.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_CHIPS.mp4'
         },
         'Pirates of the caribbean': {
             image: '/images/pk/08.jpg',
@@ -5225,8 +5241,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2003',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Pirateof%20Black%20peals.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Pirateof%20Black%20peals.mp4'
         },
 
         'siren ep1': {
@@ -5243,8 +5259,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E01.mp4'
         },
 
         'siren ep2': {
@@ -5261,8 +5277,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E02.mp4'
         },
 
 
@@ -5280,8 +5296,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E03.mp4'
         },
         'siren ep4': {
             image: '/images/episodes/siren.jpg',
@@ -5297,8 +5313,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E04.mp4'
         },
         'siren ep5': {
             image: '/images/episodes/siren.jpg',
@@ -5314,8 +5330,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E05.mp4'
         },
         'siren ep6': {
             image: '/images/episodes/siren.jpg',
@@ -5331,8 +5347,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E06.mp4'
         },
         'siren ep7': {
             image: '/images/episodes/siren.jpg',
@@ -5348,8 +5364,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E07.mp4'
         },
 
         'messiah ep1': {
@@ -5366,8 +5382,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep2': {
             image: '/images/episodes/pb1.jpg',
@@ -5383,8 +5399,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep3': {
             image: '/images/episodes/pb1.jpg',
@@ -5400,8 +5416,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep4': {
             image: '/images/episodes/pb1.jpg',
@@ -5417,8 +5433,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep5': {
             image: '/images/episodes/pb1.jpg',
@@ -5434,8 +5450,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep6': {
             image: '/images/episodes/pb1.jpg',
@@ -5451,8 +5467,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep7': {
             image: '/images/episodes/pb1.jpg',
@@ -5468,8 +5484,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep8': {
             image: '/images/episodes/pb1.jpg',
@@ -5485,8 +5501,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
         'the 100 ep1': {
@@ -5503,8 +5519,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
         'the 100 ep2': {
@@ -5521,8 +5537,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5540,8 +5556,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5559,8 +5575,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5578,8 +5594,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5597,8 +5613,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
         'the 100 ep7': {
@@ -5615,8 +5631,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5634,8 +5650,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5653,8 +5669,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5672,8 +5688,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5691,8 +5707,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5710,8 +5726,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5729,8 +5745,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
         'citadel ep1': {
@@ -5747,8 +5763,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'citadel ep2': {
             image: '/images/episodes/citadel.jpg',
@@ -5764,8 +5780,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'citadel ep3': {
             image: '/images/episodes/citadel.jpg',
@@ -5781,8 +5797,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'citadel ep4': {
             image: '/images/episodes/citadel.jpg',
@@ -5798,8 +5814,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'citadel ep5': {
             image: '/images/episodes/citadel.jpg',
@@ -5815,8 +5831,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'citadel ep6': {
             image: '/images/episodes/citadel.jpg',
@@ -5832,8 +5848,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'citadel ep7': {
             image: '/images/episodes/citadel.jpg',
@@ -5849,8 +5865,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'citadel ep8': {
             image: '/images/episodes/citadel.jpg',
@@ -5866,8 +5882,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -5885,8 +5901,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 2': {
             image: '/images/episodes/m1.jpg',
@@ -5902,8 +5918,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 3': {
             image: '/images/episodes/m1.jpg',
@@ -5919,8 +5935,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 4': {
             image: '/images/episodes/m1.jpg',
@@ -5936,8 +5952,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 5': {
             image: '/images/episodes/m1.jpg',
@@ -5953,8 +5969,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 6': {
             image: '/images/episodes/m1.jpg',
@@ -5970,8 +5986,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 7': {
             image: '/images/episodes/m1.jpg',
@@ -5987,8 +6003,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
         'the witcher s1 ep1': {
@@ -6005,8 +6021,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher s1 ep2': {
             image: '/images/episodes/the witcher.jpg',
@@ -6022,8 +6038,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher s1 ep3': {
             image: '/images/episodes/the witcher.jpg',
@@ -6039,8 +6055,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher s1 ep4': {
             image: '/images/episodes/the witcher.jpg',
@@ -6056,8 +6072,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher s1 ep5': {
             image: '/images/episodes/the witcher.jpg',
@@ -6073,8 +6089,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher s1 ep6': {
             image: '/images/episodes/the witcher.jpg',
@@ -6090,8 +6106,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher s1 ep7': {
             image: '/images/episodes/the witcher.jpg',
@@ -6107,8 +6123,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher s1 ep8': {
             image: '/images/episodes/the witcher.jpg',
@@ -6124,8 +6140,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
         'the war between land and sea s1 ep1': {
@@ -6142,8 +6158,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the war between land and sea s1 ep2': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6159,8 +6175,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the war between land and sea s1 ep3': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6176,8 +6192,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the war between land and sea s1 ep4': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6193,8 +6209,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the war between land and sea s1 ep5': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6210,8 +6226,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
@@ -6230,8 +6246,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E01.mp4'
         },
         'the copenhagen test s1 ep2': {
             image: '/images/episodes/copen.jpg',
@@ -6247,8 +6263,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E02.mp4'
         },
         'the copenhagen test s1 ep3': {
             image: '/images/episodes/copen.jpg',
@@ -6264,8 +6280,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E03.mp4'
         },
         'the copenhagen test s1 ep4': {
             image: '/images/episodes/copen.jpg',
@@ -6281,8 +6297,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E04.mp4'
         },
         'the copenhagen test s1 ep5': {
             image: '/images/episodes/copen.jpg',
@@ -6298,8 +6314,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E05.mp4'
         },
         'the copenhagen test s1 ep6': {
             image: '/images/episodes/copen.jpg',
@@ -6315,8 +6331,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E06.mp4'
         },
         'the copenhagen test s1 ep7': {
             image: '/images/episodes/copen.jpg',
@@ -6332,8 +6348,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E07.mp4'
         },
         'the copenhagen test s1 ep8': {
             image: '/images/episodes/copen.jpg',
@@ -6349,8 +6365,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E08_%20Final.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E08_%20Final.mp4'
         },
         'six s1 ep1': {
             image: '/images/episodes/six.jpg',
@@ -6366,8 +6382,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E01.mp4'
         },
         'six s1 ep2': {
             image: '/images/episodes/six.jpg',
@@ -6383,8 +6399,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E02.mp4'
         },
         'six s1 ep3': {
             image: '/images/episodes/six.jpg',
@@ -6400,8 +6416,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E03.mp4'
         },
         'six s1 ep4': {
             image: '/images/episodes/six.jpg',
@@ -6417,8 +6433,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E04.mp4'
         },
         'six s1 ep5': {
             image: '/images/episodes/six.jpg',
@@ -6434,8 +6450,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E05.mp4'
         },
         'six s1 ep6': {
             image: '/images/episodes/six.jpg',
@@ -6451,8 +6467,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E06.mp4'
         },
         'six s1 ep7': {
             image: '/images/episodes/six.jpg',
@@ -6468,8 +6484,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E07.mp4'
         },
         'six s1 ep8': {
             image: '/images/episodes/six.jpg',
@@ -6485,8 +6501,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E08_%20Final.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E08_%20Final.mp4'
         },
 
         'the witcher blood orgin s1 ep1': {
@@ -6503,8 +6519,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher blood orgin s1 ep2': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6520,8 +6536,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher blood orgin s1 ep3': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6537,8 +6553,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the witcher blood orgin s1 ep4': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6554,8 +6570,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
 
