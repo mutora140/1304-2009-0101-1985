@@ -308,92 +308,195 @@
       visibility: visible !important;
     }
 
-/* ================================= */
-/* WATCH PLAYER FULL SYSTEM FINAL    */
-/* ================================= */
+/* =============================== */
+/* PLAYER BASE                     */
+/* =============================== */
 
-.video-player-container.watch-player {
-  position: relative;
-  width: 100%;
-  background: #020d1a;
-  overflow: hidden;
-  border-radius: 10px;
+.video-player-container.watch-player{
+position:relative;
+width:100%;
+background:#020d1a;
+overflow:hidden;
+border-radius:10px;
 }
 
-/* Desktop fixed height */
-@media (min-width: 992px) {
-  .video-player-container.watch-player {
-    height: 430px;
-  }
+/* Desktop */
+@media (min-width:992px){
+.video-player-container.watch-player{
+height:430px;
+}
 }
 
-/* Mobile & Tablet */
-@media (max-width: 991.98px) {
-  .video-player-container.watch-player {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border-radius: 0;
-  }
+/* Mobile */
+@media (max-width:991px){
+.video-player-container.watch-player{
+aspect-ratio:16/9;
+height:auto;
+border-radius:0;
+}
 }
 
 /* VIDEO */
-.video-player-container video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  position: relative;
-  z-index: 1;
-  background: #000;
+
+.watch-video{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity .6s ease;
 }
 
-/* ===================== */
-/* LOADING OVERLAY       */
-/* ===================== */
+/* Fade-in when ready */
 
-.watch-loading-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.25s ease;
-  z-index: 2;
+.video-ready .watch-video{
+opacity:1;
 }
 
-/* Initial full cover */
-.watch-loading-overlay.initial-mode {
-  background: #020d1a;
-  z-index: 5;
-  pointer-events: auto;
+/* =============================== */
+/* BIG CENTER PLAY BUTTON          */
+/* =============================== */
+
+.center-play{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:80px;
+height:80px;
+border-radius:50%;
+background:rgba(0,0,0,.6);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9;
+cursor:pointer;
+transition:opacity .3s ease;
 }
 
-/* Buffering mode (inside video) */
-.watch-loading-overlay.buffering-mode {
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(2px);
-  pointer-events: none; /* CRITICAL */
+.center-play i{
+font-size:32px;
+color:#fff;
 }
 
-/* Hidden */
-.watch-loading-overlay.is-hidden {
-  opacity: 0;
-  pointer-events: none;
+.center-play.hidden{
+opacity:0;
+pointer-events:none;
 }
 
-/* Spinner */
-.watch-spinner {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 3px solid rgba(0, 169, 255, 0.35);
-  border-top-color: #00a9ff;
-  border-right-color: #00a9ff;
-  animation: spin 0.7s linear infinite;
+/* =============================== */
+/* CONTROLS                        */
+/* =============================== */
+
+.watch-controls{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+padding:10px 16px;
+background:linear-gradient(to top,rgba(0,0,0,.95),rgba(0,0,0,.4),transparent);
+z-index:10;
+transition:opacity .3s ease;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.watch-controls.hidden{
+opacity:0;
+pointer-events:none;
+}
+
+.watch-controls-inner{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.watch-btn{
+background:transparent;
+border:none;
+color:#00a9ff;
+cursor:pointer;
+}
+
+.watch-btn i{
+font-size:15px;
+}
+
+.watch-spacer{
+flex:1;
+}
+
+.watch-time{
+font-family:monospace;
+font-size:13px;
+color:#00a9ff;
+}
+
+/* progress */
+
+.watch-progress{
+width:100%;
+height:6px;
+appearance:none;
+background:transparent;
+cursor:pointer;
+}
+
+/* volume */
+
+.watch-volume-slider{
+width:50px;
+height:4px;
+appearance:none;
+background:rgba(255,255,255,.3);
+border-radius:4px;
+}
+
+@media(max-width:768px){
+.watch-volume-slider{
+width:40px;
+}
+}
+
+/* =============================== */
+/* LOADING OVERLAY                 */
+/* =============================== */
+
+.watch-loading-overlay{
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:8;
+transition:opacity .3s ease;
+}
+
+.watch-loading-overlay.initial-mode{
+background:#020d1a;
+}
+
+.watch-loading-overlay.buffering-mode{
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(2px);
+}
+
+.watch-loading-overlay.is-hidden{
+opacity:0;
+pointer-events:none;
+}
+
+/* spinner */
+
+.watch-spinner{
+width:42px;
+height:42px;
+border-radius:50%;
+border:3px solid rgba(0,169,255,.35);
+border-top-color:#00a9ff;
+animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+to{transform:rotate(360deg)}
 }
 
 .watch-loading-text {
@@ -502,6 +605,36 @@
 }
 .watch-loading-content{
   margin-left: 11%;
+}
+
+/* timeline */
+
+.watch-progress{
+width:100%;
+height:6px;
+appearance:none;
+cursor:pointer;
+background:linear-gradient(to right,#0b4ea2 0%,#0b4ea2 var(--progress),#222 var(--progress),#222 100%);
+border-radius:3px;
+}
+
+/* slider thumb */
+
+.watch-progress::-webkit-slider-thumb{
+appearance:none;
+width:14px;
+height:14px;
+border-radius:50%;
+background:#0b4ea2;
+cursor:pointer;
+}
+
+.watch-progress::-moz-range-thumb{
+width:14px;
+height:14px;
+border-radius:50%;
+background:#0b4ea2;
+cursor:pointer;
 }
   </style>
 </head>
@@ -1000,7 +1133,9 @@
       <div class="watch-progress-bar">
         <div class="watch-progress-played"></div>
       </div>
-
+<div class="center-play" id="centerPlay">
+<i class="fa fa-play"></i>
+</div>
       <!-- Controls -->
       <div class="watch-controls">
 
@@ -2192,130 +2327,331 @@
 
   <!-- Load main.js (includes watch page functionality) -->
   <script src="/main.js"></script>
-      <script>
-(function () {
+  
+  <script>
 
-  const container = document.querySelector('.video-player-container.watch-player');
-  const video = document.getElementById('video-iframe');
-  const overlay = document.getElementById('watch-loading-overlay');
+(function(){
 
-  if (!container || !video || !overlay) return;
+const container = document.querySelector('.watch-player');
+const video = document.getElementById('video-iframe');
+const overlay = document.getElementById('watch-loading-overlay');
 
-  const playBtn = container.querySelector('.watch-btn-play');
-  const volumeBtn = container.querySelector('.watch-btn-volume');
-  const volumeSlider = container.querySelector('.watch-volume-slider');
-  const fullscreenBtn = container.querySelector('.watch-btn-fullscreen');
-  const progress = container.querySelector('.watch-progress');
-  const timeCurrent = container.querySelector('.watch-time-current');
-  const timeTotal = container.querySelector('.watch-time-total');
+const controls = document.querySelector('.watch-controls');
+const centerPlay = document.getElementById('centerPlay');
 
-  let initialLoad = true;
-  let userVolume = 1;
+const playBtn = document.querySelector('.watch-btn-play');
+const pipBtn = document.querySelector('.watch-btn-pip');
 
-  function formatTime(sec) {
-    if (!isFinite(sec)) return "00:00";
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
-  }
+const volumeSlider = document.querySelector('.watch-volume-slider');
+const volumeBtn = document.querySelector('.watch-btn-volume');
 
-  function showInitial() {
-    overlay.classList.add('initial-mode');
-    overlay.classList.remove('buffering-mode', 'is-hidden');
-  }
+const progress = document.querySelector('.watch-progress');
+const fullscreenBtn = document.querySelector('.watch-btn-fullscreen');
 
-  function showBuffering() {
-    overlay.classList.remove('initial-mode');
-    overlay.classList.add('buffering-mode');
-    overlay.classList.remove('is-hidden');
-  }
+const timeCurrent = document.querySelector('.watch-time-current');
+const timeTotal = document.querySelector('.watch-time-total');
 
-  function hideOverlay() {
-    overlay.classList.add('is-hidden');
-    overlay.classList.remove('initial-mode', 'buffering-mode');
-    initialLoad = false;
-  }
+let hideTimer;
+let initialLoad = true;
+let savedVolume = 1;
 
-  /* Loading Logic */
-  video.addEventListener('loadstart', () => {
-    if (initialLoad) showInitial();
-  });
+/* double tap detection */
+let lastTap = 0;
 
-  video.addEventListener('playing', hideOverlay);
-  video.addEventListener('canplay', hideOverlay);
-  video.addEventListener('loadeddata', hideOverlay);
+/* ========================= */
+/* TIME FORMAT HH:MM:SS      */
+/* ========================= */
 
-  video.addEventListener('waiting', () => {
-    if (!initialLoad) showBuffering();
-  });
+function formatTime(sec){
 
-  video.addEventListener('seeking', () => {
-    if (!initialLoad) showBuffering();
-  });
+if(!isFinite(sec)) return "00:00:00";
 
-  video.addEventListener('stalled', () => {
-    if (!initialLoad) showBuffering();
-  });
+let h = Math.floor(sec / 3600);
+let m = Math.floor((sec % 3600) / 60);
+let s = Math.floor(sec % 60);
 
-  /* Play / Pause */
-  playBtn?.addEventListener('click', () => {
-    video.paused ? video.play() : video.pause();
-  });
+return (
+String(h).padStart(2,'0') + ":" +
+String(m).padStart(2,'0') + ":" +
+String(s).padStart(2,'0')
+);
 
-  video.addEventListener('play', () => {
-    playBtn.querySelector('i').className = "fa fa-pause";
-  });
+}
 
-  video.addEventListener('pause', () => {
-    playBtn.querySelector('i').className = "fa fa-play";
-  });
+/* ========================= */
+/* VIDEO READY               */
+/* ========================= */
 
-  /* Volume */
-  volumeSlider?.addEventListener('input', () => {
-    video.volume = volumeSlider.value;
-    video.muted = volumeSlider.value == 0;
-    userVolume = volumeSlider.value;
-  });
+function videoReady(){
+container.classList.add('video-ready');
+}
 
-  volumeBtn?.addEventListener('click', () => {
-    if (video.muted || video.volume == 0) {
-      video.muted = false;
-      video.volume = userVolume || 1;
-      volumeSlider.value = video.volume;
-    } else {
-      userVolume = video.volume;
-      video.muted = true;
-      volumeSlider.value = 0;
-    }
-  });
+/* ========================= */
+/* LOADER CONTROL            */
+/* ========================= */
 
-  /* Fullscreen */
-  fullscreenBtn?.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-      container.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
-  });
+function showInitial(){
+overlay.classList.add('initial-mode');
+overlay.classList.remove('buffering-mode','is-hidden');
+}
 
-  /* Progress */
-  video.addEventListener('timeupdate', () => {
-    if (!video.duration) return;
-    const percent = (video.currentTime / video.duration) * 100;
-    progress.value = percent;
-    timeCurrent.textContent = formatTime(video.currentTime);
-    timeTotal.textContent = formatTime(video.duration);
-  });
+function showBuffer(){
+overlay.classList.remove('initial-mode');
+overlay.classList.add('buffering-mode');
+overlay.classList.remove('is-hidden');
+}
 
-  progress?.addEventListener('input', () => {
-    if (!video.duration) return;
-    video.currentTime = (progress.value / 100) * video.duration;
-  });
+function hideLoader(){
+overlay.classList.add('is-hidden');
+overlay.classList.remove('initial-mode','buffering-mode');
+initialLoad=false;
+}
 
-  showInitial();
+/* ========================= */
+/* PLAY / PAUSE              */
+/* ========================= */
+
+function togglePlay(){
+
+if(video.paused || video.ended){
+video.play();
+}else{
+video.pause();
+}
+
+}
+
+playBtn?.addEventListener('click',togglePlay);
+
+centerPlay?.addEventListener('click',(e)=>{
+e.stopPropagation();
+togglePlay();
+});
+
+video.addEventListener('click',togglePlay);
+
+/* ========================= */
+/* MOBILE DOUBLE TAP SEEK    */
+/* ========================= */
+
+container.addEventListener('touchend',(e)=>{
+
+let currentTime = new Date().getTime();
+let tapLength = currentTime - lastTap;
+
+if(tapLength < 300 && tapLength > 0){
+
+let rect = container.getBoundingClientRect();
+let tapX = e.changedTouches[0].clientX - rect.left;
+
+if(tapX < rect.width/2){
+video.currentTime = Math.max(0, video.currentTime - 10);
+}else{
+video.currentTime = Math.min(video.duration, video.currentTime + 10);
+}
+
+}
+
+lastTap = currentTime;
+
+});
+
+/* ========================= */
+/* KEYBOARD CONTROLS         */
+/* ========================= */
+
+document.addEventListener('keydown',(e)=>{
+
+if(e.code === "Space"){
+e.preventDefault();
+togglePlay();
+}
+
+if(e.key === "ArrowRight"){
+video.currentTime += 10;
+}
+
+if(e.key === "ArrowLeft"){
+video.currentTime -= 10;
+}
+
+});
+
+/* ========================= */
+/* PLAY ICON UPDATE          */
+/* ========================= */
+
+video.addEventListener('play',()=>{
+
+centerPlay.style.display="none";
+
+let icon = playBtn?.querySelector('i');
+if(icon) icon.className="fa fa-pause";
+
+});
+
+video.addEventListener('pause',()=>{
+
+centerPlay.style.display="flex";
+
+let icon = playBtn?.querySelector('i');
+if(icon) icon.className="fa fa-play";
+
+});
+
+/* ========================= */
+/* AUTO HIDE CONTROLS        */
+/* ========================= */
+
+function showControls(){
+
+controls.classList.remove('hidden');
+
+clearTimeout(hideTimer);
+
+hideTimer=setTimeout(()=>{
+if(!video.paused){
+controls.classList.add('hidden');
+}
+},5000);
+
+}
+
+container.addEventListener('mousemove',showControls);
+container.addEventListener('touchstart',showControls);
+
+/* ========================= */
+/* LOADING EVENTS            */
+/* ========================= */
+
+video.addEventListener('loadstart',()=>{
+if(initialLoad) showInitial();
+});
+
+video.addEventListener('playing',()=>{
+hideLoader();
+videoReady();
+});
+
+video.addEventListener('waiting',()=>{
+if(!initialLoad) showBuffer();
+});
+
+video.addEventListener('seeking',()=>{
+if(!initialLoad) showBuffer();
+});
+
+/* ========================= */
+/* PROGRESS BAR              */
+/* ========================= */
+
+video.addEventListener('timeupdate',()=>{
+
+if(!video.duration) return;
+
+let percent=(video.currentTime/video.duration)*100;
+
+progress.value=percent;
+
+progress.style.setProperty('--progress',percent+"%");
+
+timeCurrent.textContent=formatTime(video.currentTime);
+timeTotal.textContent=formatTime(video.duration);
+
+});
+
+/* seek */
+
+progress?.addEventListener('input',()=>{
+video.currentTime=(progress.value/100)*video.duration;
+});
+
+/* ========================= */
+/* TIMELINE HOVER PREVIEW    */
+/* ========================= */
+
+progress?.addEventListener('mousemove',(e)=>{
+
+let rect = progress.getBoundingClientRect();
+let percent = (e.clientX - rect.left) / rect.width;
+
+let previewTime = percent * video.duration;
+
+progress.title = formatTime(previewTime);
+
+});
+
+/* ========================= */
+/* VOLUME                    */
+/* ========================= */
+
+volumeSlider?.addEventListener('input',()=>{
+video.volume=volumeSlider.value;
+});
+
+volumeBtn?.addEventListener('click',()=>{
+
+if(video.muted || video.volume===0){
+
+video.muted=false;
+video.volume=savedVolume;
+
+}else{
+
+savedVolume=video.volume;
+video.muted=true;
+
+}
+
+});
+
+/* ========================= */
+/* FULLSCREEN                */
+/* ========================= */
+
+fullscreenBtn?.addEventListener('click',()=>{
+
+if(!document.fullscreenElement){
+container.requestFullscreen();
+}else{
+document.exitFullscreen();
+}
+
+});
+
+/* ========================= */
+/* PICTURE IN PICTURE        */
+/* ========================= */
+
+pipBtn?.addEventListener('click',async()=>{
+
+if(!document.pictureInPictureEnabled) return;
+
+try{
+
+if(document.pictureInPictureElement){
+await document.exitPictureInPicture();
+}else{
+await video.requestPictureInPicture();
+}
+
+}catch(err){
+console.log(err);
+}
+
+});
+
+/* ========================= */
+/* INIT                      */
+/* ========================= */
+
+showInitial();
+showControls();
 
 })();
+
 </script>
+
   <script>
 
       // Watch for content changes
