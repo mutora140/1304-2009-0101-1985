@@ -2489,24 +2489,363 @@ document.addEventListener("click", function (e) {
         // Optional SEO-friendly slug (clean URL support for watch page):
         //   slug: 'pick-up-2025'
         //
+        'benhur': {
+            image: '/images/home/ben-hur.jpg',
+            title: 'Ben-hur',
+            slug: 'Ben-hur_Gaheza',
+            rating: 7.9,
+            actor:['Jack Huston','Pilou Asbæk'],
+            stars: 4.5,
+            genres: ['Action', 'History', 'Adventire'],
+            interpreter: ['Gaheza'],
+            tags: ['History', 'Adventure', 'Drama'],
+            description: 'A falsely accused nobleman survives years of slavery to take vengeance on his best friend who betrayed him.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2016',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Ben-Hur.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Ben-Hur.mp4'
+        },
+        'king of killers': {
+            image: '/images/home/king of killers.jpg',
+            title: 'King of killers',
+            slug: 'King of killers_Gaheza',
+            rating: 8.9,
+            actor:['Alain Moussi','Frank Grillo'],
+            stars: 5,
+            genres: ['Action','Thriller'],
+            interpreter: ['Gaheza'],
+            tags: ['Killers','Action'],
+            description: 'Garan is a part of a group of international hitmen who are contracted to take out the most dangerous killer in the world, only to find out that they are the ones being hunted.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2023',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_King%20of%20Killers.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_King%20of%20Killers.mp4'
+        },
+        'army of the dead': {
+            image: '/images/home/army of the dead.jpg',
+            title: 'Army of the dead',
+            slug: 'Army of the dead_Gaheza',
+            rating: 8.9,
+            actor:['Dave Bautista','Ella Purnell'],
+            stars: 4,
+            genres: ['Action', 'Crime', 'Horror'],
+            interpreter: ['Gaheza'],
+            tags: ['Horror',  'Crime'],
+            description: 'A falsely accused nobleman survives years of slavery to take vengeance on his best friend who betrayed him.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2021',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Army%20of%20the%20Dead.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Army%20of%20the%20Dead.mp4'
+        },
+        'babylon ad': {
+            image: '/images/home/babylon ad.jpg',
+            title: 'Babylon A.D',
+            slug: 'Babylon A.d_Gaheza',
+            rating: 8.9,
+            actor:['Vin Diesel','Melanie Thierry'],
+            stars: 4.5,
+            genres: ['Action', 'Sci-fi', 'Adventire'],
+            interpreter: ['Gaheza'],
+            tags: ['Adventure', 'Thriller', 'Action'],
+            description: 'A veteran-turned-mercenary is hired to take a young woman with a secret from post-apocalyptic Eastern Europe to New York City.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2008',
+            videoType: 'video/mp4',
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Babylon%20A.D..mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Babylon%20A.D..mp4'
+        },
+        'fistful vengeance': {
+            image: '/images/home/fistful of vengeance.jpg',
+            title: 'Fistful of vengeance',
+            slug: 'Fistful-of-vengeance_Junior Git',
+            rating: 8.9,
+            actor:['Iko Uwais','Lewis Tan'],
+            stars: 4.5,
+            genres: ['Action', 'Fantasy', 'Thriller'],
+            interpreter: ['Junior Git'],
+            tags: ['Thriller', 'Fantasy',],
+            description: 'A revenge mission becomes a fight to save the world from an ancient threat when superpowered assassin Kai tracks a killer to Bangkok.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2022',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Fistful%20of%20Vengeance.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Fistful%20of%20Vengeance.mp4'
+        },
+        'bloodshot': {
+            image: '/images/home/bloodshot.jpg',
+            title: 'Bloodshot',
+            slug: 'Bloodshot_Savimbi',
+            rating: 8.9,
+            actor:['Vin Diesel','Eiza Gonzalez'],
+            stars: 4.5,
+            genres: ['Action', 'Sci-fi', 'Adventire'],
+            interpreter: ['Savimbi'],
+            tags: ['Action', 'Adventure'],
+            description: 'After he and his wife are murdered, marine Ray Garrison is resurrected by a team of scientists. Enhanced with nanotechnology, he becomes a superhuman, biotech killing machine—Bloodshot. As Ray first trains with fellow super-soldiers, he cannot recall anything from his former life. But when his memories flood back and he remembers the man that killed both him and his wife, he breaks out of the facility to get revenge, only to discover that there is more to the conspiracy than he thought.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2020',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Bloodshot.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Bloodshot.mp4'
+        },
+        'bachchn pandey': {
+            image: '/images/home/bachn pandey.jpg',
+            title: 'Bachchn Pandey',
+            slug: 'Bachchn-Pandey_Rocky',
+            rating: 8.9,
+            actor:['Akyshay Kumar','Kriti Sanon'],
+            stars: 4.5,
+            genres: ['Action', 'Comedy', 'Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Action', 'Crime'],
+            description: 'A budding director tries to research a merciless gangster for making a film on gangsterism. But her secret attempts to conduct the research fail when she gets caught for snooping.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2022',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Bachchan%20Pandey.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Bachchan%20Pandey.mp4'
+        },
+        'law abiding citzen': {
+            image: '/images/home/law abiding citzen.jpg',
+            title: 'Law abiding citzen',
+            slug: 'Law-abiding-citzen _Rocky',
+            rating: 8.9,
+            actor:['Jamie Foxx','Gerard Butler'],
+            stars: 4.5,
+            genres: ['Crime', 'Drama', 'Thriller'],
+            interpreter: ['Rocky'],
+            tags: ['Thriller', 'Crime'],
+            description: 'A falsely accused nobleman survives years of slavery to take vengeance on his best friend who betrayed him.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2009',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Law%20abiding%20citizen.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Law%20abiding%20citizen.mp4'
+        },
+        'adipurush': {
+            image: '/images/home/adipurush.jpg',
+            title: 'Adipurush',
+            slug: 'Adipurush_Siniya',
+            rating: 8.9,
+            actor:['Prabhas','Saif Ali Khan'],
+            stars: 4.5,
+            genres: ['Action', 'Adventure', 'Fantasy'],
+            interpreter: ['Siniya'],
+            tags: ['Fantasy', 'Adventure'],
+            description: '7000 years ago, Ayodhyas Prince Raghava and Prince Sesh along with the Mighty Vanar Warriors travels to the island of Lanka with an aim to rescue Raghava wife Janaki, who has been abducted by Lankesh, the king of Lanka.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2023',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Adipurush.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Adipurush.mp4'
+        },
+        'expendables 2': {
+            image: '/images/home/expendables 2.jpg',
+            title: 'Expendables 2',
+            slug: 'Expendables-2_Gaheza',
+            rating: 8.9,
+            actor:['Sylvester Stallone','Jason Statham'],
+            stars: 4.5,
+            genres: ['Action', 'Thriller', 'Adventire'],
+            interpreter: ['Gaheza'],
+            tags: ['Action', 'Adventure'],
+            description: 'Mr. Church reunites the Expendables for what should be an easy paycheck, but when one of their men is murdered on the job, their quest for revenge puts them deep in enemy territory and up against an unexpected threat.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2012',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables%202.mp4'
+        },
+        'red': {
+            image: '/images/home/red.jpg',
+            title: 'RED:Retired Extremly Dangerous',
+            slug: 'RED_Yanga',
+            rating: 8.9,
+            actor:['Bruce Willis','Morgan Freeman'],
+            stars: 4.5,
+            genres: ['Action', 'Crime', 'Adventire'],
+            interpreter: ['Yanga'],
+            tags: ['Thriller', 'Adventure'],
+            description: 'After surviving an assault from a squad of hit men, retired CIA black ops agent Frank Moses reassembles his old team for an all-out war. Frank reunites with old Joe, crazy Marvin and wily Victoria to uncover a massive conspiracy that threatens their lives. Only their expert training will allow them to survive a near-impossible mission -- breaking into CIA headquarters.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2010',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_RED.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_RED.mp4'
+        },
+        'mechanic resurrection': {
+            image: '/images/home/mechanic 2.jpg',
+            title: 'Mechanic Resurrection',
+            slug: 'Mechanic-Resurrection_Gaheza',
+            rating: 8.9,
+            actor:['Jason Statham','Jessica Alba'],
+            stars: 4.5,
+            genres: ['Action', 'Crime', 'Thriller'],
+            interpreter: ['Gaheza'],
+            tags: ['Action', 'Thriller'],
+            description: 'Arthur Bishop thought he had put his murderous past behind him when his most formidable foe kidnaps the love of his life. Now he is forced to travel the globe to complete three impossible assassinations, and do what he does best, make them look like accidents.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2016',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4'
+        },
+        'rocky handsome': {
+            image: '/images/home/rocky handsome.jpg',
+            title: 'Rocky Handsome',
+            slug: 'Rocky-Handsome_Rocky',
+            rating: 8.9,
+            actor:['John Abraham','Shruti Haasan'],
+            stars: 4.5,
+            genres: ['Action', 'Thriller'],
+            interpreter: ['Rocky'],
+            tags: ['Serial Killer', 'Thriller'],
+            description: 'A vengeful man embarks on a murderous rampage after the kidnapping of a 7-year-old girl.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2016',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Rocky%20Handsome.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Rocky%20Handsome.mp4'
+        },
+        'baaghi 1': {
+            image: '/images/home/baagh 1.jpg',
+            title: 'Baaghi 1',
+            slug: 'Baaghi-1_Junior Git',
+            rating: 8.9,
+            actor:['Tiger Shroff','Shraddha Kapoor'],
+            stars: 4.5,
+            genres: ['Action', 'Thriller', 'Adventire'],
+            interpreter: ['Junior Git'],
+            tags: ['Thriller', 'Adventure', 'Romance'],
+            description: 'Ronny is a rebellious man, who falls in love with Sia but circumstances separate them. Years later, Ronny learns that Sia is abducted by a martial arts champion, Raghav.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2016',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Baaghi%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Baaghi%201.mp4'
+        },
+        'red 2': {
+            image: '/images/home/red 2.jpg',
+            title: 'RED 2: Retired Extremly Dangerous ',
+            slug: 'Red-2:Retired-Extremly-Dangerous-2_Yanga',
+            rating: 8.9,
+            actor:['Bruce Willis','John Malkovich'],
+            stars: 4.5,
+            genres: ['Action', 'Comedy', 'Thriller'],
+            interpreter: ['Yanga'],
+            tags: ['Comedy', 'Crime'],
+            description: 'Retired C.I.A. agent Frank Moses reunites his unlikely team of elite operatives for a global quest to track down a missing portable nuclear device.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2013',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'xxx return': {
+            image: '/images/home/xxx return.jpg',
+            title: 'xXx-Return of Xander Cage',
+            slug: 'xXx-Return-of-Xander-Cage_Gaheza',
+            rating: 8.9,
+            actor:['Vin Diesel','Don Yen'],
+            stars: 4.5,
+            genres: ['Action', 'Crime', 'Adventire'],
+            interpreter: ['Gaheza'],
+            tags: ['Action', 'Adventure'],
+            description: 'Xander Cage is left for dead after an incident, though he secretly returns to action for a new, tough assignment with his handler Augustus Gibbons.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2017',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4'
+        },
+        'expendables 1': {
+            image: '/images/home/expendables 1.jpg',
+            title: 'Expendables 1',
+            slug: 'Expendables-1_Gaheza',
+            rating: 8.9,
+            actor:['Jet Li','Dolph Lundgren'],
+            stars: 4.5,
+            genres: ['Action', 'Thriller', 'Adventire'],
+            interpreter: ['Gaheza'],
+            tags: ['Thriller', 'Adventure'],
+            description: 'Barney Ross leads a band of highly skilled mercenaries including knife enthusiast Lee Christmas, a martial arts expert Yin Yang, heavy weapons specialist Hale Caesar, demolitionist Toll Road, and a loose-cannon sniper Gunner Jensen. When the group is commissioned by the mysterious Mr. Church to assassinate the dictator of a small South American island, Barney and Lee visit the remote locale to scout out their opposition and discover the true nature of the conflict engulfing the city.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2010',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables.mp4'
+        },
+        'weekend in taipei': {
+            image: '/images/home/weekend in taipei.jpg',
+            title: 'Weekend in taipei',
+            slug: 'Weekend-in-taipei_Sankara',
+            rating: 8.9,
+            actor:['Luke Evans','Gwei Lun-Mei'],
+            stars: 4.5,
+            genres: ['Action', 'Thriller', 'Adventire'],
+            interpreter: ['Sankara'],
+            tags: ['History', 'Adventure', 'Drama'],
+            description: 'A former DEA agent and a former undercover operative revisit their romance during a fateful weekend in Taipei, unaware of the dangerous consequences of their past.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2024',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/WEEKEND_IN_TAIPE.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/WEEKEND_IN_TAIPE.mp4'
+        },
+        'triple frontier': {
+            image: '/images/home/triple frontier.jpg',
+            title: 'Triple frontier',
+            slug: 'Triple-frontier_Rocky',
+            rating: 8.9,
+            actor:['Ben Affleck','Oscar Isaac'],
+            stars: 4.5,
+            genres: ['Action', 'Thriller', 'Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Crime', 'Adventure'],
+            description: 'Struggling to make ends meet, former special ops soldiers reunite for a high-stakes heist: stealing $75 million from a South American drug lord.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2019',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Triple%20Frontier.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Triple%20Frontier.mp4'
+        },
+        'villain return': {
+            image: '/images/home/villain return.jpg',
+            title: 'Ek Villain Return',
+            slug: 'Ek-Villain-Return_Rocky',
+            rating: 8.9,
+            actor:['Jack Huston','Pilou Asbæk'],
+            stars: 4.5,
+            genres: ['Action', 'Crime', 'Thriller'],
+            interpreter: ['Rocky'],
+            tags: ['Serial Killer', 'Drama'],
+            description: 'A falsely accused nobleman survives years of slavery to take vengeance on his best friend who betrayed him.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2022',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Ek%20Villain%20Returns.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Ek%20Villain%20Returns.mp4'
+        },
         'dora and the lost city': {
             image: '/images/notify/thumb-2.jpg',
             title: 'Dora and the Lost City',
             slug: 'Dora-and-the-Lost-City_Rocky',
             rating: 7.3,
-            actor:['Eddie Murphy','Pete davidson'],
+            actor:['Isabela Merced','Jeffrey Wahlberg'],
             stars: 4,
-            genres: ['Action', 'Comedy', 'Crime'],
+            genres: ['Family', 'Comedy', 'Adventure'],
             interpreter: ['Gaheza'],
-            tags: ['Robbery', 'Comedy', 'Drama'],
-            description: 'A routine cash pickup takes a wild turn when mismatched armored truck drivers Russell and Travis are ambushed by ruthless criminals led by savvy mastermind Zoe.',
+            tags: ['Discovery', 'Comedy'],
+            description: 'Dora, a girl who has spent most of her life exploring the jungle with her parents, now must navigate her most dangerous adventure yet: high school. Always the explorer, Dora quickly finds herself leading Boots (her best friend, a monkey), Diego, and a rag tag group of teens on an adventure to save her parents and solve the impossible mystery behind a lost Inca civilization.',
             age: '12+',
             duration: '2h 21min',
-            year: '2025',
-            r2Video: 'https://r2.example.com/movies/dora-and-the-lost-city.mp4',
-            r2Download: 'https://r2.example.com/downloads/dora-and-the-lost-city.mp4',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie1.mp4',
-            downluroadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
         'pickup': {
             image: '/images/slider/slider1.jpg',
@@ -2522,8 +2861,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
-            downloadLink: 'https://cdn.example.com/download/avengers-age-of-ultron.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         '1917': {
             image: '/images/slider/slider2.jpg',
@@ -2539,8 +2878,8 @@ document.addEventListener("click", function (e) {
             age: '13+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie2.mp4',
-            downloadLink: 'https://cdn.example.com/download/frozen.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'work it': {
             image: '/images/slider/slider3.jpg',
@@ -2573,8 +2912,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie4.mp4',
-            downloadLink: 'https://cdn.example.com/download/mulan-2020.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'death race': {
             image: '/images/favorite/f2.jpg',
@@ -2590,8 +2929,9 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2008',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie5.mp4',
-            downloadLink: 'https://cdn.example.com/download/laxmii.mp4'
+            videoType: 'video/mp4',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Death%20Race%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Death%20Race%201.mp4'
         },
         'homefront': {
             image: '/images/favorite/f3.jpg',
@@ -2607,9 +2947,9 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
+            videoLink: '',
             videoType: 'video/mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4'
+            downloadLink: ''
         },
         'mayhem': {
             image: '/images/favorite/f4.jpg',
@@ -2625,8 +2965,8 @@ document.addEventListener("click", function (e) {
             age: '11+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
-            downloadLink: 'https://cdn.example.com/download/life-of-pi.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'shadow force': {
             image: '/images/favorite/f5.jpg',
@@ -2642,8 +2982,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie8.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shadow%20Force.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shadow%20Force.mp4'
         },
         'thieves highway': {
             image: '/images/favorite/f6.jpg',
@@ -2659,8 +2999,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie9.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thieves%20Highway.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thieves%20Highway.mp4'
         },
         'the amazing spiderman': {
             image: '/images/favorite/f7.jpg',
@@ -2676,8 +3016,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2012',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie10.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4'
         },
         'teen wolf': {
             image: '/images/favorite/f8.jpg',
@@ -2693,8 +3033,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie11.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4'
         },
         'tarot': {
             image: '/images/favorite/f9.jpg',
@@ -2710,8 +3050,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie12.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tarot.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tarot.mp4'
         },
         'spiderman 3': {
             image: '/images/favorite/f10.jpg',
@@ -2727,8 +3067,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://videopress.com/embed/q78_0TElYME',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Spider-Man%203.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Spider-Man%203.mp4'
         },
         'light out': {
             image: '/images/favorite/f11.jpg',
@@ -2744,8 +3084,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie14.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lights%20Out.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lights%20Out.mp4'
         },
         'ruthless': {
             image: '/images/favorite/f12.jpg',
@@ -2761,8 +3101,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie15.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-mangal.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ruthless.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ruthless.mp4'
         },
         'possession of honnor': {
             image: '/images/popular/u1.jpg',
@@ -2778,8 +3118,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie16.mp4',
-            downloadLink: 'https://cdn.example.com/download/insidious-the-last-key.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'frankenstein': {
             image: '/images/popular/u2.jpg',
@@ -2795,8 +3135,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie17.mp4',
-            downloadLink: 'https://cdn.example.com/download/war-2019.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'texas chain': {
             image: '/images/popular/u3.jpg',
@@ -2812,8 +3152,8 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie18.mp4',
-            downloadLink: 'https://cdn.example.com/download/five-feet-apart.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'woman in the yard': {
             image: '/images/popular/u4.jpg',
@@ -2829,8 +3169,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie19.mp4',
-            downloadLink: 'https://cdn.example.com/download/chhichhore.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'hunting jessica': {
             image: '/images/popular/u5.jpg',
@@ -2846,8 +3186,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie20.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'boyka undisputed 4': {
             image: '/images/junior/01.jpg',
@@ -2863,8 +3203,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie21.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4'
         },
         'europe raiders': {
             image: '/images/junior/02.jpg',
@@ -2880,8 +3220,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie22.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Europe%20Raiders.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Europe%20Raiders.mp4'
         },
         'mercy': {
             image: '/images/junior/03.jpg',
@@ -2897,8 +3237,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Lt-U_t2pUHI',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Mercy.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Mercy.mp4'
         },
         '2:22': {
             image: '/images/junior/04.jpg',
@@ -2914,8 +3254,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie23.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_2_22.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_2_22.mp4'
         },
         'ziam': {
             image: '/images/junior/05.jpg',
@@ -2931,8 +3271,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie24.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ziam.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ziam.mp4'
         },
         '6 underground': {
             image: '/images/junior/06.jpg',
@@ -2948,8 +3288,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie25.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_6%20Underground.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_6%20Underground.mp4'
         },
         '7 days in entebbe': {
             image: '/images/junior/07.jpg',
@@ -2965,8 +3305,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie26.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'paskal': {
             image: '/images/junior/08.jpg',
@@ -2982,8 +3322,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie27.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Paskal.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Paskal.mp4'
         },
         'plane': {
             image: '/images/junior/09.jpg',
@@ -2999,8 +3339,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie28.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Plane.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Plane.mp4'
         },
         'the witch': {
             image: '/images/junior/10.jpg',
@@ -3016,8 +3356,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie29.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20witch.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20witch.mp4'
         },
         'iceman: traveller': {
             image: '/images/junior/11.jpg',
@@ -3033,8 +3373,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie30.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4'
         },
         'kandahar': {
             image: '/images/junior/12.jpg',
@@ -3050,8 +3390,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie31.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Kandahar.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Kandahar.mp4'
         },
         'night of hunted': {
             image: '/images/popular/u6.jpg',
@@ -3067,8 +3407,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie32.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4'
         },
         'hunting season': {
             image: '/images/popular/u7.jpg',
@@ -3084,8 +3424,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie33.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hunting%20Season.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hunting%20Season.mp4'
         },
         'hostile takeover': {
             image: '/images/popular/u8.jpg',
@@ -3101,8 +3441,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie34.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hostile%20Takeover.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hostile%20Takeover.mp4'
         },
         'guns up': {
             image: '/images/popular/u9.jpg',
@@ -3118,8 +3458,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie35.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guns%20Up.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guns%20Up.mp4'
         },
         'dunki': {
             image: '/images/popular/u10.jpg',
@@ -3135,8 +3475,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie36.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dunki.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dunki.mp4'
         },
         'alita: the battle angel': {
             image: '/images/popular/u11.jpg',
@@ -3152,8 +3492,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie37.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4'
         },
         'aftermath': {
             image: '/images/popular/u12.jpg',
@@ -3169,8 +3509,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie38.mp4',
-            downloadLink: 'https://cdn.example.com/download/doctor-strange.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4'
         },
         'next': {
             image: '/images/top-10/01.jpg',
@@ -3186,8 +3526,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie39.mp4',
-            downloadLink: 'https://cdn.example.com/download/harry-potter-and-the-sorcerers-stone.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Next.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Next.mp4'
         },
         'lou': {
             image: '/images/top-10/02.jpg',
@@ -3203,8 +3543,8 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie40.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-queens-gambit.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4'
         },
         'f1: the movie': {
             image: '/images/top-10/03.jpg',
@@ -3220,8 +3560,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie41.mp4',
-            downloadLink: 'https://cdn.example.com/download/stranger-things.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'play dirty': {
             image: '/images/top-10/04.jpg',
@@ -3237,8 +3577,8 @@ document.addEventListener("click", function (e) {
             age: '15+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie42.mp4',
-            downloadLink: 'https://cdn.example.com/download/bojack-horseman.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'ice road': {
             image: '/images/top-10/05.jpg',
@@ -3254,8 +3594,8 @@ document.addEventListener("click", function (e) {
             age: '20+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie43.mp4',
-            downloadLink: 'https://cdn.example.com/download/peaky-blinders.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4'
         },
         'the carpenter son': {
             image: '/images/top-10/06.jpg',
@@ -3271,8 +3611,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie44.mp4',
-            downloadLink: 'https://cdn.example.com/download/nba-basketball-highlights.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4"
         },
         'monkey king': {
             image: '/images/suggested/01.jpg',
@@ -3288,12 +3628,12 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie45.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'nezha': {
             image: '/images/suggested/02.jpg',
-            title: 'Nezha 1',
+            title: 'Nezha 2',
             slug: 'Nezha_Master-P',
             rating: 8.2,
             actor:['Lu Yanting','Joseph'],
@@ -3305,8 +3645,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie46.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nezhal_2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nezhal_2.mp4'
         },
         'bigfoot family': {
             image: '/images/suggested/03.jpg',
@@ -3322,8 +3662,25 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie47.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family1.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family1.mp4'
+        },
+        'bigfoot family 2': {
+            image: '/images/suggested/03.jpg',
+            title: 'BigFoot Family 2',
+            slug: 'Bigfoot-Family_2_Master-P',
+            rating: 8.7,
+            actor:['Jules Medcraft','David Lodge'],
+            stars: 5,
+            genres: ['Animation', 'Adventure'],
+            interpreter: ['Master p'],
+            tags: ['Adventure', 'Family',],
+            description: 'Bigfoot, Adam father, wants to use his fame for a good cause. Protecting a large wildlife reserve in Alaska sounds like the perfect opportunity! When Bigfoot mysteriously disappears without a trace, Adam and his animal friends will brave anything to find him again and save the nature reserve.',
+            age: 'All Ages',
+            duration: 'Filme',
+            year: '2021',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family2.mp4'
         },
         'peter rabbit 1': {
             image: '/images/suggested/04.jpg',
@@ -3339,8 +3696,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie48.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'peter rabbit 2': {
             image: '/images/suggested/05.jpg',
@@ -3356,8 +3713,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie49.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_PETER%20RABBIT%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_PETER%20RABBIT%202.mp4'
         },
         'sing': {
             image: '/images/suggested/07.jpg',
@@ -3373,8 +3730,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie50.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sing.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sing.mp4'
         },
         'hotel translyvania 3': {
             image: '/images/suggested/08.jpg',
@@ -3390,8 +3747,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie51.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4'
         },
         'hotel translyvania 2': {
             image: '/images/suggested/09.jpg',
@@ -3407,8 +3764,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie52.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%202.mp4'
         },
         'ladybug catnoir: the movie ': {
             image: '/images/suggested/10.jpg',
@@ -3424,8 +3781,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie53.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4'
         },
         'pussy in boots: the last wish ': {
             image: '/images/suggested/11.jpg',
@@ -3441,8 +3798,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie54.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4'
         },
         'kpop demon hunters': {
             image: '/images/suggested/12.jpg',
@@ -3458,8 +3815,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie55.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4'
         },
         'tyler perry duplicity':{
             image: '/images/dylan/01.jpg',
@@ -3475,8 +3832,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie56.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
         },
         'the swordsman':{
             image: '/images/dylan/02.jpg',
@@ -3492,8 +3849,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie57.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Swordsman.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Swordsman.mp4'
         },
         'sonic the hedgehog':{
             image: '/images/dylan/04.jpg',
@@ -3509,8 +3866,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie58.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4'
         },
         'king serpent island':{
             image: '/images/dylan/05.jpg',
@@ -3526,8 +3883,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie59.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_King%20serpent%20island.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_King%20serpent%20island.mp4'
         },
         'i am vengeance retaliation':{
             image: '/images/dylan/06.jpg',
@@ -3543,8 +3900,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie60.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4'
         },
         'the covenant':{
             image: '/images/dylan/07.jpg',
@@ -3560,8 +3917,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie61.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4"
         },
         'game of deceit':{
             image: '/images/dylan/08.jpg',
@@ -3577,8 +3934,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie62.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Game%20of%20Deceit.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Game%20of%20Deceit.mp4'
         },
         'death at funeral':{
             image: '/images/dylan/09.jpg',
@@ -3594,8 +3951,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie63.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4'
         },
         'case depart':{
             image: '/images/dylan/10.jpg',
@@ -3611,8 +3968,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie64.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Case%20d%C3%A9part.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Case%20d%C3%A9part.mp4'
         },
         'blackout':{
             image: '/images/dylan/11.jpg',
@@ -3628,8 +3985,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie65.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Blackout.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Blackout.mp4'
         },
         'altitude':{
             image: '/images/dylan/12.jpg',
@@ -3645,25 +4002,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie66.mp4',
-            downloadLink: 'https://cdn.example.com/download/pga-golf-championship.mp4'
-        },
-        'sisu 2': {
-            image: '/images/parallax/avatar.jpg',
-            title: 'Sisu: Road To Revenge',
-            slug: 'Sisu:Road-to-Revenge_Rocky',
-            rating: 7.8,
-            actor:['Jorma Tommila','Stephen Lang'],
-            stars: 4,
-            genres: ['Action', 'War',],
-            interpreter: ['Rocky'],
-            tags: ['War', 'Sisu',],
-            description: 'Returning to the house where his family was brutally murdered during the war, ‘the man who refuses to die’ dismantles it, loads it on a truck, and is determined to rebuild it somewhere safe in their honor. When the commander who killed his family comes back hellbent on finishing the job, a relentless, eye-popping cross-country chase ensues.',
-            age: '12+',
-            duration: 'Filme',
-            year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie67.mp4',
-            downloadLink: 'https://cdn.example.com/download/avatar-2009.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Altitude.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Altitude.mp4'
         },
         
         'war 2': {
@@ -3680,8 +4020,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie68.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_War%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_War%202.mp4'
         },
         'maharshi': {
             image: '/images/parallax/q6.jpg',
@@ -3697,13 +4037,13 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie69.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Maharshi.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Maharshi.mp4'
         },
-        'baaghi 4': {
+        'baaghi 2': {
             image: '/images/parallax/q7.jpg',
-            title: 'Baaghi 4',
-            slug: 'Baaghi-4_Rocky',
+            title: 'Baaghi 2',
+            slug: 'Baaghi-2_Rocky',
             rating: 8.7,
             actor:['Tiger Shroff','Sanjay Dutt'],
             stars: 4.5,
@@ -3714,8 +4054,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie70.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baaghi%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baaghi%202.mp4'
         },
         'jawan': {
             image: '/images/parallax/q9.jpg',
@@ -3731,8 +4071,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie71.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Jawan.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Jawan.mp4'
         },
         'coming 2 america': {
             image: '/images/top-10/07.jpg',
@@ -3748,8 +4088,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4',
-            downloadLink: 'https://miyagifilms.com/Chris%20Grey%20-%20ANOTHER%20LIFE%20(Official%20Lyric%20Video).mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coming%202%20America.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coming%202%20America.mp4'
         },
         'heads of state': {
             image: '/images/top-10/08.jpg',
@@ -3765,8 +4105,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie72.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Heads%20of%20State.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Heads%20of%20State.mp4'
         },
         'karate kid legends': {
             image: '/images/top-10/09.jpg',
@@ -3782,8 +4122,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie73.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4'
         },
         'most dengerous game': {
             image: '/images/top-10/10.jpg',
@@ -3799,8 +4139,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie74.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-martian.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Most%20Dangerous%20Game.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Most%20Dangerous%20Game.mp4'
         },
         'dont hangup': {
             image: '/images/tvthrillers/02.jpg',
@@ -3816,8 +4156,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie75.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'evil dead': {
             image: '/images/sankara/01.jpg',
@@ -3833,8 +4173,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie76.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Evil%20Dead%20Rise.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Evil%20Dead%20Rise.mp4'
         },
         'the brink': {
             image: '/images/sankara/02.jpg',
@@ -3850,8 +4190,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie77.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Brink.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Brink.mp4'
         },
         'avengers infinity war': {
             image: '/images/sankara/03.jpg',
@@ -3867,8 +4207,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie78.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Avengers_Infinity%20War.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Avengers_Infinity%20War.mp4'
         },
         'lethal seduction': {
             image: '/images/sankara/04.jpg',
@@ -3884,8 +4224,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie79.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lethal%20Seduction.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lethal%20Seduction.mp4'
         },
         'talk to me': {
             image: '/images/sankara/05.jpg',
@@ -3900,8 +4240,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie80.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Talk%20to%20Me.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Talk%20to%20Me.mp4'
         },
         'flash point': {
             image: '/images/sankara/06.jpg',
@@ -3917,8 +4257,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie81.mp4',
-            downloadLink: 'https://cdn.example.com/download/unhinged.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Flash%20Point.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Flash%20Point.mp4'
         },
         'doctor strange': {
             image: '/images/tvthrillers/03.jpg',
@@ -3934,8 +4274,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie82.mp4',
-            downloadLink: 'https://example.com/download/kingsman'
+            videoLink: 'hhttps://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Doctor%20Strange%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Doctor%20Strange%201.mp4'
         },
         'hidden faces': {
             image: '/images/sankara/07.jpg',
@@ -3951,8 +4291,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie83.mp4',
-            downloadLink: 'https://example.com/download/kingsman'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hidden%20Face.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hidden%20Face.mp4'
         },
         'safe house': {
             image: '/images/sankara/08.jpg',
@@ -3968,8 +4308,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie84.mp4',
-            downloadLink: 'https://example.com/download/kingsman'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Safe%20House.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Safe%20House.mp4'
         },
         'jurassic world': {
             image: '/images/tvthrillers/04.jpg',
@@ -3985,8 +4325,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie85.mp4',
-            downloadLink: 'https://example.com/download/casino-royale'
+            videoLink: '',
+            downloadLink: ''
         },
         'coma': {
             image: '/images/favorite/g5.jpg',
@@ -4002,8 +4342,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie86.mp4',
-            downloadLink: 'https://example.com/download/casino-royale'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coma.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coma.mp4'
         },
         'wira': {
             image: '/images/favorite/g1.jpg',
@@ -4019,8 +4359,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie87.mp4',
-            downloadLink: 'https://example.com/download/casino-royale'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wira.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wira.mp4'
         },
         'black widow': {
             image: '/images/tvthrillers/05.jpg',
@@ -4036,8 +4376,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie88.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/black%20widow.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/black%20widow.mp4'
         },
         'gifted': {
             image: '/images/savimbi/01.jpg',
@@ -4053,8 +4393,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie89.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Gifted.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Gifted.mp4'
         },
         'damsel': {
             image: '/images/savimbi/02.jpg',
@@ -4070,8 +4410,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie90.mp4',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the boy who harnessed the wind': {
             image: '/images/savimbi/03.jpg',
@@ -4087,8 +4427,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'ashfall': {
             image: '/images/savimbi/04.jpg',
@@ -4104,8 +4444,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ashfall.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ashfall.mp4'
         },
         'kingdom of the planet of apes': {
             image: '/images/savimbi/05.jpg',
@@ -4121,8 +4461,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4'
         },
         'ghost': {
             image: '/images/savimbi/06.jpg',
@@ -4138,8 +4478,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1990',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ghost.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ghost.mp4'
         },
         '24 hours to live': {
             image: '/images/savimbi/07.jpg',
@@ -4155,8 +4495,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'trash': {
             image: '/images/savimbi/08.jpg',
@@ -4172,8 +4512,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Trash_2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Trash_2.mp4'
         },
         'dracula untold': {
             image: '/images/savimbi/09.jpg',
@@ -4189,8 +4529,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dracula%20Untold.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dracula%20Untold.mp4'
         },
         'emperor': {
             image: '/images/savimbi/10.jpg',
@@ -4206,8 +4546,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Emperor.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Emperor.mp4'
         },
         'kings daughter': {
             image: '/images/savimbi/11.jpg',
@@ -4223,8 +4563,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20King's%20Daughter.mp4",
+            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20King's%20Daughter.mp4"
         },
         'limitless': {
             image: '/images/savimbi/12.jpg',
@@ -4240,8 +4580,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Limitless_2.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Limitless_2.mp4'
         },
         'no one lives': {
             image: '/images/tvthrillers/06.jpg',
@@ -4257,8 +4597,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_No%20One%20Lives.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_No%20One%20Lives.mp4'
         },
         'thor 1': {
             image: '/images/tvthrillers/07.jpg',
@@ -4274,8 +4614,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thor%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thor%201.mp4'
         },
         'last man down': {
             image: '/images/tvthrillers/08.jpg',
@@ -4291,12 +4631,12 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20last%20man%20down.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20last%20man%20down.mp4'
         },
         'the diplomat': {
             image: '/images/tvthrillers/09.jpg',
-            title: 'The Diplamat',
+            title: 'The Diplomat',
             slug: 'The-Diplomat_Siniya',
             rating: 8.8,
             actor:['John Abraham','Sadia Khateeb'],
@@ -4308,8 +4648,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Diplomat.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Diplomat.mp4'
         },
         'sister death': {
             image: '/images/tvthrillers/10.jpg',
@@ -4325,8 +4665,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sister%20Death.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sister%20Death.mp4'
         },
         'shangi-chi: legend of ten rings': {
             image: '/images/tvthrillers/11.jpg',
@@ -4342,8 +4682,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4'
         },
         'secret superstar': {
             image: '/images/tvthrillers/12.jpg',
@@ -4359,8 +4699,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Secret%20Superstar.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Secret%20Superstar.mp4'
         },
         'men of honor': {
             image: '/images/top-10/11.jpg',
@@ -4376,8 +4716,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2000',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Men%20of%20Honor.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Men%20of%20Honor.mp4'
         },
         'nobody': {
             image: '/images/top-10/12.jpg',
@@ -4393,8 +4733,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%201.mp4'
         },
         'nobody 2': {
             image: '/images/top-10/13.jpg',
@@ -4410,8 +4750,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%202.mp4'
         },
         'anna': {
             image: '/images/tvthrillers/13.jpg',
@@ -4427,8 +4767,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Anna.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Anna.mp4'
         },
         'lucy': {
             image: '/images/tvthrillers/14.jpg',
@@ -4444,8 +4784,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lucy%20.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lucy%20.mp4'
         },
         'brick': {
             image: '/images/tvthrillers/15.jpg',
@@ -4461,8 +4801,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Brick.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Brick.mp4'
         },
         'a-x-l': {
             image: '/images/tvthrillers/16.jpg',
@@ -4478,8 +4818,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_A-X-L.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_A-X-L.mp4'
         },
         'our last mens in phillipines': {
             image: '/images/top-10/14.jpg',
@@ -4495,8 +4835,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4'
         },
         'the equalizer': {
             image: '/images/latest/01.jpg',
@@ -4512,8 +4852,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_EQUALIZER.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_EQUALIZER.mp4'
         },
         'the equalizer 3': {
             image: '/images/latest/03.jpg',
@@ -4529,8 +4869,25 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4'
+        },
+        'the equalizer 3b': {
+            image: '/images/latest/03.jpg',
+            title: 'The Equalizer 3',
+            slug: 'The-Equalizer-3_Rocky',
+            rating: 9.0,
+            actor:['Denzel Washington','dakot Fanning'],
+            stars: 5,
+            genres: ['Crime', 'Action','Thriller'],
+            interpreter: ['Rocky'],
+            tags: ['Action','Crime'],
+            description: 'Since giving up his life as a government assassin, Robert McCall finds solace in serving justice on behalf of the oppressed. Now living in Southern Italy, he soon discovers his new friends are under the control of local crime bosses. As events turn deadly, McCall becomes their protector by taking on the mafia.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2023',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4'
         },
         'road house': {
             image: '/images/latest/05.jpg',
@@ -4546,8 +4903,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_ROADHOUSE.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_ROADHOUSE.mp4'
         },
         'little man': {
             image: '/images/latest/04.jpg',
@@ -4563,8 +4920,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2006',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_LITLE%20MAN.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_LITLE%20MAN.mp4'
         },
         'baby day out': {
             image: '/images/latest/04.jpg',
@@ -4580,15 +4937,16 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1994',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baby%20Day%20Out.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baby%20Day%20Out.mp4'
         },
         'gods must be crazy': {
             image: '/images/latest/06.jpg',
             title: 'Gods Must Be Crazy',
             slug: 'Gods-Must-Be-Crazy_Yanga',
             rating: 6.9,
-            actor:['Marius Weyers','Sandra Prinsloo'],            stars: 3.5,
+            stars: 3.5,
+            actor:['Marius Weyers','Sandra Prinsloo'],            
             genres: ['Action', 'Comedy',],
             interpreter: ['Yanga'],
             tags: ['Drama','Thriller'],
@@ -4596,8 +4954,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1980',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sagatwa_%20The%20Gods%20Must%20Be%20Crazy.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sagatwa_%20The%20Gods%20Must%20Be%20Crazy.mp4'
         },
         'godzilla x kong': {
             image: '/images/latest/08.jpg',
@@ -4613,8 +4971,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%20x%20Kong_%20The%20New%20Empire.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%20x%20Kong_%20The%20New%20Empire.mp4'
         },
         'godzilla: king of monsters': {
             image: '/images/pk/01.jpg',
@@ -4630,8 +4988,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%202_%20King%20of%20the%20Monsters.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%202_%20King%20of%20the%20Monsters.mp4'
         },
         '97 minutes': {
             image: '/images/dylan/13.jpg',
@@ -4647,8 +5005,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/97%20minutes.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/97%20minutes.mp4'
         },
         'falcon rising': {
             image: '/images/pk/02.jpg',
@@ -4664,8 +5022,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Falcon%20Rising.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Falcon%20Rising.mp4'
         },
         'batman vs superman: dawn of justice': {
             image: '/images/pk/03.jpg',
@@ -4681,8 +5039,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Batman%20v%20Superman_%20Dawn%20of%20Justice.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Batman%20v%20Superman_%20Dawn%20of%20Justice.mp4'
         },
         'the dark tower': {
             image: '/images/pk/04.jpg',
@@ -4698,8 +5056,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Dark%20Tower.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Dark%20Tower.mp4'
         },
         'act of vengeance': {
             image: '/images/pk/05.jpg',
@@ -4715,8 +5073,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Acts%20of%20Vengeance.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Acts%20of%20Vengeance.mp4'
         },
         'fifty shades of grey': {
             image: '/images/pk/06.jpg',
@@ -4732,8 +5090,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Fifty%20Shades%20of%20Grey.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Fifty%20Shades%20of%20Grey.mp4'
         },
         'the last airbender': {
             image: '/images/pk/07.jpg',
@@ -4749,8 +5107,9 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoType: 'video/mp4',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Last%20Airbender.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Last%20Airbender.mp4'
         },
         'the maze runner': {
             image: '/images/pk/09.jpg',
@@ -4766,8 +5125,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Maze%20Runner.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Maze%20Runner.mp4'
         },
         'aquaman': {
             image: '/images/pk/10.jpg',
@@ -4783,8 +5142,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Aquaman%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Aquaman%201.mp4'
         },
         'the old guard 2': {
             image: '/images/favorite/g2.jpg',
@@ -4800,8 +5159,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Old%20Guard%202.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Old%20Guard%202.mp4'
         },
         'wonder woman': {
             image: '/images/pk/11.jpg',
@@ -4817,8 +5176,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wonder%20Woman%201.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wonder%20Woman%201.mp4'
         },
         'the bfg': {
             image: '/images/pk/12.jpg',
@@ -4834,8 +5193,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20BFG.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20BFG.mp4'
         },
         'operation dumbo drop': {
             image: '/images/favorite/g3.jpg',
@@ -4851,8 +5210,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1995',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Operation%20Dumbo%20Drop.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Operation%20Dumbo%20Drop.mp4'
         },
         'chips': {
             image: '/images/favorite/g4.jpg',
@@ -4868,8 +5227,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_CHIPS.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_CHIPS.mp4'
         },
         'Pirates of the caribbean': {
             image: '/images/pk/08.jpg',
@@ -4885,196 +5244,133 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2003',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Pirateof%20Black%20peals.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Pirateof%20Black%20peals.mp4'
         },
-        'bon appetit ep1': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 1',
-            slug: "Bon-Appetit-Your-Majesty-Ep-1_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+
+        'siren ep1': {
+            image: '/images/episodes/siren.jpg',
+            title: 'Siren Ep 1',
+            slug: "Siren-Ep-1_Gaheza",
+            rating: 7.6,
+            actor:['Eline Powell','Alex Roe',],
+            stars: 5,
+            genres: ['Drama','Sci-fi'],
+            interpreter: ['Gaheza'],
+            tags: ['Fantasy', 'Sci-fi'],
+            description: 'The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.',
             age: '12+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2018',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E01.mp4'
         },
-        'bon appetit ep2': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 2',
-            slug: "Bon-Appetit-Your-Majesty-Ep-2_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+
+        'siren ep2': {
+            image: '/images/episodes/siren.jpg',
+            title: 'Siren Ep 2',
+            slug: "Siren-Ep-2_Gaheza",
+            rating: 7.6,
+            actor:['Eline Powell','Alex Roe',],
+            stars: 5,
+            genres: ['Drama','Sci-fi'],
+            interpreter: ['Gaheza'],
+            tags: ['Fantasy', 'Sci-fi'],
+            description: 'The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.',
             age: '12+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2018',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E02.mp4'
         },
-        'bon appetit ep3': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 3',
-            slug: "Bon-Appetit-Your-Majesty-Ep-3_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+
+
+        'siren ep3': {
+            image: '/images/episodes/siren.jpg',
+            title: 'Siren Ep 3',
+            slug: "Siren-Ep-3_Gaheza",
+            rating: 7.6,
+            actor:['Eline Powell','Alex Roe',],
+            stars: 5,
+            genres: ['Drama','Sci-fi'],
+            interpreter: ['Gaheza'],
+            tags: ['Fantasy', 'Sci-fi'],
+            description: 'The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.',
             age: '12+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2018',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E03.mp4'
         },
-        'bon appetit ep4': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 4',
-            slug: "Bon-Appetit-Your-Majesty-Ep-5_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+        'siren ep4': {
+            image: '/images/episodes/siren.jpg',
+            title: 'Siren Ep 4',
+            slug: "Siren-Ep-4_Gaheza",
+            rating: 7.6,
+            actor:['Eline Powell','Alex Roe',],
+            stars: 5,
+            genres: ['Drama','Sci-fi'],
+            interpreter: ['Gaheza'],
+            tags: ['Fantasy', 'Sci-fi'],
+            description: 'The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.',
             age: '12+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2018',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E04.mp4'
         },
-        'bon appetit ep5': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 5',
-            slug: "Bon-Appetit-Your-Majesty-Ep-5_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+        'siren ep5': {
+            image: '/images/episodes/siren.jpg',
+            title: 'Siren Ep 5',
+            slug: "Siren-Ep-5_Gaheza",
+            rating: 7.6,
+            actor:['Eline Powell','Alex Roe',],
+            stars: 5,
+            genres: ['Drama','Sci-fi'],
+            interpreter: ['Gaheza'],
+            tags: ['Fantasy', 'Sci-fi'],
+            description: 'The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.',
             age: '12+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2018',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E05.mp4'
         },
-        'bon appetit ep6': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 6',
-            slug: "Bon-Appetit-Your-Majesty-Ep-6_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+        'siren ep6': {
+            image: '/images/episodes/siren.jpg',
+            title: 'Siren Ep 6',
+            slug: "Siren-Ep-6_Gaheza",
+            rating: 7.6,
+            actor:['Eline Powell','Alex Roe',],
+            stars: 5,
+            genres: ['Drama','Sci-fi'],
+            interpreter: ['Gaheza'],
+            tags: ['Fantasy', 'Sci-fi'],
+            description: 'The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.',
             age: '12+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2018',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E06.mp4'
         },
-        'bon appetit ep7': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 7',
-            slug: "Bon-Appetit-Your-Majesty-Ep-7_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
+        'siren ep7': {
+            image: '/images/episodes/siren.jpg',
+            title: 'Siren Ep 7',
+            slug: "Siren-Ep-7_Gaheza",
+            rating: 7.6,
+            actor:['Eline Powell','Alex Roe',],
+            stars: 5,
+            genres: ['Drama','Sci-fi'],
+            interpreter: ['Gaheza'],
+            tags: ['Fantasy', 'Sci-fi'],
+            description: 'The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.',
             age: '12+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2018',
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E07.mp4'
         },
-        'bon appetit ep8': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 8',
-            slug: "Bon-Appetit-Your-Majesty-Ep-8_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
-            age: '12+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bon appetit ep9': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 9',
-            slug: "Bon-Appetit-Your-Majesty-Ep-9_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
-            age: '12+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bon appetit ep10': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 10',
-            slug: "Bon-Appetit-Your-Majesty-Ep-10_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
-            age: '12+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bon appetit ep11': {
-            image: '/images/episodes/bbt1.jpg',
-            title: 'Bon Appetit Your Majesty Ep 11',
-            slug: "Bon-Appetit-Your-Majesty-Ep-11_Rocky",
-            rating: 7.1,
-            actor:['Lee Chea-min','Kang Hanna'],
-            stars: 4.5,
-            genres: ['Drama', 'Sci-fi', 'Fantasy',],
-            interpreter: ['Rocky'],
-            tags: ['korea', 'Joseon', 'Drama'],
-            description: 'After time traveling to the Joseon era, a talented chef meets a tyrant king. Her modern dishes captivate his palate, but royal challenges await her.',
-            age: '12+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
+
         'messiah ep1': {
             image: '/images/episodes/pb1.jpg',
             title: 'Messiah Ep 1',
@@ -5089,8 +5385,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep2': {
             image: '/images/episodes/pb1.jpg',
@@ -5106,8 +5402,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep3': {
             image: '/images/episodes/pb1.jpg',
@@ -5123,8 +5419,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep4': {
             image: '/images/episodes/pb1.jpg',
@@ -5140,8 +5436,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep5': {
             image: '/images/episodes/pb1.jpg',
@@ -5157,8 +5453,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep6': {
             image: '/images/episodes/pb1.jpg',
@@ -5174,8 +5470,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep7': {
             image: '/images/episodes/pb1.jpg',
@@ -5191,8 +5487,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'messiah ep8': {
             image: '/images/episodes/pb1.jpg',
@@ -5208,893 +5504,392 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
 
-        'shooter s1 ep1': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 1',
-            slug:"Shooter-S1-Ep-1_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep2': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 2',
-            slug:"Shooter-S1-Ep-2_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep3': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 3',
-            slug:"Shooter-S1-Ep-3_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep4': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 4',
-            slug:"Shooter-S1-Ep-4_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep5': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 5',
-            slug:"Shooter-S1-Ep-5_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep6': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 6',
-            slug: "Shooter-S1-Ep-6_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep7': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 7',
-            slug:"Shooter-S1-Ep-7_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep8': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 8',
-            slug:"Shooter-S1-Ep-8_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep9': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 9',
-            slug:"Shooter-S1-Ep-9_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep10': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 10',
-            slug:"Shooter-S1-Ep-10_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep11': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 11',
-            slug:"Shooter-S1-Ep-11_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep12': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 12',
-            slug:"Shooter-S1-Ep-12_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep13': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 13',
-            slug:"Shooter-S1-Ep-13_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep14': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 14',
-            slug:"Shooter-S1-Ep-14_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep15': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 15',
-            slug:"Shooter-S1-Ep-15_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 ep16': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 16',
-            slug:"Shooter-S1-Ep-16_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s1 e17': {
-            image: '/images/episodes/fe2.jpg',
-            title: 'Shooter S1 Ep 17',
-            slug:"Shooter-S1-Ep-17_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep1': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 1',
-            slug:"Shooter-S2-Ep-1_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep2': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 2',
-            slug:"Shooter-S2-Ep-2_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep3': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 3',
-            slug:"Shooter-S2-Ep-3_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep3b': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 3b',
-            slug:"Shooter-S2-Ep-3b_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep4': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 4',
-            slug:"Shooter-S2-Ep-4_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep5': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 5',
-            slug:"Shooter-S2-Ep-5_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep6': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 6',
-            slug:"Shooter-S2-Ep-6_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep7': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 7',
-            slug:"Shooter-S2-Ep-7_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep8': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 8',
-            slug:"Shooter-S2-Ep-8_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s2 ep8b': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S2 Ep 8b',
-            slug:"Shooter-S2-Ep-8b_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep1': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 1',
-            slug:"Shooter-S3-Ep-1_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep2': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 2',
-            slug:"Shooter-S3-Ep-2_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep3': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 3',
-            slug:"Shooter-S3-Ep-3_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep3b': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 3b',
-            slug:"Shooter-S3-Ep-3b_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep3c': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 3c',
-            slug:"Shooter-S3-Ep-3c_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep4': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 4',
-            slug:"Shooter-S3-Ep-4_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep5': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 5',
-            slug:"Shooter-S3-Ep-5_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep6': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 6',
-            slug:"Shooter-S3-Ep-6_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep7': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 7',
-            slug:"Shooter-S3-Ep-7_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep8': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 8',
-            slug:"Shooter-S3-Ep-8_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep8b': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 8b',
-            slug:"Shooter-S3-Ep-8b_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep9': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 9',
-            slug:"Shooter-S3-Ep-9_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep10': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 10',
-            slug:"Shooter-S3-Ep-10_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep11': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 11',
-            slug:"Shooter-S3-Ep-11_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep12': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 12',
-            slug:"Shooter-S3-Ep-12_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'shooter s3 ep13': {
-            image: '/images/episodes/fe3.jpg',
-            title: 'Shooter S3 Ep 13',
-            slug:"Shooter-S3-Ep-13_Rocky",
-            rating: 7.9,
-            actor:['Ryan Phillippe','Shantel VanSanten'],
-            stars: 5,
-            genres: ['Action', 'War & Politics', 'Adventure'],
-            interpreter: ['Rocky'],
-            tags: ['Action', 'War','Drama'],
-            description: ' Bob Lee Swagger is an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'the long road home s1 ep 1': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 1',
-            slug:"The Long Road Home-S1-Ep-1_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+        'the 100 ep1': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 1',
+            slug: "The-100-Ep-1_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
-            seriesId: 'the long road home',
-            seriesTitle: 'The Long Road Home',
-            season: '1',
-            episodeNumber: 1
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
-        'the long road home s1 ep 2': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 2',
-            slug:"The Long Road Home-S1-Ep-2_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+
+        'the 100 ep2': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 2',
+            slug: "The-100-Ep-2_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
-            seriesId: 'the long road home',
-            seriesTitle: 'The Long Road Home',
-            season: '1',
-            episodeNumber: 2
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
-        'the long road home s1 ep 3': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 3',
-            slug:"The Long Road Home-S1-Ep-3_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+
+
+        'the 100 ep3': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 3',
+            slug: "The-100-Ep-3_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
-            seriesId: 'the long road home',
-            seriesTitle: 'The Long Road Home',
-            season: '1',
-            episodeNumber: 3
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
-        'the long road home s1 ep 4': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 4',
-            slug:"The Long Road Home-S1-Ep-4_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+
+
+        'the 100 ep4': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 4',
+            slug: "The-100-Ep-4_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4',
-            seriesId: 'the long road home',
-            seriesTitle: 'The Long Road Home',
-            season: '1',
-            episodeNumber: 4
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
-        'the long road home s1 ep 5': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 5',
-            slug:"The Long Road Home-S1-Ep-5_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+
+
+        'the 100 ep5': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 5',
+            slug: "The-100-Ep-5_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
-        'the long road home s1 ep 6': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 6',
-            slug:"The Long Road Home-S1-Ep-6_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+
+
+        'the 100 ep6': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 6',
+            slug: "The-100-Ep-6_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
-        'the long road home s1 ep 7': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 7',
-            slug:"The Long Road Home-S1-Ep-7_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+
+        'the 100 ep7': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 7',
+            slug: "The-100-Ep-7_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
-        'the long road home s1 ep 8': {
-            image: '/images/episodes/tlr.jpg',
-            title: 'The Long Road Home S1 Ep 8',
-            slug:"The Long Road Home-S1-Ep-8_Junior-Git",
-            rating: 7.2,
-            actor:['E.J Bonilla','Micheal Kelly'],
+
+
+        'the 100 ep8': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 8',
+            slug: "The-100-Ep-8_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
             stars: 4.5,
-            genres: ['War', 'Politics', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['War','Drama'],
-            description: ' Relive a heroic fight for survival during the Iraq War, when the 1st Cavalry Division from Fort Hood was ferociously ambushed on April 4, 2004, in Sadr City, Baghdad — a day that came to be known in military annals as “Black Sunday”.',
-            age: '10+',
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
             duration: 'Episode',
-            year: '2017',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
         },
+
+
+        'the 100 ep9': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 9',
+            slug: "The-100-Ep-9_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
+            stars: 4.5,
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
+        },
+
+
+        'the 100 ep10': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 10',
+            slug: "The-100-Ep-10_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
+            stars: 4.5,
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
+        },
+
+
+        'the 100 ep11': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 11',
+            slug: "The-100-Ep-11_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
+            stars: 4.5,
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
+        },
+
+
+        'the 100 ep12': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 12',
+            slug: "The-100-Ep-12_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
+            stars: 4.5,
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
+        },
+
+
+        'the 100 ep13': {
+            image: '/images/episodes/the 100.jpg',
+            title: 'The 100 Ep 13',
+            slug: "The-100-Ep-13_Sankara",
+            rating: 7.6,
+            actor:['Eliza Taylor','Bob Morley'],
+            stars: 4.5,
+            genres: ['Sci-fi','Action'],
+            interpreter: ['Sankara'],
+            tags: ['The 100', 'Adventure','Crime'],
+            description: '100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won\'t last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2014',
+            videoLink: '',
+            downloadLink: ''
+        },
+
+        'citadel ep1': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 1',
+            slug: "Citadel-Ep-1_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'citadel ep2': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 2',
+            slug: "Citadel-Ep-2_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'citadel ep3': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 3',
+            slug: "Citadel-Ep-3_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'citadel ep4': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 4',
+            slug: "Citadel-Ep-4_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'citadel ep5': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 5',
+            slug: "Citadel-Ep-5_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'citadel ep6': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 6',
+            slug: "Citadel-Ep-6_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'citadel ep7': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 7',
+            slug: "Citadel-Ep-7_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'citadel ep8': {
+            image: '/images/episodes/citadel.jpg',
+            title: 'Citadel Ep 8',
+            slug: "Citadel-Ep-8_Rocky",
+            rating: 7.6,
+            actor:['Richard Madden','Priyanka Chopra Jonas'],
+            stars: 4.5,
+            genres: ['Drama','Action','Crime'],
+            interpreter: ['Rocky'],
+            tags: ['Citadel', 'Adventure','Crime'],
+            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
+            age: '12+',
+            duration: 'Episode',
+            year: '2023',
+            videoLink: '',
+            downloadLink: ''
+        },
+
+
         'the manipulated s1 ep 1': {
             image: '/images/episodes/m1.jpg',
             title: 'The Manipulated S1 Ep 1',
@@ -6109,8 +5904,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 2': {
             image: '/images/episodes/m1.jpg',
@@ -6126,8 +5921,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 3': {
             image: '/images/episodes/m1.jpg',
@@ -6143,8 +5938,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 4': {
             image: '/images/episodes/m1.jpg',
@@ -6160,8 +5955,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 5': {
             image: '/images/episodes/m1.jpg',
@@ -6177,8 +5972,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 6': {
             image: '/images/episodes/m1.jpg',
@@ -6194,8 +5989,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'the manipulated s1 ep 7': {
             image: '/images/episodes/m1.jpg',
@@ -6211,281 +6006,234 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
-        'bad influencer s1 ep1': {
-            image: '/images/episodes/bad.jpg',
-            title: 'Bad Influencer S1 Ep 1',
-            slug:"Bad-Influencer-S1-Ep-1_Rocky",
-            rating: 7.9,
-            actor:['Jo-Anne Reyneke','Cindy Mahlangu'],
-            stars: 5,
-            genres: ['Crime', 'Drama'],
-            interpreter: ['Rocky'],
-            tags: ['South africa','Drama', 'Social media'],
-            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bad influencer s1 ep2': {
-            image: '/images/episodes/bad.jpg',
-            title: 'Bad Influencer S1 Ep 2',
-            slug:"Bad-Influencer-S1-Ep-2_Rocky",
-            rating: 7.9,
-            actor:['Jo-Anne Reyneke','Cindy Mahlangu'],
-            stars: 5,
-            genres: ['Crime', 'Drama'],
-            interpreter: ['Rocky'],
-            tags: ['South africa','Drama', 'Social media'],
-            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bad influencer s1 ep3': {
-            image: '/images/episodes/bad.jpg',
-            title: 'Bad Influencer S1 Ep 3',
-            slug:"Bad-Influencer-S1-Ep-3_Rocky",
-            rating: 7.9,
-            actor:['Jo-Anne Reyneke','Cindy Mahlangu'],
-            stars: 5,
-            genres: ['Crime', 'Drama'],
-            interpreter: ['Rocky'],
-            tags: ['South africa','Drama', 'Social media'],
-            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bad influencer s1 ep4': {
-            image: '/images/episodes/bad.jpg',
-            title: 'Bad Influencer S1 Ep 4',
-            slug:"Bad-Influencer-S1-Ep-4_Rocky",
-            rating: 7.9,
-            actor:['Jo-Anne Reyneke','Cindy Mahlangu'],
-            stars: 5,
-            genres: ['Crime', 'Drama'],
-            interpreter: ['Rocky'],
-            tags: ['South africa','Drama', 'Social media'],
-            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bad influencer s1 ep5': {
-            image: '/images/episodes/bad.jpg',
-            title: 'Bad Influencer S1 Ep 5',
-            slug:"Bad-Influencer-S1-Ep-5_Rocky",
-            rating: 7.9,
-            actor:['Jo-Anne Reyneke','Cindy Mahlangu'],
-            stars: 5,
-            genres: ['Crime', 'Drama'],
-            interpreter: ['Rocky'],
-            tags: ['South africa','Drama', 'Social media'],
-            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bad influencer s1 ep6': {
-            image: '/images/episodes/bad.jpg',
-            title: 'Bad Influencer S1 Ep 6',
-            slug:"The Manipulated-S1-Ep-6_Junior-Git",
-            rating: 7.9,
-            actor:['Jo-Anne Reyneke','Cindy Mahlangu'],
-            stars: 5,
-            genres: ['Crime', 'Drama'],
-            interpreter: ['Rocky'],
-            tags: ['South africa','Drama', 'Social media'],
-            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'bad influencer s1 ep7': {
-            image: '/images/episodes/bad.jpg',
-            title: 'Bad Influencer S1 Ep 7',
-            slug:"Bad-Influencer-S1-Ep-7_Rocky",
-            rating: 7.9,
-            actor:['Jo-Anne Reyneke','Cindy Mahlangu'],
-            stars: 5,
-            genres: ['Crime', 'Drama'],
-            interpreter: ['Rocky'],
-            tags: ['South africa','Drama', 'Social media'],
-            description: 'A single mother — and luxury bag counterfeiter — finds herself teaming up with a self-obsessed influencer to sell her bags and scrape her way out of debt.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'tempest s1 ep1': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 1',
-            slug:"Tempest-S1-Ep-1_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+
+        'the witcher s1 ep1': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 1',
+            slug:"The-Witcher-S1-Ep-1_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep2': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 2',
-            slug: "Tempest-S1-Ep-2_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+        'the witcher s1 ep2': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 2',
+            slug:"The-Witcher-S1-Ep-2_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep3': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 3',
-            slug: "Tempest-S1-Ep-3_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+        'the witcher s1 ep3': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 3',
+            slug:"The-Witcher-S1-Ep-3_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep4': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 4',
-            slug: "Tempest-S1-Ep-4_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+        'the witcher s1 ep4': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 4',
+            slug:"The-Witcher-S1-Ep-4_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep5': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 5',
-            slug: "Tempest-S1-Ep-5_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+        'the witcher s1 ep5': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 5',
+            slug:"The-Witcher-S1-Ep-5_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep6': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 6',
-            slug: "Tempest-S1-Ep-6_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+        'the witcher s1 ep6': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 6',
+            slug:"The-Witcher-S1-Ep-6_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep7': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 7',
-            slug: "Tempest-S1-Ep-7_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+        'the witcher s1 ep7': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 7',
+            slug:"The-Witcher-S1-Ep-7_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep8': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 8',
-            slug: "Tempest-S1-Ep-8_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+        'the witcher s1 ep8': {
+            image: '/images/episodes/the witcher.jpg',
+            title: 'The Witcher S1 Ep 8',
+            slug:"The-Witcher-S1-Ep-8_Didier",
+            rating: 7.4,
+            actor:['Henry Cavill','Anya Chalotra'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Action', 'Drama'],
+            interpreter: ['Didier'],
+            tags: ['Adventure','Drama'],
+            description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2019',
+            videoLink: '',
+            downloadLink: ''
         },
-        'tempest s1 ep9': {
-            image: '/images/episodes/temp.jpg',
-            title: 'Tempest S1 Ep 9',
-            slug: "Tempest-S1-Ep-9_Junior-Git",
-            rating: 7.6,
-            actor:['Gianna Jun','Gang Dong-Won'],
+
+        'the war between land and sea s1 ep1': {
+            image: '/images/episodes/the war between land and sea.jpg',
+            title: 'The War Between Land and Water S1 Ep 1',
+            slug:"The-War-Between-Land-and-Water-S1-Ep-1_Perfect",
+            rating: 7.4,
+            actor:['Russell Tovey','Gugu Mbatha-Raw'],
             stars: 4.5,
-            genres: ['Mystery', 'Drama'],
-            interpreter: ['Junior Giti'],
-            tags: ['Korean','Drama', 'Mystery'],
-            description: 'Seo Munju, a highly accomplished diplomat and former ambassador to the United Nations, and Sanho, an international special agent shrouded in a veil of secrets, race to uncover the truth behind an attack that threatens the future stability of the Korean peninsula.',
+            genres: ['Sci-fi', 'Fantasy'],
+            interpreter: ['Perfect'],
+            tags: ['Action','Drama'],
+            description: 'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
+        'the war between land and sea s1 ep2': {
+            image: '/images/episodes/the war between land and sea.jpg',
+            title: 'The War Between Land and Water S1 Ep 2',
+            slug:"The-War-Between-Land-and-Water-S1-Ep-2_Perfect",
+            rating: 7.4,
+            actor:['Russell Tovey','Gugu Mbatha-Raw'],
+            stars: 4.5,
+            genres: ['Sci-fi', 'Fantasy'],
+            interpreter: ['Perfect'],
+            tags: ['Action','Drama'],
+            description: 'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'the war between land and sea s1 ep3': {
+            image: '/images/episodes/the war between land and sea.jpg',
+            title: 'The War Between Land and Water S1 Ep 3',
+            slug:"The-War-Between-Land-and-Water-S1-Ep-3_Perfect",
+            rating: 7.4,
+            actor:['Russell Tovey','Gugu Mbatha-Raw'],
+            stars: 4.5,
+            genres: ['Sci-fi', 'Fantasy'],
+            interpreter: ['Perfect'],
+            tags: ['Action','Drama'],
+            description: 'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'the war between land and sea s1 ep4': {
+            image: '/images/episodes/the war between land and sea.jpg',
+            title: 'The War Between Land and Water S1 Ep 4',
+            slug:"The-War-Between-Land-and-Water-S1-Ep-4_Perfect",
+            rating: 7.4,
+            actor:['Russell Tovey','Gugu Mbatha-Raw'],
+            stars: 4.5,
+            genres: ['Sci-fi', 'Fantasy'],
+            interpreter: ['Perfect'],
+            tags: ['Action','Drama'],
+            description: 'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: '',
+            downloadLink: ''
+        },
+        'the war between land and sea s1 ep5': {
+            image: '/images/episodes/the war between land and sea.jpg',
+            title: 'The War Between Land and Water S1 Ep 5',
+            slug:"The-War-Between-Land-and-Water-S1-Ep-5_Perfect",
+            rating: 7.4,
+            actor:['Russell Tovey','Gugu Mbatha-Raw'],
+            stars: 4.5,
+            genres: ['Sci-fi', 'Fantasy'],
+            interpreter: ['Perfect'],
+            tags: ['Action','Drama'],
+            description: 'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
+            age: '10+',
+            duration: 'Episode',
+            year: '2025',
+            videoLink: '',
+            downloadLink: ''
+        },
+
+
 
         'the copenhagen test s1 ep1': {
             image: '/images/episodes/copen.jpg',
@@ -6501,8 +6249,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E01.mp4'
         },
         'the copenhagen test s1 ep2': {
             image: '/images/episodes/copen.jpg',
@@ -6518,8 +6266,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E02.mp4'
         },
         'the copenhagen test s1 ep3': {
             image: '/images/episodes/copen.jpg',
@@ -6535,8 +6283,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E03.mp4'
         },
         'the copenhagen test s1 ep4': {
             image: '/images/episodes/copen.jpg',
@@ -6552,8 +6300,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E04.mp4'
         },
         'the copenhagen test s1 ep5': {
             image: '/images/episodes/copen.jpg',
@@ -6569,8 +6317,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E05.mp4'
         },
         'the copenhagen test s1 ep6': {
             image: '/images/episodes/copen.jpg',
@@ -6586,8 +6334,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E06.mp4'
         },
         'the copenhagen test s1 ep7': {
             image: '/images/episodes/copen.jpg',
@@ -6603,8 +6351,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E07.mp4'
         },
         'the copenhagen test s1 ep8': {
             image: '/images/episodes/copen.jpg',
@@ -6620,8 +6368,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E08_%20Final.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E08_%20Final.mp4'
         },
         'six s1 ep1': {
             image: '/images/episodes/six.jpg',
@@ -6637,8 +6385,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E01.mp4'
         },
         'six s1 ep2': {
             image: '/images/episodes/six.jpg',
@@ -6654,8 +6402,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E02.mp4'
         },
         'six s1 ep3': {
             image: '/images/episodes/six.jpg',
@@ -6671,8 +6419,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E03.mp4'
         },
         'six s1 ep4': {
             image: '/images/episodes/six.jpg',
@@ -6688,8 +6436,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E04.mp4'
         },
         'six s1 ep5': {
             image: '/images/episodes/six.jpg',
@@ -6705,8 +6453,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E05.mp4'
         },
         'six s1 ep6': {
             image: '/images/episodes/six.jpg',
@@ -6722,8 +6470,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E06.mp4'
         },
         'six s1 ep7': {
             image: '/images/episodes/six.jpg',
@@ -6739,8 +6487,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E07.mp4'
         },
         'six s1 ep8': {
             image: '/images/episodes/six.jpg',
@@ -6756,195 +6504,77 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2018',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E08_%20Final.mp4',
+            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E08_%20Final.mp4'
         },
-        'twelve s1 ep1': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 1',
-            slug:"Twelve-S1-Ep-1_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+
+        'the witcher blood orgin s1 ep1': {
+            image: '/images/episodes/the witcher-origin.jpg',
+            title: 'The Witcher Blood Orgin S1 Ep 1',
+            slug:"The-Witcher-Blood-Orgin-S1-Ep-1_Perfect",
+            rating: 8.0,
+            actor:['Sophia Brown','Laurence O\'Fuarain'],
+            stars: 4.5,
+            genres: ['Documentary', 'TV Movie'],
             interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            tags: ['Documentary','TV Movie'],
+            description:'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2022',
+            videoLink: '',
+            downloadLink: ''
         },
-        'twelve s1 ep2': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 2',
-            slug:"Twelve-S1-Ep-2_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+        'the witcher blood orgin s1 ep2': {
+            image: '/images/episodes/the witcher-origin.jpg',
+            title: 'The Witcher Blood Orgin S1 Ep 2',
+            slug:"The-Witcher-Blood-Orgin-S1-Ep-2_Perfect",
+            rating: 8.0,
+            actor:['Sophia Brown','Laurence O\'Fuarain'],
+            stars: 4.5,
+            genres: ['Documentary', 'TV Movie'],
             interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            tags: ['Documentary','TV Movie'],
+            description:'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2022',
+            videoLink: '',
+            downloadLink: ''
         },
-        'twelve s1 ep3': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 3',
-            slug:"Twelve-S1-Ep-3_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+        'the witcher blood orgin s1 ep3': {
+            image: '/images/episodes/the witcher-origin.jpg',
+            title: 'The Witcher  Blood Orgin S1 Ep 3',
+            slug:"The-Witcher-Blood-Orgin-S1-Ep-3_Perfect",
+            rating: 8.0,
+            actor:['Sophia Brown','Laurence O\'Fuarain'],
+            stars: 4.5,
+            genres: ['Documentary', 'TV Movie'],
             interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            tags: ['Documentary','TV Movie'],
+            description:'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2022',
+            videoLink: '',
+            downloadLink: ''
         },
-        'twelve s1 ep4': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 4',
-            slug:"Twelve-S1-Ep-4_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
+        'the witcher blood orgin s1 ep4': {
+            image: '/images/episodes/the witcher-origin.jpg',
+            title: 'The Witcher  Blood Orgin S1 Ep 4',
+            slug:"The-Witcher-Blood-Orgin-S1-Ep-4_Perfect",
+            rating: 8.0,
+            actor:['Sophia Brown','Laurence O\'Fuarain'],
+            stars: 4.5,
+            genres: ['Documentary', 'TV Movie'],
             interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
+            tags: ['Documentary','TV Movie'],
+            description:'When a fearsome and ancient species emerges from the ocean, dramatically revealing themselves to humanity, an international crisis is triggered. With the entire population at risk, UNIT step into action as the land and sea wage war.',
             age: '10+',
             duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'twelve s1 ep5': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 5',
-            slug:"Twelve-S1-Ep-5_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
-            interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'twelve s1 ep6': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 6',
-            slug:"Twelve-S1-Ep-6_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
-            interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'twelve s1 ep7': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 7',
-            slug:"Twelve-S1-Ep-7_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
-            interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'twelve s1 ep8': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 8',
-            slug:"Twelve-S1-Ep-8_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
-            interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'twelve s1 ep9': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 9',
-            slug:"Twelve-S1-Ep-9_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
-            interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'twelve s1 ep10': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 10',
-            slug:"Twelve-S1-Ep-10_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
-            interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
-        },
-        'twelve s1 ep11': {
-            image: '/images/episodes/twelve.jpg',
-            title: 'Twelve S1 Ep 11',
-            slug:"Twelve-S1-Ep-11_Perfect",
-            rating: 7.0,
-            actor:['Ma Dong-Seok','Park Hyung-Sik'],
-            stars: 4,
-            genres: ['Fantasy', 'Sci-fi', 'Adventure'],
-            interpreter: ['Perfect'],
-            tags: ['Adventure','Action', 'Drama'],
-            description:' A group of heroes, each embodying one of the 12 zodiac signs, battles to defend the Korean Peninsula from malevolent spirits.',
-            age: '10+',
-            duration: 'Episode',
-            year: '2025',
-            videoLink: 'https://videopress.com/embed/Ohws8y572KE',
-            downloadLink: 'https://cdn.example.com/download/mission-impossible-1996.mp4'
+            year: '2022',
+            videoLink: '',
+            downloadLink: ''
         },
 
     };
@@ -7362,7 +6992,8 @@ document.addEventListener("click", function (e) {
 
         // Step 2: Extract the actual video URL and download URL from the data
         const videoUrl = data.videoLink || data.r2Video;
-        const downloadUrl = data.downloadLink || data.r2Download;
+        const fileName = (data.downloadLink || data.r2Download).split("/").pop();
+        const downloadUrl = "/download/" + fileName;
         let normalizedVideoUrl = videoUrl || '';
         try {
             normalizedVideoUrl = encodeURI(decodeURI(normalizedVideoUrl));

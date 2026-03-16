@@ -34,6 +34,11 @@
   <link rel="dns-prefetch" href="https://videopress.com" />
   <link rel="preconnect" href="https://stackpath.bootstrapcdn.com" />
   <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com" />
+  <link rel="preconnect" href="https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev" crossorigin />
+  <link rel="dns-prefetch" href="https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev" />
+  <!-- Optimize connection setup for Cloudflare R2 video storage -->
+  <link rel="preconnect" href="https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev" crossorigin />
+  <link rel="dns-prefetch" href="https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev" />
 
   <!-- FAVICON -->
   <link rel="icon" href="/favicon.png" sizes="192x192" type="image/png">
@@ -54,6 +59,11 @@
   <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 
   <style>
+    :root {
+      --watch-accent: #00a9ff;
+      --watch-accent-soft: rgba(0, 169, 255, 0.35);
+    }
+
     /* Ensure page uses the same dark canvas as the overlay */
     body {
       background: #000000 !important;
@@ -297,6 +307,335 @@
       display: block !important;
       visibility: visible !important;
     }
+
+/* =============================== */
+/* PLAYER BASE                     */
+/* =============================== */
+
+.video-player-container.watch-player{
+position:relative;
+width:100%;
+background:#020d1a;
+overflow:hidden;
+border-radius:10px;
+}
+
+/* Desktop */
+@media (min-width:992px){
+.video-player-container.watch-player{
+height:430px;
+}
+}
+
+/* Mobile */
+@media (max-width:991px){
+.video-player-container.watch-player{
+aspect-ratio:16/9;
+height:auto;
+border-radius:0;
+}
+}
+
+/* VIDEO */
+
+.watch-video{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity .6s ease;
+}
+
+/* Fade-in when ready */
+
+.video-ready .watch-video{
+opacity:1;
+}
+
+/* =============================== */
+/* BIG CENTER PLAY BUTTON          */
+/* =============================== */
+
+.center-play{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:80px;
+height:80px;
+border-radius:50%;
+background:rgba(0,0,0,.6);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9;
+cursor:pointer;
+transition:opacity .3s ease;
+}
+
+.center-play i{
+font-size:32px;
+color:#fff;
+}
+
+.center-play.hidden{
+opacity:0;
+pointer-events:none;
+}
+
+/* =============================== */
+/* CONTROLS                        */
+/* =============================== */
+
+.watch-controls{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+padding:10px 16px;
+background:linear-gradient(to top,rgba(0,0,0,.95),rgba(0,0,0,.4),transparent);
+z-index:10;
+transition:opacity .3s ease;
+}
+
+.watch-controls.hidden{
+opacity:0;
+pointer-events:none;
+}
+
+.watch-controls-inner{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.watch-btn{
+background:transparent;
+border:none;
+color:#00a9ff;
+cursor:pointer;
+}
+
+.watch-btn i{
+font-size:15px;
+}
+
+.watch-spacer{
+flex:1;
+}
+
+.watch-time{
+font-family:monospace;
+font-size:13px;
+color:#00a9ff;
+}
+
+/* progress */
+
+.watch-progress{
+width:100%;
+height:6px;
+appearance:none;
+background:transparent;
+cursor:pointer;
+}
+
+/* volume */
+
+.watch-volume-slider{
+width:50px;
+height:4px;
+appearance:none;
+background:rgba(255,255,255,.3);
+border-radius:4px;
+}
+
+@media(max-width:768px){
+.watch-volume-slider{
+width:40px;
+}
+}
+
+/* =============================== */
+/* LOADING OVERLAY                 */
+/* =============================== */
+
+.watch-loading-overlay{
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:8;
+transition:opacity .3s ease;
+}
+
+.watch-loading-overlay.initial-mode{
+background:#020d1a;
+}
+
+.watch-loading-overlay.buffering-mode{
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(2px);
+}
+
+.watch-loading-overlay.is-hidden{
+opacity:0;
+pointer-events:none;
+}
+
+/* spinner */
+
+.watch-spinner{
+width:42px;
+height:42px;
+border-radius:50%;
+border:3px solid rgba(0,169,255,.35);
+border-top-color:#00a9ff;
+animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+to{transform:rotate(360deg)}
+}
+
+.watch-loading-text {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #00a9ff;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ===================== */
+/* CONTROLS              */
+/* ===================== */
+
+.watch-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 16px 14px;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.4),
+    transparent
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10; /* ALWAYS ABOVE */
+}
+
+.watch-controls-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.watch-btn {
+  border: none;
+  background: transparent;
+  color: #00a9ff;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.watch-btn i {
+  font-size: 15px;
+}
+
+.watch-time {
+  font-family: monospace;
+  font-size: 13px;
+  color: #00a9ff;
+}
+
+.watch-spacer {
+  flex: 1;
+}
+
+/* Progress */
+.watch-progress {
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Volume slider (compact) */
+.watch-volume-slider {
+  width: 55px;
+  height: 4px;
+  appearance: none;
+  background: rgba(255,255,255,0.25);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .watch-volume-slider {
+    width: 45px;
+  }
+}
+
+/* Animated dots */
+.watch-dots::after {
+  content: '';
+  display: inline-block;
+  width: 1.2em;
+  text-align: left;
+  animation: watch-dots-animation 1.5s steps(4, end) infinite;
+}
+
+@keyframes watch-dots-animation {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}
+
+.watch-loading-text{
+  margin-left: -30px;
+}
+.watch-loading-content{
+  margin-left: 11%;
+}
+
+/* timeline */
+
+.watch-progress{
+width:100%;
+height:6px;
+appearance:none;
+cursor:pointer;
+background:linear-gradient(to right,#0b4ea2 0%,#0b4ea2 var(--progress),#222 var(--progress),#222 100%);
+border-radius:3px;
+}
+
+/* slider thumb */
+
+.watch-progress::-webkit-slider-thumb{
+appearance:none;
+width:14px;
+height:14px;
+border-radius:50%;
+background:#0b4ea2;
+cursor:pointer;
+}
+
+.watch-progress::-moz-range-thumb{
+width:14px;
+height:14px;
+border-radius:50%;
+background:#0b4ea2;
+cursor:pointer;
+}
   </style>
 </head>
 
@@ -774,30 +1113,95 @@
 
         <div class="row">
 
-          <div class="col-lg-9">
+<div class="col-lg-9">
 
-            <div class="video-player-container">
-              
-              <!-- VideoPress iframe container -->
-              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                <!-- Replaced Jetpack VideoPress iframe with HTML5 video element -->
-                <!-- Maintain the same id and inline styles as the original iframe for compatibility -->
-                <video
-                  id="video-iframe"
-                  class="video-js"
-                  controls
-                  preload="auto"
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; display: block; z-index: 1;"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                >
-                  <source src="" type="video/mp4" />
-                </video>
-              </div>
+  <div class="video-player-container watch-player">
 
-            </div>
+    <div class="watch-player-inner">
 
+      <video
+        id="video-iframe"
+        class="watch-video"
+        preload="auto"
+        autoplay
+        playsinline
+      >
+        <source src="" type="video/mp4" />
+      </video>
+
+      <!-- Top Progress Bar -->
+      <div class="watch-progress-bar">
+        <div class="watch-progress-played"></div>
+      </div>
+<div class="center-play" id="centerPlay">
+<i class="fa fa-play"></i>
+</div>
+      <!-- Controls -->
+      <div class="watch-controls">
+
+        <div class="watch-controls-inner">
+
+          <button class="watch-btn watch-btn-play" type="button">
+            <i class="fa fa-play"></i>
+          </button>
+
+          <div class="watch-time">
+            <span class="watch-time-current">00:00</span>
+            <span>/</span>
+            <span class="watch-time-total">00:00</span>
           </div>
+
+          <div class="watch-spacer"></div>
+
+          <button class="watch-btn watch-btn-volume" type="button">
+            <i class="fa fa-volume-up"></i>
+          </button>
+
+          <input type="range"
+                 class="watch-volume-slider"
+                 min="0"
+                 max="1"
+                 step="0.05"
+                 value="1" />
+
+          <button class="watch-btn watch-btn-settings" type="button">
+            <i class="fa fa-cog"></i>
+          </button>
+
+          <button class="watch-btn watch-btn-pip" type="button">
+            <i class="fa fa-television"></i>
+          </button>
+
+          <button class="watch-btn watch-btn-fullscreen" type="button">
+            <i class="fa fa-expand"></i>
+          </button>
+
+        </div>
+
+        <input type="range"
+               class="watch-progress"
+               min="0"
+               max="100"
+               step="0.01"
+               value="0" />
+
+      </div>
+
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="watch-loading-overlay" id="watch-loading-overlay">
+      <div class="watch-loading-content">
+        <div class="watch-spinner"></div>
+        <div class="watch-loading-text">
+          Loading Movie<span class="watch-dots"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
           <div class="col-lg-3">
 
@@ -939,14 +1343,12 @@
               -->
 
               <div class="video-actions">
-
-
-                <button class="btn btn-outline btn-download" download>
-
+                <!-- New dedicated watch-page download button.
+                     Same visual classes, but a new id and no href.
+                     All behavior is handled in main.js via videoData. -->
+                <button id="downloadbtn" class="btn btn-outline btn-download" type="button" download>
                   <i class="fa fa-download mr-2"></i>Download
-
                 </button>
-
               </div>
 
             </div>
@@ -1923,6 +2325,331 @@
 
   <!-- Load main.js (includes watch page functionality) -->
   <script src="/main.js"></script>
+  
+  <script>
+
+(function(){
+
+const container = document.querySelector('.watch-player');
+const video = document.getElementById('video-iframe');
+const overlay = document.getElementById('watch-loading-overlay');
+
+const controls = document.querySelector('.watch-controls');
+const centerPlay = document.getElementById('centerPlay');
+
+const playBtn = document.querySelector('.watch-btn-play');
+const pipBtn = document.querySelector('.watch-btn-pip');
+
+const volumeSlider = document.querySelector('.watch-volume-slider');
+const volumeBtn = document.querySelector('.watch-btn-volume');
+
+const progress = document.querySelector('.watch-progress');
+const fullscreenBtn = document.querySelector('.watch-btn-fullscreen');
+
+const timeCurrent = document.querySelector('.watch-time-current');
+const timeTotal = document.querySelector('.watch-time-total');
+
+let hideTimer;
+let initialLoad = true;
+let savedVolume = 1;
+
+/* double tap detection */
+let lastTap = 0;
+
+/* ========================= */
+/* TIME FORMAT HH:MM:SS      */
+/* ========================= */
+
+function formatTime(sec){
+
+if(!isFinite(sec)) return "00:00:00";
+
+let h = Math.floor(sec / 3600);
+let m = Math.floor((sec % 3600) / 60);
+let s = Math.floor(sec % 60);
+
+return (
+String(h).padStart(2,'0') + ":" +
+String(m).padStart(2,'0') + ":" +
+String(s).padStart(2,'0')
+);
+
+}
+
+/* ========================= */
+/* VIDEO READY               */
+/* ========================= */
+
+function videoReady(){
+container.classList.add('video-ready');
+}
+
+/* ========================= */
+/* LOADER CONTROL            */
+/* ========================= */
+
+function showInitial(){
+overlay.classList.add('initial-mode');
+overlay.classList.remove('buffering-mode','is-hidden');
+}
+
+function showBuffer(){
+overlay.classList.remove('initial-mode');
+overlay.classList.add('buffering-mode');
+overlay.classList.remove('is-hidden');
+}
+
+function hideLoader(){
+overlay.classList.add('is-hidden');
+overlay.classList.remove('initial-mode','buffering-mode');
+initialLoad=false;
+}
+
+/* ========================= */
+/* PLAY / PAUSE              */
+/* ========================= */
+
+function togglePlay(){
+
+if(video.paused || video.ended){
+video.play();
+}else{
+video.pause();
+}
+
+}
+
+playBtn?.addEventListener('click',togglePlay);
+
+centerPlay?.addEventListener('click',(e)=>{
+e.stopPropagation();
+togglePlay();
+});
+
+video.addEventListener('click',togglePlay);
+
+/* ========================= */
+/* MOBILE DOUBLE TAP SEEK    */
+/* ========================= */
+
+container.addEventListener('touchend',(e)=>{
+
+let currentTime = new Date().getTime();
+let tapLength = currentTime - lastTap;
+
+if(tapLength < 300 && tapLength > 0){
+
+let rect = container.getBoundingClientRect();
+let tapX = e.changedTouches[0].clientX - rect.left;
+
+if(tapX < rect.width/2){
+video.currentTime = Math.max(0, video.currentTime - 10);
+}else{
+video.currentTime = Math.min(video.duration, video.currentTime + 10);
+}
+
+}
+
+lastTap = currentTime;
+
+});
+
+/* ========================= */
+/* KEYBOARD CONTROLS         */
+/* ========================= */
+
+document.addEventListener('keydown',(e)=>{
+
+if(e.code === "Space"){
+e.preventDefault();
+togglePlay();
+}
+
+if(e.key === "ArrowRight"){
+video.currentTime += 10;
+}
+
+if(e.key === "ArrowLeft"){
+video.currentTime -= 10;
+}
+
+});
+
+/* ========================= */
+/* PLAY ICON UPDATE          */
+/* ========================= */
+
+video.addEventListener('play',()=>{
+
+centerPlay.style.display="none";
+
+let icon = playBtn?.querySelector('i');
+if(icon) icon.className="fa fa-pause";
+
+});
+
+video.addEventListener('pause',()=>{
+
+centerPlay.style.display="flex";
+
+let icon = playBtn?.querySelector('i');
+if(icon) icon.className="fa fa-play";
+
+});
+
+/* ========================= */
+/* AUTO HIDE CONTROLS        */
+/* ========================= */
+
+function showControls(){
+
+controls.classList.remove('hidden');
+
+clearTimeout(hideTimer);
+
+hideTimer=setTimeout(()=>{
+if(!video.paused){
+controls.classList.add('hidden');
+}
+},5000);
+
+}
+
+container.addEventListener('mousemove',showControls);
+container.addEventListener('touchstart',showControls);
+
+/* ========================= */
+/* LOADING EVENTS            */
+/* ========================= */
+
+video.addEventListener('loadstart',()=>{
+if(initialLoad) showInitial();
+});
+
+video.addEventListener('playing',()=>{
+hideLoader();
+videoReady();
+});
+
+video.addEventListener('waiting',()=>{
+if(!initialLoad) showBuffer();
+});
+
+video.addEventListener('seeking',()=>{
+if(!initialLoad) showBuffer();
+});
+
+/* ========================= */
+/* PROGRESS BAR              */
+/* ========================= */
+
+video.addEventListener('timeupdate',()=>{
+
+if(!video.duration) return;
+
+let percent=(video.currentTime/video.duration)*100;
+
+progress.value=percent;
+
+progress.style.setProperty('--progress',percent+"%");
+
+timeCurrent.textContent=formatTime(video.currentTime);
+timeTotal.textContent=formatTime(video.duration);
+
+});
+
+/* seek */
+
+progress?.addEventListener('input',()=>{
+video.currentTime=(progress.value/100)*video.duration;
+});
+
+/* ========================= */
+/* TIMELINE HOVER PREVIEW    */
+/* ========================= */
+
+progress?.addEventListener('mousemove',(e)=>{
+
+let rect = progress.getBoundingClientRect();
+let percent = (e.clientX - rect.left) / rect.width;
+
+let previewTime = percent * video.duration;
+
+progress.title = formatTime(previewTime);
+
+});
+
+/* ========================= */
+/* VOLUME                    */
+/* ========================= */
+
+volumeSlider?.addEventListener('input',()=>{
+video.volume=volumeSlider.value;
+});
+
+volumeBtn?.addEventListener('click',()=>{
+
+if(video.muted || video.volume===0){
+
+video.muted=false;
+video.volume=savedVolume;
+
+}else{
+
+savedVolume=video.volume;
+video.muted=true;
+
+}
+
+});
+
+/* ========================= */
+/* FULLSCREEN                */
+/* ========================= */
+
+fullscreenBtn?.addEventListener('click',()=>{
+
+if(!document.fullscreenElement){
+container.requestFullscreen();
+}else{
+document.exitFullscreen();
+}
+
+});
+
+/* ========================= */
+/* PICTURE IN PICTURE        */
+/* ========================= */
+
+pipBtn?.addEventListener('click',async()=>{
+
+if(!document.pictureInPictureEnabled) return;
+
+try{
+
+if(document.pictureInPictureElement){
+await document.exitPictureInPicture();
+}else{
+await video.requestPictureInPicture();
+}
+
+}catch(err){
+console.log(err);
+}
+
+});
+
+/* ========================= */
+/* INIT                      */
+/* ========================= */
+
+showInitial();
+showControls();
+
+})();
+
+</script>
+
   <script>
 
       // Watch for content changes
@@ -1942,7 +2669,16 @@
           });
         }
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("mainVideo");
+    const wrapper = document.querySelector(".video-wrapper");
+
+    video.addEventListener("canplay", function () {
+        wrapper.classList.add("video-loaded");
+    });
+});
     
-  </script>
+  </script
 </body>
 </html>
