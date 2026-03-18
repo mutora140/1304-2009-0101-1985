@@ -2742,8 +2742,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Red%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Red%202.mp4'
         },
         'xxx return': {
             image: '/images/home/xxx return.jpg',
@@ -2844,8 +2844,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: '2h 21min',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Dora%20and%20the%20Lost%20City%20of%20Gold.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Dora%20and%20the%20Lost%20City%20of%20Gold.mp4'
         },
         'pickup': {
             image: '/images/slider/slider1.jpg',
@@ -2861,25 +2861,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
-        },
-        '1917': {
-            image: '/images/slider/slider2.jpg',
-            title: '1917',
-            slug: '1917_Gaheza',
-            rating: 7.4,
-            actor:['George MackKay','Dean-Charles Chapman'],
-            stars: 4,
-            genres: ['War', 'History', 'Action'],
-            interpreter: ['Gaheza'],
-            tags: ['Drama', 'War',],
-            description: 'At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.',
-            age: '13+',
-            duration: 'Filme',
-            year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Pickup.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Pickup.mp4'
         },
         'work it': {
             image: '/images/slider/slider3.jpg',
@@ -2912,8 +2895,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Afterburn.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Afterburn.mp4'
         },
         'death race': {
             image: '/images/favorite/f2.jpg',
@@ -2947,9 +2930,9 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: '',
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Homefront.mp4',
             videoType: 'video/mp4',
-            downloadLink: ''
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Homefront.mp4'
         },
         'mayhem': {
             image: '/images/favorite/f4.jpg',
@@ -2965,8 +2948,8 @@ document.addEventListener("click", function (e) {
             age: '11+',
             duration: 'Filme',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Mayhem!.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Mayhem!.mp4'
         },
         'shadow force': {
             image: '/images/favorite/f5.jpg',
@@ -3118,8 +3101,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Possession%20of%20Hannah%20Grace.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Possession%20of%20Hannah%20Grace.mp4'
         },
         'frankenstein': {
             image: '/images/popular/u2.jpg',
@@ -3135,8 +3118,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_I%20Frankenstein.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_I%20Frankenstein.mp4'
         },
         'texas chain': {
             image: '/images/popular/u3.jpg',
@@ -3152,8 +3135,8 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Texas%20Chainsaw%20Massacre.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Texas%20Chainsaw%20Massacre.mp4'
         },
         'woman in the yard': {
             image: '/images/popular/u4.jpg',
@@ -3169,8 +3152,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Woman%20in%20the%20Yard.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Woman%20in%20the%20Yard.mp4'
         },
         'hunting jessica': {
             image: '/images/popular/u5.jpg',
@@ -3186,8 +3169,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Hunting%20Jessica%20Brok.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Hunting%20Jessica%20Brok.mp4'
         },
         'boyka undisputed 4': {
             image: '/images/junior/01.jpg',
@@ -3305,8 +3288,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%207%20Days%20in%20Entebbe.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%207%20Days%20in%20Entebbe.mp4'
         },
         'paskal': {
             image: '/images/junior/08.jpg',
@@ -3546,23 +3529,7 @@ document.addEventListener("click", function (e) {
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4',
             downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4'
         },
-        'f1: the movie': {
-            image: '/images/top-10/03.jpg',
-            title: 'F1: The movie',
-            slug: 'F1:The-Movie_Gaheza',
-            rating: 8.7,
-            actor:['Brad Pitt','Damson Idris',],
-            stars: 4.5,
-            genres: ['Action', 'Drama',],
-            interpreter: ['Gaheza'],
-            tags: ['Cars', 'F1', 'Action'],
-            description: 'Racing legend Sonny Hayes is coaxed out of retirement to lead a struggling Formula 1 team—and mentor a young hotshot driver—while chasing one more chance at glory.',
-            age: '16+',
-            duration: 'Filme',
-            year: '2025',
-            videoLink: '',
-            downloadLink: ''
-        },
+
         'play dirty': {
             image: '/images/top-10/04.jpg',
             title: 'Play dirty',
@@ -3577,8 +3544,8 @@ document.addEventListener("click", function (e) {
             age: '15+',
             duration: 'Filme',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Play%20Dirty.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Play%20Dirty.mp4'
         },
         'ice road': {
             image: '/images/top-10/05.jpg',
@@ -3628,8 +3595,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Monkey%20King.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Monkey%20King.mp4'
         },
         'nezha': {
             image: '/images/suggested/02.jpg',
@@ -4156,8 +4123,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: "https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Don't%20Hang%20Up.mp4",
+            downloadLink: "https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Don't%20Hang%20Up.mp4"
         },
         'evil dead': {
             image: '/images/sankara/01.jpg',
@@ -4325,8 +4292,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Jurassic%20World%20Rebirth.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Jurassic%20World%20Rebirth.mp4'
         },
         'coma': {
             image: '/images/favorite/g5.jpg',
@@ -4410,8 +4377,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Damsel.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Damsel.mp4'
         },
         'the boy who harnessed the wind': {
             image: '/images/savimbi/03.jpg',
@@ -4427,8 +4394,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Boy%20Who%20Harnessed%20the%20Wind.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Boy%20Who%20Harnessed%20the%20Wind.mp4'
         },
         'ashfall': {
             image: '/images/savimbi/04.jpg',
@@ -5385,8 +5352,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E01.mp4'
         },
         'messiah ep2': {
             image: '/images/episodes/pb1.jpg',
@@ -5402,8 +5369,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E02.mp4'
         },
         'messiah ep3': {
             image: '/images/episodes/pb1.jpg',
@@ -5419,8 +5386,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E03.mp4'
         },
         'messiah ep4': {
             image: '/images/episodes/pb1.jpg',
@@ -5436,8 +5403,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E04.mp4'
         },
         'messiah ep5': {
             image: '/images/episodes/pb1.jpg',
@@ -5453,8 +5420,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E05.mp4'
         },
         'messiah ep6': {
             image: '/images/episodes/pb1.jpg',
@@ -5470,8 +5437,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E06.mp4'
         },
         'messiah ep7': {
             image: '/images/episodes/pb1.jpg',
@@ -5487,8 +5454,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E07.mp4'
         },
         'messiah ep8': {
             image: '/images/episodes/pb1.jpg',
@@ -5504,8 +5471,42 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2020',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E08.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E08.mp4'
+        },
+        'messiah ep10': {
+            image: '/images/episodes/pb1.jpg',
+            title: 'Messiah Ep 10',
+            slug: "Messiah-Ep-10_Rocky",
+            rating: 7.6,
+            actor:['Mehdi Dehbi','Michelle Monaghan'],
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E10_%20Final.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E10_%20Final.mp4'
+        },
+        'messiah ep9': {
+            image: '/images/episodes/pb1.jpg',
+            title: 'Messiah Ep 9',
+            slug: "Messiah-Ep-9_Rocky",
+            rating: 7.6,
+            actor:['Mehdi Dehbi','Michelle Monaghan'],
+            stars: 4.5,
+            genres: ['Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Messiah', 'CIA','Drama'],
+            description: 'A wary CIA officer investigates a charismatic man who sparks a spiritual movement and stirs political unrest. Who exactly is he? And what does he want?',
+            age: '12+',
+            duration: 'Episode',
+            year: '2020',
+            videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E09.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E09.mp4'
         },
 
         'the 100 ep1': {
@@ -5522,8 +5523,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E01.mp4'
         },
 
         'the 100 ep2': {
@@ -5540,8 +5541,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E02.mp4'
         },
 
 
@@ -5559,8 +5560,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E03.mp4'
         },
 
 
@@ -5578,8 +5579,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E04.mp4'
         },
 
 
@@ -5597,8 +5598,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E05.mp4'
         },
 
 
@@ -5616,8 +5617,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E06.mp4'
         },
 
         'the 100 ep7': {
@@ -5634,8 +5635,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E07.mp4'
         },
 
 
@@ -5653,8 +5654,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E08.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E08.mp4'
         },
 
 
@@ -5672,8 +5673,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E09.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E09.mp4'
         },
 
 
@@ -5691,8 +5692,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E10.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E10.mp4'
         },
 
 
@@ -5710,8 +5711,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E11.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E11.mp4'
         },
 
 
@@ -5729,8 +5730,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E12.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E12.mp4'
         },
 
 
@@ -5748,8 +5749,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2014',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E13-%20Final.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E13-%20Final.mp4'
         },
 
         'citadel ep1': {
@@ -5766,8 +5767,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E01.mp4'
         },
         'citadel ep2': {
             image: '/images/episodes/citadel.jpg',
@@ -5783,8 +5784,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E02.mp4'
         },
         'citadel ep3': {
             image: '/images/episodes/citadel.jpg',
@@ -5800,8 +5801,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E03.mp4'
         },
         'citadel ep4': {
             image: '/images/episodes/citadel.jpg',
@@ -5817,8 +5818,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E04.mp4'
         },
         'citadel ep5': {
             image: '/images/episodes/citadel.jpg',
@@ -5834,8 +5835,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E05.mp4'
         },
         'citadel ep6': {
             image: '/images/episodes/citadel.jpg',
@@ -5851,44 +5852,9 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Episode',
             year: '2023',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E06_%20Final.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E06_%20Final.mp4'
         },
-        'citadel ep7': {
-            image: '/images/episodes/citadel.jpg',
-            title: 'Citadel Ep 7',
-            slug: "Citadel-Ep-7_Rocky",
-            rating: 7.6,
-            actor:['Richard Madden','Priyanka Chopra Jonas'],
-            stars: 4.5,
-            genres: ['Drama','Action','Crime'],
-            interpreter: ['Rocky'],
-            tags: ['Citadel', 'Adventure','Crime'],
-            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
-            age: '12+',
-            duration: 'Episode',
-            year: '2023',
-            videoLink: '',
-            downloadLink: ''
-        },
-        'citadel ep8': {
-            image: '/images/episodes/citadel.jpg',
-            title: 'Citadel Ep 8',
-            slug: "Citadel-Ep-8_Rocky",
-            rating: 7.6,
-            actor:['Richard Madden','Priyanka Chopra Jonas'],
-            stars: 4.5,
-            genres: ['Drama','Action','Crime'],
-            interpreter: ['Rocky'],
-            tags: ['Citadel', 'Adventure','Crime'],
-            description: 'What if you lost your memory? What if a spy didn’t know they were a spy? Years ago, the top agents of Citadel, Mason Kane and Nadia Sinh, had their minds wiped. But, they’re called back to action as sinister forces emerge from the past. With the help of spymaster Bernard Orlick, these former lovers must remember the past to save the future.',
-            age: '12+',
-            duration: 'Episode',
-            year: '2023',
-            videoLink: '',
-            downloadLink: ''
-        },
-
 
         'the manipulated s1 ep 1': {
             image: '/images/episodes/m1.jpg',
@@ -5904,8 +5870,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E01.mp4'
         },
         'the manipulated s1 ep 2': {
             image: '/images/episodes/m1.jpg',
@@ -5921,8 +5887,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E02.mp4'
         },
         'the manipulated s1 ep 3': {
             image: '/images/episodes/m1.jpg',
@@ -5938,8 +5904,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E03.mp4'
         },
         'the manipulated s1 ep 4': {
             image: '/images/episodes/m1.jpg',
@@ -5955,8 +5921,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E04.mp4'
         },
         'the manipulated s1 ep 5': {
             image: '/images/episodes/m1.jpg',
@@ -5972,8 +5938,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E05.mp4'
         },
         'the manipulated s1 ep 6': {
             image: '/images/episodes/m1.jpg',
@@ -5989,8 +5955,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E06.mp4'
         },
         'the manipulated s1 ep 7': {
             image: '/images/episodes/m1.jpg',
@@ -6006,8 +5972,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E07.mp4'
         },
 
         'the witcher s1 ep1': {
@@ -6024,8 +5990,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E01.mp4'
         },
         'the witcher s1 ep2': {
             image: '/images/episodes/the witcher.jpg',
@@ -6041,8 +6007,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E02.mp4'
         },
         'the witcher s1 ep3': {
             image: '/images/episodes/the witcher.jpg',
@@ -6058,8 +6024,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E03.mp4'
         },
         'the witcher s1 ep4': {
             image: '/images/episodes/the witcher.jpg',
@@ -6075,8 +6041,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E04.mp4'
         },
         'the witcher s1 ep5': {
             image: '/images/episodes/the witcher.jpg',
@@ -6092,8 +6058,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E05.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E05.mp4'
         },
         'the witcher s1 ep6': {
             image: '/images/episodes/the witcher.jpg',
@@ -6109,8 +6075,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E06.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E06.mp4'
         },
         'the witcher s1 ep7': {
             image: '/images/episodes/the witcher.jpg',
@@ -6126,8 +6092,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E07.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E07.mp4'
         },
         'the witcher s1 ep8': {
             image: '/images/episodes/the witcher.jpg',
@@ -6143,8 +6109,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2019',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E08_%20Final.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E08_%20Final.mp4'
         },
 
         'the war between land and sea s1 ep1': {
@@ -6161,8 +6127,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E01.mp4'
         },
         'the war between land and sea s1 ep2': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6178,8 +6144,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E02.mp4'
         },
         'the war between land and sea s1 ep3': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6195,8 +6161,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E03.mp4'
         },
         'the war between land and sea s1 ep4': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6212,8 +6178,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E04.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E04.mp4'
         },
         'the war between land and sea s1 ep5': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6229,8 +6195,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2025',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E05_%20Final.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E05_%20Final.mp4'
         },
 
 
@@ -6522,8 +6488,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E01.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E01.mp4'
         },
         'the witcher blood orgin s1 ep2': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6539,8 +6505,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher_%20Blood%20Origin%20%E2%80%94%20S01E02.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher_%20Blood%20Origin%20%E2%80%94%20S01E02.mp4'
         },
         'the witcher blood orgin s1 ep3': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6556,8 +6522,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E03.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E03.mp4'
         },
         'the witcher blood orgin s1 ep4': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6573,8 +6539,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Episode',
             year: '2022',
-            videoLink: '',
-            downloadLink: ''
+            videoLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E04-%20Final.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E04-%20Final.mp4'
         },
 
     };
