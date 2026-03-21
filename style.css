@@ -1975,7 +1975,7 @@ header#main-header.menu-sticky{
     z-index: 1;
 }
 #home-slider .slick-bg.s-bg-1{
-    background-image: url(images/home/ben-hur.jpg);
+    background-image: url(images/episodes/onepiece.jpg);
 }
 #home-slider .slick-bg.s-bg-2{
     background-image: url(images/home/army\ of\ the\ dead.jpg);
@@ -3283,7 +3283,7 @@ li.slide-item .block-description .parallax-ratting span{
     height: 100%;
     padding: 100px 0;
     position: relative;
-    background: url(images/home/expendables\ 2.jpg) center center;
+    background: url(images/parallax/avatar.jpg) center center;
     background-size: cover;
     background-attachment: fixed ;
 }
