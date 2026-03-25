@@ -2503,8 +2503,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Ben-Hur.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Ben-Hur.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Ben-Hur.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Ben-Hur.mp4'
         },
         'infinite': {
             image: '/images/home/infinite.jpg',
@@ -2521,7 +2521,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2024',
             videoLink: 'https://cdn.miyagifilms.com/INFINITE.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/INFINITE.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/INFINITE.mp4'
         },
         'death note': {
             image: '/images/home/deathnote.jpg',
@@ -2538,7 +2538,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Death%20Note%20Light%20Up%20the%20New%20World.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Death%20Note%20Light%20Up%20the%20New%20World.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Death%20Note%20Light%20Up%20the%20New%20World.mp4'
         },
         'king of killers': {
             image: '/images/home/king of killers.jpg',
@@ -2554,8 +2554,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_King%20of%20Killers.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_King%20of%20Killers.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_King%20of%20Killers.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_King%20of%20Killers.mp4'
         },
         'monkey man a': {
             image: '/images/home/monkeyman.jpg',
@@ -2572,7 +2572,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2024',
             videoLink: 'https://cdn.miyagifilms.com/MONKEY_MAN%20A.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/MONKEY_MAN%20A.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/MONKEY_MAN%20A.mp4'
         },
         'monkey man b': {
             image: '/images/home/monkey man.jpg',
@@ -2589,7 +2589,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2024',
             videoLink: 'https://cdn.miyagifilms.com/ready_vimeo%20and%20mediafire_movies/MONKEY%20MAN%20B.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/ready_vimeo%20and%20mediafire_movies/MONKEY%20MAN%20B.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/ready_vimeo%20and%20mediafire_movies/MONKEY%20MAN%20B.mp4'
         },
         'king of kings': {
             image: '/images/home/kingofkings.jpg',
@@ -2606,7 +2606,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '',
             videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20King%20of%20Kings.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20King%20of%20Kings.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20King%20of%20Kings.mp4'
         },
         'bilal new born': {
             image: '/images/home/bilal.jpg',
@@ -2623,7 +2623,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Bilal_%20A%20New%20Breed%20of%20Hero.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Bilal_%20A%20New%20Breed%20of%20Hero.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Bilal_%20A%20New%20Breed%20of%20Hero.mp4'
         },
         'army of the dead': {
             image: '/images/home/army of the dead.jpg',
@@ -2639,8 +2639,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Army%20of%20the%20Dead.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Army%20of%20the%20Dead.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Army%20of%20the%20Dead.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Army%20of%20the%20Dead.mp4'
         },
         'babylon ad': {
             image: '/images/home/babylon ad.jpg',
@@ -2658,7 +2658,7 @@ document.addEventListener("click", function (e) {
             year: '2008',
             videoType: 'video/mp4',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Babylon%20A.D..mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Babylon%20A.D..mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Babylon%20A.D..mp4'
         },
         'fistful vengeance': {
             image: '/images/home/fistful of vengeance.jpg',
@@ -2674,8 +2674,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Fistful%20of%20Vengeance.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Fistful%20of%20Vengeance.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Fistful%20of%20Vengeance.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Fistful%20of%20Vengeance.mp4'
         },
         'bloodshot': {
             image: '/images/home/bloodshot.jpg',
@@ -2691,8 +2691,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Bloodshot.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.agasobanuyenow.com%20-%20Bloodshot.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Bloodshot.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Bloodshot.mp4'
         },
         'bachchn pandey': {
             image: '/images/home/bachn pandey.jpg',
@@ -2708,8 +2708,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Bachchan%20Pandey.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Bachchan%20Pandey.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Bachchan%20Pandey.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Bachchan%20Pandey.mp4'
         },
         'law abiding citzen': {
             image: '/images/home/law abiding citzen.jpg',
@@ -2725,8 +2725,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2009',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Law%20abiding%20citizen.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Law%20abiding%20citizen.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Law%20abiding%20citizen.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Law%20abiding%20citizen.mp4'
         },
         'adipurush': {
             image: '/images/home/adipurush.jpg',
@@ -2742,8 +2742,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Adipurush.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Adipurush.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Adipurush.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Adipurush.mp4'
         },
         'expendables 2': {
             image: '/images/home/expendables 2.jpg',
@@ -2759,8 +2759,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2012',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables%202.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Expendables%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_The%20Expendables%202.mp4'
         },
         'red': {
             image: '/images/home/red.jpg',
@@ -2776,8 +2776,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_RED.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_RED.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_RED.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_RED.mp4'
         },
         'mechanic resurrection': {
             image: '/images/home/mechanic 2.jpg',
@@ -2793,8 +2793,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_The%20Mechanic%202_%20Resurrection.mp4'
         },
         'rocky handsome': {
             image: '/images/home/rocky handsome.jpg',
@@ -2810,8 +2810,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Rocky%20Handsome.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Rocky%20Handsome.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Rocky%20Handsome.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Rocky%20Handsome.mp4'
         },
         'baaghi 1': {
             image: '/images/home/baagh 1.jpg',
@@ -2827,8 +2827,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Baaghi%201.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Baaghi%201.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Baaghi%201.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Baaghi%201.mp4'
         },
         'red 2': {
             image: '/images/home/red 2.jpg',
@@ -2845,7 +2845,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2013',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Red%202.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Red%202.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Red%202.mp4'
         },
         'xxx return': {
             image: '/images/home/xxx return.jpg',
@@ -2861,8 +2861,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_xXx-Return%20of%20Xander%20Cage.mp4'
         },
         'expendables 1': {
             image: '/images/home/expendables 1.jpg',
@@ -2878,8 +2878,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Expendables.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Expendables.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_The%20Expendables.mp4'
         },
         'weekend in taipei': {
             image: '/images/home/weekend in taipei.jpg',
@@ -2895,8 +2895,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/WEEKEND_IN_TAIPE.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/WEEKEND_IN_TAIPE.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/WEEKEND_IN_TAIPE.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/WEEKEND_IN_TAIPE.mp4'
         },
         'triple frontier': {
             image: '/images/home/triple frontier.jpg',
@@ -2912,8 +2912,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Triple%20Frontier.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Triple%20Frontier.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Triple%20Frontier.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Triple%20Frontier.mp4'
         },
         'villain return': {
             image: '/images/home/villain return.jpg',
@@ -2929,8 +2929,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Ek%20Villain%20Returns.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Ek%20Villain%20Returns.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Ek%20Villain%20Returns.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Ek%20Villain%20Returns.mp4'
         },
         'dora and the lost city': {
             image: '/images/notify/thumb-2.jpg',
@@ -2947,7 +2947,7 @@ document.addEventListener("click", function (e) {
             duration: '2h 21min',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Dora%20and%20the%20Lost%20City%20of%20Gold.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Dora%20and%20the%20Lost%20City%20of%20Gold.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Dora%20and%20the%20Lost%20City%20of%20Gold.mp4'
         },
         'pickup': {
             image: '/images/slider/slider1.jpg',
@@ -2964,7 +2964,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Pickup.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Pickup.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20The%20Pickup.mp4'
         },
         'work it': {
             image: '/images/slider/slider3.jpg',
@@ -2980,8 +2980,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/movie3.mp4',
-            downloadLink: 'https://cdn.example.com/download/the-conjuring.mp4'
+            videoLink: '',
+            downloadLink: ''
         },
         'afterburn': {
             image: '/images/favorite/f1.jpg',
@@ -2998,7 +2998,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Afterburn.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Afterburn.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Afterburn.mp4'
         },
         'death race': {
             image: '/images/favorite/f2.jpg',
@@ -3015,8 +3015,8 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2008',
             videoType: 'video/mp4',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Death%20Race%201.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Death%20Race%201.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Death%20Race%201.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Death%20Race%201.mp4'
         },
         'homefront': {
             image: '/images/favorite/f3.jpg',
@@ -3034,7 +3034,7 @@ document.addEventListener("click", function (e) {
             year: '2013',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Homefront.mp4',
             videoType: 'video/mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Homefront.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Homefront.mp4'
         },
         'mayhem': {
             image: '/images/favorite/f4.jpg',
@@ -3051,7 +3051,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Mayhem!.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Mayhem!.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/downloadwww.agasobanuyenow.com%20-%20Mayhem!.mp4'
         },
         'shadow force': {
             image: '/images/favorite/f5.jpg',
@@ -3067,8 +3067,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shadow%20Force.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shadow%20Force.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Shadow%20Force.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Shadow%20Force.mp4'
         },
         'thieves highway': {
             image: '/images/favorite/f6.jpg',
@@ -3084,8 +3084,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thieves%20Highway.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thieves%20Highway.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Thieves%20Highway.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Thieves%20Highway.mp4'
         },
         'the amazing spiderman': {
             image: '/images/favorite/f7.jpg',
@@ -3101,8 +3101,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2012',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Amazing%20Spider-Man.mp4'
         },
         'teen wolf': {
             image: '/images/favorite/f8.jpg',
@@ -3118,8 +3118,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Teen%20Wolf_%20The%20Movie.mp4'
         },
         'tarot': {
             image: '/images/favorite/f9.jpg',
@@ -3135,8 +3135,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tarot.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tarot.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Tarot.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Tarot.mp4'
         },
         'spiderman 3': {
             image: '/images/favorite/f10.jpg',
@@ -3152,8 +3152,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Spider-Man%203.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Spider-Man%203.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Spider-Man%203.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Spider-Man%203.mp4'
         },
         'light out': {
             image: '/images/favorite/f11.jpg',
@@ -3169,8 +3169,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lights%20Out.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lights%20Out.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Lights%20Out.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Lights%20Out.mp4'
         },
         'ruthless': {
             image: '/images/favorite/f12.jpg',
@@ -3186,8 +3186,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ruthless.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ruthless.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Ruthless.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Ruthless.mp4'
         },
         'possession of honnor': {
             image: '/images/popular/u1.jpg',
@@ -3204,7 +3204,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2018',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Possession%20of%20Hannah%20Grace.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Possession%20of%20Hannah%20Grace.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_The%20Possession%20of%20Hannah%20Grace.mp4'
         },
         'frankenstein': {
             image: '/images/popular/u2.jpg',
@@ -3221,7 +3221,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_I%20Frankenstein.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_I%20Frankenstein.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_I%20Frankenstein.mp4'
         },
         'texas chain': {
             image: '/images/popular/u3.jpg',
@@ -3238,7 +3238,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2022',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Texas%20Chainsaw%20Massacre.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Texas%20Chainsaw%20Massacre.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Texas%20Chainsaw%20Massacre.mp4'
         },
         'woman in the yard': {
             image: '/images/popular/u4.jpg',
@@ -3255,7 +3255,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Woman%20in%20the%20Yard.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_The%20Woman%20in%20the%20Yard.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_The%20Woman%20in%20the%20Yard.mp4'
         },
         'hunting jessica': {
             image: '/images/popular/u5.jpg',
@@ -3272,7 +3272,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Hunting%20Jessica%20Brok.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Hunting%20Jessica%20Brok.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Hunting%20Jessica%20Brok.mp4'
         },
         'boyka undisputed 4': {
             image: '/images/junior/01.jpg',
@@ -3288,8 +3288,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Boyka_%20Undisputed%20IV.mp4'
         },
         'europe raiders': {
             image: '/images/junior/02.jpg',
@@ -3305,8 +3305,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Europe%20Raiders.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Europe%20Raiders.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Europe%20Raiders.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Europe%20Raiders.mp4'
         },
         'mercy': {
             image: '/images/junior/03.jpg',
@@ -3322,8 +3322,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Mercy.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Mercy.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Mercy.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Mercy.mp4'
         },
         '2:22': {
             image: '/images/junior/04.jpg',
@@ -3339,8 +3339,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_2_22.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_2_22.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_2_22.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_2_22.mp4'
         },
         'ziam': {
             image: '/images/junior/05.jpg',
@@ -3356,8 +3356,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ziam.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ziam.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Ziam.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Ziam.mp4'
         },
         '6 underground': {
             image: '/images/junior/06.jpg',
@@ -3373,8 +3373,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_6%20Underground.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_6%20Underground.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_6%20Underground.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_6%20Underground.mp4'
         },
         '7 days in entebbe': {
             image: '/images/junior/07.jpg',
@@ -3391,7 +3391,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2018',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%207%20Days%20in%20Entebbe.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%207%20Days%20in%20Entebbe.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%207%20Days%20in%20Entebbe.mp4'
         },
         'paskal': {
             image: '/images/junior/08.jpg',
@@ -3407,8 +3407,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Paskal.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Paskal.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Paskal.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Paskal.mp4'
         },
         'plane': {
             image: '/images/junior/09.jpg',
@@ -3424,8 +3424,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Plane.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Plane.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Plane.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Plane.mp4'
         },
         'the witch': {
             image: '/images/junior/10.jpg',
@@ -3441,8 +3441,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20witch.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20witch.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20witch.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20witch.mp4'
         },
         'iceman: traveller': {
             image: '/images/junior/11.jpg',
@@ -3458,8 +3458,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Iceman_%20The%20Time%20Traveller.mp4'
         },
         'kandahar': {
             image: '/images/junior/12.jpg',
@@ -3475,8 +3475,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Kandahar.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Kandahar.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Kandahar.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Kandahar.mp4'
         },
         'night of hunted': {
             image: '/images/popular/u6.jpg',
@@ -3492,8 +3492,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Night%20of%20the%20Hunted.mp4'
         },
         'hunting season': {
             image: '/images/popular/u7.jpg',
@@ -3509,8 +3509,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hunting%20Season.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hunting%20Season.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Hunting%20Season.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Hunting%20Season.mp4'
         },
         'hostile takeover': {
             image: '/images/popular/u8.jpg',
@@ -3526,8 +3526,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hostile%20Takeover.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hostile%20Takeover.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Hostile%20Takeover.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Hostile%20Takeover.mp4'
         },
         'guns up': {
             image: '/images/popular/u9.jpg',
@@ -3543,8 +3543,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guns%20Up.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guns%20Up.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Guns%20Up.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Guns%20Up.mp4'
         },
         'dunki': {
             image: '/images/popular/u10.jpg',
@@ -3560,8 +3560,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dunki.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dunki.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Dunki.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Dunki.mp4'
         },
         'alita: the battle angel': {
             image: '/images/popular/u11.jpg',
@@ -3577,8 +3577,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Alita_%20Battle%20Angel.mp4'
         },
         'aftermath': {
             image: '/images/popular/u12.jpg',
@@ -3594,8 +3594,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/ready_vimeo%20and%20mediafire_movies/Aftermath.mp4'
         },
         'next': {
             image: '/images/top-10/01.jpg',
@@ -3611,8 +3611,8 @@ document.addEventListener("click", function (e) {
             age: '10+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Next.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_Next.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Next.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Next.mp4'
         },
         'lou': {
             image: '/images/top-10/02.jpg',
@@ -3628,8 +3628,8 @@ document.addEventListener("click", function (e) {
             age: '18+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lou.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Lou.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Lou.mp4'
         },
 
         'play dirty': {
@@ -3647,7 +3647,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Play%20Dirty.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_Play%20Dirty.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_Play%20Dirty.mp4'
         },
         'ice road': {
             image: '/images/top-10/05.jpg',
@@ -3663,8 +3663,8 @@ document.addEventListener("click", function (e) {
             age: '20+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Ice%20Road_%20Vengeance.mp4'
         },
         'the carpenter son': {
             image: '/images/top-10/06.jpg',
@@ -3680,8 +3680,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4",
-            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4"
+            videoLink: "https://cdn.miyagifilms.com/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4",
+            downloadLink: "https://cdn.miyagifilms.com/download/www.rebamovie.com_The%20Carpenter's%20Son_2.mp4"
         },
         'monkey king': {
             image: '/images/suggested/01.jpg',
@@ -3698,7 +3698,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Monkey%20King.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Monkey%20King.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20The%20Monkey%20King.mp4'
         },
         'nezha': {
             image: '/images/suggested/02.jpg',
@@ -3714,8 +3714,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nezhal_2.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nezhal_2.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Nezhal_2.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Nezhal_2.mp4'
         },
         'bigfoot family': {
             image: '/images/suggested/03.jpg',
@@ -3731,8 +3731,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family1.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family1.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Bigfoot.Family1.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Bigfoot.Family1.mp4'
         },
         'bigfoot family 2': {
             image: '/images/suggested/03.jpg',
@@ -3748,8 +3748,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family2.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Bigfoot.Family2.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Bigfoot.Family2.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Bigfoot.Family2.mp4'
         },
         'peter rabbit 1': {
             image: '/images/suggested/04.jpg',
@@ -3782,8 +3782,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_PETER%20RABBIT%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_PETER%20RABBIT%202.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_PETER%20RABBIT%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_PETER%20RABBIT%202.mp4'
         },
         'sing': {
             image: '/images/suggested/07.jpg',
@@ -3799,8 +3799,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sing.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sing.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Sing.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Sing.mp4'
         },
         'hotel translyvania 3': {
             image: '/images/suggested/08.jpg',
@@ -3816,8 +3816,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Hotel%20Transylvania%203_%20Summer%20Vacation.mp4'
         },
         'hotel translyvania 2': {
             image: '/images/suggested/09.jpg',
@@ -3833,8 +3833,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2015',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hotel%20Transylvania%202.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Hotel%20Transylvania%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Hotel%20Transylvania%202.mp4'
         },
         'ladybug catnoir: the movie ': {
             image: '/images/suggested/10.jpg',
@@ -3850,8 +3850,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Miraculous_%20Ladybug%20and%20Cat%20Noir%20the%20Movie.mp4'
         },
         'pussy in boots: the last wish ': {
             image: '/images/suggested/11.jpg',
@@ -3867,8 +3867,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Puss%20in%20Boots_%20The%20Last%20Wish.mp4'
         },
         'kpop demon hunters': {
             image: '/images/suggested/12.jpg',
@@ -3884,8 +3884,8 @@ document.addEventListener("click", function (e) {
             age: 'All Ages',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_KPop%20Demon%20Hunters.mp4'
         },
         'tyler perry duplicity':{
             image: '/images/dylan/01.jpg',
@@ -3901,8 +3901,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2025',
-            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
-            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
+            videoLink: "https://cdn.miyagifilms.com/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
+            downloadLink: "https://cdn.miyagifilms.com/download/www.miyagifilms.com_Tyler%20Perry's%20Duplicity.mp4",
         },
         'the swordsman':{
             image: '/images/dylan/02.jpg',
@@ -3918,8 +3918,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Swordsman.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Swordsman.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20Swordsman.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Swordsman.mp4'
         },
         'sonic the hedgehog':{
             image: '/images/dylan/04.jpg',
@@ -3935,8 +3935,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Sonic%20the%20Hedgehog%202.mp4'
         },
         'king serpent island':{
             image: '/images/dylan/05.jpg',
@@ -3952,8 +3952,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_King%20serpent%20island.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_King%20serpent%20island.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_King%20serpent%20island.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_King%20serpent%20island.mp4'
         },
         'i am vengeance retaliation':{
             image: '/images/dylan/06.jpg',
@@ -3969,8 +3969,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_I%20Am%20Vengeance_%20Retaliation.mp4'
         },
         'the covenant':{
             image: '/images/dylan/07.jpg',
@@ -3986,8 +3986,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4",
-            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4"
+            videoLink: "https://cdn.miyagifilms.com/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4",
+            downloadLink: "https://cdn.miyagifilms.com/download/www.miyagifilms.com_Guy%20Ritchie's%20The%20Covenant.mp4"
         },
         'game of deceit':{
             image: '/images/dylan/08.jpg',
@@ -4003,8 +4003,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Game%20of%20Deceit.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Game%20of%20Deceit.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Game%20of%20Deceit.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Game%20of%20Deceit.mp4'
         },
         'death at funeral':{
             image: '/images/dylan/09.jpg',
@@ -4020,8 +4020,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2010',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Death%20at%20a%20Funeral%20.mp4'
         },
         'case depart':{
             image: '/images/dylan/10.jpg',
@@ -4037,8 +4037,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Case%20d%C3%A9part.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Case%20d%C3%A9part.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Case%20d%C3%A9part.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Case%20d%C3%A9part.mp4'
         },
         'blackout':{
             image: '/images/dylan/11.jpg',
@@ -4054,8 +4054,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2022',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Blackout.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Blackout.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Blackout.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Blackout.mp4'
         },
         'altitude':{
             image: '/images/dylan/12.jpg',
@@ -4071,8 +4071,8 @@ document.addEventListener("click", function (e) {
             age: '19+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Altitude.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Altitude.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Altitude.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Altitude.mp4'
         },
         
         'war 2': {
@@ -4089,8 +4089,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_War%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_War%202.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_War%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_War%202.mp4'
         },
         'maharshi': {
             image: '/images/parallax/q6.jpg',
@@ -4106,8 +4106,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Maharshi.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Maharshi.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Maharshi.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Maharshi.mp4'
         },
         'baaghi 2': {
             image: '/images/parallax/q7.jpg',
@@ -4123,8 +4123,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baaghi%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baaghi%202.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Baaghi%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Baaghi%202.mp4'
         },
         'jawan': {
             image: '/images/parallax/q9.jpg',
@@ -4140,8 +4140,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Jawan.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Jawan.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Jawan.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Jawan.mp4'
         },
         'coming 2 america': {
             image: '/images/top-10/07.jpg',
@@ -4157,8 +4157,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coming%202%20America.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coming%202%20America.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Coming%202%20America.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Coming%202%20America.mp4'
         },
         'heads of state': {
             image: '/images/top-10/08.jpg',
@@ -4174,8 +4174,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Heads%20of%20State.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Heads%20of%20State.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Heads%20of%20State.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Heads%20of%20State.mp4'
         },
         'karate kid legends': {
             image: '/images/top-10/09.jpg',
@@ -4191,8 +4191,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Karate%20Kid-%20Legends.mp4'
         },
         'most dengerous game': {
             image: '/images/top-10/10.jpg',
@@ -4208,8 +4208,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Most%20Dangerous%20Game.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Most%20Dangerous%20Game.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Most%20Dangerous%20Game.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Most%20Dangerous%20Game.mp4'
         },
         'dont hangup': {
             image: '/images/tvthrillers/02.jpg',
@@ -4226,7 +4226,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: "https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Don't%20Hang%20Up.mp4",
-            downloadLink: "https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Don't%20Hang%20Up.mp4"
+            downloadLink: "https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Don't%20Hang%20Up.mp4"
         },
         'evil dead': {
             image: '/images/sankara/01.jpg',
@@ -4242,8 +4242,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Evil%20Dead%20Rise.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Evil%20Dead%20Rise.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Evil%20Dead%20Rise.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Evil%20Dead%20Rise.mp4'
         },
         'the brink': {
             image: '/images/sankara/02.jpg',
@@ -4259,8 +4259,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Brink.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Brink.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20Brink.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Brink.mp4'
         },
         'avengers infinity war': {
             image: '/images/sankara/03.jpg',
@@ -4276,8 +4276,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Avengers_Infinity%20War.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Avengers_Infinity%20War.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Avengers_Infinity%20War.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Avengers_Infinity%20War.mp4'
         },
         'lethal seduction': {
             image: '/images/sankara/04.jpg',
@@ -4293,8 +4293,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lethal%20Seduction.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lethal%20Seduction.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Lethal%20Seduction.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Lethal%20Seduction.mp4'
         },
         'talk to me': {
             image: '/images/sankara/05.jpg',
@@ -4309,8 +4309,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Talk%20to%20Me.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Talk%20to%20Me.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Talk%20to%20Me.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Talk%20to%20Me.mp4'
         },
         'flash point': {
             image: '/images/sankara/06.jpg',
@@ -4326,8 +4326,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2007',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Flash%20Point.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Flash%20Point.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Flash%20Point.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Flash%20Point.mp4'
         },
         'doctor strange': {
             image: '/images/tvthrillers/03.jpg',
@@ -4343,8 +4343,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2016',
-            videoLink: 'hhttps://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Doctor%20Strange%201.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Doctor%20Strange%201.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Doctor%20Strange%201.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Doctor%20Strange%201.mp4'
         },
         'hidden faces': {
             image: '/images/sankara/07.jpg',
@@ -4360,8 +4360,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hidden%20Face.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Hidden%20Face.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Hidden%20Face.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Hidden%20Face.mp4'
         },
         'safe house': {
             image: '/images/sankara/08.jpg',
@@ -4377,8 +4377,8 @@ document.addEventListener("click", function (e) {
             age: '16+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Safe%20House.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Safe%20House.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Safe%20House.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Safe%20House.mp4'
         },
         'jurassic world': {
             image: '/images/tvthrillers/04.jpg',
@@ -4395,7 +4395,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Jurassic%20World%20Rebirth.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Jurassic%20World%20Rebirth.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Jurassic%20World%20Rebirth.mp4'
         },
         'coma': {
             image: '/images/favorite/g5.jpg',
@@ -4411,8 +4411,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coma.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Coma.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Coma.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Coma.mp4'
         },
         'wira': {
             image: '/images/favorite/g1.jpg',
@@ -4428,8 +4428,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wira.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wira.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Wira.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Wira.mp4'
         },
         'black widow': {
             image: '/images/tvthrillers/05.jpg',
@@ -4445,8 +4445,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/black%20widow.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/black%20widow.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/black%20widow.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/black%20widow.mp4'
         },
         'gifted': {
             image: '/images/savimbi/01.jpg',
@@ -4462,8 +4462,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Gifted.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Gifted.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Gifted.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Gifted.mp4'
         },
         'damsel': {
             image: '/images/savimbi/02.jpg',
@@ -4480,7 +4480,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2024',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Damsel.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Damsel.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Damsel.mp4'
         },
         'the boy who harnessed the wind': {
             image: '/images/savimbi/03.jpg',
@@ -4497,7 +4497,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Boy%20Who%20Harnessed%20the%20Wind.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20The%20Boy%20Who%20Harnessed%20the%20Wind.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20The%20Boy%20Who%20Harnessed%20the%20Wind.mp4'
         },
         'ashfall': {
             image: '/images/savimbi/04.jpg',
@@ -4513,8 +4513,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ashfall.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ashfall.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Ashfall.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Ashfall.mp4'
         },
         'kingdom of the planet of apes': {
             image: '/images/savimbi/05.jpg',
@@ -4530,8 +4530,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/Kingdom%20Of%20The%20Planet%20Of%20The%20Apes.mp4'
         },
         'ghost': {
             image: '/images/savimbi/06.jpg',
@@ -4547,8 +4547,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '1990',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ghost.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Ghost.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Ghost.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Ghost.mp4'
         },
         '24 hours to live': {
             image: '/images/savimbi/07.jpg',
@@ -4581,8 +4581,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Trash_2.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Trash_2.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Trash_2.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Trash_2.mp4'
         },
         'dracula untold': {
             image: '/images/savimbi/09.jpg',
@@ -4598,8 +4598,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dracula%20Untold.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Dracula%20Untold.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Dracula%20Untold.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Dracula%20Untold.mp4'
         },
         'emperor': {
             image: '/images/savimbi/10.jpg',
@@ -4615,8 +4615,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2020',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Emperor.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Emperor.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Emperor.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Emperor.mp4'
         },
         'kings daughter': {
             image: '/images/savimbi/11.jpg',
@@ -4632,8 +4632,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2022',
-            videoLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20King's%20Daughter.mp4",
-            downloadLink: "https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20King's%20Daughter.mp4"
+            videoLink: "https://cdn.miyagifilms.com/www.miyagifilms.com_The%20King's%20Daughter.mp4",
+            downloadLink: "https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20King's%20Daughter.mp4"
         },
         'limitless': {
             image: '/images/savimbi/12.jpg',
@@ -4649,8 +4649,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Limitless_2.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Limitless_2.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Limitless_2.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Limitless_2.mp4'
         },
         'no one lives': {
             image: '/images/tvthrillers/06.jpg',
@@ -4666,8 +4666,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2013',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_No%20One%20Lives.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_No%20One%20Lives.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_No%20One%20Lives.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_No%20One%20Lives.mp4'
         },
         'thor 1': {
             image: '/images/tvthrillers/07.jpg',
@@ -4683,8 +4683,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2011',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thor%201.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Thor%201.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Thor%201.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Thor%201.mp4'
         },
         'last man down': {
             image: '/images/tvthrillers/08.jpg',
@@ -4700,8 +4700,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20last%20man%20down.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20last%20man%20down.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20last%20man%20down.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20last%20man%20down.mp4'
         },
         'the diplomat': {
             image: '/images/tvthrillers/09.jpg',
@@ -4717,8 +4717,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Diplomat.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Diplomat.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_The%20Diplomat.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Diplomat.mp4'
         },
         'sister death': {
             image: '/images/tvthrillers/10.jpg',
@@ -4734,8 +4734,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sister%20Death.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sister%20Death.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Sister%20Death.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Sister%20Death.mp4'
         },
         'shangi-chi: legend of ten rings': {
             image: '/images/tvthrillers/11.jpg',
@@ -4751,8 +4751,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Shang-Chi%20and%20The%20Legend%20of%20The%20Ten%20Rings.mp4'
         },
         'secret superstar': {
             image: '/images/tvthrillers/12.jpg',
@@ -4768,8 +4768,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Secret%20Superstar.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Secret%20Superstar.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Secret%20Superstar.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Secret%20Superstar.mp4'
         },
         'men of honor': {
             image: '/images/top-10/11.jpg',
@@ -4785,8 +4785,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2000',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Men%20of%20Honor.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Men%20of%20Honor.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Men%20of%20Honor.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Men%20of%20Honor.mp4'
         },
         'nobody': {
             image: '/images/top-10/12.jpg',
@@ -4802,8 +4802,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2021',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%201.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%201.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Nobody%201.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download//www.miyagifilms.com_Nobody%201.mp4'
         },
         'nobody 2': {
             image: '/images/top-10/13.jpg',
@@ -4819,8 +4819,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Nobody%202.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Nobody%202.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Nobody%202.mp4'
         },
         'anna': {
             image: '/images/tvthrillers/13.jpg',
@@ -4836,8 +4836,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2019',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Anna.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Anna.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Anna.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Anna.mp4'
         },
         'lucy': {
             image: '/images/tvthrillers/14.jpg',
@@ -4853,8 +4853,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lucy%20.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Lucy%20.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Lucy%20.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Lucy%20.mp4'
         },
         'brick': {
             image: '/images/tvthrillers/15.jpg',
@@ -4870,8 +4870,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2025',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Brick.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Brick.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_Brick.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Brick.mp4'
         },
         'a-x-l': {
             image: '/images/tvthrillers/16.jpg',
@@ -4887,8 +4887,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2018',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_A-X-L.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_A-X-L.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_A-X-L.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_A-X-L.mp4'
         },
         'our last mens in phillipines': {
             image: '/images/top-10/14.jpg',
@@ -4904,8 +4904,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2017',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_1898-%20Our%20Last%20Men%20in%20the%20Philippines.mp4'
         },
         'the equalizer': {
             image: '/images/latest/01.jpg',
@@ -4921,8 +4921,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2014',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_EQUALIZER.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_EQUALIZER.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_EQUALIZER.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_EQUALIZER.mp4'
         },
         'the equalizer 3': {
             image: '/images/latest/03.jpg',
@@ -4938,8 +4938,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_THE%20EQUALIZER%203%20A.mp4'
         },
         'the equalizer 3b': {
             image: '/images/latest/03.jpg',
@@ -4955,8 +4955,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2023',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_THE%20EQUALIZER%203%20B.mp4'
         },
         'road house': {
             image: '/images/latest/05.jpg',
@@ -4972,8 +4972,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2024',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_ROADHOUSE.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_ROADHOUSE.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_ROADHOUSE.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_ROADHOUSE.mp4'
         },
         'little man': {
             image: '/images/latest/04.jpg',
@@ -4989,8 +4989,8 @@ document.addEventListener("click", function (e) {
             age: '12+',
             duration: 'Filme',
             year: '2006',
-            videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_LITLE%20MAN.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_LITLE%20MAN.mp4'
+            videoLink: 'https://cdn.miyagifilms.com/www.miyagifilms.com_LITLE%20MAN.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_LITLE%20MAN.mp4'
         },
         'baby day out': {
             image: '/images/latest/04.jpg',
@@ -5007,7 +5007,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '1994',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baby%20Day%20Out.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Baby%20Day%20Out.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Baby%20Day%20Out.mp4'
         },
         'gods must be crazy': {
             image: '/images/latest/06.jpg',
@@ -5024,7 +5024,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '1980',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sagatwa_%20The%20Gods%20Must%20Be%20Crazy.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Sagatwa_%20The%20Gods%20Must%20Be%20Crazy.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Sagatwa_%20The%20Gods%20Must%20Be%20Crazy.mp4'
         },
         'godzilla x kong': {
             image: '/images/latest/08.jpg',
@@ -5041,7 +5041,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2024',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%20x%20Kong_%20The%20New%20Empire.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%20x%20Kong_%20The%20New%20Empire.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Godzilla%20x%20Kong_%20The%20New%20Empire.mp4'
         },
         'godzilla: king of monsters': {
             image: '/images/pk/01.jpg',
@@ -5058,7 +5058,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2019',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%202_%20King%20of%20the%20Monsters.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Godzilla%202_%20King%20of%20the%20Monsters.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Godzilla%202_%20King%20of%20the%20Monsters.mp4'
         },
         '97 minutes': {
             image: '/images/dylan/13.jpg',
@@ -5075,7 +5075,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2023',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/97%20minutes.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/ready_vimeo%20and%20mediafire_movies/97%20minutes.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/ready_vimeo%20and%20mediafire_movies/97%20minutes.mp4'
         },
         'falcon rising': {
             image: '/images/pk/02.jpg',
@@ -5092,7 +5092,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2014',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Falcon%20Rising.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Falcon%20Rising.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Falcon%20Rising.mp4'
         },
         'batman vs superman: dawn of justice': {
             image: '/images/pk/03.jpg',
@@ -5109,7 +5109,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2016',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Batman%20v%20Superman_%20Dawn%20of%20Justice.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Batman%20v%20Superman_%20Dawn%20of%20Justice.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Batman%20v%20Superman_%20Dawn%20of%20Justice.mp4'
         },
         'the dark tower': {
             image: '/images/pk/04.jpg',
@@ -5126,7 +5126,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2017',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Dark%20Tower.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Dark%20Tower.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Dark%20Tower.mp4'
         },
         'act of vengeance': {
             image: '/images/pk/05.jpg',
@@ -5143,7 +5143,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2017',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Acts%20of%20Vengeance.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Acts%20of%20Vengeance.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Acts%20of%20Vengeance.mp4'
         },
         'fifty shades of grey': {
             image: '/images/pk/06.jpg',
@@ -5160,7 +5160,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2015',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Fifty%20Shades%20of%20Grey.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Fifty%20Shades%20of%20Grey.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Fifty%20Shades%20of%20Grey.mp4'
         },
         'the last airbender': {
             image: '/images/pk/07.jpg',
@@ -5178,7 +5178,7 @@ document.addEventListener("click", function (e) {
             year: '2010',
             videoType: 'video/mp4',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Last%20Airbender.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Last%20Airbender.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Last%20Airbender.mp4'
         },
         'the maze runner': {
             image: '/images/pk/09.jpg',
@@ -5195,7 +5195,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2014',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Maze%20Runner.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Maze%20Runner.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Maze%20Runner.mp4'
         },
         'aquaman': {
             image: '/images/pk/10.jpg',
@@ -5212,7 +5212,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Aquaman%201.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Aquaman%201.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Aquaman%201.mp4'
         },
         'the old guard 2': {
             image: '/images/favorite/g2.jpg',
@@ -5229,7 +5229,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Old%20Guard%202.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Old%20Guard%202.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Old%20Guard%202.mp4'
         },
         'wonder woman': {
             image: '/images/pk/11.jpg',
@@ -5246,7 +5246,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2017',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wonder%20Woman%201.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Wonder%20Woman%201.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Wonder%20Woman%201.mp4'
         },
         'the bfg': {
             image: '/images/pk/12.jpg',
@@ -5263,7 +5263,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2016',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20BFG.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20BFG.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20BFG.mp4'
         },
         'operation dumbo drop': {
             image: '/images/favorite/g3.jpg',
@@ -5280,7 +5280,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '1995',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Operation%20Dumbo%20Drop.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_Operation%20Dumbo%20Drop.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_Operation%20Dumbo%20Drop.mp4'
         },
         'chips': {
             image: '/images/favorite/g4.jpg',
@@ -5297,7 +5297,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2017',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_CHIPS.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_CHIPS.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_CHIPS.mp4'
         },
         'Pirates of the caribbean': {
             image: '/images/pk/08.jpg',
@@ -5314,7 +5314,7 @@ document.addEventListener("click", function (e) {
             duration: 'Filme',
             year: '2003',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Pirateof%20Black%20peals.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Pirateof%20Black%20peals.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Pirateof%20Black%20peals.mp4'
         },
 
         'siren ep1': {
@@ -5332,7 +5332,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Siren%20%E2%80%94%20S01E01.mp4'
         },
 
         'siren ep2': {
@@ -5350,7 +5350,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Siren%20%E2%80%94%20S01E02.mp4'
         },
 
 
@@ -5369,7 +5369,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Siren%20%E2%80%94%20S01E03.mp4'
         },
         'siren ep4': {
             image: '/images/episodes/siren.jpg',
@@ -5386,7 +5386,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Siren%20%E2%80%94%20S01E04.mp4'
         },
         'siren ep5': {
             image: '/images/episodes/siren.jpg',
@@ -5403,7 +5403,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Siren%20%E2%80%94%20S01E05.mp4'
         },
         'siren ep6': {
             image: '/images/episodes/siren.jpg',
@@ -5420,7 +5420,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E06.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E06.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Siren%20%E2%80%94%20S01E06.mp4'
         },
         'siren ep7': {
             image: '/images/episodes/siren.jpg',
@@ -5437,7 +5437,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E07.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/Siren%20%E2%80%94%20S01E07.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Siren%20%E2%80%94%20S01E07.mp4'
         },
 
         'messiah ep1': {
@@ -5455,7 +5455,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E01.mp4'
         },
         'messiah ep2': {
             image: '/images/episodes/pb1.jpg',
@@ -5472,7 +5472,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E02.mp4'
         },
         'messiah ep3': {
             image: '/images/episodes/pb1.jpg',
@@ -5489,7 +5489,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E03.mp4'
         },
         'messiah ep4': {
             image: '/images/episodes/pb1.jpg',
@@ -5506,7 +5506,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E04.mp4'
         },
         'messiah ep5': {
             image: '/images/episodes/pb1.jpg',
@@ -5523,7 +5523,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E05.mp4'
         },
         'messiah ep6': {
             image: '/images/episodes/pb1.jpg',
@@ -5540,7 +5540,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E06.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E06.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E06.mp4'
         },
         'messiah ep7': {
             image: '/images/episodes/pb1.jpg',
@@ -5557,7 +5557,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E07.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E07.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E07.mp4'
         },
         'messiah ep8': {
             image: '/images/episodes/pb1.jpg',
@@ -5574,7 +5574,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E08.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E08.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E08.mp4'
         },
         'messiah ep10': {
             image: '/images/episodes/pb1.jpg',
@@ -5591,7 +5591,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E10_%20Final.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E10_%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E10_%20Final.mp4'
         },
         'messiah ep9': {
             image: '/images/episodes/pb1.jpg',
@@ -5608,7 +5608,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2020',
             videoLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E09.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Messiah%20%E2%80%94%20S01E09.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Messiah%20%E2%80%94%20S01E09.mp4'
         },
 
         'the 100 ep1': {
@@ -5626,7 +5626,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E01.mp4'
         },
 
         'the 100 ep2': {
@@ -5644,7 +5644,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E02.mp4'
         },
 
 
@@ -5663,7 +5663,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E03.mp4'
         },
 
 
@@ -5682,7 +5682,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E04.mp4'
         },
 
 
@@ -5701,7 +5701,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E05.mp4'
         },
 
 
@@ -5720,7 +5720,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E06.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E06.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E06.mp4'
         },
 
         'the 100 ep7': {
@@ -5738,7 +5738,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E07.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E07.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E07.mp4'
         },
 
 
@@ -5757,7 +5757,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E08.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E08.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E08.mp4'
         },
 
 
@@ -5776,7 +5776,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E09.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E09.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E09.mp4'
         },
 
 
@@ -5795,7 +5795,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E10.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E10.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E10.mp4'
         },
 
 
@@ -5814,7 +5814,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E11.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E11.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E11.mp4'
         },
 
 
@@ -5833,7 +5833,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E12.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E12.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E12.mp4'
         },
 
 
@@ -5852,7 +5852,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2014',
             videoLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E13-%20Final.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20100%20%E2%80%94%20S01E13-%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20100%20%E2%80%94%20S01E13-%20Final.mp4'
         },
 
         'citadel ep1': {
@@ -5870,7 +5870,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Citadel%20%E2%80%94%20S01E01.mp4'
         },
         'citadel ep2': {
             image: '/images/episodes/citadel.jpg',
@@ -5887,7 +5887,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Citadel%20%E2%80%94%20S01E02.mp4'
         },
         'citadel ep3': {
             image: '/images/episodes/citadel.jpg',
@@ -5904,7 +5904,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Citadel%20%E2%80%94%20S01E03.mp4'
         },
         'citadel ep4': {
             image: '/images/episodes/citadel.jpg',
@@ -5921,7 +5921,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Citadel%20%E2%80%94%20S01E04.mp4'
         },
         'citadel ep5': {
             image: '/images/episodes/citadel.jpg',
@@ -5938,7 +5938,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Citadel%20%E2%80%94%20S01E05.mp4'
         },
         'citadel ep6': {
             image: '/images/episodes/citadel.jpg',
@@ -5955,7 +5955,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2023',
             videoLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E06_%20Final.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/Citadel%20%E2%80%94%20S01E06_%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/Citadel%20%E2%80%94%20S01E06_%20Final.mp4'
         },
 
         'the manipulated s1 ep 1': {
@@ -5973,7 +5973,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Manipulated%20%E2%80%94%20S01E01.mp4'
         },
         'the manipulated s1 ep 2': {
             image: '/images/episodes/m1.jpg',
@@ -5990,7 +5990,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Manipulated%20%E2%80%94%20S01E02.mp4'
         },
         'the manipulated s1 ep 3': {
             image: '/images/episodes/m1.jpg',
@@ -6007,7 +6007,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Manipulated%20%E2%80%94%20S01E03.mp4'
         },
         'the manipulated s1 ep 4': {
             image: '/images/episodes/m1.jpg',
@@ -6024,7 +6024,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Manipulated%20%E2%80%94%20S01E04.mp4'
         },
         'the manipulated s1 ep 5': {
             image: '/images/episodes/m1.jpg',
@@ -6041,7 +6041,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Manipulated%20%E2%80%94%20S01E05.mp4'
         },
         'the manipulated s1 ep 6': {
             image: '/images/episodes/m1.jpg',
@@ -6058,7 +6058,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E06.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E06.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Manipulated%20%E2%80%94%20S01E06.mp4'
         },
         'the manipulated s1 ep 7': {
             image: '/images/episodes/m1.jpg',
@@ -6075,7 +6075,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E07.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Manipulated%20%E2%80%94%20S01E07.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Manipulated%20%E2%80%94%20S01E07.mp4'
         },
 
         'the witcher s1 ep1': {
@@ -6093,7 +6093,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E01.mp4'
         },
         'the witcher s1 ep2': {
             image: '/images/episodes/the witcher.jpg',
@@ -6110,7 +6110,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E02.mp4'
         },
         'the witcher s1 ep3': {
             image: '/images/episodes/the witcher.jpg',
@@ -6127,7 +6127,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E03.mp4'
         },
         'the witcher s1 ep4': {
             image: '/images/episodes/the witcher.jpg',
@@ -6144,7 +6144,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E04.mp4'
         },
         'the witcher s1 ep5': {
             image: '/images/episodes/the witcher.jpg',
@@ -6161,7 +6161,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E05.mp4'
         },
         'the witcher s1 ep6': {
             image: '/images/episodes/the witcher.jpg',
@@ -6178,7 +6178,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E06.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E06.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E06.mp4'
         },
         'the witcher s1 ep7': {
             image: '/images/episodes/the witcher.jpg',
@@ -6195,7 +6195,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E07.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E07.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E07.mp4'
         },
         'the witcher s1 ep8': {
             image: '/images/episodes/the witcher.jpg',
@@ -6212,7 +6212,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2019',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E08_%20Final.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher%20%E2%80%94%20S01E08_%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher%20%E2%80%94%20S01E08_%20Final.mp4'
         },
 
         'the war between land and sea s1 ep1': {
@@ -6230,7 +6230,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E01.mp4'
         },
         'the war between land and sea s1 ep2': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6247,7 +6247,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E02.mp4'
         },
         'the war between land and sea s1 ep3': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6264,7 +6264,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E03.mp4'
         },
         'the war between land and sea s1 ep4': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6281,7 +6281,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E04.mp4'
         },
         'the war between land and sea s1 ep5': {
             image: '/images/episodes/the war between land and sea.jpg',
@@ -6298,7 +6298,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E05_%20Final.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E05_%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20War%20Between%20the%20Land%20and%20the%20Sea%20%E2%80%94%20S01E05_%20Final.mp4'
         },
 
 
@@ -6318,7 +6318,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E01.mp4'
         },
         'the copenhagen test s1 ep2': {
             image: '/images/episodes/copen.jpg',
@@ -6335,7 +6335,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E02.mp4'
         },
         'the copenhagen test s1 ep3': {
             image: '/images/episodes/copen.jpg',
@@ -6352,7 +6352,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E03.mp4'
         },
         'the copenhagen test s1 ep4': {
             image: '/images/episodes/copen.jpg',
@@ -6369,7 +6369,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E04.mp4'
         },
         'the copenhagen test s1 ep5': {
             image: '/images/episodes/copen.jpg',
@@ -6386,7 +6386,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E05.mp4'
         },
         'the copenhagen test s1 ep6': {
             image: '/images/episodes/copen.jpg',
@@ -6403,7 +6403,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E06.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E06.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E06.mp4'
         },
         'the copenhagen test s1 ep7': {
             image: '/images/episodes/copen.jpg',
@@ -6420,7 +6420,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E07.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E07.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E07.mp4'
         },
         'the copenhagen test s1 ep8': {
             image: '/images/episodes/copen.jpg',
@@ -6437,7 +6437,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2025',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E08_%20Final.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E08_%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_The%20Copenhagen%20Test%20%E2%80%94%20S01E08_%20Final.mp4'
         },
         'six s1 ep1': {
             image: '/images/episodes/six.jpg',
@@ -6454,7 +6454,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E01.mp4'
         },
         'six s1 ep2': {
             image: '/images/episodes/six.jpg',
@@ -6471,7 +6471,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E02.mp4'
         },
         'six s1 ep3': {
             image: '/images/episodes/six.jpg',
@@ -6488,7 +6488,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E03.mp4'
         },
         'six s1 ep4': {
             image: '/images/episodes/six.jpg',
@@ -6505,7 +6505,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E04.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E04.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E04.mp4'
         },
         'six s1 ep5': {
             image: '/images/episodes/six.jpg',
@@ -6522,7 +6522,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E05.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E05.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E05.mp4'
         },
         'six s1 ep6': {
             image: '/images/episodes/six.jpg',
@@ -6539,7 +6539,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E06.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E06.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E06.mp4'
         },
         'six s1 ep7': {
             image: '/images/episodes/six.jpg',
@@ -6556,7 +6556,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E07.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E07.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E07.mp4'
         },
         'six s1 ep8': {
             image: '/images/episodes/six.jpg',
@@ -6573,7 +6573,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2018',
             videoLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E08_%20Final.mp4',
-            downloadLink: 'https://pub-f409b420cc7b42708cfde0abe8655efd.r2.dev/www.miyagifilms.com_SIX%20%E2%80%94%20S01E08_%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.miyagifilms.com_SIX%20%E2%80%94%20S01E08_%20Final.mp4'
         },
 
         'the witcher blood orgin s1 ep1': {
@@ -6591,7 +6591,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2022',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E01.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E01.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E01.mp4'
         },
         'the witcher blood orgin s1 ep2': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6608,7 +6608,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2022',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher_%20Blood%20Origin%20%E2%80%94%20S01E02.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher_%20Blood%20Origin%20%E2%80%94%20S01E02.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher_%20Blood%20Origin%20%E2%80%94%20S01E02.mp4'
         },
         'the witcher blood orgin s1 ep3': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6625,7 +6625,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2022',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E03.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E03.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E03.mp4'
         },
         'the witcher blood orgin s1 ep4': {
             image: '/images/episodes/the witcher-origin.jpg',
@@ -6642,7 +6642,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2022',
             videoLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E04-%20Final.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E04-%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/The%20Witcher-%20Blood%20Origin%20%E2%80%94%20S01E04-%20Final.mp4'
         },
 
         'one piece s2 ep1': {
@@ -6660,7 +6660,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E01_%20Perfect.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E01_%20Perfect.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E01_%20Perfect.mp4'
         },
         'one piece s2 ep2': {
             image: '/images/episodes/onepiece.jpg',
@@ -6677,7 +6677,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E02_%20Perfect.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E02_%20Perfect.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E02_%20Perfect.mp4'
         },
         'one piece s2 ep3': {
             image: '/images/episodes/onepiece.jpg',
@@ -6694,7 +6694,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E03_%20Perfect.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E03_%20Perfect.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E03_%20Perfect.mp4'
         },
         'one piece s2 ep4': {
             image: '/images/episodes/onepiece.jpg',
@@ -6711,7 +6711,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E04_%20Perfect.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E04_%20Perfect.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E04_%20Perfect.mp4'
         },
         'one piece s2 ep5': {
             image: '/images/episodes/onepiece.jpg',
@@ -6728,7 +6728,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E05_%20Perfect.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E05_%20Perfect.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E05_%20Perfect.mp4'
         },
         'one piece s2 ep6': {
             image: '/images/episodes/onepiece.jpg',
@@ -6745,7 +6745,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E06_%20Perfect.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E06_%20Perfect.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E06_%20Perfect.mp4'
         },
         'one piece s2 ep7': {
             image: '/images/episodes/onepiece.jpg',
@@ -6762,7 +6762,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E07_%20Perfect.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E07_%20Perfect.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E07_%20Perfect.mp4'
         },
         'one piece s2 ep8': {
             image: '/images/episodes/onepiece.jpg',
@@ -6779,7 +6779,7 @@ document.addEventListener("click", function (e) {
             duration: 'Episode',
             year: '2026',
             videoLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E08_%20Final.mp4',
-            downloadLink: 'https://cdn.miyagifilms.com/One%20Piece%20%E2%80%94%20S02E08_%20Final.mp4'
+            downloadLink: 'https://cdn.miyagifilms.com/download/One%20Piece%20%E2%80%94%20S02E08_%20Final.mp4'
         },
 
     };
@@ -7045,55 +7045,19 @@ document.addEventListener("click", function (e) {
             .toLowerCase() || 'nerflix_video';
     }
 
-    function triggerImmediateDownload(downloadUrl, filename) {
-        if (!downloadUrl) return Promise.resolve(false);
+function triggerImmediateDownload(downloadUrl, filename) {
+    if (!downloadUrl) return;
 
-        const fileName = filename || 'video.mp4';
-        const clickDownloadLink = function(urlToDownload) {
-            const link = document.createElement('a');
-            link.href = urlToDownload;
-            link.style.display = 'none';
-            link.setAttribute('rel', 'noopener');
-            link.setAttribute('download', fileName);
-            document.body.appendChild(link);
-            link.click();
-            setTimeout(() => {
-                if (link.parentNode) {
-                    link.parentNode.removeChild(link);
-                }
-            }, 200);
-        };
+    const link = document.createElement('a');
+    link.href = downloadUrl;
 
-        let parsedUrl = null;
-        try {
-            parsedUrl = new URL(downloadUrl, window.location.href);
-        } catch (_) {
-            return Promise.resolve(false);
-        }
+    // Optional filename
+    link.download = filename || "video.mp4";
 
-        if (parsedUrl.origin === window.location.origin) {
-            clickDownloadLink(parsedUrl.href);
-            return Promise.resolve(true);
-        }
-
-        return fetch(parsedUrl.href, { mode: 'cors', credentials: 'omit' })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-                return response.blob();
-            })
-            .then((blob) => {
-                const blobUrl = URL.createObjectURL(blob);
-                clickDownloadLink(blobUrl);
-                setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
-                return true;
-            })
-            .catch((error) => {
-                console.warn('Direct download failed:', error);
-                return false;
-            });
-    }
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 
     function displayNotification(message, type = 'info') {
         if (window.watchlistManager && typeof window.watchlistManager.showNotification === 'function') {
