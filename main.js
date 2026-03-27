@@ -2489,6 +2489,23 @@ document.addEventListener("click", function (e) {
         // Optional SEO-friendly slug (clean URL support for watch page):
         //   slug: 'pick-up-2025'
         //
+        'heart of stone': {
+            image: '/images/home/heart of stone.jpg',
+            title: 'Heart of Stone',
+            slug: 'Heart-of-Stone_Rocky',
+            rating: 7.9,
+            actor:['Gal Gadot','Jamie Dornan'],
+            stars: 4.5,
+            genres: ['Action', 'Crime', 'Thriller'],
+            interpreter: ['Rocky'],
+            tags: ['Gal Gadot', 'Thriller', 'Crime'],
+            description: 'An intelligence operative for a shadowy global peacekeeping agency races to stop a hacker from stealing its most valuable — and dangerous — weapon.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2023',
+            videoLink: 'https://cdn.miyagifilms.com/www.agasobanuyenow.com%20-%20Heart%20of%20Stone.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.agasobanuyenow.com%20-%20Heart%20of%20Stone.mp4'
+        },
         'benhur': {
             image: '/images/home/ben-hur.jpg',
             title: 'Ben-hur',
