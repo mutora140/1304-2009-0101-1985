@@ -7069,28 +7069,45 @@ document.addEventListener("click", function (e) {
     };
 
 
-    function sanitizeFilename(value) {
-        if (!value) return 'nerflix_video';
-        return value
-            .toString()
-            .trim()
-            .replace(/[^a-z0-9]+/gi, '_')
-            .replace(/^_+|_+$/g, '')
-            .toLowerCase() || 'nerflix_video';
+function sanitizeFilename(value) {
+    if (!value) return 'nerflix_video';
+    return value
+        .toString()
+        .trim()
+        .replace(/[^a-z0-9]+/gi, '_')
+        .replace(/^_+|_+$/g, '')
+        .toLowerCase() || 'nerflix_video';
+}
+
+function updateDownloadButton(videoFileName, movieTitle) {
+    const btn = document.getElementById('downloadBtn');
+
+    if (!btn || !videoFileName) return;
+
+    const downloadUrl = `https://cdn.miyagifilms.com/download/${videoFileName}`;
+
+    btn.href = downloadUrl;
+
+    if (movieTitle) {
+        btn.setAttribute("download", movieTitle);
+    } else {
+        btn.setAttribute("download", "movie.mp4");
     }
+}
 
-function triggerImmediateDownload(downloadUrl, filename) {
-    if (!downloadUrl) return;
+function extractDownloadFileName(downloadLink) {
+    if (!downloadLink) return '';
 
-    const link = document.createElement('a');
-    link.href = downloadUrl;
-
-    // Optional filename
-    link.download = filename || "video.mp4";
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+        const normalizedUrl = new URL(downloadLink, window.location.origin);
+        const pathname = normalizedUrl.pathname || '';
+        const fileName = pathname.split('/').pop() || '';
+        return fileName ? decodeURIComponent(fileName) : '';
+    } catch (_) {
+        const pathname = String(downloadLink).split('?')[0].split('#')[0];
+        const fileName = pathname.split('/').pop() || '';
+        return fileName ? decodeURIComponent(fileName) : '';
+    }
 }
 
     function displayNotification(message, type = 'info') {
@@ -7195,8 +7212,7 @@ function triggerImmediateDownload(downloadUrl, filename) {
 
         // Step 2: Extract the actual video URL and download URL from the data
         const videoUrl = data.videoLink || data.r2Video;
-        const fileName = (data.downloadLink || data.r2Download).split("/").pop();
-        const downloadUrl = "/download/" + fileName;
+        const downloadFileName = extractDownloadFileName(data.downloadLink || data.r2Download);
         let normalizedVideoUrl = videoUrl || '';
         try {
             normalizedVideoUrl = encodeURI(decodeURI(normalizedVideoUrl));
@@ -7211,7 +7227,7 @@ function triggerImmediateDownload(downloadUrl, filename) {
         }
 
         console.log('Video URL from data.videoLink:', normalizedVideoUrl);
-        console.log('Download URL from data.downloadLink:', downloadUrl);
+        console.log('Download file from data.downloadLink:', downloadFileName);
 
         // Step 3: Set the video source
         if (mediaEl.tagName && mediaEl.tagName.toLowerCase() === 'video') {
@@ -7314,21 +7330,15 @@ function triggerImmediateDownload(downloadUrl, filename) {
 
         // Step 4: Update download button
         try {
-            const downloadBtn = document.querySelector('.video-actions .btn-download');
-            if (downloadBtn && downloadUrl) {
+            const downloadBtn = document.getElementById('downloadBtn') || document.querySelector('.video-actions .btn-download');
+            if (downloadBtn && downloadFileName) {
                 downloadBtn.style.display = '';
-                downloadBtn.onclick = (e) => {
-                    e.preventDefault();
-                    const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
-                    const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
-                    triggerImmediateDownload(downloadUrl, safeTitle);
-                };
-                downloadBtn.setAttribute('data-download-href', downloadUrl);
+                updateDownloadButton(downloadFileName, data.title || data.videoTitle || 'movie.mp4');
                 console.log('✓ Download button enabled');
             } else if (downloadBtn) {
                 downloadBtn.style.display = 'none';
-                downloadBtn.onclick = null;
-                downloadBtn.removeAttribute('data-download-href');
+                downloadBtn.removeAttribute('href');
+                downloadBtn.removeAttribute('download');
                 console.log('⚠ No downloadLink in videoData');
             }
         } catch (e) {
@@ -7530,22 +7540,16 @@ function triggerImmediateDownload(downloadUrl, filename) {
 
         // Update the bottom sidebar download button instead of inserting a duplicate under the title
         try {
-            const bottomBtn = document.querySelector('.video-actions .btn-download');
-            const downloadHref = (data && (data.downloadLink || data.r2Download)) || null;
+            const bottomBtn = document.getElementById('downloadBtn') || document.querySelector('.video-actions .btn-download');
+            const downloadFileName = extractDownloadFileName((data && (data.downloadLink || data.r2Download)) || '');
             if (bottomBtn) {
-                if (downloadHref) {
+                if (downloadFileName) {
                     bottomBtn.style.display = '';
-                    bottomBtn.onclick = function(e) {
-                        e.preventDefault();
-                        const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
-                        const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
-                        triggerImmediateDownload(downloadHref, safeTitle);
-                    };
-                    bottomBtn.setAttribute('data-download-href', downloadHref);
+                    updateDownloadButton(downloadFileName, data.title || data.videoTitle || 'movie.mp4');
                 } else {
                     bottomBtn.style.display = 'none';
-                    bottomBtn.onclick = null;
-                    bottomBtn.removeAttribute('data-download-href');
+                    bottomBtn.removeAttribute('href');
+                    bottomBtn.removeAttribute('download');
                 }
             }
         } catch (e) {}
@@ -8503,58 +8507,6 @@ function triggerImmediateDownload(downloadUrl, filename) {
         
         // Make updateFavoriteWatchlistButtons globally accessible
         window.updateFavoriteWatchlistButtons = updateFavoriteWatchlistButtons;
-        
-        // Download button - download from videopress
-        jQuery(document).on('click', '.btn-download', function(e) {
-            e.preventDefault();
-            const explicitDownloadUrl = this.getAttribute('data-download-href') || '';
-            if (explicitDownloadUrl) {
-                const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
-                const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
-                triggerImmediateDownload(explicitDownloadUrl, safeTitle).then((started) => {
-                    if (started) {
-                        displayNotification('Download started. Check your browser downloads.', 'success');
-                    } else {
-                        displayNotification('Download is not available for this title yet.', 'info');
-                    }
-                });
-                return;
-            }
-            let videoId = currentVideoId || '';
-            if (!videoId) {
-                displayNotification('Download is not available for this title yet.', 'info');
-                return;
-            }
-            
-            // Extract video ID from videopress URL if it's a full URL
-            if (videoId.includes('videopress.com')) {
-                const match = videoId.match(/videopress\.com\/(?:embed\/|v\/)?([a-zA-Z0-9_-]+)/);
-                if (match) {
-                    videoId = match[1];
-                }
-            }
-            
-            // Get video title for filename
-            const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
-            const safeTitle = sanitizeFilename(videoTitle);
-            
-            // VideoPress direct video file URL format
-            // Format: https://videos.files.wordpress.com/{videoId}/{videoId}.mp4
-            const downloadUrl = `https://videos.files.wordpress.com/${videoId}/${videoId}.mp4`;
-            
-            displayNotification('Preparing download...', 'info');
-
-            triggerImmediateDownload(downloadUrl, `${safeTitle}.mp4`).then((started) => {
-                if (started) {
-                    displayNotification('Download started. Check your browser downloads.', 'success');
-                } else {
-                    displayNotification('Unable to start download for this file.', 'error');
-                }
-            }).catch((error) => {
-                console.error('Download error:', error);
-                displayNotification('Unable to start download for this file.', 'error');
-            });
-        });
         
         // Initialize sliders for video gallery sections
         function initializeVideoGallerySliders() {
@@ -11476,8 +11428,8 @@ function switchSeasonEpisodes(selectElement) {
              (Array.isArray(data.cast) ? data.cast : []))
         );
         
-        // Update download button (fallback to stream URL when no explicit download URL is set)
-        updateWatchPageDownloadButton(data.downloadLink || data.r2Download || data.videoLink || data.r2Video);
+        // Update download button using the configured download asset only.
+        updateWatchPageDownloadButton(data.downloadLink || data.r2Download, data.title || data.videoTitle);
         
         // Decide whether this is an EPISODE:
         // - Prefer sessionStorage context captured from `.episodes-contens` (works for all series/seasons)
@@ -12252,26 +12204,25 @@ function switchSeasonEpisodes(selectElement) {
      * Update download button with link
      * @param {string} downloadLink - Download URL
      */
-    function updateWatchPageDownloadButton(downloadLink) {
-        const downloadBtn = document.getElementById('download-btn') || document.querySelector('.video-actions .btn-download');
+    function updateWatchPageDownloadButton(downloadLink, movieTitle) {
+        const downloadBtn = document.getElementById('downloadBtn') || document.querySelector('.video-actions .btn-download');
         if (!downloadBtn) return;
         
         if (downloadLink) {
-            downloadBtn.onclick = function(e) {
-                e.preventDefault();
-                const videoTitle = document.getElementById('video-title') ? document.getElementById('video-title').textContent : 'video';
-                const safeTitle = sanitizeFilename(videoTitle) + '.mp4';
-                triggerImmediateDownload(downloadLink, safeTitle);
-            };
-            downloadBtn.setAttribute('data-download-href', downloadLink);
+            const videoFileName = extractDownloadFileName(downloadLink);
+            if (!videoFileName) {
+                downloadBtn.style.display = 'none';
+                downloadBtn.removeAttribute('href');
+                downloadBtn.removeAttribute('download');
+                return;
+            }
+            updateDownloadButton(videoFileName, movieTitle);
             downloadBtn.style.display = '';
             downloadBtn.style.cursor = 'pointer';
         } else {
-            downloadBtn.onclick = function(e) {
-                e.preventDefault();
-                alert('Download link not available for this video.');
-            };
-            downloadBtn.removeAttribute('data-download-href');
+            downloadBtn.style.display = 'none';
+            downloadBtn.removeAttribute('href');
+            downloadBtn.removeAttribute('download');
         }
     }
     
