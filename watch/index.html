@@ -214,13 +214,7 @@
       box-sizing: border-box !important;
     }
     
-    .video-gallery-overlay .video-player-container > div {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+
     
     /* Video info sidebar - must fill its column completely and match video player */
     .video-gallery-overlay .video-info {
@@ -243,9 +237,26 @@
       height: 430px !important; /* Override style.css - will be set by JS */
     }
     
-    .video-gallery-overlay .video-player-container {
-      height: 430px !important; /* Override style.css - will be set by JS */
-    }
+.video-gallery-overlay .video-player-container {
+  height: auto !important;
+  aspect-ratio: 16/9;
+}
+
+.watch-player-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+
+.watch-player-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;               /* ADD */
+  align-items: center;         /* CENTER vertically */
+  justify-content: center;     /* CENTER horizontally */
+  background: #000;
+}
     
     /* On mobile and tablet devices */
     @media (max-width: 991.98px) {
@@ -313,11 +324,12 @@
 /* =============================== */
 
 .video-player-container.watch-player{
-position:relative;
-width:100%;
-background:#020d1a;
-overflow:hidden;
-border-radius:10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 /* Desktop */
@@ -339,11 +351,28 @@ border-radius:0;
 /* VIDEO */
 
 .watch-video{
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0;
-transition:opacity .6s ease;
+  max-width: 100%;      /* IMPORTANT */
+  max-height: 100%;     /* IMPORTANT */
+  width: auto;          /* FIX */
+  height: auto;         /* FIX */
+  object-fit: contain;  /* KEEP */
+  background: #000;
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+.watch-player:fullscreen,
+.watch-player:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+}
+
+.watch-player:fullscreen .watch-video,
+.watch-player:-webkit-full-screen .watch-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Fade-in when ready */
