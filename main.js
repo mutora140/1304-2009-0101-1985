@@ -2489,6 +2489,57 @@ document.addEventListener("click", function (e) {
         // Optional SEO-friendly slug (clean URL support for watch page):
         //   slug: 'pick-up-2025'
         //
+        'wanted': {
+            image: '/images/home/wanted.jpg',
+            title: 'Wanted',
+            slug: 'Wanted_Sankara',
+            rating: 9,
+            actor:['Morgan Freeman','Angelina Jolie'],
+            stars: 5,
+            genres: ['Action', 'Crime', 'Thriller'],
+            interpreter: ['Sankara'],
+            tags: ['Action', 'Thriller', 'Crime'],
+            description: 'A frustrated office worker discovers that he is the son of a professional assassin and shares his superhuman killing abilities.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2008',
+            videoLink: 'https://cdn.miyagifilms.com/Wanted%20%E2%80%93%20Agasobanuye%20Box.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/Wanted%20%E2%80%93%20Agasobanuye%20Box.mp4'
+        },
+        'simmba': {
+            image: '/images/home/simmba.jpg',
+            title: 'Simmba',
+            slug: 'Simmba_Rocky',
+            rating: 7.9,
+            actor:['Ranveer Singh','Sonu Sood'],
+            stars: 4,
+            genres: ['Action', 'Comedy', 'Drama'],
+            interpreter: ['Rocky'],
+            tags: ['Ranveer Singh', 'Comedy', 'Drama'],
+            description: 'A corrupt police officer enjoys all the perks of being an immoral and unethical police officer until an event which transforms his life completely and forces him to choose the righteous path.',
+            age: '12+',
+            duration: 'Indian Filme',
+            year: '2018',
+            videoLink: 'https://cdn.miyagifilms.com/www.rebamovie.com_SIMMBA.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/www.rebamovie.com_SIMMBA.mp4'
+        },
+        'criminal': {
+            image: '/images/home/criminal.jpg',
+            title: 'Criminal',
+            slug: 'Criminal_Rocky',
+            rating: 7.9,
+            actor:['Ryan Reynolds','Kevin Costner'],
+            stars: 4.5,
+            genres: ['Action', 'Crime', 'Sci-fi'],
+            interpreter: ['Rocky'],
+            tags: ['Kevin Costner', 'Sci-fi', 'Crime'],
+            description: 'CIA Agent Bill Pope is on a mission to track down a shadowy hacker named "The Dutchman". When he gets mysteriously killed, an experimental procedure transfers his memories into a dangerous ex-convict. When he wakes up Pope memories, his mission is to eliminate The Dutchman before the hacker launches ICBMs and starts World War III.',
+            age: '12+',
+            duration: 'Filme',
+            year: '2016',
+            videoLink: 'https://cdn.miyagifilms.com/Criminal.mp4',
+            downloadLink: 'https://cdn.miyagifilms.com/download/Criminal.mp4'
+        },
         'heart of stone': {
             image: '/images/home/heart of stone.jpg',
             title: 'Heart of Stone',

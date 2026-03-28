@@ -1975,13 +1975,13 @@ header#main-header.menu-sticky{
     z-index: 1;
 }
 #home-slider .slick-bg.s-bg-1{
-    background-image: url(images/home/sanak.jpg);
+    background-image: url(images/home/criminal.jpg);
 }
 #home-slider .slick-bg.s-bg-2{
-    background-image: url(images/home/12-strong.jpg);
+    background-image: url(images/home/simmba.jpg);
 }
 #home-slider .slick-bg.s-bg-3{
-    background-image: url(images/home/deathnote.jpg);
+    background-image: url(images/home/wanted.jpg);
 }
 
 .slick-bg::before{
